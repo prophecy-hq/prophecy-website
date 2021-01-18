@@ -1,0 +1,18 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<circle cx="24" cy="24" r="22.75" stroke="#F24135" stroke-width="2.5"/>
+<path d="M41.5 23.75C41.5 33.415 33.665 41.25 24 41.25C14.335 41.25 6.5 33.415 6.5 23.75" stroke="#F24135" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M41.4749 23.7062C29.0016 23.7062 24 28.75 24 40.75" stroke="#F24135" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path d="M6.52512 23.7062C18.9984 23.7062 24 28.75 24 40.75" stroke="#F24135" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path d="M12 13V24C12 30.6274 17.3726 36 24 36C30.6274 36 36 30.6274 36 24V13" stroke="#F24135" stroke-width="2.5"/>
+<ellipse cx="24" cy="13.5" rx="12" ry="6.5" stroke="#F24135" stroke-width="2.5"/>
+<path d="M23.9971 15.4995C26.9971 15.4995 30.5024 14.8653 30.5024 13.082C30.5024 11.718 26.379 11.001 24.6706 11.001C22.6706 11.001 21.8119 11.1291 21.3191 11.2277" stroke="#F24135" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M23.9999 15.4995C19.1339 15.4995 15.9962 13.9553 15.9962 11.1625C15.9962 8.25286 19.6924 7 23.9999 7" stroke="#F24135" stroke-width="2.5"/>
+<path d="M24 41V48" stroke="#F24135" stroke-width="2.5"/>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="48" height="48" fill="white"/>
+</clipPath>
+</defs>
+</svg>
