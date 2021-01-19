@@ -1,3 +1,4 @@
+
 body{
     background-color: #131413;
 }
@@ -88,37 +89,43 @@ body{
 
 /* ------------------------Content & Misc--------------------- */
 
-.content-wrapper{
+/* .content-wrapper{
     height: 100vh;
-    width: 100%;
+    width: 100%; 
     display: flex;
     align-items: center;
     justify-content: right;
     margin: auto;
-}
+} */
 
 .content-left{
     width: 60%;
     height: 50%;
-    margin-left: 10vw;
-    margin-top: 6%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    margin-left: 12%;
+    padding-top: 5%;
 }
 
 
 .content-right{
-
-    align-self: flex-end;
     height: 100%;
     width: 40%;
     margin-right: 0;
-    /* background-color: #fff; */
+    position: absolute;
+    right: 0;
     display: grid;
-    gap: 0px;
-    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: right;
+    grid-template-columns: repeat(3,20vh);
+    grid-gap: 0px;
 }
 
 .grid-box{
     border: 1px solid #fff;
+    margin-right: 0;
 }
 
 
@@ -186,7 +193,7 @@ display: block;
 }
 
 
-/* -----------------------------------------------MOBILE---------------------------------------------- */
+/* -----------------------------------------------LARGE SCREEN---------------------------------------------- */
 
 
 @media screen and (min-width: 1921px) {
@@ -207,11 +214,16 @@ display: block;
         font-size: 24px;
         max-width: 510px;
     }
+
+    .icon24{
+        height: 32px;
+        width: 32px;
+    }
 }
 
 
 
-
+/* -----------------------------------------------MOBILE---------------------------------------------- */
 
 
 
@@ -233,6 +245,76 @@ display: block;
     font-size: 16px;
     max-width: 510px;
 }
+
+
+/* ------------------------Content & Misc--------------------- */
+
+.content-wrapper{
+    height: 100vh;
+}
+
+.content-left{
+
+    width: 80%;
+    height: 100%;
+    margin: 0 8%;
+    position: static;
+    margin-top: 6%;
+    padding-top: 0;
+}
+
+
+.content-right{
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: auto;
+    grid-template-rows: repeat(5,33vw);
+    height: auto;
+    width: 100%;
+    grid-template-columns: repeat(3,33vw);
+    justify-content: end;
+    grid-gap: 0px;
+}
+
+
+
+.icon24{
+    width: 24px;
+    height: 24px;
+    position: relative;
+    top: 4px;
+}
+
+
+.display-inline{
+    display: inline-block;
+}
+
+.h24{
+    height: 24px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+.logo{
+display: block;
+}
+
+
+#get-in-touch-box{
+    background-color: rgba(255,255,255,0.04);
+    border-radius: 4px;
+    width: max-content;
+    padding: 16px 24px;
+}
+
+#email-line{
+    vertical-align: baseline;
+}
+
 
 
 }
