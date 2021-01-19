@@ -9,6 +9,9 @@ var animation = bodymovin.loadAnimation({
 
 document.getElementById('anim').addEventListener('click', 
 function(){ 
+    x = document.getElementById('anim').getElementsByTagName('img');
+    x.display = none;
     animation.goToAndPlay(0)
-    animation.play(); 
+    animation.play();
+    x.display = "inline-block" 
 })
