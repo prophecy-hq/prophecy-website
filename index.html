@@ -3,54 +3,86 @@
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Staatliches&display=swap" rel="stylesheet">
+    <script src="jquery-3.5.1.min.js"></script>
 </head>
 
 <body>
+
     <div class = "content-wrapper">
         
-        <div class = "content-left">
-            <div class = "logo">
-                <img src="assets/logo.svg" alt="Prophecy logo">
-            </div>
-            <div class = "mt24"></div>
-            <div class = "red lhsmall h1">Prophecy</div>
-            <div class = "mt16"></div>
-            <div class = "white lhmedium body">A new accelerator + design consultancy hybrid for seed and Series A stage startups. We help our partners strategise and design their product, infuse design into their DNA, build a capable product team, and get closer to product/market fit.</div>
-            <div class = "mt32"></div>
-            <div id = "get-in-touch-box">
-                <div class = "white h2 lhsmall">Get in touch</div>
-                <div class = "mt4"></div>
-                <div id = "email-line">
-                    <div class = "white body mr8 display-inline lh1">hello@prophecy.com</div>
-                    <div class = "icon24 display-inline" style="cursor: pointer;" id = "anim"> 
-                        <!-- <img src="assets/copy.svg" alt="Copy email to clipboard"  id = "anim" > -->
-                    </div>
-                </div>
-            </div>
-        </div>
+         <!-- Logo & header -->
+        
+        <div class = "mt64"></div>
+        <div class = "logo"><img src="assets/logo.svg" alt="Prophecy logo"></div>
+        <div class = "mt112"></div>
+        <div class = "h1">Where change-makers write their own future.</div>
+        <div class = "mt48"></div>
+        
+        <!-- Main content flexbox -->
 
-        <div class = "content-right">
-           <div class = "grid-box" id = "g1"></div>
-           <div class = "grid-box" id = "g2"></div>
-           <div class = "grid-box" id = "g3"></div>
-           <div class = "grid-box" id = "g4"></div>
-           <div class = "grid-box" id = "g5"></div>
-           <div class = "grid-box" id = "g6"></div>
-           <div class = "grid-box" id = "g7"></div>
-           <div class = "grid-box" id = "g8"></div>
-           <div class = "grid-box" id = "g9"></div>
-           <div class = "grid-box" id = "g10"></div>
-           <div class = "grid-box" id = "g11"></div>
-           <div class = "grid-box" id = "g12"></div>
-           <div class = "grid-box" id = "g13"></div>
-           <div class = "grid-box" id = "g14"></div>
-           <div class = "grid-box" id = "g15"></div>
-        </div>
+        <div class = "content-flexbox">
+  
+            <div class = "content-left">
+
+
+                <div class = "body lhmedium">We are a digital product design consultancy, helping our partners strategise and design products, infuse design into their DNA, build a capable product team, instill a culture of innovation, and get closer to product-market fit.</div>
+                <div class = "mt32"></div>
+                <div class = "body lhmedium">We love getting into the trenches with founders to bolster their vision and create products at the intersection of user needs and business goals.</div>
+                <div class = "mt32"></div>
+                <div class = "body lhmedium">We help specialise in going from quick, iterative and user-centred early innovation → to launching laser-focused digital experiences that successfully surf the waves of market forces.</div>
+                
+            </div>
+
+            <div id = "empty"></div>
+
+            <div class = "content-right">
+                
+
+                <div class = "statbox">
+                    <div class = "h2 lhsmall">Sign up for updates</div>
+                    <div class = "mt8"></div>
+                    <div id = "mc-signup">
+                        <form action="https://akshayverma.us3.list-manage.com/subscribe/post?u=fcc4a008c60b4fc7c9b3cb9fb&amp;id=9bf6a178a3" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate> <!--To get a JSON response, add "-json" after "post" in the action attribute, and "&c=?" at the end of it.-->
+                            <div style="position: absolute; left: -5000px;"><input type="text" name="b_fcc4a008c60b4fc7c9b3cb9fb_750820346b" value=""></div><input id="mce-EMAIL" class = "body-small" type="email" placeholder="name@example.com" name="EMAIL" required><input id="mc-embedded-subscribe" type="submit" name="subscribe" class="button" value="Submit"><div id="loadingAnimation"><div id="floatingCirclesG"><div class="f_circleG" id="frotateG_01"></div>
+                            <div class="f_circleG" id="frotateG_02"></div><div class="f_circleG" id="frotateG_03"></div><div class="f_circleG" id="frotateG_04"></div><div class="f_circleG" id="frotateG_05"></div><div class="f_circleG" id="frotateG_06"></div><div class="f_circleG" id="frotateG_07"></div><div class="f_circleG" id="frotateG_08"></div></div></div>
+                        </form>
+                    </div>
+                </div>  
+
+                <div class = "mt48"></div>
+
+                <div class = "statbox">
+                    <div class = "h2 lhsmall">Write to us</div>
+                    <div class = "mt8"></div>
+                    <!-- <div id = "email-line"> -->
+                        <div class = "body-small lhmedium">hello@prophecy.com</div>
+                        <!-- <div class = "icon24 display-inline" style="cursor: pointer;" id = "anim">  -->
+                            <!-- <img src="assets/copy.svg" alt="Copy email to clipboard"  id = "anim" > -->
+                        <!-- </div> -->
+                </div>  
+            <!-- </div> -->
+
+                <div class = "mt48"></div>
+
+                <div class = "statbox">
+                    <div class = "h2 lhsmall">Follow us</div>
+                    <div class = "mt12"></div>
+                    <a class= "body-small lhsmall" href = "https://twitter.com/prophecy_hq" target="_blank">Twitter</a>
+                    <div class = "mt8"></div>
+                    <a class= "body-small lhsmall" href = "https://www.linkedin.com/company/prophecy-hq/" target="_blank">LinkedIn</a>
+                </div>  
+
+            </div>
         
     </div>
+</div>
 
 
    <!-- Animation script -->
     <script src="lottie.js " type="text/javascript"></script>
     <script src="script.js" type="text/javascript"></script>
+
 </body>

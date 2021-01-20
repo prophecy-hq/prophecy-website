@@ -3,15 +3,12 @@ var animation = bodymovin.loadAnimation({
     rendered: 'svg',
     loop: false,
     autoplay: false,
-    path: 'data.json'
+    path: 'https://github.com/ProphecyHQ/Prophecy-Website/blob/siddharth/data.json'
 })
 
 
 document.getElementById('anim').addEventListener('click', 
 function(){ 
-    // x = document.getElementById('anim').getElementsByTagName('img');
-    // x.display = "none";
     animation.goToAndPlay(0)
     animation.play();
-    // x.display = "inline-block" 
 })
