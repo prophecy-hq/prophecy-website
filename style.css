@@ -142,6 +142,31 @@ a::after {
     to   { opacity: 1; transform: translateY(0px);}
 }
 
+
+
+.showCopiedText{
+	animation: copyfadein 0.4s ease;
+}
+
+.opacity1{
+	opacity: 1 !important;
+}
+
+.hideCopiedText{
+	animation: copyfadeout 0.4s ease;
+}
+
+
+@keyframes copyfadein {
+	0% { opacity: 0; }
+	100%   { opacity: 1; }
+}
+
+@keyframes copyfadeout {
+	0% { opacity: 1; }
+	100%   { opacity: 0; }
+}
+
 /* ------------------------Line heights--------------------- */
 .lh1 {
 	line-height: 1;
@@ -181,6 +206,10 @@ a::after {
 	margin-top: 24px;
 }
 
+.mt26 {
+	margin-top: 24px;
+}
+
 .mt32 {
 	margin-top: 32px;
 }
@@ -201,6 +230,10 @@ a::after {
 	margin-top: 112px;
 }
 
+.mr4 {
+	margin-right: 4px;
+}
+
 .mr8 {
 	margin-right: 8px;
 }
@@ -216,7 +249,7 @@ a::after {
 /* ------------------------Colors--------------------- */
 
 .black {
-	color: #141414;
+	color: #000;
 }
 
 .white {
@@ -243,7 +276,17 @@ a::after {
 .body {
 	font-family: "DM Sans", sans-serif;
 	font-size: 28px;
-	font-weight: 300;
+	font-weight: 400;
+}
+
+
+#copied-to-clipboard-container {
+	font-family: "DM Sans", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	display: block;
+	color: rgba(0,0,0,0.5);
+	opacity: 0;
 }
 
 .body-small {
@@ -266,7 +309,7 @@ a::after {
 	flex-flow: row wrap;
 	justify-content: start;
 	align-items: flex-start;
-	
+
 	animation: fadein ease 0.8s;
 	-webkit-animation: fadein ease 0.8s;
 	-moz-animation: fadein ease 0.8s;
@@ -365,7 +408,7 @@ a::after {
 	background-size: 40px 40px;
 	/* vertical-align: middle; */
 
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 #mc-embedded-subscribe:hover {
