@@ -26,7 +26,7 @@ function(){
         document.getElementById("copied-to-clipboard-container").classList.remove("showCopiedText");
         document.getElementById("copied-to-clipboard-container").className +=  " hideCopiedText";
         document.getElementById("copied-to-clipboard-container").classList.remove("opacity1");
-    }, 3400);
+    }, 3000);
 
         document.getElementById("copied-to-clipboard-container").classList.remove("hideCopiedText");
 })
