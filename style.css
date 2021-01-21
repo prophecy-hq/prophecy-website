@@ -6,7 +6,8 @@ a {
 	color: #141414;
 	display: block;
 	width: fit-content;
-	text-decoration: none;
+    text-decoration: none;
+    transition: 0.2s;
 }
 
 a:hover {
@@ -250,14 +251,7 @@ a::after {
 	background-size: 40px 40px;
 	/* vertical-align: middle; */
 
-	/* -webkit-animation: pulse 4s infinite;
-	-moz-animation: pulse 4s infinite;
-	-o-animation: pulse 4s infinite;
-	animation: pulse 4s infinite;
-	-webkit-animation-timing-function: ease-in-out;
-	-moz-animation-timing-function: ease-in-out;
-	-o-animation-timing-function: ease-in-out;
-	animation-timing-function: ease-in-out; */
+    transition: 0.2s;
 }
 
 #mc-embedded-subscribe:hover {

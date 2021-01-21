@@ -3,7 +3,7 @@ var animation = bodymovin.loadAnimation({
     rendered: 'svg',
     loop: false,
     autoplay: false,
-    path: 'https://github.com/ProphecyHQ/Prophecy-Website/blob/siddharth/data.json'
+    path: 'assets/data.json'
 })
 
 
