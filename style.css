@@ -37,6 +37,119 @@ a::after {
 	background: rgba(255, 255, 255, 0.99); /* Gecko Browsers */
 }
 
+
+
+/* ------------------------Animations-------------------- */
+
+.h1,
+.h1::after {
+	animation-delay: var(--animation-delay, 2s);
+	animation-iteration-count: var(--iterations, 1);
+	animation-duration: var(--duration, 800ms);
+	animation-fill-mode: both;
+	animation-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.h1 {
+	--animation-delay: var(--delay, 0);
+	--animation-duration: var(--duration, 800ms);
+	--animation-iterations: var(--iterations, 1);
+	position: relative;
+	font-size: 10vw;
+	animation-name: clip-text;
+	/* white-space: nowrap; */
+    cursor: default;
+}
+	
+	.h1::after {
+		content: "";
+		position: absolute;
+		z-index: 999;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #fFF;
+		transform: scaleX(0);
+		transform-origin: 0 50%;
+		pointer-events: none;
+		animation-name: text-revealer;
+	}
+	
+
+
+@keyframes clip-text {
+	from {
+		clip-path: inset(0 100% 0 0);
+	}
+	to {
+		clip-path: inset(0 0 0 0);
+	}
+}
+
+
+@keyframes text-revealer {
+	
+	0%, 50% {
+		transform-origin: 0 50%;
+	}
+	
+	60%, 100% {
+		transform-origin: 100% 50%;		
+	}
+
+	
+	60% {
+		transform: scaleX(1);
+	}
+	
+	100% {
+		transform: scaleX(0);
+	}
+}
+
+
+
+
+
+.fadein{
+    animation: fadein ease 0.8s;
+  -webkit-animation: fadein ease 0.8s;
+  -moz-animation: fadein ease 0.8s;
+  -o-animation: fadein ease 0.8s;
+  -ms-animation: fadein ease 0.8s;
+}
+
+
+@keyframes fadein {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0px);}
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; transform: translateY(16px);}
+    to   { opacity: 1; transform: translateY(0px);}
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; transform: translateY(16px);}
+    to   { opacity: 1; transform: translateY(0px);}
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; transform: translateY(16px);}
+    to   { opacity: 1; transform: translateY(0px);}
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; transform: translateY(16px);}
+    to   { opacity: 1; transform: translateY(0px);}
+}
+
 /* ------------------------Line heights--------------------- */
 .lh1 {
 	line-height: 1;
@@ -124,7 +237,9 @@ a::after {
 	font-family: "Staatliches", cursive;
 	font-size: 64px;
 	font-weight: 300;
-	width: 60%;
+    width: 60%;
+    display: block;
+    overflow: hidden;
 }
 
 .h2 {
@@ -274,7 +389,8 @@ input:focus {
 }
 
 input:focus::-webkit-input-placeholder {
-	color: #b83a2c;
+    color: #b83a2c;
+    transition: 0.2s;
 }
 
 :-ms-input-placeholder {
@@ -287,7 +403,8 @@ input::-moz-placeholder {
 }
 
 input:focus::-moz-placeholder {
-	color: #b83a2c;
+    color: #b83a2c;
+    transition: 0.2s;
 }
 
 ::placeholder {
