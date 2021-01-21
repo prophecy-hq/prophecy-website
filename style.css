@@ -2,6 +2,7 @@ body {
 	background-color: #f54936;
 }
 
+
 a {
 	color: #141414;
 	display: block;
@@ -110,15 +111,6 @@ a::after {
 
 
 
-
-
-.fadein{
-    animation: fadein ease 0.8s;
-  -webkit-animation: fadein ease 0.8s;
-  -moz-animation: fadein ease 0.8s;
-  -o-animation: fadein ease 0.8s;
-  -ms-animation: fadein ease 0.8s;
-}
 
 
 @keyframes fadein {
@@ -266,6 +258,7 @@ a::after {
 	width: 80vw;
 	max-width: 1440px;
 	margin: 64px auto 96px auto;
+	
 }
 
 .content-flexbox {
@@ -273,6 +266,12 @@ a::after {
 	flex-flow: row wrap;
 	justify-content: start;
 	align-items: flex-start;
+	
+	animation: fadein ease 0.8s;
+	-webkit-animation: fadein ease 0.8s;
+	-moz-animation: fadein ease 0.8s;
+	-o-animation: fadein ease 0.8s;
+	-ms-animation: fadein ease 0.8s;
 }
 
 .content-left {
