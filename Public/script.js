@@ -97,7 +97,7 @@ function register($form) {
             if (data.result !== "success") {
                 message = data.msg.substring(4);
                 $('#notification_container').html('<span class="alert">'+' Error: '+message+'</span>');
-                $('#formContainer').filter(':not(:animated)').effect('shake', {distance: 3});
+                $('#mc-signup').filter(':not(:animated)').effect('shake', {distance: 3});
                 $('#mc-embedded-subscribe').delay(500).fadeIn(250);
                 $('#notification_container').fadeIn(500); //Fade in the notification//
                 notificationTimer = setTimeout(function() {
