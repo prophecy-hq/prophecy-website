@@ -1,3 +1,30 @@
+#notification_container {
+	/* position: absolute; */
+	/* margin-top: 0.5em; */
+	/* width: inherit; */
+	font-family: "DM Sans", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	display: block;
+	color: rgba(0, 0, 0, 0.5);
+}
+/* #notification_container a {
+	font-family: "DM Sans", sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1em;
+	border-bottom: none;
+}
+#notification_container a:hover {
+	border-bottom: dotted;
+	border-bottom-width: 1px;
+	border-bottom-color: rgba(250,250,250,0.50);
+} */
+
+
+
+
+
 body {
 	background-color: #f54936;
 }
@@ -431,10 +458,8 @@ a::after {
 	background-image: url("assets/arrow.svg");
 	background-repeat: no-repeat;
 	background-position: center;
-	/* padding-left: 0px;          */
 	cursor: pointer;
 	background-size: 40px 40px;
-	/* vertical-align: middle; */
 
 	transition: 0.3s;
 }
@@ -490,8 +515,8 @@ input:focus::placeholder {
 #loadingAnimation {
 	display: none;
 	float: right;
-	margin-left: 0.5em;
-	top: -1.85em;
+	right: 8px; 
+	top: 8px;
 	position: relative;
 }
 #floatingCirclesG {
