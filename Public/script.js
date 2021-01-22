@@ -69,7 +69,7 @@ function register($form) {
         url: $form.attr('action'),
         data: $form.serialize(),
         cache       : false,
-        dataType    : 'json',
+        dataType    : 'jsonp',
         contentType: "application/json; charset=utf-8",
         timeout: 10000,
         error       : function() {
