@@ -342,7 +342,7 @@ a::after {
 
 #pre-load-arrow {
 	position: absolute;
-	top: -100px;
+	top: -200px;
 }
 
 .content-wrapper {
