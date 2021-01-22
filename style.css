@@ -2,6 +2,7 @@ body {
 	background-color: #f54936;
 }
 
+
 a {
 	color: #141414;
 	display: block;
@@ -35,6 +36,135 @@ a::after {
 
 ::-moz-selection {
 	background: rgba(255, 255, 255, 0.99); /* Gecko Browsers */
+}
+
+
+
+/* ------------------------Animations-------------------- */
+
+.h1,
+.h1::after {
+	animation-delay: var(--animation-delay, 2s);
+	animation-iteration-count: var(--iterations, 1);
+	animation-duration: var(--duration, 800ms);
+	animation-fill-mode: both;
+	animation-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.h1 {
+	--animation-delay: var(--delay, 0);
+	--animation-duration: var(--duration, 800ms);
+	--animation-iterations: var(--iterations, 1);
+	position: relative;
+	font-size: 10vw;
+	animation-name: clip-text;
+	/* white-space: nowrap; */
+    cursor: default;
+}
+	
+	.h1::after {
+		content: "";
+		position: absolute;
+		z-index: 999;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #000;
+		transform: scaleX(0);
+		transform-origin: 0 50%;
+		pointer-events: none;
+		animation-name: text-revealer;
+	}
+	
+
+
+@keyframes clip-text {
+	from {
+		clip-path: inset(0 100% 0 0);
+	}
+	to {
+		clip-path: inset(0 0 0 0);
+	}
+}
+
+
+@keyframes text-revealer {
+	
+	0%, 50% {
+		transform-origin: 0 50%;
+	}
+	
+	60%, 100% {
+		transform-origin: 100% 50%;		
+	}
+
+	
+	60% {
+		transform: scaleX(1);
+	}
+	
+	100% {
+		transform: scaleX(0);
+	}
+}
+
+
+
+
+
+@keyframes fadein {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0px);}
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; transform: translateY(16px);}
+    to   { opacity: 1; transform: translateY(0px);}
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; transform: translateY(16px);}
+    to   { opacity: 1; transform: translateY(0px);}
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; transform: translateY(16px);}
+    to   { opacity: 1; transform: translateY(0px);}
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; transform: translateY(16px);}
+    to   { opacity: 1; transform: translateY(0px);}
+}
+
+
+
+.showCopiedText{
+	animation: copyfadein 0.4s ease;
+}
+
+.opacity1{
+	opacity: 1 !important;
+}
+
+.hideCopiedText{
+	animation: copyfadeout 0.4s ease;
+}
+
+
+@keyframes copyfadein {
+	0% { opacity: 0; }
+	100%   { opacity: 1; }
+}
+
+@keyframes copyfadeout {
+	0% { opacity: 1; }
+	100%   { opacity: 0; }
 }
 
 /* ------------------------Line heights--------------------- */
@@ -76,6 +206,10 @@ a::after {
 	margin-top: 24px;
 }
 
+.mt26 {
+	margin-top: 24px;
+}
+
 .mt32 {
 	margin-top: 32px;
 }
@@ -96,6 +230,10 @@ a::after {
 	margin-top: 112px;
 }
 
+.mr4 {
+	margin-right: 4px;
+}
+
 .mr8 {
 	margin-right: 8px;
 }
@@ -111,7 +249,7 @@ a::after {
 /* ------------------------Colors--------------------- */
 
 .black {
-	color: #141414;
+	color: #000;
 }
 
 .white {
@@ -124,7 +262,9 @@ a::after {
 	font-family: "Staatliches", cursive;
 	font-size: 64px;
 	font-weight: 300;
-	width: 60%;
+    width: 60%;
+    display: block;
+    overflow: hidden;
 }
 
 .h2 {
@@ -136,7 +276,17 @@ a::after {
 .body {
 	font-family: "DM Sans", sans-serif;
 	font-size: 28px;
-	font-weight: 300;
+	font-weight: 400;
+}
+
+
+#copied-to-clipboard-container {
+	font-family: "DM Sans", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	display: block;
+	color: rgba(0,0,0,0.5);
+	opacity: 0;
 }
 
 .body-small {
@@ -147,10 +297,17 @@ a::after {
 
 /* ------------------------Content & Misc--------------------- */
 
+#pre-load-arrow{
+	position: absolute;
+	top: -100px;
+}
+
+
 .content-wrapper {
 	width: 80vw;
 	max-width: 1440px;
 	margin: 64px auto 96px auto;
+	
 }
 
 .content-flexbox {
@@ -158,6 +315,12 @@ a::after {
 	flex-flow: row wrap;
 	justify-content: start;
 	align-items: flex-start;
+
+	animation: fadein ease 0.8s;
+	-webkit-animation: fadein ease 0.8s;
+	-moz-animation: fadein ease 0.8s;
+	-o-animation: fadein ease 0.8s;
+	-ms-animation: fadein ease 0.8s;
 }
 
 .content-left {
@@ -251,7 +414,7 @@ a::after {
 	background-size: 40px 40px;
 	/* vertical-align: middle; */
 
-	transition: 0.2s;
+  transition: 0.3s;
 }
 
 #mc-embedded-subscribe:hover {
@@ -274,7 +437,8 @@ input:focus {
 }
 
 input:focus::-webkit-input-placeholder {
-	color: #b83a2c;
+    color: #b83a2c;
+    transition: 0.2s;
 }
 
 :-ms-input-placeholder {
@@ -287,7 +451,8 @@ input::-moz-placeholder {
 }
 
 input:focus::-moz-placeholder {
-	color: #b83a2c;
+    color: #b83a2c;
+    transition: 0.2s;
 }
 
 ::placeholder {
