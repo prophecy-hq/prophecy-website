@@ -1,3 +1,13 @@
 {
-  "extends": "airbnb"
+	"extends": "airbnb",
+	"rules": {
+		"indent": ["error", "tab"],
+		"react/jsx-indent": ["error", "tab"],
+		"react/jsx-indent-props": ["error", "tab"],
+		"no-tabs": "off",
+		"object-curly-newline": "off",
+		"react/jsx-filename-extension": ["off", { "extensions": [".js", ".jsx"] }],
+		"import/no-named-as-default": "off",
+		"import/no-named-as-default-member": "off"
+	}
 }
