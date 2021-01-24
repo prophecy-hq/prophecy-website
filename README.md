@@ -1,6 +1,6 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
-  <a href="https://prophecy.one>
+  <a href="https://prophecy.one">
     <img alt="Gatsby" src="https://prophecy.one/assets/logo.svg" width="60" />
   </a>
 </p>
