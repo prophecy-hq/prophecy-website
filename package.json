@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "@prophecy/gatsby-starter",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Gatsby with Theme UI, Storybook, ESLint and Prettier",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Akshay Verma <akshay@prophecy.one>",
   "dependencies": {
     "gatsby": "^2.31.1",
     "gatsby-image": "^2.10.0",
@@ -53,9 +53,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/prophecy-hq/Gatsby-Test"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/prophecy-hq/Gatsby-Test/issues"
   }
 }
