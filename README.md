@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://prophecy.one">
-    <img alt="Gatsby" src="https://prophecy.one/assets/logo.svg" width="60" />
+    <img alt="Gatsby" src="/src/images/prophecyLogo-circle-red" width="60" />
   </a>
 </p>
 <h1 align="center">
