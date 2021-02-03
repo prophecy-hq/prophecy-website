@@ -12,7 +12,7 @@ document.getElementById("anim").addEventListener("click", function () {
 	animation.goToAndPlay(0);
 	animation.play();
 
-	copyToClipBoard("hello@prophecy.one");
+	copyToClipBoard($("#email-address").html());
 
 	setTimeout(function () {
 		document.getElementById("copied-to-clipboard-container").className +=
