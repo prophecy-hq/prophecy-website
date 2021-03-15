@@ -1,9 +1,8 @@
 export default {
 	colors: {
-		text: '#333',
-		background: '#fff',
-		primary: '#639',
-		secondary: '#ff6347',
+		primary: '#141414',
+		background: '#f54936',
+		highlight: '#fff',
 	},
 	fonts: {
 		body: 'system-ui, sans-serif',
@@ -16,9 +15,65 @@ export default {
 		bold: 700,
 	},
 	lineHeights: {
-		body: 1.5,
+		body: 1.4,
 		heading: 1.125,
 	},
-	fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
-	space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+	fontSizes: [12, 14, 16, 18, 21, 24, 28, 32, 48, 64, 72],
+	space: [0, 4, 8, 16, 32, 64, 128, 256, 512, 1440],
+	sizes: [4, 8, 16, 20, 24, 32, 40, 48, 56, 64, 72],
+
+	images:{
+		logo: {
+			height: 56,
+			mb: 72, 
+			mt: 64
+		}
+	},
+
+	layouts: {
+		mainContainer: {
+			width: '80vw',
+			maxWidth: 1440,
+		},
+
+		leftContent: {
+			width: '60%',
+			flexDirection: 'column',
+    		alignItems: 'flex-start',
+		},
+
+		empty: {
+			width: '10%'
+		},
+
+		rightContent: {
+			width: '30%',
+			flexDirection: 'column',
+    		alignItems: 'flex-start',
+		},
+
+	},
+	
+	styles: {
+	
+		h1: {
+			fontSize: 64,
+			color: 'primary',
+			marginBottom: 48,
+			width: '60%'
+		},
+
+		h2: {
+			fontSize: 18,
+			fontWeight: 600,
+		},
+
+		p:{
+			fontSize: 28,
+			marginBottom: 32,
+			lineHeight: 'body'
+
+		}
+
+	}
 };

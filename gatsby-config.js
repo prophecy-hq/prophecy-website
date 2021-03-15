@@ -1,6 +1,6 @@
 module.exports = {
 	siteMetadata: {
-		title: `Gatsby Test`,
+		title: `Prophecy — Digital Product Design Consultancy`,
 		description: `Learning to use Gatsby.`,
 		url: 'https://prophecy.one',
 		author: `Akshay Verma`,
