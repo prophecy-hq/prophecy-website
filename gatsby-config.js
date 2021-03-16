@@ -12,6 +12,16 @@ module.exports = {
 		`gatsby-plugin-theme-ui`,
 		`gatsby-plugin-sharp`,
 		`gatsby-transformer-sharp`,
+		
+		{
+			resolve: 'gatsby-plugin-mailchimp',
+			options: {
+				endpoint: 'https://akshayverma.us3.list-manage.com/subscribe/post-json?u=fcc4a008c60b4fc7c9b3cb9fb&amp;id=9bf6a178a3&c=?',
+				timeout: '5000',
+			},
+
+		},
+
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
