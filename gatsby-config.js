@@ -29,6 +29,18 @@ module.exports = {
 				path: `${__dirname}/src/images`,
 			},
 		},
+
+		{
+			resolve: `gatsby-plugin-google-fonts`,
+			options: {
+				fonts: [
+				  `DM Sans\:400,700`,
+				  `Staatliches` 
+				],
+				display: 'swap',
+			}
+		},
+
 		{
 			resolve: `gatsby-plugin-google-gtag`,
 			options: {

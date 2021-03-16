@@ -8,7 +8,7 @@ export default class ContactUs extends React.Component {
         return(
             <Box sx={{variant: 'layouts.statbox'}}>
                 <Styled.h2>Write to us</Styled.h2>
-                <span>hello@prophecy.one</span>
+                <span sx ={{variant: 'text.bodySmall'}}>hello@prophecy.one</span>
                 <span>
                     <IconButton>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

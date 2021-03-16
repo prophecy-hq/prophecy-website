@@ -8,8 +8,8 @@ export default class SocialLinks extends React.Component {
         return(
             <Box sx={{variant: 'layouts.statbox'}}>
                 <Styled.h2>Follow us</Styled.h2>
-                <Link href = "https://www.twitter.com" target="_blank">Twtitter</Link>
-                <Link href = "https://www.twitter.com" target="_blank">LinkedIn</Link>
+                <Link sx ={{variant: 'text.bodySmall'}} href = "https://www.twitter.com" target="_blank">Twitter</Link>
+                <Link sx ={{variant: 'text.bodySmall'}} href = "https://www.twitter.com" target="_blank">LinkedIn</Link>
             </Box>
         )
     }

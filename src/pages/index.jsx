@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Styled, Box, Flex, IconButton, Link, Input } from 'theme-ui';
+import { jsx, Styled, Box, Flex } from 'theme-ui';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';

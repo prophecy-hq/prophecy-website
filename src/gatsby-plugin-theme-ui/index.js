@@ -5,14 +5,15 @@ export default {
 		highlight: '#fff',
 	},
 	fonts: {
-		body: 'system-ui, sans-serif',
-		heading: 'system-ui, sans-serif',
-		monospace: 'Menlo, monospace',
+		body: 'DM Sans, system-ui, sans-serif',
+		heading: 'Staatliches, system-ui, sans-serif',
 	},
 
 	text: {
 		bodySmall: {
-
+			fontFamily: 'body',
+			fontWeight: 400,
+			fontSize: 18
 		},
 	},
 
@@ -79,19 +80,24 @@ export default {
 			fontSize: 64,
 			color: 'primary',
 			marginBottom: 48,
-			width: '60%'
+			width: '60%',
+			fontFamily: 'heading',
+			fontWeight: '400'
 		},
 
 		h2: {
 			fontSize: 18,
-			fontWeight: 600,
+			fontWeight: 700,
 			marginBottom: '8px',
+			fontFamily: 'body'
 		},
 
 		p:{
 			fontSize: 28,
 			marginBottom: 32,
-			lineHeight: 'body'
+			lineHeight: 'body',
+			fontFamily: 'body',
+			fontWeight: 400
 
 		},
 
