@@ -9,6 +9,20 @@ export default {
 		heading: 'system-ui, sans-serif',
 		monospace: 'Menlo, monospace',
 	},
+
+	text: {
+		bodySmall: {
+
+		},
+	},
+
+	buttons: {
+		copyIcon: {
+			height: 24,
+			width: 24,
+		}
+	},
+
 	fontWeights: {
 		body: 400,
 		heading: 700,
@@ -52,6 +66,10 @@ export default {
     		alignItems: 'flex-start',
 		},
 
+		statbox: {
+			mb: 48
+		},
+
 	},
 	
 	styles: {
@@ -66,12 +84,22 @@ export default {
 		h2: {
 			fontSize: 18,
 			fontWeight: 600,
+			marginBottom: '8px',
 		},
 
 		p:{
 			fontSize: 28,
 			marginBottom: 32,
 			lineHeight: 'body'
+
+		},
+
+		a: {
+			mb: 2,
+			textDecoration: 'none',
+			fontSize: 18,
+			color: 'primary',
+			display: 'block'
 
 		}
 
