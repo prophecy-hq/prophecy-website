@@ -67,7 +67,8 @@ export default {
 		},
 
 		statbox: {
-			mb: 48
+			mb: 48,
+			width: '100%',
 		},
 
 	},
@@ -99,9 +100,26 @@ export default {
 			textDecoration: 'none',
 			fontSize: 18,
 			color: 'primary',
-			display: 'block'
+			display: 'block',
+			width: 'fit-content',
+			transition: '0.2s',
+			'&::after': {
+				border: '1px solid white',
+				display: 'block',
+				mt: '2px',
+				transform: 'scaleX(0)',
+				transition: 'transform 240ms ease-out',		
+				transformOrigin: '0% 0%',
+				content: '""',
+			},
+			'&:hover': {
+				color: 'white',
+				'&::after': {
+					transform: 'scaleX(1)',
+					transformOrigin: '0% 100%',
+				}
+			}
 
 		}
-
 	}
 };

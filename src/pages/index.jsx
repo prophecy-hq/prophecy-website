@@ -1,11 +1,12 @@
 /** @jsx jsx */
-import { jsx, Styled, Box, Flex, IconButton, Link } from 'theme-ui';
+import { jsx, Styled, Box, Flex, IconButton, Link, Input } from 'theme-ui';
 
 // import React from "react"
 
 import Layout from '../components/layout';
 import Image from '../components/image';
 import SEO from '../components/seo';
+import '../components/form.css';
 
 const IndexPage = () => (
 
@@ -34,23 +35,23 @@ const IndexPage = () => (
 						<div id="mc-signup">
 						<form
 							action="https://akshayverma.us3.list-manage.com/subscribe/post-json?u=fcc4a008c60b4fc7c9b3cb9fb&amp;id=9bf6a178a3&c=?"
-							method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+							method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate"
 							target="_blank" novalidate>
 							<div style={{position: 'absolute', left: '-5000px'}}><input type="text"
 									name="b_fcc4a008c60b4fc7c9b3cb9fb_750820346b" value=""></input></div>
-							<input id="mce-EMAIL" class="body-small" type="email" placeholder="name@example.com" name="EMAIL"
+							<input id="mce-EMAIL" className="body-small" type="email" placeholder="name@example.com" name="EMAIL"
 								required></input>
-							<input id="mc-embedded-subscribe" type="submit" name="subscribe" class="button" value="."></input>
+							<input id="mc-embedded-subscribe" type="submit" name="subscribe" className="button" value="."></input>
 							<div id="loadingAnimation">
 								<div id="floatingCirclesG">
-									<div class="f_circleG" id="frotateG_01"></div>
-									<div class="f_circleG" id="frotateG_02"></div>
-									<div class="f_circleG" id="frotateG_03"></div>
-									<div class="f_circleG" id="frotateG_04"></div>
-									<div class="f_circleG" id="frotateG_05"></div>
-									<div class="f_circleG" id="frotateG_06"></div>
-									<div class="f_circleG" id="frotateG_07"></div>
-									<div class="f_circleG" id="frotateG_08"></div>
+									<div className="f_circleG" id="frotateG_01"></div>
+									<div className="f_circleG" id="frotateG_02"></div>
+									<div className="f_circleG" id="frotateG_03"></div>
+									<div className="f_circleG" id="frotateG_04"></div>
+									<div className="f_circleG" id="frotateG_05"></div>
+									<div className="f_circleG" id="frotateG_06"></div>
+									<div className="f_circleG" id="frotateG_07"></div>
+									<div className="f_circleG" id="frotateG_08"></div>
 								</div>	
 							</div>
 						</form>
