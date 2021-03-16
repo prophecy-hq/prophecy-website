@@ -1,6 +1,7 @@
 export default {
 	colors: {
 		primary: '#141414',
+		lightGrey: 'rgba(0, 0, 0, 0.5)',
 		background: '#f54936',
 		highlight: '#fff',
 	},
@@ -14,6 +15,14 @@ export default {
 			fontFamily: 'body',
 			fontWeight: 400,
 			fontSize: 18
+		},
+		
+		caption: {
+			fontFamily: 'body',
+			color: 'lightGrey',
+			fontSize: 14,
+			mt: 2,
+			lineHeight: 'body'
 		},
 	},
 
@@ -36,6 +45,33 @@ export default {
 	fontSizes: [12, 14, 16, 18, 21, 24, 28, 32, 48, 64, 72],
 	space: [0, 4, 8, 16, 32, 64, 128, 256, 512, 1440],
 	sizes: [4, 8, 16, 20, 24, 32, 40, 48, 56, 64, 72],
+
+	
+	buttons: {
+		primary: {
+			height: 40,
+			width: 40,
+			borderRadius: '12px'
+		}
+	},
+	
+	forms: {
+		input: {
+			height: 40,
+			padding: 1,
+			flexGrow: '2',
+			width: '100%',
+			border: 'none',
+			backgroundColor: 'rgba(0,0,0,0)'
+		},
+
+		mainForm: {
+			borderRadius: '12px',
+			border: '1px solid grey',
+			padding: '2px'
+
+		},
+	},
 
 	images:{
 		logo: {
