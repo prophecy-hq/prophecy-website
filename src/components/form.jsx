@@ -5,6 +5,7 @@ import React from 'react';
 import  './form.module.css';
 
 
+
 export default class Form extends React.Component {
 
     constructor() {
@@ -30,7 +31,7 @@ export default class Form extends React.Component {
                    
                     <Flex>
                        
-                        <Input
+                        <Input sx = {{variant: 'text.bodySmall'}}
                             placeholder="Email address"
                             name="email"
                             type="text"

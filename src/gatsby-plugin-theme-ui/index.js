@@ -62,13 +62,17 @@ export default {
 			flexGrow: '2',
 			width: '100%',
 			border: 'none',
-			backgroundColor: 'rgba(0,0,0,0)'
+			backgroundColor: 'rgba(0,0,0,0)',
+			marginLeft: 2,
+
 		},
 
 		mainForm: {
 			borderRadius: '12px',
-			border: '1px solid grey',
-			padding: '2px'
+			padding: '4px',
+			backgroundColor: 'rgba(0,0,0,0.08)',
+			position: 'relative',
+			marginLeft: '-12px',
 
 		},
 	},
