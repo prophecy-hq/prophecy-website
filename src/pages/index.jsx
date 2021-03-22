@@ -7,13 +7,15 @@ import Form from '../components/form.jsx'
 import ContactUs from '../components/contactUs.jsx'
 import SocialLinks from '../components/socialLinks.jsx';
 
+import styles from "../components/headingAnimation.module.css"
+
 
 const IndexPage = () => (
 
 	<Layout>
 		<SEO title="Home" />		
 			
-			<Styled.h1>Where change-makers write their own future.</Styled.h1>
+		<Styled.h1 className={styles.anim}> Where change-makers write their own future.</Styled.h1>
 		
 			<Flex>				
 				<Flex sx={{variant: 'layouts.leftContent'}}>
