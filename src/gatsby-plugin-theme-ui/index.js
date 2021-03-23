@@ -51,8 +51,22 @@ export default {
 		primary: {
 			height: 40,
 			width: 40,
-			borderRadius: '12px'
-		}
+			borderRadius: '12px',
+			backgroundColor: 'primary',
+			
+			backgroundImage: 'url("/arrow.svg")',
+			backgroundRepeat: 'no-repeat',
+			backgroundPosition: 'center',
+			cursor: 'pointer',
+			backgroundSize: '40px 40px',
+
+			transition: '0.3s',
+
+			'&:hover': {
+				backgroundImage: 'url("/arrow-black.svg")',
+				backgroundColor: 'white',
+			},
+		},
 	},
 	
 	forms: {
@@ -89,22 +103,38 @@ export default {
 		mainContainer: {
 			width: '80vw',
 			maxWidth: 1440,
+				
+			'@media screen and (max-width: 1024px)': {
+				width: '90vw',
+			},
 		},
 
 		leftContent: {
 			width: '60%',
 			flexDirection: 'column',
     		alignItems: 'flex-start',
+
+			'@media screen and (max-width: 1024px)': {
+				width: '100%',
+			},
 		},
 
 		empty: {
-			width: '10%'
+			width: '10%',
+
+			'@media screen and (max-width: 1024px)': {
+				width: '100%',
+			},
 		},
 
 		rightContent: {
 			width: '30%',
 			flexDirection: 'column',
     		alignItems: 'flex-start',
+
+			'@media screen and (max-width: 1024px)': {
+				width: '100%',
+			},
 		},
 
 		statbox: {
@@ -122,7 +152,11 @@ export default {
 			marginBottom: 48,
 			width: '60%',
 			fontFamily: 'heading',
-			fontWeight: '400'
+			fontWeight: '400',
+
+			'@media screen and (max-width: 1024px)': {
+				width: '100%',
+			},
 		},
 
 		h2: {

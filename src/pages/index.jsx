@@ -17,7 +17,13 @@ const IndexPage = () => (
 			
 		<Styled.h1 className={styles.anim}> Where change-makers write their own future.</Styled.h1>
 		
-			<Flex>				
+			<Flex 
+			 sx={{
+			'@media screen and (max-width: 1024px)': {
+				flexDirection: 'column'
+			  },
+			}}
+			>				
 				<Flex sx={{variant: 'layouts.leftContent'}}>
 					<Styled.p>We are a digital product design consultancy that gets into the trenches with founders to help them realise their mission. We partner with startups and established companies on designing new products and reimagining existing ones.</Styled.p>
 					<Styled.p>The best products are experiences that make each user feel like the product was crafted just for them. Realising that vision requires making the right product decisions, identifying and solving the right problems, and being highly creative with the execution of the solutions. When done right, this care for the user creates extraordinary business outcomes.</Styled.p>

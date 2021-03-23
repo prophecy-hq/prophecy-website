@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import {jsx, Box, Styled, Flex, Button, Input } from 'theme-ui';
+import {jsx, Box, Styled, Flex, Button, IconButton, Input } from 'theme-ui';
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 import React from 'react';
 import  './form.module.css';
@@ -38,7 +38,7 @@ export default class Form extends React.Component {
                             onChange={this.handleChange}
                         />
 
-                        <Button type="submit">.</Button>
+                        <Button type="submit" />
 
                     </Flex>
                 </form>

@@ -40,7 +40,7 @@
 	background: #141414;
 	color: #141414;
 
-	background-image: url("../images/arrow.svg");
+	background-image: url("/arrow.svg");
 	background-repeat: no-repeat;
 	background-position: center;
 	cursor: pointer;
@@ -51,7 +51,7 @@
 
 #mc-embedded-subscribe:hover {
 	background: #fff;
-	background-image: url("../images/arrow-black.svg");
+	background-image: url("/arrow-black.svg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 40px 40px;
