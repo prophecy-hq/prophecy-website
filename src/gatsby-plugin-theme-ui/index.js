@@ -1,4 +1,8 @@
 export default {
+
+	breakpoints: ['1024px'],
+
+
 	colors: {
 		primary: '#141414',
 		lightGrey: 'rgba(0, 0, 0, 0.5)',
@@ -147,7 +151,7 @@ export default {
 	styles: {
 	
 		h1: {
-			fontSize: 64,
+			fontSize: [56,64],
 			color: 'primary',
 			marginBottom: 48,
 			width: '60%',
@@ -160,14 +164,14 @@ export default {
 		},
 
 		h2: {
-			fontSize: 18,
+			fontSize: [16,18],
 			fontWeight: 700,
 			marginBottom: '8px',
 			fontFamily: 'body'
 		},
 
 		p:{
-			fontSize: 28,
+			fontSize: [24,28],
 			marginBottom: 32,
 			lineHeight: 'body',
 			fontFamily: 'body',
@@ -178,7 +182,7 @@ export default {
 		a: {
 			mb: 2,
 			textDecoration: 'none',
-			fontSize: 18,
+			fontSize: [16,18],
 			color: 'primary',
 			display: 'block',
 			width: 'fit-content',
