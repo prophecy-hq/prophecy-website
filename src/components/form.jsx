@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import {jsx, Box, Styled, Flex, Button, IconButton, Input } from 'theme-ui';
+import {jsx, Box, Styled, Flex, Button, Spinner, Input } from 'theme-ui';
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 import React from 'react';
 import  './form.module.css';
@@ -10,12 +10,14 @@ export default class Form extends React.Component {
 
     constructor() {
         super()
-        this.state = { email: "", result: null }
+        this.state = { email: "", result: null, spin: false }
       }
       _handleSubmit = async e => {
         e.preventDefault()
+        this.setState({spin: true}) 
         const result = await addToMailchimp(this.state.email)
         this.setState({result: result})
+        this.setState({spin: false}) 
         console.log(result)
       }
     handleChange = event => {
@@ -38,12 +40,14 @@ export default class Form extends React.Component {
                             onChange={this.handleChange}
                         />
 
-                        <Button type="submit" />
+                        <Button type="submit">
+                            <Spinner sx = {{display: this.state.spin ? 'inline-block' : 'none'}}></Spinner>
+                        </Button>
 
                     </Flex>
                 </form>
 
-                <p sx = {{variant: 'text.caption'}}>
+                <p sx = {{variant: 'text.caption'}} className = {this.state.result?'fadeIn':'fadeOut'}>
                             {this.state.result != null 
                             ? this.state.result === "success"
                                 ? 'Signed up successfully' 

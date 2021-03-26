@@ -14,6 +14,7 @@ module.exports = {
 		`gatsby-transformer-sharp`,
 		`lottie-web`,
 		`react-lottie`,
+		`react-fade-in`,
 		
 		{
 			resolve: 'gatsby-plugin-mailchimp',

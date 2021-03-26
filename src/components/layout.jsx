@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
+import Helmet from 'react-helmet'
 import './layout.css';
 
 const Layout = ({ children }) => {
@@ -33,6 +34,10 @@ const Layout = ({ children }) => {
 			<Header />
 				<main>{children}</main>
 			</Container>
+
+			<Helmet>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+			</Helmet>
 		</>
 	);
 };
