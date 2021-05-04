@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+        <link rel="stylesheet" href="style.css">
+		<title>My first three.js app</title>
+        <script id="vertexShader" type="x-shader/x-vertex">
+          uniform mat4 transform;
+          uniform mat3 normalMatrix;
+          uniform vec3 lightNormal;
+          
+          attribute vec4 position;
+          attribute vec4 color;
+          attribute vec3 normal;
+          
+          varying vec4 vertColor;
+          varying vec3 vertNormal;
+          varying vec3 vertLightDir;
+          
+          void main() {
+              gl_Position = transform * position;
+              vertColor = color;
+              vertNormal = normalize(normalMatrix * normal);
+              vertLightDir = -lightNormal;
+          }
+      
+</script>
+      <script id="fragmentShader" type="x-shader/x-fragment">
+            #ifdef GL_ES
+            precision mediump float;
+            precision mediump int;
+            #endif
+            
+            uniform float fraction;
+            
+            varying vec4 vertColor;
+            varying vec3 vertNormal;
+            varying vec3 vertLightDir;
+            
+            float rand(vec2 co){
+                return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+            }
+            
+            void main() {
+                vec4 color = vertColor;
+                color.a = vertColor.a*(0.01+pow(rand(gl_FragCoord.xy*0.001), 0.4));
+            
+                gl_FragColor = color;
+            }
+          </script>
+	</head>
+	<body>
+        <div class = "background">
+           
+       <script src = "build/three.js"></script>
+       <script src = "seedrandom.js"></script>
+
+        <!-- <script src="THREE.MeshLine.js"></script> -->
+   
+   <script type = "module">
+
+    ///////////////////////////////////////////////////////////////////////////////////
+   /////////  Imports      //////////////////////////////////////////////////////
+   ///////////////////////////////////////////////////////////////////////////////////
+       
+    // import { OrbitControls } from 'https://cdn.skypack.dev/three@v0.128.0-FqqdQBPsDVJuf7F4I6W0/examples/jsm/controls/OrbitControls.js';
+    // const glslify = require('glslify')
+
+
+   ///////////////////////////////////////////////////////////////////////////////////
+   /////////  Declarations      //////////////////////////////////////////////////////
+   ///////////////////////////////////////////////////////////////////////////////////
+
+   
+    let composer;
+    let camera, controls, scene, renderer;
+    let material, clock;
+
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    
+
+    Math.seedrandom(Math.random(999999).toString());
+  
+ 
+
+    var Line = function(x1,y1,x2,y2){
+      this.x1 = x1 || 0;
+      this.y1 = y1 || 0;
+      this.x2 = x2 || 0;
+      this.y2 = y2 || 0;
+    }
+    
+    Line.prototype = {
+      constructor: Line,
+
+      getLine: function() {
+        var cx = (this.x1+this.x2)*0.5;
+        var cy = (this.y1+this.y2)*0.5;
+
+        var a = this.x1 - this.x2;
+        var b = this.y1 - this.y2;
+
+        var c = Math.sqrt( a*a + b*b );
+
+        var h = c*0.5;
+        var ang = Math.atan2(this.y2-this.y1, this.x2-this.x1);
+        var des = Math.sqrt(h*h*(4/3))*0.5;
+
+        return new Line (cx+Math.cos(ang+Math.PI/2)*des,  cy+Math.sin(ang+Math.PI/2)*des, cx+Math.cos(ang-Math.PI/2)*des, cy+Math.sin(ang-Math.PI/2)*des)   ;
+      },
+
+      drawLine: function(){
+
+        var points = [];
+        points.push( new THREE.Vector3( this.x1, this.y1, 0 ) );
+        points.push( new THREE.Vector3( this.x2, this.y2, 0 ) );
+        console.log(this.x1,this.x2,this.y1,this.y2);
+
+        var geometry = new THREE.BufferGeometry().setFromPoints( points );
+
+        var line = new THREE.Line( geometry, material );
+        scene.add( line );
+
+        var cx = (this.x1+this.x2)*0.5;
+        var cy = (this.y1+this.y2)*0.5;
+
+        var a = this.x1 - this.x2;
+        var b = this.y1 - this.y2;
+
+        var c = Math.sqrt( a*a + b*b );
+
+        var h = c*0.5;
+        var ang = Math.atan2(this.y2-this.y1, this.x2-this.x1);
+        var des = Math.sqrt(h*h*(4./3))*0.5;
+
+        points = [];
+        points.push( new THREE.Vector3( cx+Math.cos(ang+Math.PI/2)*des, cy+Math.sin(ang+Math.PI/2)*des, 0 ) );
+        points.push( new THREE.Vector3( cx+Math.cos(ang-Math.PI/2)*des, cy+Math.sin(ang-Math.PI/2)*des, 0 ) );
+
+        geometry = new THREE.BufferGeometry().setFromPoints( points );
+
+       line = new THREE.Line( geometry, material );
+        scene.add( line );
+
+
+      }
+
+
+    }
+
+init();
+animate();
+
+
+   ///////////////////////////////////////////////////////////////////////////////////
+   /////////  Init      //////////////////////////////////////////////////////
+   ///////////////////////////////////////////////////////////////////////////////////
+
+function init() {
+
+
+   ///////////////////////////////////////////////////////////////////////////////////
+   /////////  Camera, Clock, Scene      //////////////////////////////////////////////////////
+   ///////////////////////////////////////////////////////////////////////////////////
+
+  //  camera = new THREE.OrthographicCamera( width / - 1, width / 1, height / 1, height / - 1, -1000, 1000 );
+    camera = new THREE.PerspectiveCamera( 120, width / height, 1, 1000 );
+   camera.position.z = 200;
+   camera.position.x = -width/4;
+   camera.position.y = -height/4;
+
+//    camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 500 );
+// camera.position.set( 0, 0, 100 );
+
+
+    scene = new THREE.Scene();
+
+
+       ///////////////////////////////////////////////////////////////////////////////////
+   /////////  Fog & Lighting      //////////////////////////////////////////////////////
+   ///////////////////////////////////////////////////////////////////////////////////
+
+
+    var light	= new THREE.AmbientLight( 0xFFFFFF, 10 );
+    scene.add( light );
+
+
+       ///////////////////////////////////////////////////////////////////////////////////
+   /////////  Geometry & Material      //////////////////////////////////////////////////////
+   ///////////////////////////////////////////////////////////////////////////////////
+
+
+   //////////////    Plane    /////////////////
+
+
+
+material = new THREE.LineBasicMaterial({
+	color: 0xffffff
+});
+
+
+
+console.log(width);
+var ss = width/6;
+
+  var hh = Math.sqrt(ss*ss*0.75);
+
+  var cc = height/hh;
+  console.log(cc);
+
+  var ccc = Math.round(cc*10);
+  // var ccc = 60;
+  console.log(ccc);
+
+
+  for (let j = 0; j < ccc; j++) {
+    var x = Math.round(Math.random(cc));
+    var y = Math.round(Math.random(cc));
+    var dy = (y%2)*0.5;
+    var x1 = (x-cc*0.5+dy)*ss; 
+    var y1 = (y-cc*0.5)*hh;
+    var ang = (Math.round(Math.random(3))*120+30)*Math.PI/180;
+    var ddd = Math.round(Math.random(1, cc/3)*2);
+    var x2 = x1+Math.cos(ang)*hh*ddd;
+    var y2 = y1+Math.sin(ang)*hh*ddd;
+
+    var lines = [];
+    // ArrayList<Line> lines = new ArrayList<Line>();
+
+
+    lines.push(new Line(x1, y1, x2, y2));
+    // lines.add(new Line(x1, y1, x2, y2));
+
+    // var sub = 5;
+    var sub = Math.random(8);
+    // int sub = int(random(8));var
+
+    for(let i =0; i < sub; i++){
+      var l = lines[lines.length-1];
+      lines.push(l.getLine());
+
+    }
+    // for (int i = 0; i < sub; i++) {
+      // Line l = lines.get(lines.size()-1);
+      // lines.add(l.getLine());
+    // }
+   
+
+      for(let i = 0 ; i< lines.length; i++){
+        var l = lines[i];
+        l.drawLine();
+      }
+
+  }
+
+
+
+
+
+
+       ///////////////////////////////////////////////////////////////////////////////////
+   /////////  Renderer, Controls & Post Processing    //////////////////////////////////////////////////////
+   ///////////////////////////////////////////////////////////////////////////////////
+
+
+
+    renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
+
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    document.body.appendChild( renderer.domElement );
+
+
+
+  //   var geom = new THREE.BoxGeometry(1,1);
+  //   geom.rotateX(Math.PI/4);
+  //   geom.rotateY(Math.PI/4);
+  // var mesh = new THREE.Mesh( geom, new THREE.MeshBasicMaterial({wireframe: true}));
+ 
+  
+  // scene.add(mesh);
+
+    
+}
+
+
+   ///////////////////////////////////////////////////////////////////////////////////
+   /////////  Animate      //////////////////////////////////////////////////////
+   ///////////////////////////////////////////////////////////////////////////////////
+
+
+function animate() {
+
+    
+    //////////////    Waves    /////////////////
+// const delta = clock.getDelta();
+
+
+requestAnimationFrame( animate );
+
+render();
+
+}
+
+   ///////////////////////////////////////////////////////////////////////////////////
+   /////////  Render      //////////////////////////////////////////////////////
+   ///////////////////////////////////////////////////////////////////////////////////
+
+
+function render() {
+
+// position.needsUpdate = true;
+
+// controls.update();
+// requestAnimationFrame( render );
+renderer.render( scene, camera );
+
+}
+
+
+		</script>
+        </div>
+		
+	</body>
+</html>
