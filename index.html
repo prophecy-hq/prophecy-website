@@ -48,7 +48,7 @@
             
                 gl_FragColor = color;
             }
-          </script>
+    </script>
 </head>
 
 <body>
@@ -91,7 +91,17 @@
       var allLines= [];
       var startingPoints = []; var destinationPoints = [];
       
-  
+      var uniforms = {
+            transform: {type:'mat4', value: new THREE.Matrix4() },
+            normalMatrix: {},
+            
+
+          }
+
+        var material = new THREE.RawShaderMaterial({
+            vertexShader: document.getElementById( 'vertexShader' ).textContent,
+	          fragmentShader: document.getElementById( 'fragmentShader' ).textContent
+          })
 
 
       function returnColor() {
@@ -145,7 +155,7 @@
           var points = [];
           var rand = Math.random();
           points.push(new THREE.Vector3(this.x1, this.y1, 0));
-          points.push(new THREE.Vector3(this.x2*rand, this.y2*rand, 0));
+          points.push(new THREE.Vector3(this.x2, this.y2, 0));
 
           // var geometry = new THREE.BufferGeometry().setFromPoints(points);
           var geometry = new THREE.BufferGeometry().setFromPoints(points);
@@ -154,11 +164,13 @@
           geometry.verticesNeedUpdate = true;
           
 
-          var material = new THREE.LineBasicMaterial({
-            color: returnColor(),
-            transparent: true,
-            opacity: Math.random()*4*Math.random(),
-          });
+          // var material = new THREE.LineBasicMaterial({
+          //   color: returnColor(),
+          //   transparent: true,
+          //   opacity: Math.random()*4*Math.random(),
+          // });
+
+   
 
           var line = new THREE.Line(geometry, material);
           allLines.push(line);
@@ -179,7 +191,7 @@
 
           points = [];
           points.push(new THREE.Vector3(cx + Math.cos(ang + Math.PI / 2) * des, cy + Math.sin(ang + Math.PI / 2) * des, 0));
-          points.push(new THREE.Vector3(cx + Math.cos(ang + Math.PI / 2) * des, cy + Math.sin(ang + Math.PI / 2) * des, 0));
+          points.push(new THREE.Vector3((cx + Math.cos(ang - Math.PI / 2) * des), (cy + Math.sin(ang - Math.PI / 2) * des), 0));
 
           startingPoints.push(new THREE.Vector3(cx + Math.cos(ang + Math.PI / 2) * des, cy + Math.sin(ang + Math.PI / 2) * des, 0));
           destinationPoints.push(new THREE.Vector3(cx + Math.cos(ang - Math.PI / 2) * des, cy + Math.sin(ang - Math.PI / 2) * des, 0));
