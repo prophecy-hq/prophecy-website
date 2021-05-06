@@ -271,7 +271,6 @@
 				camera.position.z = 200;
 				camera.position.x = -width / 8;
 				camera.position.y = -height / 8;
-				camera.rotation.z = Math.random() * 360;
 
 				group = new THREE.Group();
 				group.rotateZ(Math.random() * 360);
@@ -421,8 +420,8 @@
 					// camera.rotation.x += rotationSpeed  * ( rotTargetY - camera.rotation.x );
 					// camera.rotation.y += rotationSpeed  * ( rotTargetX - camera.rotation.y );
 
-					camera.rotation.x = mouse.y * 0.00005;
-					camera.rotation.y = mouse.x * 0.00005;
+					camera.rotation.x = -mouse.y * 0.00005;
+					camera.rotation.y = -mouse.x * 0.00005;
 
 
 
