@@ -48,23 +48,8 @@
 			var height = window.innerHeight;
 
 			var colors = [0x27007F, 0x00A6FF, 0xFF216E, 0xFFB7E3, 0xFFFFFF];
-			// var colors = [0x000000];
 			var allLines = [];
 			var startingPoints = []; var targetPoints = [];
-
-			// var uniforms = {
-			// 	vertColor: { type: 'vec3', value: new THREE.Color(returnColor()), },
-			// 	alpha: { type: 'float', value: returnAlpha() },
-			// }
-
-			// function returnColor() {
-			// 	return colors[Math.trunc(Math.random() * colors.length)]
-			// }
-
-			// function returnAlpha() {
-			// 	var alpha = Math.random() * 6;
-			// 	return alpha;
-			// }
 
 			function returnUniforms() {
 				var uniforms = {
@@ -82,8 +67,6 @@
 				this.y1 = y1 || 0;
 				this.x2 = x2 || 0;
 				this.y2 = y2 || 0;
-				// this.directionIsReverse = false;
-				// this.alphaIsIncreasing = true;
 			}
 
 			Line.prototype = {
@@ -202,7 +185,7 @@
 				camera.position.z = 700;
 				camera.position.x = -width / 8;
 				camera.position.y = -height / 8;
-				camera.rotation.z = 0;
+				camera.rotation.z = Math.random() * 360;
 
 				scene = new THREE.Scene();
 
@@ -249,12 +232,14 @@
 
 				for (let i = 0; i < startingPoints.length; i++) {
 					/* OPTIONS */
-					var lengthSpeed = 0.001;
+					// var lengthSpeed = 0.001;
+					var lengthSpeed = 0.005;
 					var minLengthProgress = 0.001;
 					var maxLengthProgress = 0.999;
-					var alphaSpeed = 0.02;
+					// var alphaSpeed = 0.007;
+					var alphaSpeed = 0.01;
 					var minAlpha = 0;
-					var maxAlpha = 7;
+					var maxAlpha = 10;
 
 					/* ANIMATE LINES */
 					var currentPositions = allLines[i].geometry.attributes.position.array;
@@ -312,11 +297,11 @@
 					if (currentAlpha > maxAlpha) { allLines[i].alphaIsIncreasing = false; }
 
 					if (allLines[i].alphaIsIncreasing) {
-						allLines[i].material.uniforms.alpha.value += alphaSpeed;
+						allLines[i].material.uniforms.alpha.value += (currentAlpha * alphaSpeed + alphaSpeed);
 						// console.log(allLines[30].material.uniforms.alpha.value + " increased " + allLines[30].alphaIsIncreasing);
 					}
 					if (!allLines[i].alphaIsIncreasing) {
-						allLines[i].material.uniforms.alpha.value -= alphaSpeed;
+						allLines[i].material.uniforms.alpha.value -= (currentAlpha * alphaSpeed + alphaSpeed);
 						// console.log(allLines[30].material.uniforms.alpha.value + " decreased " + allLines[30].alphaIsIncreasing);
 					}
 
