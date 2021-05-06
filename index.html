@@ -107,11 +107,10 @@
 
           var ang = a1+da*i;
           var points = [];
-          var z = Math.random();
-          points.push(new THREE.Vector3(x+Math.cos(ang)*r1, y+Math.sin(ang)*r1, z));
-          points.push(new THREE.Vector3(x+Math.cos(ang+da)*r1, y+Math.sin(ang+da)*r1, z));
-          points.push(new THREE.Vector3(x+Math.cos(ang+da)*r2, y+Math.sin(ang+da)*r2, z));
-          points.push(new THREE.Vector3(x+Math.cos(ang)*r2, y+Math.sin(ang)*r2, z));
+          points.push(new THREE.Vector3(x+Math.cos(ang)*r1, y+Math.sin(ang)*r1, 0));
+          points.push(new THREE.Vector3(x+Math.cos(ang+da)*r1, y+Math.sin(ang+da)*r1, 0));
+          points.push(new THREE.Vector3(x+Math.cos(ang+da)*r2, y+Math.sin(ang+da)*r2, 0));
+          points.push(new THREE.Vector3(x+Math.cos(ang)*r2, y+Math.sin(ang)*r2, 0));
 
           var geometry = new THREE.BufferGeometry().setFromPoints(points);
          
@@ -298,7 +297,7 @@
             var counter = 0;
 						var l = lines[i];
 						l.drawLine();
-            if(i%100==2){
+            if(i%100==3){
               l.drawAngles();
               console.log('drawing angles');
             
