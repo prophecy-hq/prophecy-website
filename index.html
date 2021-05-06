@@ -2,398 +2,447 @@
 <html>
 
 <head>
-
-  <link rel="stylesheet" href="style.css">
-  <title>My first three.js app</title>
-  <script id="vertexShader" type="x-shader/x-vertex">
-          void main() { 
-            vec4 modelViewPosition = modelViewMatrix * vec4(position, 1.0);
-            gl_Position = projectionMatrix * modelViewPosition;
-          }
-      
-</script>
-  <script id="fragmentShader" type="x-shader/x-fragment">
-            uniform vec3 vertColor; 
-            uniform float opacity;
-            
-            float rand(vec2 co){
-                return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
-            }
-            
-            void main() {
-              vec4 color = vec4(vertColor,1.0);
-              color.w = (0.01+pow(rand(gl_FragCoord.xy*0.001), opacity));
-              gl_FragColor = color;
-            }
-    </script>
+	<link rel="stylesheet" href="style.css">
+	<title>My first three.js app</title>
 </head>
 
 <body>
-  <div class="background">
+	<div class="background">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.js"></script>
-    <script src="seedrandom.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.js"></script>
+		<script src="seedrandom.js"></script>
 
-    <!-- <script src="THREE.MeshLine.js"></script> -->
+		<script id="vertexShader" type="x-shader/x-vertex">
+			void main() { 
+				vec4 modelViewPosition = modelViewMatrix * vec4(position, 1.0);
+				gl_Position = projectionMatrix * modelViewPosition;
+			}
+		</script>
+		<script id="fragmentShader" type="x-shader/x-fragment">
+			uniform vec3 vertColor; 
+			uniform float opacity;
+			
+			float rand(vec2 co){
+					return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
+			}
+			
+			void main() {
+				vec4 color = vec4(vertColor,1.0);
+				color.w = (0.01+pow(rand(gl_FragCoord.xy*0.001), opacity));
+				gl_FragColor = color;
+			}
+		</script>
 
-    <script type="module">
+		<script type="module">
 
-      ///////////////////////////////////////////////////////////////////////////////////
-      /////////  Imports      //////////////////////////////////////////////////////
-      ///////////////////////////////////////////////////////////////////////////////////
+			let composer;
+      var delta = 0; let clock;
+			let camera, controls, scene, renderer;
+			var forwardDirection = true;
 
-      // import { OrbitControls } from 'https://cdn.skypack.dev/three@v0.128.0-FqqdQBPsDVJuf7F4I6W0/examples/jsm/controls/OrbitControls.js';
-      // const glslify = require('glslify')
+			var width = window.innerWidth;
+			var height = window.innerHeight;
+
+			var colors = [0x27007F, 0x00A6FF, 0xFF216E, 0xFFB7E3, 0xFFFFFF];
+			// var colors = [0x000000];
+			var allLines = [];
+			var startingPoints = []; var destinationPoints = [];
 
 
-      ///////////////////////////////////////////////////////////////////////////////////
-      /////////  Declarations      //////////////////////////////////////////////////////
-      ///////////////////////////////////////////////////////////////////////////////////
+      const mouse = new THREE.Vector2();
+      const target = new THREE.Vector2();
+      const windowHalf = new THREE.Vector2( window.innerWidth / 2, window.innerHeight / 2 );
+
+			var uniforms = {
+				vertColor: { type: 'vec3', value: new THREE.Color(returnColor()), },
+				opacity: { type: 'float', value: returnOpacity() },
+			}
+
+			function returnColor() {
+				return colors[Math.trunc(Math.random() * colors.length)]
+			}
+
+			function returnOpacity() {
+				return Math.random() * 3;
+			}
 
 
-      
-      
-      let composer;
-      let camera, controls, scene, renderer;
-      let clock;
-      let box;
-      var forwardDirection = true; 
+      function mapRange(number, inMin, inMax, outMin, outMax){
+        return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+      }
 
-      var width = window.innerWidth;
-      var height = window.innerHeight;
-      // var width = 960;
-      // var height = 960;
+			function returnUniforms() {
+				var uniforms = {
+					vertColor: { type: 'vec3', value: new THREE.Color(returnColor()), },
+					opacity: { type: 'float', value: returnOpacity() },
+				}
 
-      var colors = [0x27007F, 0x00A6FF, 0xFF216E, 0xFFB7E3, 0xFFFFFF];
-      var allLines= [];
-      var startingPoints = []; var destinationPoints = [];
-      
-      var uniforms = {
-            vertColor: {type:'vec3', value: new THREE.Color(returnColor()), },
-            opacity: {type: 'float', value: returnOpacity() },
-          }
+				return uniforms;
+			}
 
-     
 
-      function returnColor() {
+      function returnRGB(hex){
+
+        var hex = Math.floor( hex );
+        var r = ( hex >> 16 & 255 ) / 255;
+        var g = ( hex >> 8 & 255 ) / 255;
+        var b = ( hex & 255 ) / 255;
         
-        return colors[Math.trunc(Math.random()*colors.length)]
+        return [r,g,b];
       }
+
+      function arc2( x,  y,  s1,  s2,  a1,  a2,  col,  alp1,  alp2){
+
+        var r1 = s1*0.3;
+        // console.log(r1);
+        var r2 = s2*0.1;
+        var amp = (a2-a1);
+        var ma = mapRange(amp, 0, 6.283185307179586, 0, 1);
+        // console.log(ma);
+        var cc = Math.max(2, Math.trunc(Math.max(r1, r2)*Math.PI*ma));
+        var da = amp/cc;
+        
+        
+        for (let i = 0; i < cc; i++) {
+
+          var ang = a1+da*i;
+          var points = [];
+          var z = Math.random();
+          points.push(new THREE.Vector3(x+Math.cos(ang)*r1, y+Math.sin(ang)*r1, z));
+          points.push(new THREE.Vector3(x+Math.cos(ang+da)*r1, y+Math.sin(ang+da)*r1, z));
+          points.push(new THREE.Vector3(x+Math.cos(ang+da)*r2, y+Math.sin(ang+da)*r2, z));
+          points.push(new THREE.Vector3(x+Math.cos(ang)*r2, y+Math.sin(ang)*r2, z));
+
+          var geometry = new THREE.BufferGeometry().setFromPoints(points);
+         
+          // var geometry = new THREE.Path();
+          var material = new THREE.ShaderMaterial({
+						uniforms: {
+               vertColor: { type: 'vec3', value: new THREE.Color(col), },
+				    	opacity: { type: 'float', value: 1 },
+            },
+						vertexShader: document.getElementById('vertexShader').textContent,
+						fragmentShader: document.getElementById('fragmentShader').textContent,
+						transparent: true
+					});
+
+          // var material = new THREE.MeshBasicMaterial({color: col, transparent: true, opacity: Math.random()});
+         
+
+          var arc = new THREE.Mesh(geometry, material);
+          scene.add(arc);
+      
+       }
+    }
+
+			Math.seedrandom(Math.random(999999).toString());
+
+			var Line = function (x1, y1, x2, y2) {
+				this.x1 = x1 || 0;
+				this.y1 = y1 || 0;
+				this.x2 = x2 || 0;
+				this.y2 = y2 || 0;
+				this.isReverse = false;
+			}
+
+			Line.prototype = {
+				constructor: Line,
+
+				getLine: function () {
+					var cx = (this.x1 + this.x2) * 0.5;
+					var cy = (this.y1 + this.y2) * 0.5;
+
+					var a = this.x1 - this.x2;
+					var b = this.y1 - this.y2;
+
+					var c = Math.sqrt(a * a + b * b);
+
+					var h = c * 0.5;
+					var ang = Math.atan2(this.y2 - this.y1, this.x2 - this.x1);
+					var des = Math.sqrt(h * h * (4 / 3)) * 0.5;
+
+					return new Line(cx + Math.cos(ang + Math.PI / 2) * des, cy + Math.sin(ang + Math.PI / 2) * des, cx + Math.cos(ang - Math.PI / 2) * des, cy + Math.sin(ang - Math.PI / 2) * des);
+				},
+
+				drawLine: function () {
+
+					// var material = new THREE.LineBasicMaterial({
+					// 	color: returnColor(),
+					// 	transparent: true,
+					// 	opacity: Math.random() * 4 * Math.random(),
+					// });
+
+					var material = new THREE.ShaderMaterial({
+						uniforms: returnUniforms(),
+						vertexShader: document.getElementById('vertexShader').textContent,
+						fragmentShader: document.getElementById('fragmentShader').textContent,
+						transparent: true
+					});
+
+					// First set of lines
+					var points = [];
+          var z = Math.random();
+					points.push(new THREE.Vector3(this.x1, this.y1, z));
+					points.push(new THREE.Vector3(this.x1, this.y1, z*Math.random())); // Same as starting point
+					// points.push(new THREE.Vector3(this.x2, this.y2, 0)); // Target destination
+					startingPoints.push(new THREE.Vector3(this.x1, this.y1, z));
+					destinationPoints.push(new THREE.Vector3(this.x2, this.y2, z));
+
+					var geometry = new THREE.BufferGeometry().setFromPoints(points);
+					geometry.attributes.position.needsUpdate = true;
+					geometry.verticesNeedUpdate = true;
+
+					var line = new THREE.Line(geometry, material);
+					allLines.push(line);
+					scene.add(line);
+
+					// Second set of lines
+					var cx = (this.x1 + this.x2) * 0.5;
+					var cy = (this.y1 + this.y2) * 0.5;
+					var a = this.x1 - this.x2;
+					var b = this.y1 - this.y2;
+					var c = Math.sqrt(a * a + b * b);
+					var h = c * 0.5;
+					var ang = Math.atan2(this.y2 - this.y1, this.x2 - this.x1);
+					var des = Math.sqrt(h * h * (4 / 3)) * 0.5;
+
+					points = [];
+					points.push(new THREE.Vector3(cx + Math.cos(ang + Math.PI / 2) * des, cy + Math.sin(ang + Math.PI / 2) * des, z*Math.random()));
+					points.push(new THREE.Vector3(cx + Math.cos(ang + Math.PI / 2) * des, cy + Math.sin(ang + Math.PI / 2) * des, z*Math.random())); // Same as starting point
+					// points.push(new THREE.Vector3((cx + Math.cos(ang - Math.PI / 2) * des), (cy + Math.sin(ang - Math.PI / 2) * des), 0)); // Target destination
+					startingPoints.push(new THREE.Vector3(cx + Math.cos(ang + Math.PI / 2) * des, cy + Math.sin(ang + Math.PI / 2) * des, z));
+					destinationPoints.push(new THREE.Vector3(cx + Math.cos(ang - Math.PI / 2) * des, cy + Math.sin(ang - Math.PI / 2) * des, z));
+
+					geometry = new THREE.BufferGeometry().setFromPoints(points);
+					geometry.attributes.position.needsUpdate = true;
+					geometry.verticesNeedUpdate = true;
+
+					line = new THREE.Line(geometry, material);
+					allLines.push(line);
+					scene.add(line);
+				},
+
+
+        drawAngles: function() {
+
+          var a = this.x1 - this.x2;
+					var b = this.y1 - this.y2;
+          var c = Math.sqrt(a * a + b * b);
+          var h = c*2;
+          var ang = Math.atan2(this.y2-this.y1, this.x2-this.x1);
+          var col1 = returnColor();
+          var col2 = returnColor();
+          var da = Math.PI/6;
+      
+          var amp1 = Math.random()*(0.4 - 0.25) + 0.25;
+          //float amp1 = 0.2;
+          var amp2 = amp1*Math.random()*(0.9 - 0.2) + 0.2;
+          //float amp2 = amp1*0.5;
+          var alp1 = Math.random()*240*Math.random();
+          //float alp1 = 180;
+          var alp2 = (Math.random()*(250-80)+80)*Math.random();
+
+          arc2(this.x1, this.y1, 0, h*0.5, ang-da, ang+da, col1, alp1, 0);
+    arc2(this.x1, this.y1, h*amp2, h*amp1, ang-da, ang+da, col2, 0, alp2);
+    arc2(this.x2, this.y2, 0, h*0.5, ang-da+Math.PI, ang+da+Math.PI, col1, alp1, 0);
+    arc2(this.x2, this.y2, h*amp2, h*amp1, ang-da+Math.PI, ang+da+Math.PI, col2, 0, alp2);
+        }
+
+			}
+
+
       
 
-      function returnOpacity(){
-        return Math.random()*2;
-      }
+      
 
-      function returnUniforms(){
-        var uniforms = {
-            vertColor: {type:'vec3', value: new THREE.Color(returnColor()), },
-            opacity: {type: 'float', value: returnOpacity() },
-          }
+			function init() {
+				//  camera = new THREE.OrthographicCamera( width / - 1, width / 1, height / 1, height / - 1, -1000, 1000 );
+				camera = new THREE.PerspectiveCamera(140, width / height, 1, 1000);
+				camera.position.z = 200;
+				camera.position.x = -width / 8;
+				camera.position.y = -height / 8;
+				camera.rotation.z = 0;
 
-          return uniforms;
-      }
-
-
-      Math.seedrandom(Math.random(999999).toString());
-
-
-      var Line = function (x1, y1, x2, y2) {
-        this.x1 = x1 || 0;
-        this.y1 = y1 || 0;
-        this.x2 = x2 || 0;
-        this.y2 = y2 || 0;
-        this.isReverse = false;
-      }
-
-      Line.prototype = {
-        constructor: Line,
-
-        getLine: function () {
-          var cx = (this.x1 + this.x2) * 0.5;
-          var cy = (this.y1 + this.y2) * 0.5;
-
-          var a = this.x1 - this.x2;
-          var b = this.y1 - this.y2;
-
-          var c = Math.sqrt(a * a + b * b);
-
-          var h = c * 0.5;
-          var ang = Math.atan2(this.y2 - this.y1, this.x2 - this.x1);
-          var des = Math.sqrt(h * h * (4 / 3)) * 0.5;
-
-          return new Line(cx + Math.cos(ang + Math.PI / 2) * des, cy + Math.sin(ang + Math.PI / 2) * des, cx + Math.cos(ang - Math.PI / 2) * des, cy + Math.sin(ang - Math.PI / 2) * des);
-        },
-
-        drawLine: function () {
-          
-          
-          var material = new THREE.ShaderMaterial({
-            uniforms: returnUniforms(),
-            vertexShader: document.getElementById( 'vertexShader' ).textContent,
-	          fragmentShader: document.getElementById( 'fragmentShader' ).textContent,
-            transparent: true,
-          }); 
-         
-
-          material.transparent = true;
-         
-         
-          startingPoints.push(new THREE.Vector3(this.x1, this.y1, 0));
-          destinationPoints.push(new THREE.Vector3(this.x2, this.y2, 0));
-          
-          var points = [];
-       
-          points.push(new THREE.Vector3(this.x1, this.y1, 0));
-          points.push(new THREE.Vector3(this.x1, this.y1, 0));
-
-          // var geometry = new THREE.BufferGeometry().setFromPoints(points);
-          var geometry = new THREE.BufferGeometry().setFromPoints(points);
-
-          geometry.attributes.position.needsUpdate = true;
-          geometry.verticesNeedUpdate = true;
-
-   
-
-          var line = new THREE.Line(geometry, material);
-          allLines.push(line);
-          scene.add(line);
-       
-
-          var cx = (this.x1 + this.x2) * 0.5;
-          var cy = (this.y1 + this.y2) * 0.5;
-
-          var a = this.x1 - this.x2;
-          var b = this.y1 - this.y2;
-
-          var c = Math.sqrt(a * a + b * b);
-
-          var h = c * 0.5;
-          var ang = Math.atan2(this.y2 - this.y1, this.x2 - this.x1);
-          var des = Math.sqrt(h * h * (4 / 3)) * 0.5;
-
-          points = [];
-          points.push(new THREE.Vector3(cx + Math.cos(ang + Math.PI / 2) * des, cy + Math.sin(ang + Math.PI / 2) * des, 0));
-          points.push(new THREE.Vector3(cx + Math.cos(ang + Math.PI / 2) * des, cy + Math.sin(ang + Math.PI / 2) * des, 0));
-
-          startingPoints.push(new THREE.Vector3(cx + Math.cos(ang + Math.PI / 2) * des, cy + Math.sin(ang + Math.PI / 2) * des, 0));
-          destinationPoints.push(new THREE.Vector3(cx + Math.cos(ang - Math.PI / 2) * des, cy + Math.sin(ang - Math.PI / 2) * des, 0));
-
-          geometry = new THREE.BufferGeometry().setFromPoints(points);
-
-          geometry.attributes.position.needsUpdate = true;
-          geometry.verticesNeedUpdate = true;
-
-
-          line = new THREE.Line(geometry, material);
-          allLines.push(line);
-          scene.add(line);
-          
-          
-        },
-
-      }
-
-    
-
-      init();
-      animate();
-
-      ///////////////////////////////////////////////////////////////////////////////////
-      /////////  Init      //////////////////////////////////////////////////////
-      ///////////////////////////////////////////////////////////////////////////////////
-
-      function init() {
-
-
-        //  camera = new THREE.OrthographicCamera( width / - 1, width / 1, height / 1, height / - 1, -1000, 1000 );
-        camera = new THREE.PerspectiveCamera(75, width / height, 1, 1000);
-        camera.position.z = 700;
-        camera.position.x = -width / 10;
-        camera.position.y = -height / 10;
-       
-        camera.rotation.z = 0;
+				scene = new THREE.Scene();
 
         clock = new THREE.Clock();
 
+				/* SCENE SCALE */
+				var ss = width / 6;
+				var hh = Math.sqrt(ss * ss * 0.75);
+				var cc = Math.trunc(width / hh);
+				var ccc = Math.round(cc * 4);
 
-        scene = new THREE.Scene();
-        var ss = width / 6;
+				for (let j = 0; j < ccc; j++) {
+					var x = Math.trunc(Math.random() * cc);
+					var y = Math.trunc(Math.random() * cc);
+					var dy = (y % 2) * 0.5;
+					var x1 = (x - cc * 0.5 + dy) * ss;
+					var y1 = (y - cc * 0.5) * hh;
+					var ang = (Math.trunc(Math.random() * 3) * 120 + 30) * Math.PI / 180;
+					var ddd = Math.trunc((Math.random() * cc / 3) + 1) * 2;
+					var x2 = x1 + Math.cos(ang) * hh * ddd;
+					var y2 = y1 + Math.sin(ang) * hh * ddd;
 
-        var hh = Math.sqrt(ss * ss * 0.75);
-        
-        var cc = Math.trunc(width / hh);
-      
-        var ccc = Math.round(cc * 4);
-        // var ccc = 60;
-      
-  
+					var lines = [];
+					lines.push(new Line(x1, y1, x2, y2));
 
-        for (let j = 0; j < ccc; j++) {
-          var x = Math.trunc(Math.random()*cc);
-          var y = Math.trunc(Math.random()*cc);
-          var dy = (y % 2) * 0.5;
-          var x1 = (x - cc * 0.5 + dy) * ss;
-          var y1 = (y - cc * 0.5) * hh;
-          var ang = (Math.trunc(Math.random()*3) * 120 + 30) * Math.PI / 180;
-          var ddd = Math.trunc((Math.random()*cc/3)+1) * 2;
-          var x2 = x1 + Math.cos(ang) * hh * ddd;
-          var y2 = y1 + Math.sin(ang) * hh * ddd;
+					var subLines = Math.random() * 8;
 
-          var lines = [];
-          // ArrayList<Line> lines = new ArrayList<Line>();
+					for (let i = 0; i < subLines; i++) {
+						var l = lines[lines.length - 1];
+						lines.push(l.getLine());
+					}
 
-
-          lines.push(new Line(x1, y1, x2, y2));
-          // lines.add(new Line(x1, y1, x2, y2));
-
-
-          var sub = Math.random()*8;
-
-
-          for(let i = 0; i < sub; i++){
-            var l = lines[lines.length-1];
-            lines.push(l.getLine());
-
-          }
-
-
-          for (let i = 0; i < lines.length; i++) {
-            var l = lines[i];
-            l.drawLine();
-          }
-
-        }
-
-
-
-         box = new THREE.Mesh(new THREE.BoxGeometry(100,100), new THREE.MeshBasicMaterial());
-        scene.add(box);
-
-
-        ///////////////////////////////////////////////////////////////////////////////////
-        /////////  Renderer, Controls & Post Processing    ////////////////////////////////
-        ///////////////////////////////////////////////////////////////////////////////////
-
-
-
-        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
-        console.log(allLines[3]);
-
-
-        // scene.add(mesh);
-
-
-      }
-
-
-      //////////////////////////////////////////////////////////////////////////////
-      /////////  Animate      //////////////////////////////////////////////////////
-      //////////////////////////////////////////////////////////////////////////////
-
-
-      function animate() {
-
-        const delta = clock.getDelta();      
-
-       
-        for(let i = 0; i<startingPoints.length;i++){
-          //X*t + Y*(1-t)
-
-          // let i=0;
-          
-        
-          var positions = allLines[i].geometry.attributes.position.array;
-
-          var distance = Math.sqrt((destinationPoints[i].y - startingPoints[i].y)*(destinationPoints[i].y - startingPoints[i].y) + (destinationPoints[i].x - startingPoints[i].x)*(destinationPoints[i].x - startingPoints[i].x));
-       
-    
-          var t = distance/1000;
-          var currentDistance = Math.sqrt((startingPoints[i].y - positions[4])*(startingPoints[i].y - positions[4]) + (startingPoints[i].x - positions[3])*(startingPoints[i].x - positions[3]));
-          var angle = Math.atan((destinationPoints[i].y - startingPoints[i].y)/(destinationPoints[i].x - startingPoints[i].x));
-          var ispositive = true;
-          if(angle<0) {
-            ispositive = false;
-          }
-          if(angle > 0){
-            ispositive = true;
-          }
-
-          var speed = 0.005;
-          // console.log(currentDistance/distance);
-         if(currentDistance/distance > 0.95) { allLines[i].isReverse = true;  } 
-         if(currentDistance/distance < 0.05) { allLines[i].isReverse = false; }
-          // console.log(Math.cos(angle));
-          
-          // if(positions[3] < destinationPoints[i].x && positions[4] < destinationPoints[i].y){
-          if(!allLines[i].isReverse){  
+					for (let i = 0; i < lines.length; i++) {
+            var counter = 0;
+						var l = lines[i];
+						l.drawLine();
+            if(i%100==2){
+              l.drawAngles();
+              console.log('drawing angles');
             
-            if(ispositive){
-          positions[3] += (distance-currentDistance)*Math.cos(angle)*speed;
-          positions[4] += (distance-currentDistance)*Math.sin(angle)*speed;
-            }
-
-    
-
-             if(!ispositive){
-              positions[3] -= (distance-currentDistance)*Math.cos(angle)*speed;
-              positions[4] -= (distance-currentDistance)*Math.sin(angle)*speed;
-            }
           }
+          // if(counter%1000==2){
+          //   console.log('drawing angles');
+          //   l.drawAngles();
+          // }
+            
+					}
+				}
+
+				renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+
+				renderer.setSize(window.innerWidth, window.innerHeight);
+        // renderer.setPixelRatio(window.devicePixelRatio)/2;
+				document.body.appendChild(renderer.domElement);
+        document.addEventListener( 'mousemove', onMouseMove, false );
+	    	window.addEventListener( 'resize', onResize, false );
 
 
-          if(allLines[i].isReverse){  
-            if(ispositive){
-          positions[3] -= (distance-currentDistance)*Math.cos(angle)*speed;
-          positions[4] -= (distance-currentDistance)*Math.sin(angle)*speed;
-            }
+        // console.log(allLines[0].material);
+        // var [redEnd, greenEnd, blueEnd] = returnRGB(returnColor());
+        // console.log(redEnd, greenEnd, blueEnd);
+			}
+
+			function animate() {
+
+
+       delta = clock.getDelta();
+
+
+				for (let i = 0; i < startingPoints.length; i++) {
+					/* OPTIONS */
+					var speed = delta;
+					var minProgress = 0.1;
+					var maxProgress = 0.9;
+
+					/* ANIMATIONS */
+					var currentPositions = allLines[i].geometry.attributes.position.array;
+
+					var currentX = startingPoints[i].x - currentPositions[3];
+					var currentY = startingPoints[i].y - currentPositions[4];
+					var currentDistance = Math.sqrt(Math.pow(currentY, 2) + Math.pow(currentX, 2));
+
+					var targetX = destinationPoints[i].x - startingPoints[i].x;
+					var targetY = destinationPoints[i].y - startingPoints[i].y;
+					var targetDistance = Math.sqrt(Math.pow(targetY, 2) + Math.pow(targetX, 2));
+
+					var angle = Math.atan((destinationPoints[i].y - startingPoints[i].y) / (destinationPoints[i].x - startingPoints[i].x));
+
+					var angleIsPositive;
+					if (angle < 0) {
+						angleIsPositive = false;
+					}
+					if (angle > 0) {
+						angleIsPositive = true;
+					}
+
+					if (currentDistance / targetDistance > maxProgress) { allLines[i].isReverse = true; }
+					if (currentDistance / targetDistance < minProgress) { allLines[i].isReverse = false; }
+
+						if (angleIsPositive) {
+							currentPositions[3] += (targetDistance - currentDistance) * Math.cos(angle) * speed;
+							currentPositions[4] += (targetDistance - currentDistance) * Math.sin(angle) * speed;
+						}
+						if (!angleIsPositive) {
+							currentPositions[3] -= (targetDistance - currentDistance) * Math.cos(angle) * speed;
+							currentPositions[4] -= (targetDistance - currentDistance) * Math.sin(angle) * speed;
+						}
+				
+
+        
+
+					allLines[i].geometry.attributes.position.needsUpdate = true;
+          
+          // allLines[i].material.uniforms.opacity = {type: 'float', value: returnOpacity()};
+         
+
+        
+          let t = clock.getElapsedTime();
+          let s = Math.sin(t * 2.0) * 0.5 + 0.5;
+
+
+          var movementSpeed = delta * 0.005;
+          var rotationSpeed = delta * 0.00005;
+          
+          target.x = ( mouse.x ) * 0.002;
+          target.y = ( 1-mouse.y ) * 0.002;
+          const rotTargetX = (1-mouse.x)*0.002;
+          const rotTargetY = target.y ;
+          
+          camera.position.x += movementSpeed * ( target.x );
+          camera.position.y += movementSpeed * ( target.y );
+
+          camera.rotation.x += rotationSpeed  * ( rotTargetY - camera.rotation.x );
+          camera.rotation.y += rotationSpeed  * ( rotTargetX - camera.rotation.y );
+
+
+          
+
+
+          allLines[i].material.uniforms.uniformsNeedsUpdate = true;
+
+				}
+
+				requestAnimationFrame(animate);
+				render();
+
+			}
+
+			function render() {
+				renderer.render(scene, camera);
+			}
 
 
 
-             if(!ispositive){
-              positions[3] += (distance-currentDistance)*Math.cos(angle)*speed;
-              positions[4] += (distance-currentDistance)*Math.sin(angle)*speed;
-            }
-          }
+      function onMouseMove( event ) {
+
+        mouse.x = ( event.clientX - windowHalf.x );
+        mouse.y = ( event.clientY - windowHalf.y );
+
+      }
+
+
+      function onResize( event ) {
+
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        // windowHalf.set( width / 2, height / 2 );
+
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize( width, height );
 
             
-
-
-          allLines[i].geometry.attributes.position.needsUpdate = true;
-           
-        }
-
-        box.rotation.z += 0.1;
-
-        requestAnimationFrame(animate);
-       
-        render();
-
       }
 
-      ///////////////////////////////////////////////////////////////////////////////
-      /////////  Render      //////////////////////////////////////////////////////
-      /////////////////////////////////////////////////////////////////////////////
+			init();
+			animate();
 
-
-      function render() {
-
-        // position.needsUpdate = true;
-
-        // controls.update();
-        // requestAnimationFrame( render );
-        renderer.render(scene, camera);
-        // console.log(scene.children.filter(e => e instanceof THREE.Line)[3].geometry.attributes.position.array)
-
-      }
-      
-
-
-    </script>
-  </div>
+		</script>
+	</div>
 
 </body>
 
