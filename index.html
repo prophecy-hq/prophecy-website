@@ -271,7 +271,7 @@
 				camera.position.z = 200;
 				camera.position.x = -width / 8;
 				camera.position.y = -height / 8;
-				camera.rotation.z = Math.random() * 360;
+				// camera.rotation.z = Math.random() * 360;
 
 				scene = new THREE.Scene();
 
@@ -324,10 +324,6 @@
         document.addEventListener( 'mousemove', onMouseMove, false );
 	    	window.addEventListener( 'resize', onResize, false );
 
-
-        // console.log(allLines[0].material);
-        // var [redEnd, greenEnd, blueEnd] = returnRGB(returnColor());
-        // console.log(redEnd, greenEnd, blueEnd);
 			}
 
 			function animate() {
@@ -339,7 +335,7 @@
 				for (let i = 0; i < startingPoints.length; i++) {
 					/* OPTIONS */
 					// var lengthSpeed = 0.001;
-					var lengthSpeed = 0.005;
+					var lengthSpeed = 0.0005;
 					var minLengthProgress = 0.001;
 					var maxLengthProgress = 0.999;
 					// var alphaSpeed = 0.007;
@@ -397,29 +393,10 @@
 					allLines[i].geometry.attributes.position.needsUpdate = true;
           
           // allLines[i].material.uniforms.opacity = {type: 'float', value: returnOpacity()};
-         
+  
 
-        
-          let t = clock.getElapsedTime();
-          let s = Math.sin(t * 2.0) * 0.5 + 0.5;
-
-
-          var movementSpeed = delta * 0.005;
-          var rotationSpeed = delta * 0.00005;
-          
-          target.x = ( mouse.x ) * 0.002;
-          target.y = ( 1-mouse.y ) * 0.002;
-          const rotTargetX = (1-mouse.x)*0.002;
-          const rotTargetY = target.y ;
-          
-          camera.position.x += movementSpeed * ( target.x );
-          camera.position.y += movementSpeed * ( target.y );
-
-          camera.rotation.x += rotationSpeed  * ( rotTargetY - camera.rotation.x );
-          camera.rotation.y += rotationSpeed  * ( rotTargetX - camera.rotation.y );
-
-
-          
+          camera.rotation.x = -mouse.y*0.00002;
+          camera.rotation.y = -mouse.x*0.00002;
 
 
           allLines[i].material.uniforms.uniformsNeedsUpdate = true;
