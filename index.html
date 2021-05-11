@@ -9,7 +9,7 @@
 <body>
 	<div class="background">
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.js"></script>
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.js"></script> -->
 		<script src="seedrandom.js"></script>
 
 		<script id="vertexShader" type="x-shader/x-vertex">
@@ -35,14 +35,19 @@
 
 		<script type="module">
 
+			import * as THREE from 'https://cdn.skypack.dev/pin/three@v0.128.0-SXSuUzgcVxHzCfF3m6eh/mode=imports/optimized/three.js';
+			import { EffectComposer } from 'https://cdn.skypack.dev/three@v0.128.0-SXSuUzgcVxHzCfF3m6eh/examples/jsm/postprocessing/EffectComposer.js';
+			import { RenderPass } from 'https://cdn.skypack.dev/three@v0.128.0-SXSuUzgcVxHzCfF3m6eh/examples/jsm/postprocessing/RenderPass.js';
+			import { UnrealBloomPass } from 'https://cdn.skypack.dev/three@v0.128.0-SXSuUzgcVxHzCfF3m6eh/examples/jsm/postprocessing/UnrealBloomPass.js';
+			import {GUI} from 'https://cdn.skypack.dev/three@v0.128.0-SXSuUzgcVxHzCfF3m6eh/examples/jsm/libs/dat.gui.module';
+
 			/**
 			 * From: https://github.com/manoloide/AllSketchs/tree/master/2018/Generativos/tang
 			 *       https://www.behance.net/gallery/66778507/TANG
 			*/
 
-			let composer;
 			var delta = 0; let clock;
-			let camera, controls, group, scene, renderer;
+			let camera, controls, group, scene, renderer, composer, bloomPass;
 			var forwardDirection = true;
 
 			var width = window.innerWidth;
@@ -57,6 +62,102 @@
 			const windowHalf = new THREE.Vector2(window.innerWidth / 2, window.innerHeight / 2);
 			
 			 var flagArray = [];
+
+
+			 const bloomParams = {
+				exposure: 1,
+				bloomStrength: 1.5,
+				bloomThreshold: 0,
+				bloomRadius: 0
+			};
+
+
+
+	function bloom(){
+			const renderScene = new RenderPass( scene, camera );
+
+			bloomPass = new UnrealBloomPass( new THREE.Vector2( window.innerWidth, window.innerHeight ), 1.5, 0.4, 0.85 );
+			bloomPass.threshold = bloomParams.bloomThreshold;
+			bloomPass.strength = bloomParams.bloomStrength;
+			bloomPass.radius = bloomParams.bloomRadius;
+
+			composer = new EffectComposer( renderer );
+			composer.addPass( renderScene );
+			composer.addPass( bloomPass );
+	}
+
+
+	function showGUI(){
+		
+		const parameters = {
+			bgcolor: 0x000000,
+			color1: 0x27007F, 
+			color2: 0x00A6FF, 
+			color3: 0xFF216E, 
+			color4: 0xFFB7E3, 
+			color5: 0xFFFFFF
+
+		}
+		
+		
+		const gui = new GUI();
+
+
+
+		// gui.add(bloomPass);
+
+		gui.add( bloomParams, 'exposure', 0.1, 10 ).onChange( function ( value ) {
+
+		renderer.toneMappingExposure = Math.pow( value, 4.0 );
+
+	} );
+
+	gui.add( bloomParams, 'bloomThreshold', 0.0, 2.0 ).onChange( function ( value ) {
+
+		bloomPass.threshold = Number( value );
+
+	} );
+
+	gui.add( bloomParams, 'bloomStrength', 0.0, 5.0 ).onChange( function ( value ) {
+
+		bloomPass.strength = Number( value );
+
+	} );
+
+	gui.add( bloomParams, 'bloomRadius', 0.0, 2.0 ).step( 0.01 ).onChange( function ( value ) {
+
+		bloomPass.radius = Number( value );
+
+	} );
+
+	gui.addColor(parameters, 'bgcolor').onChange( function(){
+		renderer.setClearColor(parameters.bgcolor);
+	});
+
+	// gui.addColor(parameters, 'color1').onChange( function(){
+	// 	colors[0] = parameters.color1;
+	// });
+
+	// gui.addColor(parameters, 'color2').onChange( function(){
+	// 	colors[1] = parameters.color2;
+	// });
+
+	// gui.addColor(parameters, 'color3').onChange( function(){
+	// 	colors[2] = parameters.color3;
+	// });
+
+	// gui.addColor(parameters, 'color4').onChange( function(){
+	// 	colors[3] = parameters.color4;
+	// });
+
+	// gui.addColor(parameters, 'color5').onChange( function(){
+	// 	colors[4] = parameters.color5;
+	// });
+
+
+
+	// window.addEventListener( 'resize', onWindowResize );
+}
 
      
 
@@ -468,16 +569,20 @@ function opacityAnimation(i){
 				renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
 				renderer.setSize(window.innerWidth, window.innerHeight);
+				renderer.setClearColor (0x000000, 1);
 				// renderer.setPixelRatio(window.devicePixelRatio)/2;
 				document.body.appendChild(renderer.domElement);
 				document.addEventListener('mousemove', onMouseMove, false);
 				window.addEventListener('resize', onResize, false);
 
+				bloom();
+				showGUI();
+
         // console.log(allLines[0]);
 	
 			}
 
-			function animate() {
+	function animate() {
 
 				delta = clock.getDelta();
        
@@ -509,10 +614,12 @@ function opacityAnimation(i){
 				requestAnimationFrame(animate);
 				render();
 
-			}
+	}
 
-			function render() {
-				renderer.render(scene, camera);
+	function render() {
+
+				// renderer.render(scene, camera);
+				composer.render();
 			}
 
 
@@ -535,6 +642,7 @@ function opacityAnimation(i){
 				camera.aspect = width / height;
 				camera.updateProjectionMatrix();
 				renderer.setSize(width, height);
+	
 
 
 			}
