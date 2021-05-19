@@ -13,13 +13,18 @@ export default class ContactSection extends React.Component {
                 <Styled.h3>Reach out</Styled.h3>
 
                <span><Styled.h1>hello@prophecy.one</Styled.h1>
-               <Styled.p>Copy</Styled.p></span>
+                    <div 
+                        sx = {{variant: 'layouts.link'}}  
+                        onClick = {() => {navigator.clipboard.writeText('hello@prophecy.one')}}>
+                            Copy
+                    </div>
+                </span>
 
                <Styled.p>
                    Tell us about your product, goals, challenges, timeline, and budget.
                 </Styled.p>
 
-                <Flex>
+                <Flex sx = {{variant: 'layouts.responsiveFlex'}}>
                     <Box>
                         <div sx = {{variant: 'text.bodyLarge'}}>Sign up to our newsletter</div>
                         <Input 

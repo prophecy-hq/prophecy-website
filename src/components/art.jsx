@@ -40,11 +40,11 @@ class Art extends React.Component {
     var delta = 0; let clock;
     let camera, controls, group, scene, renderer, composer, bloomPass;
 
-    var width = window.innerWidth;
-    var height = window.innerHeight;
+    // var width = window.innerWidth;
+    // var height = window.innerHeight;
 
-    // var width = this.mount.clientWidth;
-    // var height = this.mount.clientHeight;
+    var width = this.mount.clientWidth;
+    var height = this.mount.clientHeight;
 
     var colors = [0x27007F, 0x00A6FF, 0xFF216E, 0xFFB7E3, 0xFFFFFF];
     var allLines = [];

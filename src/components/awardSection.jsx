@@ -10,7 +10,10 @@ export default class AwardSection extends React.Component {
         return(
             
        <Flex sx ={{height: '100vh', alignItems: 'center'}}>
-       <Flex sx = {{alignItems: 'flex-end', height: '50%'}}>
+       <Flex sx = {{alignItems: 'flex-end', height: '50%',
+        '@media screen and (max-width: 1024px)': {
+            flexDirection: 'column-reverse',
+    },}}>
 
             
             <Grid columns={[2, '1fr 1fr']} sx = {{width: '50%', marginRight: '10%'}}>

@@ -9,14 +9,20 @@ export default class ClientSection extends React.Component {
         return(
             
         <Flex sx = {{ height: '100vh', color: 'lightRed', alignItems: 'center' }}>
-            <Flex sx ={{alignItems: 'top', height: '50%'}}>
+            <Flex sx ={{alignItems: 'top', height: '50%', variant: 'layouts.responsiveFlex'
+        }}>
 
-            <Box sx = {{width: '40%'}}>
+            <Box sx = {{width: '40%',   
+                '@media screen and (max-width: 1024px)': {
+                    width: '100%'
+                },
+            
+        }}>
                 <Styled.h1>We bring in experience from startups and established companies.</Styled.h1>
                 <div sx = {{variant: 'text.bodyLarge'}}>Working in healthcare, finance, education and enterprise applications.</div>
             </Box>
             
-            <Grid columns={[3, '1fr 1fr 1fr']} sx = {{width: '50%', marginLeft: '10%'} }>
+            <Grid sx = {{variant: 'layouts.responsiveGrid', marginLeft: '10%'}} >
                 <Box>Client</Box>
                 <Box>Client</Box>
                 <Box>Client</Box>

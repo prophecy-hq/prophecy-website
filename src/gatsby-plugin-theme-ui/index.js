@@ -24,7 +24,7 @@ export default{
         bodyLarge: {
             fontFamily: 'prophecy',
             fontWeight: 400,
-            fontSize: 24,
+            fontSize: [21,24],
             lineHeight: 'body'
 
         },
@@ -32,7 +32,7 @@ export default{
         bodySmall: {
             fontFamily: 'prophecy',
             fontWeight: 400,
-            fontSize: 16,
+            fontSize: [16,18],
             lineHeight: 'body'
         }
 
@@ -81,12 +81,22 @@ export default{
         width: '50%',
         marginRight: '0px',
         marginLeft: 'auto',
+
+        '@media screen and (max-width: 1024px)': {
+            width: '100%',
+            margin: '0 auto'
+        },
     },
 
     leftContent: {
         width: '50%',
         marginRight: 'auto',
         marginLeft: '0',
+
+        '@media screen and (max-width: 1024px)': {
+            width: '100%',
+            margin: '0 auto'
+        },
     },
 
     navbar: {
@@ -94,8 +104,39 @@ export default{
         color: 'darkGrey',
         textDecoration: 'none',
         right: 32,
-        top: 48
+        top: 48,
+        display: 'flex',
+        flexDirection: 'column'
 
+    },
+
+    link: {
+  
+        cursor: 'pointer',
+        textDecoration: 'none',
+        color: 'darkGrey',
+        // display: 'block',
+        width: 'fit-content',
+        transition: '0.2s',
+        fontFamily: 'prophecy',
+        fontSize: 16,
+        '&::after': {
+            border: '1px solid',
+            color: 'darkGrey',
+            display: 'block',
+            mt: '2px',
+            transform: 'scaleX(0)',
+            transition: 'transform 240ms ease-out',		
+            transformOrigin: '0% 0%',
+            content: '""',
+        },
+        '&:hover': {
+            color: 'darkGrey',
+            '&::after': {
+                transform: 'scaleX(1)',
+                transformOrigin: '0% 100%',
+            }
+        }
     },
 
 
@@ -109,11 +150,37 @@ export default{
         zIndex: '-9999',
     },
 
+    responsiveFlex: {
+        flexDirection: 'row',
+
+        '@media screen and (max-width: 1024px)': {
+            flexDirection: 'column'
+        },
+    },
+
+
+    responsiveGrid: {
+        gridTemplateColumns: '1fr 1fr 1fr',
+        width: '50%',
+
+        '@media screen and (max-width: 1024px)': {
+            gridTemplateColumns: '1fr 1fr',
+            width: '100%',
+        },
+
+
+    },
+
 
     teamBio: {
         minWidth: '320px',
         width: '25%',
-        marginRight: 'auto'
+        marginRight: 'auto',
+
+        '@media screen and (max-width: 1024px)': {
+            width: '100%',
+            margin: '0 auto'
+        },
    
     },
 
@@ -122,17 +189,59 @@ export default{
         width: '25%',
         paddingTop: 80,
         paddingBottom: 128,
+
+        '@media screen and (max-width: 1024px)': {
+            width: '100%',
+            margin: '0 auto',
+            height: '30vh',
+            padding: '16px 24px'
+        },
     },
 
     caseStudyBlock: { 
         marginLeft: 'auto', 
         alignSelf: 'flex-end',
+
+        '@media screen and (max-width: 1024px)': {
+            width: '100%',
+            margin: '0 auto'
+        },
     }
 
 
     },
 
     styles:{
+
+        a:{
+            paddingBottom: 16,
+            textDecoration: 'none',
+            color: 'darkGrey',
+			// display: 'block',
+			width: 'fit-content',
+			transition: '0.2s',
+            fontFamily: 'prophecy',
+            fontSize: 16,
+            '&::after': {
+				border: '1px solid',
+                color: 'darkGrey',
+				display: 'block',
+				mt: '2px',
+				transform: 'scaleX(0)',
+				transition: 'transform 240ms ease-out',		
+				transformOrigin: '0% 0%',
+				content: '""',
+			},
+			'&:hover': {
+				color: 'darkGrey',
+				'&::after': {
+					transform: 'scaleX(1)',
+					transformOrigin: '0% 100%',
+				}
+            }
+
+        },
+
         h1: {
             fontFamily: 'prophecy',
             fontWeight: 400,

@@ -9,7 +9,7 @@ export default class TeamMember extends React.Component {
     render(){
         return(
             
-        <Flex sx = {{ marginTop: 200, width: '100%'}}>
+        <Flex sx = {{ variant: 'layouts.responsiveFlex', marginTop: 200, width: '100%'}}>
             
             <Box sx = {{variant: 'layouts.teamBio'}}>
                 <div sx = {{variant: 'texts.bodySmall'}}>{this.props.bio}</div>

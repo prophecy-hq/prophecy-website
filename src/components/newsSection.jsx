@@ -8,7 +8,7 @@ export default class NewsSection extends React.Component {
     render(){
         return(
             
-        <Flex>
+        <Flex sx = {{variant: 'layouts.responsiveFlex'}}>
 
             <Box>
                 <Styled.h1>What we’ve been up to.</Styled.h1>

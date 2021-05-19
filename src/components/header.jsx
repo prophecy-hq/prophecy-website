@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Flex, Image, Box } from 'theme-ui';
+import { jsx, Styled, Image, Box } from 'theme-ui';
 import PropTypes from 'prop-types';
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 
@@ -14,13 +14,13 @@ const Header = ({ siteTitle }) => (
 
 		
 			<ul sx = {{variant: 'layouts.navbar'}}>
-				{/* <AnchorLink to = "/#team">Team</AnchorLink>
-				<AnchorLink to = "/#recognition">Recognition</AnchorLink>
-				<AnchorLink to = "/#contact">Contact</AnchorLink> */}
+				<AnchorLink sx = {{variant: 'layouts.link'}} to = "/#team">Team</AnchorLink>
+				<AnchorLink sx = {{variant: 'layouts.link'}} to = "/#recognition">Recognition</AnchorLink>
+				<AnchorLink sx = {{variant: 'layouts.link'}} to = "/#contact">Contact</AnchorLink>
 
-				<a href = "/#team">Team</a>
-				<a href = "/#recognition">Recognition</a>
-				<a href = "/#contact">Contact</a>
+				{/* <Styled.a href = "/#team">Team</Styled.a>
+				<Styled.a href = "/#recognition">Recognition</Styled.a>
+				<Styled.a href = "/#contact">Contact</Styled.a> */}
 
 			</ul>
 
