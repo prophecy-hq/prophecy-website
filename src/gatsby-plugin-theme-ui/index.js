@@ -44,7 +44,21 @@ export default{
 		heading: 1.125,
     },
 
-    space: [0, 4, 8, 16, 32, 64, 72, 80, 96, 128, 256, 512, 1440],
+
+    images:{
+        logo: {
+            height: 32,
+            width: 'auto',
+            alignSelf: 'flex-start',
+            position: 'absolute',
+            marginLeft: '5vw',
+            marginTop: 48,
+            marginBottom: 48
+        }
+    },
+
+
+    space: [0, 4, 8, 16, 32, 64, 72, 80, 96, 128, 200, 256, 512, 1440],
 	sizes: [4, 8, 16, 20, 24, 32, 40, 48, 56, 64, 72],
 
 
@@ -60,10 +74,7 @@ export default{
     mainContainer: {
         width: '90vw',
         maxWidth: 1440,
-            
-        '@media screen and (max-width: 1024px)': {
-            width: '90vw',
-        },
+        margin: '0 auto',
     },
 
     rightContent: {
@@ -76,6 +87,15 @@ export default{
         width: '50%',
         marginRight: 'auto',
         marginLeft: '0',
+    },
+
+    navbar: {
+        position: 'fixed',
+        color: 'darkGrey',
+        textDecoration: 'none',
+        right: 32,
+        top: 48
+
     },
 
 
@@ -94,13 +114,14 @@ export default{
         minWidth: '320px',
         width: '25%',
         marginRight: 'auto'
+   
     },
 
     line: { 
-        height: '400px',
+        height: '80vh',
         width: '25%',
-        paddingTop: 48,
-        paddingBottom: 48
+        paddingTop: 80,
+        paddingBottom: 128,
     },
 
     caseStudyBlock: { 

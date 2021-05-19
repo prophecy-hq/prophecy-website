@@ -9,7 +9,7 @@ export default class TeamMember extends React.Component {
     render(){
         return(
             
-        <Flex sx = {{marginTop: '120px', width: '100%'}}>
+        <Flex sx = {{ marginTop: 200, width: '100%'}}>
             
             <Box sx = {{variant: 'layouts.teamBio'}}>
                 <div sx = {{variant: 'texts.bodySmall'}}>{this.props.bio}</div>
@@ -17,7 +17,7 @@ export default class TeamMember extends React.Component {
 
             <Box sx = {{variant: 'layouts.line'}}> 
                 <svg style={{width: '100%', height: '100%'}}>
-                    <line x1="0" y1="0%" x2="100%" y2="100%"
+                    <line x1="0%" y1="0%" x2="100%" y2="100%"
                     style={{stroke:'darkGrey', strokeWidth:'1'}} />
                 </svg>
             </Box>  

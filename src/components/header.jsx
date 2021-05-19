@@ -1,34 +1,31 @@
-import { Link } from 'gatsby';
+/** @jsx jsx */
+import { jsx, Flex, Image, Box } from 'theme-ui';
 import PropTypes from 'prop-types';
-import React from 'react';
+import { AnchorLink } from "gatsby-plugin-anchor-links";
+
+
+import ProphecyLogo from '../images/prophecyLogo.png';
 
 const Header = ({ siteTitle }) => (
-	<header
-		style={{
-			background: 'rebeccapurple',
-			marginBottom: '1.45rem',
-		}}
-	>
-		<div
-			style={{
-				margin: '0 auto',
-				maxWidth: 960,
-				padding: '1.45rem 1.0875rem',
-			}}
-		>
-			<h1 style={{ margin: 0 }}>
-				<Link
-					to="/"
-					style={{
-						color: 'white',
-						textDecoration: 'none',
-					}}
-				>
-					{siteTitle}
-				</Link>
-			</h1>
-		</div>
-	</header>
+		
+		<Box sx = {{variant: 'layouts.mainContainer'}}>
+			
+			<Image src = {ProphecyLogo} variant = 'logo' />
+
+		
+			<ul sx = {{variant: 'layouts.navbar'}}>
+				{/* <AnchorLink to = "/#team">Team</AnchorLink>
+				<AnchorLink to = "/#recognition">Recognition</AnchorLink>
+				<AnchorLink to = "/#contact">Contact</AnchorLink> */}
+
+				<a href = "/#team">Team</a>
+				<a href = "/#recognition">Recognition</a>
+				<a href = "/#contact">Contact</a>
+
+			</ul>
+
+		</Box>
+
 );
 
 Header.propTypes = {

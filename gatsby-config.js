@@ -15,6 +15,7 @@ module.exports = {
 		`three`,
 		`react-dom`,
 		`react-scroll`,
+		`gatsby-plugin-anchor-links`,
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {

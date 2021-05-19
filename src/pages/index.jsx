@@ -5,7 +5,6 @@ import { jsx,  Container, Box, Styled } from 'theme-ui';
 import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
-import Image from '../components/image';
 import SEO from '../components/seo';
 import FirstFold from '../components/firstFold'
 import SecondFold from '../components/secondFold'
@@ -31,7 +30,7 @@ const IndexPage = () => (
 	</Container>
 
 		
-	<Container sx = {{variant: 'layouts.fullContainer', backgroundColor: 'white'}}>
+	<Container id = "team" sx = {{variant: 'layouts.fullContainer', backgroundColor: 'white'}}>
 		<Container sx = {{variant: 'layouts.mainContainer'}}>
 
 			<Styled.h1 sx = {{variant: 'layouts.rightContent'}}>
@@ -75,7 +74,7 @@ const IndexPage = () => (
 		</Container>
 	</Container>
 
-	<Container sx = {{variant: 'layouts.fullContainer', backgroundColor: 'darkGrey'}}>
+	<Container id = "recognition"  sx = {{variant: 'layouts.fullContainer', backgroundColor: 'darkGrey'}}>
 		<Container sx = {{variant: 'layouts.mainContainer'}}>
 				<ClientSection/>
 		</Container>
@@ -95,7 +94,7 @@ const IndexPage = () => (
 	</Container>
 
 
-	<Container sx = {{variant: 'layouts.fullContainer', backgroundColor: 'orange'}}>
+	<Container id = "contact" sx = {{variant: 'layouts.fullContainer', backgroundColor: 'orange'}}>
 		<Container sx = {{variant: 'layouts.mainContainer'}}>		
 			<ContactSection />
 		</Container>
