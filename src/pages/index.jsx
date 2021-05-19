@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx,  Container, Box } from 'theme-ui';
+import { jsx,  Container, Box, Styled } from 'theme-ui';
 
 // import React from "react"
 import { Link } from 'gatsby';
@@ -33,6 +33,10 @@ const IndexPage = () => (
 		
 	<Container sx = {{variant: 'layouts.fullContainer', backgroundColor: 'white'}}>
 		<Container sx = {{variant: 'layouts.mainContainer'}}>
+
+			<Styled.h1 sx = {{variant: 'layouts.rightContent'}}>
+				Prophecy is new, but our team isn’t. Here’s some of our past work.
+			</Styled.h1>
 			
 			<TeamMember 
 				bio = "Akshay Verma lead design at Obvious and was instrumental in building and training the team, setting up processes, and leading projects. He is an alumnus of the National Institute of Design and Copenhagen Institute of Interaction Design." 
@@ -97,9 +101,6 @@ const IndexPage = () => (
 		</Container>
 	</Container>
 	
-	
-		
-
 		
 	</Layout>
 );

@@ -14,7 +14,7 @@ export default{
     },
 
     fonts:{
-        prophecy: 'system-ui, serif',
+        prophecy: 'serif',
 
     },
 
@@ -91,23 +91,21 @@ export default{
 
 
     teamBio: {
-        width: '30%',
-        marginRight: 'auto',
-        marginLeft: '0',
-        display: 'inline-block'
+        minWidth: '320px',
+        width: '25%',
+        marginRight: 'auto'
     },
 
-    line: {
-        display: 'inline-block', 
-        width: '20%'
+    line: { 
+        height: '400px',
+        width: '25%',
+        paddingTop: 48,
+        paddingBottom: 48
     },
 
-    caseStudyBlock: {
-        display: 'inline-block', 
-        width: 'auto', 
+    caseStudyBlock: { 
         marginLeft: 'auto', 
-        marginRight: '0', 
-        marginTop: '200px'
+        alignSelf: 'flex-end',
     }
 
 
@@ -134,7 +132,7 @@ export default{
             fontWeight: 400,
             fontSize: 24,
             lineHeight: 'heading',
-            marginBottom: 56 
+          
         },
 
         p: {

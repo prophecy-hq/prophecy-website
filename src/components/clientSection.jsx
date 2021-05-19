@@ -8,7 +8,8 @@ export default class ClientSection extends React.Component {
     render(){
         return(
             
-        <Flex sx = {{ height: '100vh', color: 'lightRed'}}>
+        <Flex sx = {{ height: '100vh', color: 'lightRed', alignItems: 'center' }}>
+            <Flex sx ={{alignItems: 'top', height: '50%'}}>
 
             <Box sx = {{width: '40%'}}>
                 <Styled.h1>We bring in experience from startups and established companies.</Styled.h1>
@@ -27,6 +28,7 @@ export default class ClientSection extends React.Component {
                 <Box>Client</Box>
             </Grid>
 
+            </Flex>
 
         </Flex>
 

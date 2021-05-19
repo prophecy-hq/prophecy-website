@@ -39,10 +39,12 @@ class Art extends React.Component {
 
     var delta = 0; let clock;
     let camera, controls, group, scene, renderer, composer, bloomPass;
-    var forwardDirection = true;
 
     var width = window.innerWidth;
     var height = window.innerHeight;
+
+    // var width = this.mount.clientWidth;
+    // var height = this.mount.clientHeight;
 
     var colors = [0x27007F, 0x00A6FF, 0xFF216E, 0xFFB7E3, 0xFFFFFF];
     var allLines = [];
@@ -50,7 +52,7 @@ class Art extends React.Component {
 
     const mouse = new THREE.Vector2();
     const target = new THREE.Vector2();
-    const windowHalf = new THREE.Vector2(window.innerWidth / 2, window.innerHeight / 2);
+    const windowHalf = new THREE.Vector2(width / 2, height / 2);
     
         var flagArray = [];
 
@@ -73,7 +75,7 @@ class Art extends React.Component {
     function bloom(){
         const renderScene = new RenderPass( scene, camera );
 
-        bloomPass = new UnrealBloomPass( new THREE.Vector2( window.innerWidth, window.innerHeight ), 1.5, 0.4, 0.85 );
+        bloomPass = new UnrealBloomPass( new THREE.Vector2( width, height ), 1.5, 0.4, 0.85 );
         bloomPass.threshold = bloomParams.bloomThreshold;
         bloomPass.strength = bloomParams.bloomStrength;
         bloomPass.radius = bloomParams.bloomRadius;
@@ -530,9 +532,9 @@ function opacityAnimation(i){
         }
     }
 
-    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(width, height);
     renderer.setClearColor (0x000007, 1);
     renderer.setPixelRatio(window.devicePixelRatio);
     this.mount.appendChild( renderer.domElement );
@@ -568,10 +570,10 @@ function animate() {
 
     opacityAnimation(i);
 
-            allLines[i].geometry.attributes.position.needsUpdate = true;
-            allLines[i].material.uniforms.uniformsNeedsUpdate = true;
+    allLines[i].geometry.attributes.position.needsUpdate = true;
+    allLines[i].material.uniforms.uniformsNeedsUpdate = true;
 
-        }
+    }
     /* ANIMATE CAMERA */
     camera.rotation.x = -mouse.y*0.00002;
     camera.rotation.y = -mouse.x*0.00002;
@@ -593,6 +595,7 @@ function render(){
 }
 
 
+// render();
 
 animate();
 
@@ -608,9 +611,6 @@ function onMouseMove(event) {
 
 
 function onResize(event) {
-
-    const width = window.innerWidth;
-    const height = window.innerHeight;
 
     // windowHalf.set( width / 2, height / 2 );
 

@@ -14,6 +14,7 @@ module.exports = {
 		`gatsby-transformer-sharp`,
 		`three`,
 		`react-dom`,
+		`react-scroll`,
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
