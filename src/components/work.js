@@ -1,8 +1,7 @@
 /** @jsx jsx */
 import { jsx, Styled, Box } from 'theme-ui';
 import {useRef, useEffect} from 'react';
-import TeamMember from '../components/teamMember'
-import workFoldHeaderAnimation from '../scripts/workFoldHeaderAnimation'
+import TeamMember from '../components/teamMember.js'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -22,7 +21,7 @@ export default function Work(){
             trigger: document.querySelector(".staggerAnimation2"),
             start: "top center",
             end: "bottom center",
-          }
+        }
     });
 
     const timelineSettings = {
@@ -50,8 +49,6 @@ export default function Work(){
 
 
 
-
-
 return(
     
 
@@ -68,6 +65,7 @@ return(
     caseStudyDescription2 = "A sentence about what we did: challenge and outcomes."
     caseStudyName3 = "Orderhive"
     caseStudyDescription3 = "A sentence about what we did: challenge and outcomes."
+    id = "line1"
 
 />
 
@@ -79,6 +77,7 @@ return(
     caseStudyDescription2 = "A sentence about what we did: challenge and outcomes."
     caseStudyName3 = ""
     caseStudyDescription3 = ""
+    id = "line2"
 
 />
 
@@ -91,6 +90,7 @@ return(
     caseStudyDescription2 = "A sentence about what we did: challenge and outcomes."
     caseStudyName3 = ""
     caseStudyDescription3 = ""
+    id = "line3"
 
 />
 </Box>
