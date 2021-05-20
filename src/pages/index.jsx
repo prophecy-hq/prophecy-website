@@ -8,7 +8,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import FirstFold from '../components/firstFold'
 import SecondFold from '../components/secondFold'
-import TeamMember from '../components/teamMember'
+import Work from '../components/work.js'
 import ClientSection from '../components/clientSection'
 import AwardSection from '../components/awardSection'
 import NewsSection from '../components/newsSection'
@@ -32,45 +32,7 @@ const IndexPage = () => (
 		
 	<Container id = "team" sx = {{variant: 'layouts.fullContainer', backgroundColor: 'white'}}>
 		<Container sx = {{variant: 'layouts.mainContainer'}}>
-
-			<Styled.h1 sx = {{variant: 'layouts.rightContent'}}>
-				Prophecy is new, but our team isn’t. Here’s some of our past work.
-			</Styled.h1>
-			
-			<TeamMember 
-				bio = "Akshay Verma lead design at Obvious and was instrumental in building and training the team, setting up processes, and leading projects. He is an alumnus of the National Institute of Design and Copenhagen Institute of Interaction Design." 
-				caseStudyName1 = "Simple"
-				caseStudyDescription1 = "A sentence about what we did: challenge and outcomes."
-				caseStudyName2 = "Gradeup"
-				caseStudyDescription2 = "A sentence about what we did: challenge and outcomes."
-				caseStudyName3 = "Orderhive"
-				caseStudyDescription3 = "A sentence about what we did: challenge and outcomes."
-
-			/>
-
-			<TeamMember 
-				bio = "Sneha Sankar was the Head of Design of Graphy. Previously Creative Lead at Unacademy, St+art India, Ola, Struckby and Leo Burnett. She is an alumnus of the National Institute of Design." 
-				caseStudyName1 = "Unacademy"
-				caseStudyDescription1 = "A sentence about what we did: challenge and outcomes."
-				caseStudyName2 = "Graphy"
-				caseStudyDescription2 = "A sentence about what we did: challenge and outcomes."
-				caseStudyName3 = ""
-				caseStudyDescription3 = ""
-
-			/>
-
-
-			<TeamMember 
-				bio = "Siddharth Ahuja is a product designer with a Computer Science background. He helped grow the design team at smallcase and scale the product’s user base up to 200k+ users. He studied at the Copenhagen Institute of Interaction Design." 
-				caseStudyName1 = "smallcase"
-				caseStudyDescription1 = "A sentence about what we did: challenge and outcomes."
-				caseStudyName2 = "LEGO Ventures"
-				caseStudyDescription2 = "A sentence about what we did: challenge and outcomes."
-				caseStudyName3 = ""
-				caseStudyDescription3 = ""
-
-			/>
-
+			<Work />
 		</Container>
 	</Container>
 

@@ -16,6 +16,11 @@ module.exports = {
 		`react-dom`,
 		`react-scroll`,
 		`gatsby-plugin-anchor-links`,
+		`react-awesome-reveal`,
+		`splitting`,
+		`animate.css`,
+		`smooth-scrollbar`,
+		`react-smooth-scrollbar`,
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {

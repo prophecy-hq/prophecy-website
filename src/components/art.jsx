@@ -46,7 +46,8 @@ class Art extends React.Component {
     var width = this.mount.clientWidth;
     var height = this.mount.clientHeight;
 
-    var colors = [0x27007F, 0x00A6FF, 0xFF216E, 0xFFB7E3, 0xFFFFFF];
+    // var colors = [0x27007F, 0x00A6FF, 0xFF216E, 0xFFB7E3, 0xFFFFFF];
+    var colors = [0xFFFFFF, 0xFFFFFF, 0xFFFFFF, 0xFFFFFF, 0xFFFFFF];
     var allLines = [];
     var startingPoints = []; var targetPoints = [];
 
@@ -590,8 +591,8 @@ function animate() {
 
 
 function render(){
-    // renderer.render( scene, camera );
-    composer.render();
+    renderer.render( scene, camera );
+    // composer.render();
 }
 
 

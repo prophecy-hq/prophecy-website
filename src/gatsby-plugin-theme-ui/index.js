@@ -1,3 +1,5 @@
+
+
 export default{
 
 
@@ -14,7 +16,7 @@ export default{
     },
 
     fonts:{
-        prophecy: 'serif',
+        prophecy: 'signifier, serif',
 
     },
 
@@ -34,6 +36,14 @@ export default{
             fontWeight: 400,
             fontSize: [16,18],
             lineHeight: 'body'
+        },
+
+        italic: {
+            fontStyle: 'italic'
+        },
+
+        bold: {
+            fontWeight: '600'
         }
 
     },
@@ -51,19 +61,22 @@ export default{
             width: 'auto',
             alignSelf: 'flex-start',
             position: 'absolute',
-            marginLeft: '5vw',
-            marginTop: 48,
+            top: 48,
             marginBottom: 48
         }
     },
 
 
-    space: [0, 4, 8, 16, 32, 64, 72, 80, 96, 128, 200, 256, 512, 1440],
+    space: [0, 4, 8, 16, 32, 64, 72, 80, 96, 128, 160, 200, 256, 512, 1440],
 	sizes: [4, 8, 16, 20, 24, 32, 40, 48, 56, 64, 72],
 
 
 
    layouts:{
+
+    animatedSpan: {
+        display: 'inline-block'
+    },
 
     fullContainer: {
         width: '100%',
@@ -245,22 +258,23 @@ export default{
         h1: {
             fontFamily: 'prophecy',
             fontWeight: 400,
-            fontSize: 56,
-            lineHeight: 'heading'
+            fontSize: [40, 56],
+            lineHeight: 'heading',
+
         },
 
         h2: {
             fontFamily: 'prophecy',
             fontWeight: 400,
-            fontSize: 40,
+            fontSize: [32, 40],
             lineHeight: 'heading',
-            marginBottom: 56
+            marginBottom: 160
         },
 
         h3: {
             fontFamily: 'prophecy',
             fontWeight: 400,
-            fontSize: 24,
+            fontSize: [21,24],
             lineHeight: 'heading',
           
         },
