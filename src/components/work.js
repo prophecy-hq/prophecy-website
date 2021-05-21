@@ -31,7 +31,8 @@ export default function Work(){
         },
         {
             backgroundColor: '#F6F7EB',
-            duration: 1
+            duration: 1,
+            ease: 'Power3.easeOut'
         })
 
     },[])
@@ -60,7 +61,7 @@ export default function Work(){
     timeline.set(arr, 
         {
             y: '80%',
-            opacity: 0 ,
+            opacity: 0,
         })
 
     timeline.staggerTo(arr, timelineSettings.charsDuration, 
