@@ -10,7 +10,6 @@ export default function firstFoldAnimation(){
 
     var text = document.querySelector('.staggerAnimation');
     var arr =  text.querySelectorAll('.staggerAnimation .word > .char, .whitespace');
-    console.log(arr);
 
     const timeline = gsap.timeline();
 

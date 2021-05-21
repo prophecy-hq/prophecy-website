@@ -11,6 +11,9 @@ export default function Work(){
     gsap.registerPlugin(ScrollTrigger);
     const ref = useRef(null);
 
+
+    // ============ TITLE ANIMATION ===========
+
     useEffect(() => {
     const element = ref.current;
     var text = element.querySelector('.staggerAnimation2');
@@ -49,11 +52,14 @@ export default function Work(){
 
 
 
+
+
+
 return(
     
 
 <Box ref={ref}>
-<Styled.h1  sx = {{variant: 'layouts.rightContent'}} className = 'staggerAnimation2' data-splitting = "">
+<Styled.h1  sx = {{variant: 'layouts.rightContent', marginBottom: '200px'}} className = 'staggerAnimation2' data-splitting = "">
     Prophecy is new, but our team isn’t. Here’s some of our past work.
 </Styled.h1>
 
@@ -65,7 +71,9 @@ return(
     caseStudyDescription2 = "A sentence about what we did: challenge and outcomes."
     caseStudyName3 = "Orderhive"
     caseStudyDescription3 = "A sentence about what we did: challenge and outcomes."
-    id = "line1"
+    lineId = "line1"
+    leftId = "workFoldLeft1"
+    rightId = "workFoldRight1"
 
 />
 
@@ -77,7 +85,9 @@ return(
     caseStudyDescription2 = "A sentence about what we did: challenge and outcomes."
     caseStudyName3 = ""
     caseStudyDescription3 = ""
-    id = "line2"
+    lineId = "line2"
+    leftId = "workFoldLeft2"
+    rightId = "workFoldRight2"
 
 />
 
@@ -90,7 +100,9 @@ return(
     caseStudyDescription2 = "A sentence about what we did: challenge and outcomes."
     caseStudyName3 = ""
     caseStudyDescription3 = ""
-    id = "line3"
+    lineId = "line3"
+    leftId = "workFoldLeft3"
+    rightId = "workFoldRight3"
 
 />
 </Box>

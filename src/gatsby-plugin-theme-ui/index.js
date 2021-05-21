@@ -187,9 +187,10 @@ export default{
 
 
     teamBio: {
-        minWidth: '320px',
-        width: '25%',
-        marginRight: 'auto',
+        flex: 'wrap',
+        maxWidth: '320px',
+        wordBreak: 'break-word',
+        lineHeight: 'body',
 
         '@media screen and (max-width: 1024px)': {
             width: '100%',
@@ -200,9 +201,8 @@ export default{
 
     line: { 
         height: '80vh',
-        width: '25%',
-        paddingTop: 80,
-        paddingBottom: 128,
+        padding: '64px 48px',
+        flex: '1',
 
         '@media screen and (max-width: 1024px)': {
             width: '100%',
@@ -213,7 +213,6 @@ export default{
     },
 
     caseStudyBlock: { 
-        marginLeft: 'auto', 
         alignSelf: 'flex-end',
 
         '@media screen and (max-width: 1024px)': {
