@@ -21,7 +21,7 @@ const IndexPage = () => (
 
 
 
-	<Container id = "canvas" sx = {{variant: 'layouts.fullContainer', backgroundColor: 'rgba(0,0,0,0)'}}>
+	<Container id = "canvas" className = "bgchange1" sx = {{variant: 'layouts.fullContainer', backgroundColor: 'rgba(0,0,0,0)', paddingBottom: '20vw'}}>
 		<div sx = {{variant: 'layouts.canvas'}}><Art /></div>
 		<Container sx = {{variant: 'layouts.mainContainer'}}>
 			<FirstFold />
@@ -30,7 +30,7 @@ const IndexPage = () => (
 	</Container>
 
 		
-	<Container id = "team" sx = {{variant: 'layouts.fullContainer', backgroundColor: 'white'}}>
+	<Container id = "team" className = "bgchange1" sx = {{variant: 'layouts.fullContainer', backgroundColor: 'rgba(0,0,0,0)', paddingTop: '20vw'}}>
 		<Container sx = {{variant: 'layouts.mainContainer'}}>
 			<Work />
 		</Container>

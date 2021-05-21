@@ -12,6 +12,31 @@ export default function Work(){
     const ref = useRef(null);
 
 
+    // =========== BACKGROUND ANIMATION ===========
+    useEffect(() => {
+        var item = document.querySelectorAll('.bgchange1');
+
+
+
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: document.querySelector("#team"),
+                start: "top 50%",
+                toggleActions: "play none none reverse"
+            }
+        })
+        .fromTo(item, {
+            backgroundColor: 'rgba(0,0,0,0)'
+
+        },
+        {
+            backgroundColor: '#F6F7EB',
+            duration: 1
+        })
+
+    },[])
+
+
     // ============ TITLE ANIMATION ===========
 
     useEffect(() => {
@@ -64,7 +89,8 @@ return(
 </Styled.h1>
 
 <TeamMember 
-    bio = "Akshay Verma lead design at Obvious and was instrumental in building and training the team, setting up processes, and leading projects. He is an alumnus of the National Institute of Design and Copenhagen Institute of Interaction Design." 
+    name = "Akshay Verma"
+    bio = " lead design at Obvious and was instrumental in building and training the team, setting up processes, and leading projects. He is an alumnus of the National Institute of Design and Copenhagen Institute of Interaction Design." 
     caseStudyName1 = "Simple"
     caseStudyDescription1 = "A sentence about what we did: challenge and outcomes."
     caseStudyName2 = "Gradeup"
@@ -78,7 +104,8 @@ return(
 />
 
 <TeamMember 
-    bio = "Sneha Sankar was the Head of Design of Graphy. Previously Creative Lead at Unacademy, St+art India, Ola, Struckby and Leo Burnett. She is an alumnus of the National Institute of Design." 
+    name = "Sneha Sankar"
+    bio = " was the Head of Design of Graphy. Previously Creative Lead at Unacademy, St+art India, Ola, Struckby and Leo Burnett. She is an alumnus of the National Institute of Design." 
     caseStudyName1 = "Unacademy"
     caseStudyDescription1 = "A sentence about what we did: challenge and outcomes."
     caseStudyName2 = "Graphy"
@@ -93,7 +120,8 @@ return(
 
 
 <TeamMember 
-    bio = "Siddharth Ahuja is a product designer with a Computer Science background. He helped grow the design team at smallcase and scale the product’s user base up to 200k+ users. He studied at the Copenhagen Institute of Interaction Design." 
+    name = "Siddharth Ahuja"
+    bio = " is a product designer with a Computer Science background. He helped grow the design team at smallcase and scale the product’s user base up to 200k+ users. He studied at the Copenhagen Institute of Interaction Design." 
     caseStudyName1 = "smallcase"
     caseStudyDescription1 = "A sentence about what we did: challenge and outcomes."
     caseStudyName2 = "LEGO Ventures"

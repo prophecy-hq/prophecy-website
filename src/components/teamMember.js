@@ -14,6 +14,8 @@ export default function TeamMember(props) {
 
 
 
+
+
     /*====== LINE ANIMATIONS =======*/
 
     useEffect(() => {
@@ -169,7 +171,7 @@ export default function TeamMember(props) {
         const timeline = gsap.timeline({
             scrollTrigger: {
                 trigger: document.querySelector("#workFoldRight1"),
-                start: "top 60%"
+                start: "top 70%"
             }
         });
 
@@ -207,7 +209,7 @@ export default function TeamMember(props) {
         const timeline = gsap.timeline({
             scrollTrigger: {
                 trigger: document.querySelector("#workFoldRight2"),
-                start: "top 60%"
+                start: "top 70%"
             }
         });
 
@@ -245,7 +247,7 @@ export default function TeamMember(props) {
         const timeline = gsap.timeline({
             scrollTrigger: {
                 trigger: document.querySelector("#workFoldRight3"),
-                start: "top 60%"
+                start: "top 70%"
             }
         });
 
@@ -279,7 +281,10 @@ export default function TeamMember(props) {
         <Flex sx = {{ variant: 'layouts.responsiveFlex', marginTop: 200, width: '100%'}}>
             
             <Box sx = {{variant: 'layouts.teamBio'}}>
-                <div id = {props.leftId} sx = {{variant: 'texts.bodySmall'}}>{props.bio}</div>
+                <div id = {props.leftId} sx = {{variant: 'texts.bodySmall'}}>
+                    <span sx = {{variant: 'text.bold'}}>{props.name}</span>
+                    {props.bio}
+                </div>
             </Box>
 
             <Box sx = {{variant: 'layouts.line'}}> 

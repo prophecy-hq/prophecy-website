@@ -537,7 +537,7 @@ function opacityAnimation(i){
     renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
 
     renderer.setSize(width, height);
-    renderer.setClearColor (0x000007, 1);
+    renderer.setClearColor (0xffffff, 0);
     renderer.setPixelRatio(window.devicePixelRatio);
     this.mount.appendChild( renderer.domElement );
     // document.body.appendChild(renderer.domElement);

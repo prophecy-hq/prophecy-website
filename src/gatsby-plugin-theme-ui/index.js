@@ -9,7 +9,7 @@ export default{
         darkGrey: '#131112',
         red: '#F54936',
         lightRed: '#FDCCC4',
-        background: '#F6F7EB',
+        // background: '#F6F7EB',
         white: '#F6F7EB',
         orange: '#FF725C',
         highlight: '#fff'
@@ -80,8 +80,8 @@ export default{
 
     fullContainer: {
         width: '100%',
-        paddingTop: 80,
-        paddingBottom: 80
+        paddingTop: 120,
+        paddingBottom: 120
     },
     
     mainContainer: {
@@ -162,6 +162,7 @@ export default{
         top: '0',
         left: '0',
         zIndex: '-9999',
+        backgroundColor: 'red'
     },
 
     responsiveFlex: {
