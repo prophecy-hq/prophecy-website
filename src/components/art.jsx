@@ -39,6 +39,7 @@ class Art extends React.Component {
 
     var delta = 0; let clock;
     let camera, controls, group, scene, renderer, composer, bloomPass;
+    var posY=0;
 
     // var width = window.innerWidth;
     // var height = window.innerHeight;
@@ -542,6 +543,7 @@ function opacityAnimation(i){
     // document.body.appendChild(renderer.domElement);
     document.addEventListener('mousemove', onMouseMove, false);
     window.addEventListener('resize', onResize, false);
+    window.addEventListener('wheel', onMouseWheel, false);
 
     bloom();
     // showGUI();
@@ -580,6 +582,7 @@ function animate() {
     camera.rotation.y = -mouse.x*0.00002;
 
 
+
     requestAnimationFrame(animate);
     render();
 
@@ -615,11 +618,22 @@ function onResize(event) {
 
     // windowHalf.set( width / 2, height / 2 );
 
-    camera.aspect = width / height;
+    
+    camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize(width, height);
+    renderer.setSize(window.InnderWidth, window.innerHeight);
 
 }
+
+function onMouseWheel(event) {
+    // event.preventDefault();
+  
+    camera.position.y -= event.deltaY / 20;
+  
+    // prevent scrolling beyond a min/max value
+    // camera.position.clampScalar(0, 10);
+    
+  }
 
 // === THREE.JS CODE END ===
       
