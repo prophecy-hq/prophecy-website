@@ -7,7 +7,7 @@ import { Link } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import FirstFold from '../components/firstFold'
-import SecondFold from '../components/secondFold'
+import SecondFold from '../components/secondFold.js'
 import Work from '../components/work.js'
 import ClientSection from '../components/clientSection'
 import AwardSection from '../components/awardSection'

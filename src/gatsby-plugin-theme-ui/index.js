@@ -105,6 +105,7 @@ export default{
         width: '50%',
         marginRight: 'auto',
         marginLeft: '0',
+        minWidth: '300px',
 
         '@media screen and (max-width: 1024px)': {
             width: '100%',

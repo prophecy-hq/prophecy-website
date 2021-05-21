@@ -4,6 +4,7 @@ import { jsx, Styled, Box} from 'theme-ui';
 import React from 'react';
 import firstFoldAnimation from '../scripts/firstFoldAnimation'
 import './layout.css';
+import './animationClasses.css';
 
 
 export default class FirstFold extends React.Component {
@@ -21,11 +22,12 @@ export default class FirstFold extends React.Component {
                 className = "staggerAnimation"
                 sx = {{variant: 'layouts.rightContent', marginTop: '80px', color: 'lightRed'}}>
                 
-                We help achieve &nbsp; 
+                We help achieve&nbsp;
+                <span className = "whitespace">&nbsp;</span>
                 <span  sx = {{variant: 'text.italic', color: 'white'}}>
-                    &nbsp; big goals &nbsp;
+                     &nbsp;big goals
                 </span> 
-                through digital products that are people-centric, rigorously tested, and expertly crafted.</Styled.h1>
+                &nbsp;through digital products that are people-centric, rigorously tested, and expertly crafted.</Styled.h1>
         </Box>
 
         )
