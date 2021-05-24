@@ -9,7 +9,7 @@ import SEO from '../components/seo';
 import FirstFold from '../components/firstFold'
 import SecondFold from '../components/secondFold.js'
 import Work from '../components/work.js'
-import ClientSection from '../components/clientSection'
+import ClientSection from '../components/clientSection.js'
 import AwardSection from '../components/awardSection'
 import NewsSection from '../components/newsSection'
 import ContactSection from '../components/contactSection'

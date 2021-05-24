@@ -616,19 +616,22 @@ function onMouseMove(event) {
 
 function onResize(event) {
 
-    // windowHalf.set( width / 2, height / 2 );
-
     
-    camera.aspect = window.innerWidth / window.innerHeight;
+    // var newWidth = this.mount.clientWidth;
+    // var newHeight = this.mount.clientHeight;
+    var newWidth = window.innerWidth;
+    var newHeight = window.innerHeight;
+    
+    camera.aspect = newWidth / newHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.InnderWidth, window.innerHeight);
+    renderer.setSize(newWidth, newHeight);
 
 }
 
 function onMouseWheel(event) {
     // event.preventDefault();
   
-    camera.position.y -= event.deltaY / 20;
+    camera.position.y -= event.deltaY / 10;
   
     // prevent scrolling beyond a min/max value
     // camera.position.clampScalar(0, 10);

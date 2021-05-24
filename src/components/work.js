@@ -13,6 +13,7 @@ export default function Work(){
 
 
     // =========== BACKGROUND ANIMATION ===========
+    
     useEffect(() => {
         var item = document.querySelectorAll('.bgchange1');
 
