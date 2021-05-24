@@ -63,6 +63,14 @@ export default{
             position: 'absolute',
             top: 48,
             marginBottom: 48
+        },
+
+        clientLogo: {
+            width: '15vw',
+            height: 'auto',
+            maxWidth: '160px',
+            minWidth: '120px',
+
         }
     },
 
@@ -176,11 +184,23 @@ export default{
 
     responsiveGrid: {
         gridTemplateColumns: '1fr 1fr 1fr',
-        width: '50%',
+        height: 'fit-content',
+        width: 'fit-content',
+        gridGap: 56,
+        justifyItems: 'center',
+        alignItems: 'center',
+        marginLeft: 'auto',
+        minWidth: '500px',
+
+
 
         '@media screen and (max-width: 1024px)': {
             gridTemplateColumns: '1fr 1fr',
             width: '100%',
+            gridGap: 48,
+            marginLeft: '0',
+            minWidth: '0px',
+            paddingTop: 80
         },
 
 

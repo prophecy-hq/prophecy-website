@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AwardImage from '../images/award.png';
 
+
 export default function AwardSection()  {
 
     gsap.registerPlugin(ScrollTrigger);
