@@ -43,9 +43,9 @@ export default function ClientSection() {
                 opacity: 0,
             })
         .set(clientsArr,
-                {
-                    opacity: 0,
-        })
+            {
+                opacity: 0,
+            })
 
 
     // ========== Heading animation ==========
