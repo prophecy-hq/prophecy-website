@@ -1,10 +1,9 @@
   
-import React,{ useRef, useEffect } from "react";
+import React,{ useRef, useEffect, useState } from "react";
 import * as THREE from 'three';
 import {EffectComposer} from 'three/examples/jsm/postprocessing/EffectComposer';
 import {RenderPass} from 'three/examples/jsm/postprocessing/RenderPass';
 import {UnrealBloomPass} from 'three/examples/jsm/postprocessing/UnrealBloomPass';
-import {GUI} from 'three/examples/jsm/libs/dat.gui.module';
 import "./seedrandom";
 
 
@@ -39,13 +38,13 @@ const mount = useRef(null);
 
     var delta = 0; let clock;
     let camera, controls, group, scene, renderer, composer, bloomPass;
-    var posY=0;
 
     // var width = window.innerWidth;
     // var height = window.innerHeight;
 
     var width = mount.current.clientWidth;
     var height = mount.current.clientHeight;
+    let frameId;
 
     // var colors = [0x27007F, 0x00A6FF, 0xFF216E, 0xFFB7E3, 0xFFFFFF];
     var colors = [0xFFFFFF, 0xFFFFFF, 0xFFFFFF, 0xFFFFFF, 0xFFFFFF];
@@ -87,50 +86,6 @@ const mount = useRef(null);
         composer.addPass( bloomPass );
     }
 
-    function showGUI(){
-		
-		const parameters = {
-			bgcolor: 0x000000,
-			color1: 0x27007F, 
-			color2: 0x00A6FF, 
-			color3: 0xFF216E, 
-			color4: 0xFFB7E3, 
-			color5: 0xFFFFFF
-
-		}
-		
-		
-		const gui = new GUI();
-
-		gui.add( bloomParams, 'exposure', 0.1, 10 ).onChange( function ( value ) {
-
-		renderer.toneMappingExposure = Math.pow( value, 4.0 );
-
-        } );
-
-        gui.add( bloomParams, 'bloomThreshold', 0.0, 2.0 ).onChange( function ( value ) {
-
-            bloomPass.threshold = Number( value );
-
-        } );
-
-        gui.add( bloomParams, 'bloomStrength', 0.0, 5.0 ).onChange( function ( value ) {
-
-            bloomPass.strength = Number( value );
-
-        } );
-
-        gui.add( bloomParams, 'bloomRadius', 0.0, 2.0 ).step( 0.01 ).onChange( function ( value ) {
-
-            bloomPass.radius = Number( value );
-
-        } );
-
-        gui.addColor(parameters, 'bgcolor').onChange( function(){
-            renderer.setClearColor(parameters.bgcolor);
-        });
-
-    }
 
     function returnUniforms() {
         var uniforms = {
@@ -540,13 +495,13 @@ function opacityAnimation(i){
     renderer.setClearColor (0xffffff, 0);
     renderer.setPixelRatio(window.devicePixelRatio);
     mount.current.appendChild( renderer.domElement );
-    // document.body.appendChild(renderer.domElement);
+
+
     document.addEventListener('mousemove', onMouseMove, false);
     window.addEventListener('resize', onResize, false);
     window.addEventListener('wheel', onMouseWheel, false);
 
-    bloom();
-    // showGUI();
+    // bloom();
 
 
 
@@ -582,9 +537,11 @@ function animate() {
     camera.rotation.y = -mouse.x*0.00002;
 
 
-
     requestAnimationFrame(animate);
     render();
+
+   
+
 
 }
 
@@ -617,8 +574,8 @@ function onMouseMove(event) {
 function onResize(event) {
 
     
-    // var newWidth = this.mount.clientWidth;
-    // var newHeight = this.mount.clientHeight;
+    // var newWidth = mount.current.clientWidth;
+    // var newHeight = mount.current.clientHeight;
     var newWidth = window.innerWidth;
     var newHeight = window.innerHeight;
     
@@ -637,6 +594,18 @@ function onMouseWheel(event) {
     // camera.position.clampScalar(0, 10);
     
   }
+
+//   const start = () => {
+//     if (!frameId) {
+//       frameId = requestAnimationFrame(animate)
+//     }
+//   }
+
+//   start();
+//   const stop = () => {
+//     cancelAnimationFrame(frameId)
+//     frameId = null
+//   }
 
 },[])
 
