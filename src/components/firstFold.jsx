@@ -3,8 +3,7 @@
 import { jsx, Styled, Box} from 'theme-ui';
 import React from 'react';
 import firstFoldAnimation from '../scripts/firstFoldAnimation'
-import './layout.css';
-import './animationClasses.css';
+
 
 
 export default class FirstFold extends React.Component {

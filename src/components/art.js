@@ -1,6 +1,5 @@
   
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import React,{ useRef, useEffect } from "react";
 import * as THREE from 'three';
 import {EffectComposer} from 'three/examples/jsm/postprocessing/EffectComposer';
 import {RenderPass} from 'three/examples/jsm/postprocessing/RenderPass';
@@ -9,12 +8,13 @@ import {GUI} from 'three/examples/jsm/libs/dat.gui.module';
 import "./seedrandom";
 
 
-class Art extends React.Component {
-    componentDidMount() {
-
-
+export default function Art () {
+ 
+const mount = useRef(null);
 
     // ======= SHADERS ========
+
+    useEffect(() => {
 
     const vertexShader = 
     `void main() { 
@@ -44,8 +44,8 @@ class Art extends React.Component {
     // var width = window.innerWidth;
     // var height = window.innerHeight;
 
-    var width = this.mount.clientWidth;
-    var height = this.mount.clientHeight;
+    var width = mount.current.clientWidth;
+    var height = mount.current.clientHeight;
 
     // var colors = [0x27007F, 0x00A6FF, 0xFF216E, 0xFFB7E3, 0xFFFFFF];
     var colors = [0xFFFFFF, 0xFFFFFF, 0xFFFFFF, 0xFFFFFF, 0xFFFFFF];
@@ -539,7 +539,7 @@ function opacityAnimation(i){
     renderer.setSize(width, height);
     renderer.setClearColor (0xffffff, 0);
     renderer.setPixelRatio(window.devicePixelRatio);
-    this.mount.appendChild( renderer.domElement );
+    mount.current.appendChild( renderer.domElement );
     // document.body.appendChild(renderer.domElement);
     document.addEventListener('mousemove', onMouseMove, false);
     window.addEventListener('resize', onResize, false);
@@ -638,16 +638,18 @@ function onMouseWheel(event) {
     
   }
 
+},[])
+
 // === THREE.JS CODE END ===
       
-}
-    render() {
+
       return (
-        <div ref={ref => (this.mount = ref)} style={{ width: `100vw`, height: `100vh` }} />
+        <div ref={mount}
+         style={{ width: `100vw`, height: `100vh` }} 
+         />
       )
-    }
-  }
+}
+
 
 //   const rootElement = document.getElementById("canvas");
 //   ReactDOM.render(<Art />, rootElement);
-  export default Art;
