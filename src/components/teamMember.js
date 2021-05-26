@@ -275,26 +275,27 @@ export default function TeamMember(props) {
     },[])
     
 
+    // ======== CONTENT ===============
 
     return(
             
         <Flex sx = {{ variant: 'layouts.responsiveFlex', marginTop: 200, width: '100%'}}>
             
-            <Box sx = {{variant: 'layouts.teamBio'}}>
-                <div id = {props.leftId} sx = {{variant: 'texts.bodySmall'}}>
+            <Box sx = {{variant: 'layouts.flexLeft'}}>
+                <Styled.p id = {props.leftId}>
                     <span sx = {{variant: 'text.bold'}}>{props.name}</span>
                     {props.bio}
-                </div>
+                </Styled.p>
             </Box>
 
             <Box sx = {{variant: 'layouts.line'}}> 
                 <svg  style={{width: '100%', height: '100%'}}>
                     <line id = {props.lineId} x1="0%" y1="0%" x2="100%" y2="100%"
-                    style={{fill:'none', stroke:'red', strokeWidth:'1px'}} />
+                    style={{fill:'none', stroke:'#F54936', strokeWidth:'1px'}} />
                 </svg>
             </Box>  
 
-            <Box id = {props.rightId} sx = {{variant: 'layouts.caseStudyBlock'}}>
+            <Box id = {props.rightId} sx = {{variant: 'layouts.flexRight'}}>
                 <CaseStudy title = {props.caseStudyName1} description = {props.caseStudyDescription1}></CaseStudy>
                 <CaseStudy title = {props.caseStudyName2} description = {props.caseStudyDescription2} ></CaseStudy>
                 <CaseStudy title = {props.caseStudyName3} description = {props.caseStudyDescription3} ></CaseStudy>

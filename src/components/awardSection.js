@@ -4,7 +4,12 @@ import { jsx, Styled, Box, Flex, Grid, Image} from 'theme-ui';
 import {useRef, useEffect} from 'react';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import AwardImage from '../images/award.png';
+
+//Award logos
+import Core77 from '../images/awardLogos/Core77Logo.svg';
+import FastCompany from '../images/awardLogos/FastCompanyLogo.svg';
+import IxDA from '../images/awardLogos/IxDAAwardsLogo.svg';
+import UXDA from '../images/awardLogos/UXDesignAwardsLogo.svg';
 
 
 export default function AwardSection()  {
@@ -19,7 +24,7 @@ export default function AwardSection()  {
       
         var awardsGrid = document.querySelector('#awardsGrid');
         var awardsArr = awardsGrid.querySelectorAll('div');
-        
+   
         
         const timelineSettings = {
             awardsDuration: 1.2,
@@ -30,7 +35,7 @@ export default function AwardSection()  {
         gsap.timeline({
             scrollTrigger: {
                 trigger: document.querySelector("#awardsGrid"),
-                start: "top 30%",
+                start: "top 50%",
       
             }
         })
@@ -69,7 +74,7 @@ export default function AwardSection()  {
         gsap.timeline({
             scrollTrigger: {
                 trigger: document.querySelector("#awardSectionHeading"),
-                start: "top 80%",
+                start: "top 90%",
             }
         })      
         .set(arr, 
@@ -92,56 +97,61 @@ export default function AwardSection()  {
 
     return(
             
-       <Flex sx ={{height: '100vh', alignItems: 'center'}}>
-       <Flex ref = {ref} sx = {{alignItems: 'flex-end', height: '50%',
-        '@media screen and (max-width: 1024px)': {
-            flexDirection: 'column-reverse',
-        },}}>
+       <Flex sx ={{height: '100vh', alignItems: 'center', mb: '30vh'}}>
+       
+        <Flex sx = {{alignItems: 'flex-end', justifyContent: 'space-between', width: '100%',
+            '@media screen and (max-width: 1024px)': {
+                flexDirection: 'column-reverse',
+            },}}>
 
-            
-            <Grid id = "awardsGrid" columns={[2, '1fr 1fr']} sx = {{width: '50%', marginRight: '10%'}}>
-               
-                <Flex sx = {{flexDirection: 'column', alignItems: 'center'}}>
-                    
-                    <Image src = {AwardImage} />
-                    <Styled.h3>IxDA</Styled.h3>
-                    <Styled.p>Description here</Styled.p>
-            
-                 </Flex>
-
-                 <Flex sx = {{flexDirection: 'column', alignItems: 'center'}}>
-                    
-                    <Image src = {AwardImage} />
-                    <Styled.h3>IxDA</Styled.h3>
-                    <Styled.p>Description here</Styled.p>
-            
-                 </Flex>
-
-                 <Flex sx = {{flexDirection: 'column', alignItems: 'center'}}>
-                    
-                    <Image src = {AwardImage} />
-                    <Styled.h3>IxDA</Styled.h3>
-                    <Styled.p>Description here</Styled.p>
-            
-                 </Flex>
-
-                 <Flex sx = {{flexDirection: 'column', alignItems: 'center'}}>
-                    
-                    <Image src = {AwardImage} />
-                    <Styled.h3>IxDA</Styled.h3>
-                    <Styled.p>Description here</Styled.p>
-            
-                 </Flex>
                 
-            </Grid>
+                <Grid ref = {ref} id = "awardsGrid" columns={[2, '1fr 1fr']} sx = {{variant: 'layouts.awardsGrid'}}>
+                
+                    <Flex sx = {{variant: 'layouts.awardsGridItem'}} >
+                        
+                        <Image src = {IxDA} sx = {{mb: 24}}/>
+                        <Styled.h3 sx = {{mb: '8px', maxWidth: '200px'}}>IxDA Interaction Awards 2020</Styled.h3>
+                        <div sx = {{variant: 'text.awardDescription'}}>Best in Show</div>
+                
+                    </Flex>
+
+                    <Flex sx = {{variant: 'layouts.awardsGridItem'}}>
+                        
+                        <Image src = {FastCompany} sx = {{mb: 24}} />
+                        <Styled.h3 sx = {{mb: '8px', maxWidth: '200px'}}>Innovation by Design Awards</Styled.h3>
+                        <div sx = {{variant: 'text.awardDescription'}}>Honourable Mention</div>
+                
+                    </Flex>
 
 
-            <Box>
-                <Styled.h1 id = "awardSectionHeading" data-splitting = "">We’ve also been recognised for it.</Styled.h1>
-            </Box>
+
+                    <Flex sx = {{variant: 'layouts.awardsGridItem'}}>
+                        
+                        <Image src = {UXDA} sx = {{mb: 24}} />
+                        <Styled.h3 sx = {{mb: '8px', maxWidth: '200px'}}>UX Design Awards 2020</Styled.h3>
+                        <div sx = {{variant: 'text.awardDescription'}}>New Talent</div>
+                
+                    </Flex>
 
 
-        </Flex>
+                    <Flex sx = {{variant: 'layouts.awardsGridItem'}}>
+                        
+                        <Image src = {Core77} sx = {{mb: 24}} />
+                        <Styled.h3 sx = {{mb: '8px', maxWidth: '200px'}}>Core77 Design Awards 2020</Styled.h3>
+                        <div sx = {{variant: 'text.awardDescription'}}>Runner Up</div>
+
+                    </Flex>
+
+                    
+                </Grid>
+
+
+                <Box sx = {{flex: '1'}}>
+                    <Styled.h1  sx = {{color: 'lightRed',  marginLeft: 'auto', textAlign: 'right', width: '80%'}} id = "awardSectionHeading" data-splitting = "">We’ve also been recognised for it.</Styled.h1>
+                </Box>
+
+
+            </Flex>
         </Flex>
 
         )

@@ -11,7 +11,7 @@ import SecondFold from '../components/secondFold.js'
 import Work from '../components/work.js'
 import ClientSection from '../components/clientSection.js'
 import AwardSection from '../components/awardSection.js'
-import NewsSection from '../components/newsSection'
+import NewsSection from '../components/newsSection.js'
 import ContactSection from '../components/contactSection'
 import Art from '../components/art.js'
 
@@ -21,7 +21,7 @@ const IndexPage = () => (
 
 
 
-	<Container id = "canvas" className = "bgchange1" sx = {{variant: 'layouts.fullContainer', backgroundColor: 'rgba(0,0,0,0)', paddingBottom: '20vw'}}>
+	<Container id = "canvas" className = "bgchange" sx = {{variant: 'layouts.fullContainer', backgroundColor: 'rgba(0,0,0,0)', paddingBottom: '20vw'}}>
 		<div sx = {{variant: 'layouts.canvas'}}><Art /></div>
 		<Container sx = {{variant: 'layouts.mainContainer'}}>
 			<FirstFold />
@@ -30,19 +30,19 @@ const IndexPage = () => (
 	</Container>
 
 		
-	<Container id = "team" className = "bgchange1" sx = {{variant: 'layouts.fullContainer', backgroundColor: 'rgba(0,0,0,0)', paddingTop: '20vw'}}>
+	<Container id = "team" className = "bgchange" sx = {{variant: 'layouts.fullContainer', backgroundColor: 'rgba(0,0,0,0)', paddingTop: '20vw'}}>
 		<Container sx = {{variant: 'layouts.mainContainer'}}>
 			<Work />
 		</Container>
 	</Container>
 
-	<Container id = "recognition"  sx = {{variant: 'layouts.fullContainer', backgroundColor: 'darkGrey'}}>
+	<Container id = "recognition" className = "bgchange" sx = {{variant: 'layouts.fullContainer', backgroundColor: 'white'}}>
 		<Container sx = {{variant: 'layouts.mainContainer'}}>
 				<ClientSection/>
 		</Container>
 	</Container>
 
-	<Container sx = {{variant: 'layouts.fullContainer', backgroundColor: 'lightRed'}}>
+	<Container sx = {{variant: 'layouts.fullContainer', backgroundColor: 'darkGrey'}}>
 		<Container sx = {{variant: 'layouts.mainContainer'}}>	
 			<AwardSection/>
 		</Container>

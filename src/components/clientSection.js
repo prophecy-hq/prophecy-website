@@ -35,7 +35,31 @@ export default function ClientSection() {
     gsap.registerPlugin(ScrollTrigger);
     const ref = useRef(null);
 
+    //======== Background change ==========
 
+    useEffect(() => {
+        var item = document.querySelectorAll('.bgchange');
+
+        const colors = {
+            transparent: 'rgba(0,0,0,0)',
+            white: '#F6F7EB',
+            darkGrey: '#131112'
+        }
+        
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: document.querySelector("#recognition"),
+                start: "top 85%",
+                toggleActions: "play none none reverse",
+                onEnter: () => gsap.to(item, {backgroundColor: colors.darkGrey}),
+                onLeaveBack: () => gsap.to(item, {backgroundColor: colors.white}), 
+            }
+        })
+
+    },[])
+
+
+    // ========= Main animation ==========
 
     useEffect(() => {
         var heading = document.querySelector('#clientSectionHeading');
@@ -43,6 +67,7 @@ export default function ClientSection() {
         var arr =  heading.querySelectorAll('#clientSectionHeading .word > .char, .whitespace');
         var clientsGrid = document.querySelector('#clientsGrid');
         var clientsArr = clientsGrid.querySelectorAll('img');
+
         
         
         const timelineSettings = {
@@ -126,7 +151,7 @@ export default function ClientSection() {
             
         }}>
                 <Styled.h1 id = "clientSectionHeading" data-splitting = "">We bring in experience from startups and established companies.</Styled.h1>
-                <div id = "clientSectionSubheading" sx = {{variant: 'text.bodyLarge', mt: 32}}>Working in healthcare, finance, education and enterprise applications.</div>
+                <div id = "clientSectionSubheading" sx = {{color: 'white', variant: 'text.bodyLarge', mt: 32}}>Working in healthcare, finance, education and enterprise applications.</div>
             </Box>
             
             <Grid id = "clientsGrid" sx = {{variant: 'layouts.responsiveGrid'}} >

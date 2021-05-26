@@ -15,26 +15,24 @@ export default function Work(){
     // =========== BACKGROUND ANIMATION ===========
     
     useEffect(() => {
-        var item = document.querySelectorAll('.bgchange1');
+        var item = document.querySelectorAll('.bgchange');
 
-
+        const colors = {
+            transparent: 'rgba(0,0,0,0)',
+            white: '#F6F7EB',
+            darkGrey: '#131112'
+        }
 
         gsap.timeline({
             scrollTrigger: {
                 trigger: document.querySelector("#team"),
                 start: "top 50%",
-                toggleActions: "play none none reverse"
+                toggleActions: "play none none reverse",
+                onEnter: () => gsap.to(item, {backgroundColor: colors.white}),
+                onLeaveBack: () => gsap.to(item, {backgroundColor: colors.transparent}), 
             }
         })
-        .fromTo(item, {
-            backgroundColor: 'rgba(0,0,0,0)'
-
-        },
-        {
-            backgroundColor: '#F6F7EB',
-            duration: 1,
-            ease: 'Power3.easeOut'
-        })
+        
 
     },[])
 
@@ -85,7 +83,7 @@ export default function Work(){
 return(
     
 
-<Box ref={ref}>
+<Box ref={ref} sx  ={{mb: '50vh'}}>
 <Styled.h1  sx = {{variant: 'layouts.rightContent', marginBottom: '200px'}} className = 'staggerAnimation2' data-splitting = "">
     Prophecy is new, but our team isn’t. Here’s some of our past work.
 </Styled.h1>

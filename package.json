@@ -13,6 +13,7 @@
     "gatsby-image": "^2.10.0",
     "gatsby-plugin-anchor-links": "^1.2.1",
     "gatsby-plugin-google-gtag": "^2.7.0",
+    "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-manifest": "^2.11.0",
     "gatsby-plugin-mdx": "^1.9.0",
     "gatsby-plugin-offline": "^3.9.0",

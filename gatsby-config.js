@@ -22,6 +22,14 @@ module.exports = {
 		`smooth-scrollbar`,
 		`react-smooth-scrollbar`,
 		{
+			resolve: 'gatsby-plugin-mailchimp',
+			options: {
+				endpoint: 'https://akshayverma.us3.list-manage.com/subscribe/post?u=fcc4a008c60b4fc7c9b3cb9fb&amp;id=9bf6a178a3',
+				timeout: '10000',
+			},
+
+		},
+		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
 				name: `images`,
