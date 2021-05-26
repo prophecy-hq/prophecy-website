@@ -6,7 +6,7 @@ export default function CaseStudy(props) {
 
 
         return(
-        <Box sx = {{marginTop: 48}}>
+        <Box sx = {{marginBottom: 48}}>
             <Styled.h1>{props.title}</Styled.h1>
             <Styled.p>{props.description}</Styled.p>
            

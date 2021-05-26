@@ -155,13 +155,19 @@ export default{
         fullContainer: {
             width: '100%',
             paddingTop: 120,
-            paddingBottom: 120
+            paddingBottom: 120,
+
+
         },
         
         mainContainer: {
             width: '90vw',
             maxWidth: 1440,
             margin: '0 auto',
+
+            '@media screen and (max-width: 1024px)': {
+                maxWidth: '768px'
+            },
         },
 
         rightContent: {
@@ -284,9 +290,9 @@ export default{
                 gridTemplateColumns: '1fr 1fr',
                 width: '100%',
                 gridGap: 48,
-                marginLeft: '0',
                 minWidth: '0px',
-                paddingTop: 80
+                paddingTop: 80,
+                margin: '0 auto'
             },
 
         },
@@ -295,6 +301,10 @@ export default{
             flexDirection: 'column', 
             alignItems: 'center', 
             minWidth: '160px',
+
+            '@media screen and (max-width: 1024px)': {
+                minWidth: '0px',
+            },
     
         },
 
@@ -303,6 +313,14 @@ export default{
             gridTemplateColumns: '1fr 1fr',
             gridGap: 48,
             marginLeft: 'auto',
+
+            '@media screen and (max-width: 1024px)': {
+                gridTemplateColumns: '1fr',
+                width: '100%',
+                gridGap: 48,
+                minWidth: '0px',
+                margin: '0 auto'
+            },  
         },
 
 
@@ -320,7 +338,8 @@ export default{
 
             '@media screen and (max-width: 1024px)': {
                 width: '100%',
-                margin: '0 auto'
+                margin: '0 auto',
+                maxWidth: '100%'
             },
     
         },
@@ -334,7 +353,7 @@ export default{
                 width: '100%',
                 margin: '0 auto',
                 height: '30vh',
-                padding: '16px 24px'
+                padding: '48px 120px',
             },
         },
 
@@ -344,7 +363,7 @@ export default{
 
             '@media screen and (max-width: 1024px)': {
                 width: '100%',
-                margin: '0 auto'
+                margin: '0 auto',
             },
         },
 

@@ -70,7 +70,15 @@ export default function NewsSection () {
         
         <Flex ref = {ref} sx = {{variant: 'layouts.responsiveFlex', width: '100%'}}>
 
-                <Box id = "newsSectionHeading" sx = {{width: '30%', mr: '10%'}}>
+                <Box id = "newsSectionHeading" 
+                    sx = {{width: '30%', mr: '10%',
+                    
+                    '@media screen and (max-width: 1024px)': {
+                        width: '100%',
+                        margin: '0 auto',
+                        mb: 80,
+                    },  }}>
+
                     <Styled.h1 data-splitting = "">What we’ve been up to.</Styled.h1>
                 </Box>
 

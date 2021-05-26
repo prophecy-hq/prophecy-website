@@ -147,7 +147,15 @@ export default function AwardSection()  {
 
 
                 <Box sx = {{flex: '1'}}>
-                    <Styled.h1  sx = {{color: 'lightRed',  marginLeft: 'auto', textAlign: 'right', width: '80%'}} id = "awardSectionHeading" data-splitting = "">We’ve also been recognised for it.</Styled.h1>
+                    <Styled.h1  
+                        sx = {{color: 'lightRed',  marginLeft: 'auto', textAlign: 'right', width: '80%',
+                        '@media screen and (max-width: 1024px)': {
+                            width: '100%',
+                            textAlign: 'left',
+                        },   }} 
+                        id = "awardSectionHeading" 
+                        data-splitting = "">
+                    We’ve also been recognised for it.</Styled.h1>
                 </Box>
 
 

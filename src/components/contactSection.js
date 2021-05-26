@@ -14,9 +14,6 @@ export default function ContactSection() {
     gsap.registerPlugin(ScrollTrigger);
     const ref = useRef(null);
 
-
-    /*====== Line Animation =======*/
-
     useEffect(() => {
 
         const element = ref.current;
@@ -26,7 +23,6 @@ export default function ContactSection() {
 
        
         var arr1 = document.querySelectorAll('.staggerContact');
-        // arr1 += arr2;
 
 
 
