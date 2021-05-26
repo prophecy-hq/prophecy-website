@@ -34,7 +34,7 @@ export default function ContactSection() {
             staggerValue: 0.034,
             charsDuration: 1,
             rightDuration: 1,
-            rightStaggerValue: 0.034
+            rightStaggerValue: 0.2
         };
 
         

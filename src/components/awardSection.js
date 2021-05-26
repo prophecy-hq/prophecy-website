@@ -35,7 +35,7 @@ export default function AwardSection()  {
         gsap.timeline({
             scrollTrigger: {
                 trigger: document.querySelector("#awardsGrid"),
-                start: "top 50%",
+                start: "top 30%",
       
             }
         })
@@ -74,7 +74,7 @@ export default function AwardSection()  {
         gsap.timeline({
             scrollTrigger: {
                 trigger: document.querySelector("#awardSectionHeading"),
-                start: "top 90%",
+                start: "top 80%",
             }
         })      
         .set(arr, 

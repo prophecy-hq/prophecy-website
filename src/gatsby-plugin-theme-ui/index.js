@@ -354,6 +354,7 @@ export default{
             height: '70vh',
             padding: '64px 48px',
             flex: '1',
+            paddingBottom: '30vh',
 
             '@media screen and (max-width: 1024px)': {
                 width: '100%',
