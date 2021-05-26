@@ -12,7 +12,7 @@ import Work from '../components/work.js'
 import ClientSection from '../components/clientSection.js'
 import AwardSection from '../components/awardSection.js'
 import NewsSection from '../components/newsSection.js'
-import ContactSection from '../components/contactSection'
+import ContactSection from '../components/contactSection.js'
 import Art from '../components/art.js'
 
 const IndexPage = () => (
