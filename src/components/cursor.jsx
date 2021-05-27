@@ -1,82 +1,130 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Triangle } from 'three';
 
-const Cursor = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [hidden, setHidden] = useState(false);
-  const [click, setClick] = useState(false);
-  const [linkHover, setLinkHover] = useState(false);
+class Cursor extends React.Component {
 
-  useEffect(() => {
-    const addEventListeners = () => {
-      document.addEventListener('mousemove',mMove);
-      document.addEventListener('mouseenter', mEnter);
-      document.addEventListener('mouseleave', mLeave);
-      document.addEventListener('mousedown', mDown);
-      document.addEventListener('mouseup', mUp);
+  constructor() {
+    super();
+
+    this.state = {
+      mouseX: 0,
+      mouseY: 0,
+      hidden: false,
+      trailingX: 0,
+      trailingY: 0,
+      click: false,
+      linkHover: false,
     };
 
-    const removeEventListeners = () => {
-      document.removeEventListener('mousemove', mMove);
-      document.removeEventListener('mouseenter', mEnter);
-      document.removeEventListener('mouseleave', mLeave);
-      document.removeEventListener('mousedown', mDown);
-      document.removeEventListener('mouseup', mUp);
-    };
+    this.cursorTrailing = React.createRef();
+    this.animationFrame = null;
+  // const [position, setPosition] = useState({ x: 0, y: 0 });
+  // const [hidden, setHidden] = useState(false);
+  // const [click, setClick] = useState(false);
+  // const [linkHover, setLinkHover] = useState(false);
+  // const [trailing, setTrailing] = useState({x: 0, y: 0});
 
-    const mMove = (el) => {
-      setPosition({ x: el.clientX, y: el.clientY });
-    };
+  }
 
-    const mLeave = () => {
-        setHidden(true);
-    };
-  
-    const mEnter = () => {
-        setHidden(false);
-    };
+  componentDidMount() {
+    document.addEventListener('mousemove',this.mMove);
+    document.addEventListener('mouseenter', this.mEnter);
+    document.addEventListener('mouseleave', this.mLeave);
+    document.addEventListener('mousedown', this.mDown);
+    document.addEventListener('mouseup', this.mUp);
 
-    const mDown = () => {
-        setClick(true);
-      };
-  
-      const mUp = () => {
-        setClick(false);
-      };
-
-    const addLinkEvents = () => {
     document.querySelectorAll('a').forEach((el) => {
-        el.addEventListener('mouseover', () => setLinkHover(true));
-        el.addEventListener('mouseout', () => setLinkHover(false));
-    });
-    document.querySelectorAll('button').forEach((el) => {
-        el.addEventListener('mouseover', () => setLinkHover(true));
-        el.addEventListener('mouseout', () => setLinkHover(false));
-    });
+      el.addEventListener('mouseover', () => this.setState({linkHover: true}));
+      el.addEventListener('mouseout', () => this.setState({linkHover: false}));
+  });
+
+    this.moveCursor();
+  }
+
+  componentWillUnmount(){
+    document.removeEventListener('mousemove', this.mMove);
+    document.removeEventListener('mouseenter', this.mEnter);
+    document.removeEventListener('mouseleave', this.mLeave);
+    document.removeEventListener('mousedown', this.mDown);
+    document.removeEventListener('mouseup', this.mUp);
+  }
+
+
+     mMove = (el) => {
+      let { clientX, clientY } = el;
+      this.setState({
+        mouseX: clientX,
+        mouseY: clientY,
+      });
     };
 
-    addEventListeners();
-    addLinkEvents();
-      
+     mLeave = () => {
+      this.setState({
+       hidden: true,
+      });
+    };
   
-    return () => removeEventListeners();
-  }, []);
+     mEnter = () => {
+      this.setState({
+        hidden: false,
+      })
+    };
 
+     mDown = () => {
+      this.setState({
+        click: true
+      });
+      };
+  
+     mUp = () => {
+      this.setState({
+       click: false
+      });
+      };
 
-  return (
-    <div
-      className={
-        'cursor'+
-      (hidden ? 'c--hidden ' : ' ') + 
-      (click ? 'c--clicked' : ' ') +
-      (linkHover ? 'c--hover ' : ' ')
-    }
+     moveCursor = () => {
+        const mouseX = this.state.mouseX; 
+        const mouseY = this.state.mouseY;
+        const trailingX = this.state.trailingX;
+        const trailingY = this.state.trailingY;
+
+        const diffX = mouseX - trailingX;
+        const diffY = mouseY - trailingY;
       
-      style={{
-        left: `${position.x}px`,
-        top: `${position.y}px`,
-      }}
-    />
-  );
+        //  Number in expression is coeficient of the delay. 10 for example. You can play with it. 
+        this.setState({
+          trailingX: trailingX + diffX / 10,
+          trailingY: trailingY + diffY / 10,
+        },() => {
+          // Using refs and transform for better performance.
+            let x = this.state.trailingX-40;
+            let y = this.state.trailingY-40;
+            this.cursorTrailing.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+            this.animationFrame = requestAnimationFrame(this.moveCursor);
+            console.log(this.state.trailingX, this.state.mouseX)
+          });
+    }
+
+      // moveCursor();
+    // animationFrame = requestAnimationFrame(moveCursor);
+  
+  render = () => {
+
+    return (
+      <div ref={this.cursorTrailing}
+        className={
+          'cursor'+
+        (this.state.hidden ? 'c--hidden ' : ' ') + 
+        (this.state.click ? 'c--clicked' : ' ') +
+        (this.state.linkHover ? 'c--hover ' : ' ')
+      }
+        
+        // style={{
+        //   left: `${position.x}px`,
+        //   top: `${position.y}px`,
+        // }}
+      />
+    )};
 };
 
 export default Cursor;

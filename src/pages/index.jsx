@@ -6,6 +6,8 @@ import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import Art from '../components/art.js'
+import Cursor from '../components/cursor'
 import FirstFold from '../components/firstFold.js'
 import SecondFold from '../components/secondFold.js'
 import Work from '../components/work.js'
@@ -13,8 +15,7 @@ import ClientSection from '../components/clientSection.js'
 import AwardSection from '../components/awardSection.js'
 import NewsSection from '../components/newsSection.js'
 import ContactSection from '../components/contactSection.js'
-import Art from '../components/art.js'
-import Cursor from '../components/cursor'
+
 import '../styles/cursor.css'
 
 const IndexPage = () => (
