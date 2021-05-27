@@ -53,7 +53,7 @@ export default function Cursor (){
         });
 
 
-          };
+        };
       
           addEventListeners();
           addLinkEvents();
