@@ -9,7 +9,7 @@
     z-index: 9999;
     opacity: 1;
     mix-blend-mode: difference;
-    transition: all 100ms ease-out;
+    transition: all 200ms ease-out;
     transition-property: opacity, background-color, transform;
 }
 
@@ -26,4 +26,5 @@
 
  .c--hover{
     transform: translate(-50%, -50%) scale(1.25);
+    background-color: #F6F7EB;
  }

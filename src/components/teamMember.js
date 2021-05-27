@@ -166,7 +166,6 @@ export default function TeamMember(props) {
         const element = ref.current;
         var text = document.querySelector('#workFoldRight1');
         var arr =  text.querySelectorAll('#workFoldRight1 > div');
-        console.log(arr);
 
         const timeline = gsap.timeline({
             scrollTrigger: {
@@ -204,7 +203,6 @@ export default function TeamMember(props) {
         const element = ref.current;
         var text = document.querySelector('#workFoldRight2');
         var arr =  text.querySelectorAll('#workFoldRight2 > div');
-        console.log(arr);
 
         const timeline = gsap.timeline({
             scrollTrigger: {
@@ -242,7 +240,6 @@ export default function TeamMember(props) {
         const element = ref.current;
         var text = document.querySelector('#workFoldRight3');
         var arr =  text.querySelectorAll('#workFoldRight3 > div');
-        console.log(arr);
 
         const timeline = gsap.timeline({
             scrollTrigger: {
