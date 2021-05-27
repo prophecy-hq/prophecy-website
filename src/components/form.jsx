@@ -2,6 +2,7 @@
 import {jsx, Box, Styled, Flex, Button, Spinner, Input } from 'theme-ui';
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 import React from 'react';
+import 'animate.css/animate.css';
 
 
 
@@ -14,6 +15,13 @@ export default class Form extends React.Component {
 
       _handleSubmit = async e => {
         e.preventDefault() 
+
+        this.setState({fade: true})  
+
+        this.setState({result: result})
+        setTimeout(() => {
+            this.setState({fade: false})
+          }, 2000)
         const result = await addToMailchimp(this.state.email)
         console.log(result);
 

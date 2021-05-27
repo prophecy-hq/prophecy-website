@@ -1,0 +1,29 @@
+.cursor {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #F6F7EB;
+    border-radius: 100%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 1;
+    mix-blend-mode: difference;
+    transition: all 100ms ease-out;
+    transition-property: opacity, background-color, transform;
+}
+
+
+.c--hidden {
+    opacity: 0;
+ }
+
+ .c--clicked {
+    transform: translate(-50%, -50%) scale(0.9);
+   background-color: #F6F7EB;
+   opacity: 0.9;
+ }
+
+ .c--hover{
+    transform: translate(-50%, -50%) scale(1.25);
+ }

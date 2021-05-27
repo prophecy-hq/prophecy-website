@@ -14,20 +14,25 @@ import AwardSection from '../components/awardSection.js'
 import NewsSection from '../components/newsSection.js'
 import ContactSection from '../components/contactSection.js'
 import Art from '../components/art.js'
+import Cursor from '../components/cursor'
+import '../styles/cursor.css'
 
 const IndexPage = () => (
 	<Layout>
+
 		<SEO title="Home" />
-
-
+		
+	
+	<Cursor />
 
 	<Container id = "canvas" className = "bgchange" sx = {{variant: 'layouts.fullContainer', backgroundColor: 'rgba(0,0,0,0)', paddingBottom: '20vw'}}>
-		<div sx = {{variant: 'layouts.canvas'}}><Art /></div>
+		<div id = "art" sx = {{variant: 'layouts.canvas'}}><Art /></div>
 		<Container sx = {{variant: 'layouts.mainContainer'}}>
 			<FirstFold />
 			<SecondFold />
 		</Container>
 	</Container>
+
 
 		
 	<Container id = "team" className = "bgchange" sx = {{variant: 'layouts.fullContainer', backgroundColor: 'rgba(0,0,0,0)', paddingTop: '20vw'}}>
