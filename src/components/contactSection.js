@@ -94,11 +94,6 @@ export default function ContactSection() {
 
 
 
-
-
-
-
-
     return(
         <Flex sx = {{height: '100vh',color: 'darkGrey', alignItems: 'center'}}>
             <Flex ref = {ref} sx = {{variant: 'layouts.responsiveFlex', width: '100%'}}>
@@ -123,11 +118,11 @@ export default function ContactSection() {
                 
                 <Box className = "staggerContact">
                     <Box><Styled.h1 sx = {{mb: 24}}>hello@prophecy.one</Styled.h1></Box>
-                            {/* <div 
+                            {/* <span 
                                 sx = {{variant: 'layouts.link'}}  
                                 onClick = {() => {navigator.clipboard.writeText('hello@prophecy.one')}}>
                                     Copy
-                            </div> */}
+                            </span> */}
                     
 
                     <Box sx = {{variant: 'text.bodyLarge', mb: 96}}>
@@ -137,15 +132,20 @@ export default function ContactSection() {
 
                 <Flex sx = {{variant: 'layouts.responsiveFlex'}}>
 
-                    <Box className = "staggerContact" sx = {{mr: 80}}>
-                        <Styled.h3>Sign up to our newsletter</Styled.h3>
+                    <Box className = "staggerContact" sx = {{mr: 80,
+                      '@media screen and (max-width: 1024px)': {
+                        pb: 80,
+                        },
+                     }}
+                    >
+                        <Styled.h3 sx = {{mb: 16}}>Sign up to our newsletter</Styled.h3>
                         <Form />
                     </Box>
 
                     <Flex className = "staggerContact" sx = {{flexDirection: 'column'}}>
-                        <Styled.h3>Follow us</Styled.h3>
-                        <Link sx ={{variant: 'text.bodyLarge'}} href = "https://twitter.com/prophecy_hq" target="_blank">Twitter</Link>
-                        <Link sx ={{variant: 'text.bodyLarge'}} href = "https://www.linkedin.com/company/69346346/" target="_blank">LinkedIn</Link>    
+                        <Styled.h3 sx = {{mb: 16}}>Follow us</Styled.h3>
+                        <Link sx ={{variant: 'layouts.link', mb: '16px', fontSize: [21,24]}} href = "https://twitter.com/prophecy_hq" target="_blank">Twitter</Link>
+                        <Link sx ={{variant: 'layouts.link',  fontSize: [21,24]}} href = "https://www.linkedin.com/company/69346346/" target="_blank">LinkedIn</Link>    
                     </Flex>
 
                 </Flex>

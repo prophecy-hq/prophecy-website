@@ -54,16 +54,28 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   border: none;
-  border-radius: 12px;
   /* -webkit-text-fill-color: #141414;  */
   -webkit-box-shadow: 0 0 0px 1000px rgba(0,0,0,0) inset;
   transition: background-color 5000s ease-in-out 0s;
 }
 
 ::selection {
-	background: rgba(255, 255, 255, 0.99); /* WebKit/Blink Browsers */
+	background: rgba(255, 255, 255, 0.99); 
+	mix-blend-mode: difference;
+	/* WebKit/Blink Browsers */
 }
 
 ::-moz-selection {
-	background: rgba(255, 255, 255, 0.99); /* Gecko Browsers */
+	background: rgba(255, 255, 255, 0.99);
+	mix-blend-mode: difference;
 }
+
+
+input:focus, textarea:focus, select:focus{
+	outline: none;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #131112;
+	opacity: 1; 
+  }

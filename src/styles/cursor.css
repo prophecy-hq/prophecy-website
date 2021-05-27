@@ -2,13 +2,16 @@
     width: 80px;
     height: 80px;
     border: 1px solid #F6F7EB;
+    background-color: rgba(0,0,0,0);
     border-radius: 100%;
+    top: 0;
+    left: 0;
     position: fixed;
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: 9999;
     opacity: 1;
-    mix-blend-mode: difference;
+    mix-blend-mode: normal;
     transition: all 200ms ease-out;
     transition-property: opacity, background-color, transform;
 }
@@ -19,12 +22,16 @@
  }
 
  .c--clicked {
-    transform: translate(-50%, -50%) scale(0.9);
-   background-color: #F6F7EB;
-   opacity: 0.9;
+   transform: translate(-50%, -50%) scale(0.8);
+   opacity: 0.8;
  }
 
  .c--hover{
-    transform: translate(-50%, -50%) scale(1.25);
+    transform: translate(-50%, -50%) scale(1.2);
     background-color: #F6F7EB;
+    mix-blend-mode: difference;
  }
+
+ /* html, body{
+    cursor: none; 
+ } */

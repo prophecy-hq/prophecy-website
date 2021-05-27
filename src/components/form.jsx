@@ -1,8 +1,9 @@
 /** @jsx jsx */
-import {jsx, Box, Styled, Flex, Button, Spinner, Input } from 'theme-ui';
+import {jsx, Box, Styled, Flex, Button, Input } from 'theme-ui';
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 import React from 'react';
 import 'animate.css/animate.css';
+import '../styles/fade.css'
 
 
 
@@ -10,22 +11,32 @@ export default class Form extends React.Component {
 
     constructor() {
         super()
-        this.state = { email: "", result: null, spin: false, fade: false }
+        this.state = { email: "", result: null, visible: false }
       }
 
       _handleSubmit = async e => {
         e.preventDefault() 
 
-        this.setState({fade: true})  
+
+        const result = await addToMailchimp(this.state.email)
 
         this.setState({result: result})
+
+        this.setState({visible: true}) 
+
+        console.log(this.state.visible)
+
         setTimeout(() => {
-            this.setState({fade: false})
+            this.setState({visible: false})
           }, 2000)
-        const result = await addToMailchimp(this.state.email)
-        console.log(result);
+
+          console.log(result);
+          console.log(this.state.visible)
 
       }
+
+     
+
     handleChange = event => {
         this.setState({ email: event.target.value })
       }
@@ -48,14 +59,16 @@ export default class Form extends React.Component {
                     </Flex>
                 </form>
 
-                {/* <p sx = {{variant: 'text.caption'}} className = {this.state.fade ? styles.fadein : styles.fadeout}>
+                <p sx = {{variant: 'text.caption', mt: '16px'}} 
+                    className = {this.state.visible ? 'fadein' : 'fadeout'}>
+
                             {this.state.result != null 
                             ? this.state.result === "success"
                                 ? 'Signed up successfully' 
                                 :  this.state.result.msg 
                             : '' }
-                        
-                </p> */}
+                    
+                </p>
             </Box>
         )
     }

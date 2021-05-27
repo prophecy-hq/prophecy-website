@@ -51,6 +51,16 @@ export default{
             fontWeight: 'medium',
         },
 
+        caption: {
+            fontSize: [14,16],
+            fontFamily: 'prophecy',
+            fontWeight: 'light',
+            lineHeight: 'body',
+            width: '20vw',
+			minWidth: '300px',
+            maxWidth: '360px',
+        },
+
         awardDescription: {
             fontFamily: 'prophecy',
             fontWeight: 'light',
@@ -97,30 +107,28 @@ export default{
 
 
     space: [0, 4, 8, 16, 32, 64, 72, 80, 96, 128, 160, 200, 256, 512, 1440],
-	sizes: [4, 8, 16, 20, 24, 32, 40, 48, 56, 64, 72],
+	sizes: [4, 8, 12, 14 ,16, 20, 24, 32, 40, 48, 56, 64, 72],
 
     forms: {
+
 		input: {
-			height: 40,
 			padding: 1,
-			flexGrow: '2',
+			// flexGrow: '2',
             width: '20vw',
 			minWidth: '300px',
             maxWidth: '360px',
 			border: 'none',
 			backgroundColor: 'rgba(0,0,0,0)',
 			marginLeft: 2,
-            height: 48
-            
-
+            height: 48,  
 		},
 
 		contactForm: {
 			borderRadius: '0px',
 			backgroundColor: 'rgba(0,0,0,0.08)',
 			position: 'relative',
+            width: 'fit-content',
 			marginLeft: '-12px',
-
 		},
 	},
 
@@ -139,10 +147,10 @@ export default{
 
 			transition: '0.3s',
 
-			'&:hover': {
-				backgroundImage: 'url("/arrow-black.svg")',
-				backgroundColor: 'white',
-			},
+			// '&:hover': {
+			// 	backgroundImage: 'url("/arrow-black.svg")',
+			// 	backgroundColor: 'white',
+			// },
 		},
 	},
 
@@ -154,16 +162,13 @@ export default{
 
         fullContainer: {
             width: '100%',
-            paddingTop: 120,
-            paddingBottom: 120,
-
-
         },
         
         mainContainer: {
             width: '90vw',
             maxWidth: 1440,
             margin: '0 auto',
+            paddingBottom: '20vh',
 
             '@media screen and (max-width: 1024px)': {
                 maxWidth: '768px'
@@ -209,11 +214,11 @@ export default{
             cursor: 'pointer',
             textDecoration: 'none',
             color: 'darkGrey',
+            fontStyle: 'italic',
             // display: 'block',
             width: 'fit-content',
             transition: '0.2s',
             fontFamily: 'prophecy',
-            fontSize: 16,
             '&::after': {
                 border: '1px solid',
                 color: 'darkGrey',
@@ -394,7 +399,6 @@ export default{
 			width: 'fit-content',
 			transition: '0.2s',
             fontFamily: 'prophecy',
-            fontSize: 16,
             '&::after': {
 				border: '1px solid',
                 color: 'darkGrey',

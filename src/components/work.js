@@ -12,10 +12,13 @@ export default function Work(){
     const ref = useRef(null);
 
 
-    // =========== BACKGROUND ANIMATION ===========
+    // =========== BACKGROUND & CURSOR ANIMATION ===========
     
     useEffect(() => {
         var item = document.querySelectorAll('.bgchange');
+        var cursor = document.querySelector('.cursor');
+        var cClicked = document.querySelectorAll('.c--clicked');
+        var cHover = document.querySelectorAll('.c--hover');
 
         const colors = {
             transparent: 'rgba(0,0,0,0)',
@@ -28,10 +31,15 @@ export default function Work(){
                 trigger: document.querySelector("#team"),
                 start: "top 50%",
                 toggleActions: "play none none reverse",
-                onEnter: () => gsap.to(item, {backgroundColor: colors.white}),
-                onLeaveBack: () => gsap.to(item, {backgroundColor: colors.transparent}), 
+                onEnter: () => {gsap.to(item, {backgroundColor: colors.white})
+                                gsap.to(cursor, {borderColor: colors.darkGrey}) },
+                                
+                onLeaveBack: () => {gsap.to(item, {backgroundColor: colors.transparent})
+                                     gsap.to(cursor, {borderColor: colors.white})}, 
             }
         })
+
+        
         
 
     },[])
@@ -83,7 +91,7 @@ export default function Work(){
 return(
     
 
-<Box ref={ref} sx  ={{mb: '50vh'}}>
+<Box ref={ref} >
 <Styled.h1  sx = {{variant: 'layouts.rightContent', marginBottom: '200px'}} className = 'staggerAnimation2' data-splitting = "">
     Prophecy is new, but our team isn’t. Here’s some of our past work.
 </Styled.h1>

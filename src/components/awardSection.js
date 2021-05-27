@@ -97,7 +97,7 @@ export default function AwardSection()  {
 
     return(
             
-       <Flex sx ={{height: '100vh', alignItems: 'center', mb: '30vh'}}>
+       <Flex sx ={{height: '100vh', alignItems: 'center'}}>
        
         <Flex sx = {{alignItems: 'flex-end', justifyContent: 'space-between', width: '100%',
             '@media screen and (max-width: 1024px)': {

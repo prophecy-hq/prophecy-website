@@ -59,15 +59,15 @@ class Cursor extends React.Component {
     };
 
      mLeave = () => {
-      this.setState({
-       hidden: true,
-      });
+      // this.setState({
+      //  hidden: true,
+      // });
     };
   
      mEnter = () => {
-      this.setState({
-        hidden: false,
-      })
+      // this.setState({
+      //   hidden: false,
+      // })
     };
 
      mDown = () => {

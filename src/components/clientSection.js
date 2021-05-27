@@ -35,10 +35,13 @@ export default function ClientSection() {
     gsap.registerPlugin(ScrollTrigger);
     const ref = useRef(null);
 
-    //======== Background change ==========
+    //======== Background and cursor change ==========
 
     useEffect(() => {
         var item = document.querySelectorAll('.bgchange');
+        var cursor = document.querySelector('.cursor');
+        var cClicked = document.querySelectorAll('.c--clicked');
+        var cHover = document.querySelectorAll('.c--hover');
 
         const colors = {
             transparent: 'rgba(0,0,0,0)',
@@ -51,8 +54,12 @@ export default function ClientSection() {
                 trigger: document.querySelector("#recognition"),
                 start: "top 85%",
                 toggleActions: "play none none reverse",
-                onEnter: () => gsap.to(item, {backgroundColor: colors.darkGrey}),
-                onLeaveBack: () => gsap.to(item, {backgroundColor: colors.white}), 
+
+                onEnter: () => {gsap.to(item, {backgroundColor: colors.darkGrey})
+                                gsap.to(cursor, {borderColor: colors.white})},
+
+                onLeaveBack: () => {gsap.to(item, {backgroundColor: colors.white})
+                                    gsap.to(cursor, {borderColor: colors.darkGrey})}, 
             }
         })
 
