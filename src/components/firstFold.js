@@ -2,9 +2,9 @@
 /** @jsx jsx */
 import { jsx, Styled, Box} from 'theme-ui';
 import {useRef, useEffect} from 'react';
-import "splitting/dist/splitting.css";
-import "splitting/dist/splitting-cells.css";
-import Splitting from "splitting";
+import "../splitting/dist/splitting.css";
+import "../splitting/dist/splitting-cells.css";
+import Splitting from "../splitting/dist/splitting";
 import { gsap } from 'gsap';
 
 

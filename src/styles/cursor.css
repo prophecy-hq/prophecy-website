@@ -22,12 +22,12 @@
  }
 
  .c--clicked {
-   transform: translate(-50%, -50%) scale(0.8);
+   /* transform: translate(-50%, -50%) scale(0.8); */
    opacity: 0.8;
  }
 
  .c--hover{
-    transform: translate(-50%, -50%) scale(1.2);
+    /* transform: translate(-50%, -50%) scale(1.2); */
     background-color: #F6F7EB;
     mix-blend-mode: difference;
  }

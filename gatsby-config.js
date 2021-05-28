@@ -14,10 +14,8 @@ module.exports = {
 		`gatsby-transformer-sharp`,
 		`three`,
 		`react-dom`,
-		`react-scroll`,
 		`gatsby-plugin-anchor-links`,
-		`splitting`,
-		`animate.css`,
+		`gh-pages`,
 		{
 			resolve: 'gatsby-plugin-mailchimp',
 			options: {
