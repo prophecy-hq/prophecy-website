@@ -19,8 +19,8 @@ export default function FirstFold() {
          let splitRes = Splitting(ref);
         }
 
-
-        var text = document.querySelector('.staggerAnimation');
+        const element = ref.current;
+        var text = element.querySelector('.staggerAnimation');
         var arr =  text.querySelectorAll('.staggerAnimation .word > .char, .whitespace');
     
         const timeline = gsap.timeline();
@@ -33,18 +33,17 @@ export default function FirstFold() {
         timeline.set(arr, 
             {
                 y: '80%',
-                opacity: 0 ,
-                overflow: 'hidden'
+                opacity: 0,
             })
     
-        timeline.staggerTo(arr, timelineSettings.charsDuration, 
+        timeline.to(arr, timelineSettings.charsDuration, 
             {
                 ease: 'Power3.easeOut',
                 y: '0%',
                 opacity: 1,
-                overflow: 'visible'
+                stagger: timelineSettings.staggerValue
             },
-            timelineSettings.staggerValue, 'start')
+            'start')
     
         timeline.play();
 
@@ -54,10 +53,10 @@ export default function FirstFold() {
 
 
 return(
-        <Box sx = {{height: '100vh', color: 'white'}}>
+        <Box ref = {ref} sx = {{height: '100vh', color: 'white'}}>
          
             
-            <Styled.h1 ref = {ref} data-splitting = ""
+            <Styled.h1  data-splitting = ""
             
                 className = "staggerAnimation"
                 sx = {{variant: 'layouts.rightContent', marginTop: '80px', color: 'lightRed'}}>

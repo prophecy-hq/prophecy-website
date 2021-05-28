@@ -555,7 +555,7 @@ function render(){
 
 // render();
 
-animate();
+start();
 
 
 // ================= EVENT HANDLING =================
@@ -592,17 +592,21 @@ function onMouseWheel(event) {
     
   }
 
-//   const start = () => {
-//     if (!frameId) {
-//       frameId = requestAnimationFrame(animate)
-//     }
-//   }
+  function start  () {
+    if (!frameId) {
+      frameId = requestAnimationFrame(animate)
+    }
+  }
 
 //   start();
-//   const stop = () => {
-//     cancelAnimationFrame(frameId)
-//     frameId = null
-//   }
+  function stop (){
+    cancelAnimationFrame(frameId)
+    frameId = null
+  }
+
+  return () => {
+    stop();
+  }
 
 },[])
 

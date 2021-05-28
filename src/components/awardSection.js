@@ -21,8 +21,9 @@ export default function AwardSection()  {
     // ========== Grid animation ==========
 
     useEffect(() => {
-      
-        var awardsGrid = document.querySelector('#awardsGrid');
+        
+        const element = ref.current;
+        var awardsGrid = element.querySelector('#awardsGrid');
         var awardsArr = awardsGrid.querySelectorAll('div');
    
         
@@ -83,12 +84,13 @@ export default function AwardSection()  {
                 opacity: 0,
             }
         )
-        .staggerTo(arr, timelineSettings.charsDuration, 
+        .to(arr, timelineSettings.charsDuration, 
             {
                 ease: 'Power3.easeOut',
                 y: '0%',
                 opacity: 1,
-            },timelineSettings.staggerValue)
+                stagger: timelineSettings.staggerValue
+            })
         
    
             
@@ -97,15 +99,15 @@ export default function AwardSection()  {
 
     return(
             
-       <Flex sx ={{height: '100vh', alignItems: 'center'}}>
+       <Flex sx ={{variant: 'layouts.fullHeightFlex'}}>
        
-        <Flex sx = {{alignItems: 'flex-end', justifyContent: 'space-between', width: '100%',
+        <Flex ref = {ref} sx = {{alignItems: 'flex-end', justifyContent: 'space-between', width: '100%',
             '@media screen and (max-width: 1024px)': {
                 flexDirection: 'column-reverse',
             },}}>
 
                 
-                <Grid ref = {ref} id = "awardsGrid" columns={[2, '1fr 1fr']} sx = {{variant: 'layouts.awardsGrid'}}>
+                <Grid id = "awardsGrid" columns={[2, '1fr 1fr']} sx = {{variant: 'layouts.awardsGrid'}}>
                 
                     <Flex sx = {{variant: 'layouts.awardsGridItem'}} >
                         

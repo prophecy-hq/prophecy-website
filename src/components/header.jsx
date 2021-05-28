@@ -14,9 +14,9 @@ const Header = ({ siteTitle }) => (
 
 		
 			<ul sx = {{variant: 'layouts.navbar'}}>
-				<AnchorLink sx = {{variant: 'layouts.link', fontSize: [16,18]}} to = "/#team">Team</AnchorLink>
-				<AnchorLink sx = {{variant: 'layouts.link', fontSize: [16,18]}} to = "/#recognition">Recognition</AnchorLink>
-				<AnchorLink sx = {{variant: 'layouts.link', fontSize: [16,18]}} to = "/#contact">Contact</AnchorLink>
+				<AnchorLink sx = {{variant: 'layouts.link', fontStyle: 'italic', fontSize: [16,18]}} to = "/#team">Team</AnchorLink>
+				<AnchorLink sx = {{variant: 'layouts.link', fontStyle: 'italic', fontSize: [16,18]}} to = "/#recognition">Recognition</AnchorLink>
+				<AnchorLink sx = {{variant: 'layouts.link', fontStyle: 'italic', fontSize: [16,18]}} to = "/#contact">Contact</AnchorLink>
 
 				{/* <Styled.a href = "/#team">Team</Styled.a>
 				<Styled.a href = "/#recognition">Recognition</Styled.a>

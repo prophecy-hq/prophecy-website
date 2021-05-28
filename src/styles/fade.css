@@ -9,6 +9,13 @@
     /* animation: fadeOut 0.3s linear; */
 }
 
+.hide {
+    display: none;
+}
+
+.show {
+    visibility: visible;
+}
 /* @keyframes fadeIn {
     0% { opacity: 0 }
     100% { opacity: 1 }

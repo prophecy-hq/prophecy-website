@@ -53,25 +53,27 @@ export default function ContactSection() {
         })
       
         //Heading
-        .staggerTo(arr, timelineSettings.charsDuration, 
+        .to(arr, timelineSettings.charsDuration, 
             {
                 ease: 'Power3.easeOut',
                 y: '0%',
                 opacity: 1,
+                stagger: timelineSettings.staggerValue,
             },
-            timelineSettings.staggerValue, 'start')
+             'start')
 
         //Line
         .add(createLineTween(line), ">-0.5")
 
 
         //Right side
-        .staggerTo(arr1, timelineSettings.rightDuration,
+        .to(arr1, timelineSettings.rightDuration,
             {
                 ease: 'Power3.easeOut',
                 y: '0%',
                 opacity: 1,
-            }, timelineSettings.rightStaggerValue, ">-0.2")
+                stagger:  timelineSettings.rightStaggerValue,
+            }, ">-0.2")
 
     },[])
 
@@ -95,7 +97,7 @@ export default function ContactSection() {
 
 
     return(
-        <Flex sx = {{height: '100vh',color: 'darkGrey', alignItems: 'center'}}>
+        <Flex sx = {{variant: 'layouts.fullHeightFlex',color: 'darkGrey'}}>
             <Flex ref = {ref} sx = {{variant: 'layouts.responsiveFlex', width: '100%'}}>
 
             
@@ -144,8 +146,8 @@ export default function ContactSection() {
 
                     <Flex className = "staggerContact" sx = {{flexDirection: 'column'}}>
                         <Styled.h3 sx = {{mb: 16}}>Follow us</Styled.h3>
-                        <Link sx ={{variant: 'layouts.link', mb: '16px', fontSize: [21,24]}} href = "https://twitter.com/prophecy_hq" target="_blank">Twitter</Link>
-                        <Link sx ={{variant: 'layouts.link',  fontSize: [21,24]}} href = "https://www.linkedin.com/company/69346346/" target="_blank">LinkedIn</Link>    
+                        <Link sx ={{variant: 'layouts.link', mb: '16px', fontStyle: 'italic', fontSize: [21,24]}} href = "https://twitter.com/prophecy_hq" target="_blank">Twitter</Link>
+                        <Link sx ={{variant: 'layouts.link', fontStyle: 'italic',  fontSize: [21,24]}} href = "https://www.linkedin.com/company/69346346/" target="_blank">LinkedIn</Link>    
                     </Flex>
 
                 </Flex>

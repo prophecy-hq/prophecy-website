@@ -40,8 +40,6 @@ export default function ClientSection() {
     useEffect(() => {
         var item = document.querySelectorAll('.bgchange');
         var cursor = document.querySelector('.cursor');
-        var cClicked = document.querySelectorAll('.c--clicked');
-        var cHover = document.querySelectorAll('.c--hover');
 
         const colors = {
             transparent: 'rgba(0,0,0,0)',
@@ -69,10 +67,11 @@ export default function ClientSection() {
     // ========= Main animation ==========
 
     useEffect(() => {
-        var heading = document.querySelector('#clientSectionHeading');
-        var subheading = document.querySelector('#clientSectionSubheading');
+        const element = ref.current;
+        var heading = element.querySelector('#clientSectionHeading');
+        var subheading = element.querySelector('#clientSectionSubheading');
         var arr =  heading.querySelectorAll('#clientSectionHeading .word > .char, .whitespace');
-        var clientsGrid = document.querySelector('#clientsGrid');
+        var clientsGrid = element.querySelector('#clientsGrid');
         var clientsArr = clientsGrid.querySelectorAll('img');
 
         
@@ -107,13 +106,14 @@ export default function ClientSection() {
 
     // ========== Heading animation ==========
 
-        .staggerTo(arr, timelineSettings.charsDuration, 
+        .to(arr, timelineSettings.charsDuration, 
             {
                 ease: 'Power3.easeOut',
                 y: '0%',
                 opacity: 1,
+                stagger: timelineSettings.staggerValue,
             },
-            timelineSettings.staggerValue, 'start')
+             'start')
 
 
     // ========== Subheading animation ==========
@@ -133,11 +133,12 @@ export default function ClientSection() {
 
         // ========== Clients animation ==========
 
-        .staggerTo(clientsArr,timelineSettings.clientsDuration,
+        .to(clientsArr,timelineSettings.clientsDuration,
              {
                 ease: 'Power3.easeOut',
                 opacity: 1,
-            }, timelineSettings.clientsStaggerValue,'<+0.4')
+                stagger: timelineSettings.clientsStaggerValue
+            },'<+0.4')
 
 
     },[])
@@ -147,7 +148,7 @@ export default function ClientSection() {
 
     return(
             
-        <Flex ref = {ref} sx = {{ height: '100vh', color: 'lightRed', alignItems: 'center' }}>
+        <Flex ref = {ref} sx = {{ variant: 'layouts.fullHeightFlex', color: 'lightRed'}}>
             <Flex sx ={{alignItems: 'top', variant: 'layouts.responsiveFlex'
         }}>
 

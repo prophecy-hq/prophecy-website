@@ -32,7 +32,9 @@ const IndexPage = () => (
 	<Container id = "canvas" className = "bgchange" sx = {{variant: 'layouts.fullContainer'}}>
 		
 
-		<div id = "art" sx = {{variant: 'layouts.canvas'}}><Art /></div>
+		<div id = "art"  sx = {{variant: 'layouts.canvas'}} >
+			<Art />
+		</div>
 
 		<Container sx = {{variant: 'layouts.mainContainer'}}>
 			<FirstFold />

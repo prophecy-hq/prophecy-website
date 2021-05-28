@@ -9,7 +9,7 @@ export default{
         darkGrey: '#131112',
         red: '#F54936',
         lightRed: '#FDCCC4',
-        // background: '#F6F7EB',
+        background: '#131112',
         white: '#F6F7EB',
         orange: '#FF725C',
         highlight: '#fff'
@@ -209,12 +209,16 @@ export default{
 
         },
 
+        fullHeightFlex: {
+            height: '100vh', 
+            alignItems: 'center'
+        },
+
         link: {
     
             cursor: 'pointer',
             textDecoration: 'none',
             color: 'darkGrey',
-            fontStyle: 'italic',
             // display: 'block',
             width: 'fit-content',
             transition: '0.2s',

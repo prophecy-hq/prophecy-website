@@ -6,10 +6,12 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
+
 export default function Work(){
 
     gsap.registerPlugin(ScrollTrigger);
     const ref = useRef(null);
+
 
 
     // =========== BACKGROUND & CURSOR ANIMATION ===========
@@ -17,8 +19,19 @@ export default function Work(){
     useEffect(() => {
         var item = document.querySelectorAll('.bgchange');
         var cursor = document.querySelector('.cursor');
-        var cClicked = document.querySelectorAll('.c--clicked');
-        var cHover = document.querySelectorAll('.c--hover');
+
+        const element = ref.current;
+        var text = element.querySelector('.staggerAnimation2');
+        var arr =  text.querySelectorAll('.staggerAnimation2 .word > .char, .whitespace');
+
+        var art = document.querySelector('#art');
+
+
+        const timelineSettings = {
+            staggerValue: 0.014,
+            charsDuration: 0.8
+        };
+
 
         const colors = {
             transparent: 'rgba(0,0,0,0)',
@@ -30,57 +43,35 @@ export default function Work(){
             scrollTrigger: {
                 trigger: document.querySelector("#team"),
                 start: "top 50%",
+                duration: 1,
                 toggleActions: "play none none reverse",
                 onEnter: () => {gsap.to(item, {backgroundColor: colors.white})
-                                gsap.to(cursor, {borderColor: colors.darkGrey}) },
+                                gsap.to(cursor, {borderColor: colors.darkGrey})
+                                art.style.visibility = "hidden"; 
+                                },
                                 
                 onLeaveBack: () => {gsap.to(item, {backgroundColor: colors.transparent})
-                                     gsap.to(cursor, {borderColor: colors.white})}, 
+                                     gsap.to(cursor, {borderColor: colors.white})
+                                     art.style.visibility = "visible"; 
+                                     },
             }
-        })
 
+        // Title Animation
+
+        }).set(arr, 
+            {
+                y: '80%',
+                opacity: 0,
+            })
+        .to(arr, timelineSettings.charsDuration, 
+            {
+                ease: 'Power3.easeOut',
+                y: '0%',
+                opacity: 1,
+                stagger: timelineSettings.staggerValue,
+            },
+        '<+0.4')
         
-        
-
-    },[])
-
-
-    // ============ TITLE ANIMATION ===========
-
-    useEffect(() => {
-    const element = ref.current;
-    var text = element.querySelector('.staggerAnimation2');
-    var arr =  text.querySelectorAll('.staggerAnimation2 .word > .char, .whitespace');
-
-    const timeline = gsap.timeline({
-        scrollTrigger: {
-            trigger: document.querySelector(".staggerAnimation2"),
-            start: "top center",
-            end: "bottom center",
-        }
-    });
-
-    const timelineSettings = {
-        staggerValue: 0.014,
-        charsDuration: 0.8
-    };
-
-    timeline.set(arr, 
-        {
-            y: '80%',
-            opacity: 0,
-        })
-
-    timeline.staggerTo(arr, timelineSettings.charsDuration, 
-        {
-            ease: 'Power3.easeOut',
-            y: '0%',
-            opacity: 1,
-        },
-        timelineSettings.staggerValue, 'start')
-
-   
-   
     },[])
 
 

@@ -16,8 +16,6 @@ export default function NewsSection () {
     useEffect(() => {
         var item = document.querySelectorAll('.bgchange');
         var cursor = document.querySelector('.cursor');
-        var cClicked = document.querySelectorAll('.c--clicked');
-        var cHover = document.querySelectorAll('.c--hover');
 
         const colors = {
             transparent: 'rgba(0,0,0,0)',
@@ -45,9 +43,11 @@ export default function NewsSection () {
     //Fade in
 
     useEffect(() => {
-        var heading = document.querySelector('#newsSectionHeading');
+
+        const element = ref.current;
+        var heading = element.querySelector('#newsSectionHeading');
         var arr =  heading.querySelectorAll('#newsSectionHeading .word > .char, .whitespace');
-        var newsGrid = document.querySelector('#newsSectionGrid');
+        var newsGrid = element.querySelector('#newsSectionGrid');
         var newsArr = newsGrid.querySelectorAll('div');
 
         
@@ -77,18 +77,20 @@ export default function NewsSection () {
                 opacity: 0,
                 y: '10%'
             })
-        .staggerTo(arr, timelineSettings.charsDuration, 
+        .to(arr, timelineSettings.charsDuration, 
             {
                 ease: 'Power3.easeOut',
                 y: '0%',
                 opacity: 1,
-            }, timelineSettings.staggerValue, 'start')
-        .staggerTo(newsArr,timelineSettings.newsDuration,
+                stagger: timelineSettings.staggerValue
+            }, 'start')
+        .to(newsArr,timelineSettings.newsDuration,
             {
                 ease: 'Power3.easeOut',
                 opacity: 1,
-                y: '0%'
-            }, timelineSettings.newsStaggerValue,'>-0.5')
+                y: '0%',
+                stagger: timelineSettings.newsStaggerValue
+            },'>-0.5')
 
 
     },[])
@@ -100,7 +102,7 @@ export default function NewsSection () {
     
     return(
             
-    <Flex sx = {{ height: '100vh', alignItems: 'center' }}>
+    <Flex sx = {{variant: 'layouts.fullHeightFlex' }}>
         
         <Flex ref = {ref} sx = {{variant: 'layouts.responsiveFlex', width: '100%'}}>
 
