@@ -36,19 +36,23 @@ gsap.registerPlugin(ScrollTrigger);
 
     var item = mount.current;
 
+    let paused = false;
+
+
     gsap.timeline({
         scrollTrigger: {
             trigger: document.querySelector("#team"),
-            start: "top 50%",
+            start: "top bottom",
             duration: 1,
             toggleActions: "play none none reverse",
             onEnter: () => {
-                stop();
+                paused = true;
                             },
                             
             onLeaveBack: () => {
+                paused = false;
                 start();
-                                 },
+            },
         }
     })
 
@@ -57,6 +61,7 @@ gsap.registerPlugin(ScrollTrigger);
     var delta = 0; let clock;
     let camera, controls, group, scene, renderer, composer, material;
 
+  
     // var width = window.innerWidth;
     // var height = window.innerHeight;
 
@@ -495,11 +500,6 @@ function opacityAnimation(i){
     renderer.setPixelRatio(window.devicePixelRatio);
     mount.current.appendChild( renderer.domElement );
 
-
-    document.addEventListener('mousemove', onMouseMove, false);
-    window.addEventListener('resize', onResize, false);
-    window.addEventListener('wheel', onMouseWheel, false);
-
     // bloom();
 
 
@@ -510,6 +510,8 @@ function opacityAnimation(i){
 function animate() {
 
     delta = clock.getDelta();
+
+    if(!paused){
 
 
 
@@ -537,6 +539,10 @@ function animate() {
 
 
     requestAnimationFrame(animate);
+    }
+
+    else{ stop(); }
+
     render();
 
    
@@ -595,6 +601,11 @@ function onMouseWheel(event) {
   }
 
   function start  () {
+
+    window.addEventListener('mousemove', onMouseMove, false);
+    window.addEventListener('resize', onResize, false);
+    window.addEventListener('wheel', onMouseWheel, false);
+
     if (!frameId) {
       frameId = requestAnimationFrame(animate)
     }
@@ -603,11 +614,12 @@ function onMouseWheel(event) {
 //   start();
   function stop (){
     cancelAnimationFrame(frameId);
-    document.removeEventListener('mousemove', onMouseMove);
+    frameId = null;
+    window.removeEventListener('mousemove', onMouseMove);
     window.removeEventListener('resize', onResize);
     window.removeEventListener('wheel', onMouseWheel);
-    frameId = null;
     console.log('stopped');
+    return;
   }
 
   return () => {
