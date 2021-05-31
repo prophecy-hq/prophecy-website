@@ -16,36 +16,36 @@ export default function FirstFold() {
     useEffect (() => {
 
         if(ref){
-         let splitRes = Splitting(ref);
+         let splitRes = Splitting();
         }
 
-        // const element = ref.current;
-        // var text = element.querySelector('.staggerAnimation');
-        // var arr =  text.querySelectorAll('.staggerAnimation .word > .char, .whitespace');
+        const element = ref.current;
+        var text = element.querySelector('.staggerAnimation');
+        var arr =  text.querySelectorAll('.staggerAnimation .word > .char, .whitespace');
     
-        // const timeline = gsap.timeline();
+        const timeline = gsap.timeline();
     
-        // const timelineSettings = {
-        //     staggerValue: 0.014,
-        //     charsDuration: 0.8
-        // };
+        const timelineSettings = {
+            staggerValue: 0.014,
+            charsDuration: 0.8
+        };
     
-        // timeline.set(arr, 
-        //     {
-        //         y: '80%',
-        //         opacity: 0,
-        //     })
+        timeline.set(arr, 
+            {
+                y: '80%',
+                opacity: 0,
+            })
     
-        // timeline.to(arr, timelineSettings.charsDuration, 
-        //     {
-        //         ease: 'Power3.easeOut',
-        //         y: '0%',
-        //         opacity: 1,
-        //         stagger: timelineSettings.staggerValue
-        //     },
-        //     'start')
+        timeline.to(arr, timelineSettings.charsDuration, 
+            {
+                ease: 'Power3.easeOut',
+                y: '0%',
+                opacity: 1,
+                stagger: timelineSettings.staggerValue
+            },
+            'start')
     
-        // timeline.play();
+        timeline.play();
 
 
     },[])

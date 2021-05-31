@@ -2,11 +2,14 @@
 import React,{ useRef, useEffect, useState } from "react";
 import * as THREE from 'three';
 import "./seedrandom";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
 export default function Art () {
  
 const mount = useRef(null);
+gsap.registerPlugin(ScrollTrigger);
 
     // ======= SHADERS ========
 
@@ -30,6 +33,24 @@ const mount = useRef(null);
         color.w = (0.01+pow(rand(gl_FragCoord.xy*0.001), alpha));
         gl_FragColor = color;
     }`;
+
+    var item = mount.current;
+
+    gsap.timeline({
+        scrollTrigger: {
+            trigger: document.querySelector("#team"),
+            start: "top 50%",
+            duration: 1,
+            toggleActions: "play none none reverse",
+            onEnter: () => {
+                stop();
+                            },
+                            
+            onLeaveBack: () => {
+                start();
+                                 },
+        }
+    })
 
     // === CONSTANT DECLARATIONS ===
 
@@ -475,9 +496,9 @@ function opacityAnimation(i){
     mount.current.appendChild( renderer.domElement );
 
 
-    // document.addEventListener('mousemove', onMouseMove, false);
-    // window.addEventListener('resize', onResize, false);
-    // window.addEventListener('wheel', onMouseWheel, false);
+    document.addEventListener('mousemove', onMouseMove, false);
+    window.addEventListener('resize', onResize, false);
+    window.addEventListener('wheel', onMouseWheel, false);
 
     // bloom();
 
@@ -581,11 +602,12 @@ function onMouseWheel(event) {
 
 //   start();
   function stop (){
-    cancelAnimationFrame(frameId)
+    cancelAnimationFrame(frameId);
     // document.removeEventListener('mousemove', onMouseMove);
     // window.removeEventListener('resize', onResize);
     // window.removeEventListener('wheel', onMouseWheel);
-    frameId = null
+    frameId = null;
+    console.log('stopped');
   }
 
   return () => {

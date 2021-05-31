@@ -179,7 +179,7 @@ export default{
             width: '50%',
             marginRight: '0px',
             marginLeft: 'auto',
-            transform: 'translateZ(0)',
+            // transform: 'translateZ(0)',
 
             '@media screen and (max-width: 1024px)': {
                 width: '100%',
@@ -192,7 +192,7 @@ export default{
             marginRight: 'auto',
             marginLeft: '0',
             minWidth: '300px',
-            transform: 'translateZ(0)',
+            // transform: 'translateZ(0)',
 
             '@media screen and (max-width: 1024px)': {
                 width: '100%',
@@ -443,7 +443,7 @@ export default{
             fontWeight: 'light',
             fontSize: [40, 56],
             lineHeight: 'heading',
-            transform: 'translateZ(0)',
+            // transform: 'translateZ(0)',
 
         },
 
@@ -471,7 +471,7 @@ export default{
                 fontFamily: 'prophecy',
                 fontSize: 16,
                 lineHeight: 'body',
-                transform: 'translateZ(0)',
+                // transform: 'translateZ(0)',
         }
     }, 
 

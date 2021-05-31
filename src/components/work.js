@@ -48,32 +48,32 @@ export default function Work(){
                 onEnter: () => {
                     gsap.to(item, {backgroundColor: colors.white})
                                 gsap.to(cursor, {borderColor: colors.darkGrey})
-                                art.style.visibility = "hidden"; 
+                                // art.style.visibility = "hidden"; 
                                 },
                                 
                 onLeaveBack: () => {
                     gsap.to(item, {backgroundColor: colors.transparent})
                                      gsap.to(cursor, {borderColor: colors.white})
-                                     art.style.visibility = "visible"; 
+                                    //  art.style.visibility = "visible"; 
                                      },
             }
 
         // Title Animation
 
         })
-        // .set(arr, 
-        //     {
-        //         y: '80%',
-        //         opacity: 0,
-        //     })
-        // .to(arr, timelineSettings.charsDuration, 
-        //     {
-        //         ease: 'Power3.easeOut',
-        //         y: '0%',
-        //         opacity: 1,
-        //         stagger: timelineSettings.staggerValue,
-        //     },
-        // '<+0.4')
+        .set(arr, 
+            {
+                y: '80%',
+                opacity: 0,
+            })
+        .to(arr, timelineSettings.charsDuration, 
+            {
+                ease: 'Power3.easeOut',
+                y: '0%',
+                opacity: 1,
+                stagger: timelineSettings.staggerValue,
+            },
+        '<+0.4')
         
     },[])
 
@@ -86,9 +86,14 @@ return(
     
 
 <Box ref={ref} >
-<Styled.h1  sx = {{variant: 'layouts.rightContent', marginBottom: '200px'}} className = 'staggerAnimation2' data-splitting = "">
-    Prophecy is new, but our team isn’t. Here’s some of our past work.
-</Styled.h1>
+
+    <section>
+    <Styled.h1  sx = {{variant: 'layouts.rightContent', marginBottom: '200px'}} className = 'staggerAnimation2' data-splitting = "">
+        Prophecy is new, but our team isn’t. Here’s some of our past work.
+    </Styled.h1>
+    </section>
+
+{/* <div className="staggerAnimation2 words chars splitting" sx = {{variant: 'layouts.rightContent'}} ><span className="word" data-word="Prophecy" ><span className="char" data-char="P" >P</span><span className="char" data-char="r" >r</span><span className="char" data-char="o" >o</span><span className="char" data-char="p" >p</span><span className="char" data-char="h" >h</span><span className="char" data-char="e" >e</span><span className="char" data-char="c" >c</span><span className="char" data-char="y" >y</span></span><span className="whitespace" > </span><span className="word" data-word="is" ><span className="char" data-char="i" >i</span><span className="char" data-char="s" >s</span></span><span className="whitespace" > </span><span className="word" data-word="new," ><span className="char" data-char="n" >n</span><span className="char" data-char="e" >e</span><span className="char" data-char="w" >w</span><span className="char" data-char="," >,</span></span><span className="whitespace" > </span><span className="word" data-word="but" ><span className="char" data-char="b" >b</span><span className="char" data-char="u" >u</span><span className="char" data-char="t" >t</span></span><span className="whitespace" > </span><span className="word" data-word="our" ><span className="char" data-char="o" >o</span><span className="char" data-char="u" >u</span><span className="char" data-char="r" >r</span></span><span className="whitespace" > </span><span className="word" data-word="team" ><span className="char" data-char="t" >t</span><span className="char" data-char="e" >e</span><span className="char" data-char="a" >a</span><span className="char" data-char="m" >m</span></span><span className="whitespace" > </span><span className="word" data-word="isn’t." ><span className="char" data-char="i" >i</span><span className="char" data-char="s" >s</span><span className="char" data-char="n" >n</span><span className="char" data-char="’" >’</span><span className="char" data-char="t" >t</span><span className="char" data-char="." >.</span></span><span className="whitespace" > </span><span className="word" data-word="Here’s" ><span className="char" data-char="H" >H</span><span className="char" data-char="e" >e</span><span className="char" data-char="r" >r</span><span className="char" data-char="e" >e</span><span className="char" data-char="’" >’</span><span className="char" data-char="s" >s</span></span><span className="whitespace" > </span><span className="word" data-word="some" ><span className="char" data-char="s" >s</span><span className="char" data-char="o" >o</span><span className="char" data-char="m" >m</span><span className="char" data-char="e" >e</span></span><span className="whitespace" > </span><span className="word" data-word="of" ><span className="char" data-char="o" >o</span><span className="char" data-char="f" >f</span></span><span className="whitespace" > </span><span className="word" data-word="our" ><span className="char" data-char="o" >o</span><span className="char" data-char="u" >u</span><span className="char" data-char="r" >r</span></span><span className="whitespace" > </span><span className="word" data-word="past" ><span className="char" data-char="p" >p</span><span className="char" data-char="a" >a</span><span className="char" data-char="s" >s</span><span className="char" data-char="t" >t</span></span><span className="whitespace" > </span><span className="word" data-word="work." ><span className="char" data-char="w" >w</span><span className="char" data-char="o" >o</span><span className="char" data-char="r" >r</span><span className="char" data-char="k" >k</span><span className="char" data-char="." >.</span></span></div> */}
 
 <TeamMember 
     name = "Akshay Verma"
