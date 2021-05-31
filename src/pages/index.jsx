@@ -16,7 +16,9 @@ import NewsSection from '../components/newsSection.js'
 import ContactSection from '../components/contactSection.js'
 import Cursor from '../components/cursor.js'
 
+
 import '../styles/cursor.css'
+import '../styles/optimize.css'
 
 const IndexPage = () => (
 	
@@ -29,7 +31,9 @@ const IndexPage = () => (
 	
 
 
-	<Container id = "canvas" className = "bgchange" sx = {{variant: 'layouts.fullContainer'}}>
+	<Container id = "canvas" sx = {{variant: 'layouts.fullContainer'}}>
+
+		<div className = "bgchange"></div>
 		
 
 		<div id = "art"  sx = {{variant: 'layouts.canvas'}} >

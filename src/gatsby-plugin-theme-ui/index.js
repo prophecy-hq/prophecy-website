@@ -145,7 +145,7 @@ export default{
 			cursor: 'pointer',
 			backgroundSize: '48px 48px',
 
-			transition: '0.3s',
+			// transition: '0.3s',
 
 			// '&:hover': {
 			// 	backgroundImage: 'url("/arrow-black.svg")',
@@ -225,7 +225,7 @@ export default{
             color: 'darkGrey',
             // display: 'block',
             width: 'fit-content',
-            transition: '0.2s',
+            // transition: '0.2s',
             fontFamily: 'prophecy',
             '&::after': {
                 border: '1px solid',
@@ -233,7 +233,7 @@ export default{
                 display: 'block',
                 mt: '2px',
                 transform: 'scaleX(0)',
-                transition: 'transform 240ms ease-out',		
+                // transition: 'transform 240ms ease-out',		
                 transformOrigin: '0% 0%',
                 content: '""',
             },
@@ -416,7 +416,7 @@ export default{
             color: 'darkGrey',
 			// display: 'block',
 			width: 'fit-content',
-			transition: '0.2s',
+			// transition: '0.2s',
             fontFamily: 'prophecy',
             '&::after': {
 				border: '1px solid',
@@ -424,7 +424,7 @@ export default{
 				display: 'block',
 				mt: '2px',
 				transform: 'scaleX(0)',
-				transition: 'transform 240ms ease-out',		
+				// transition: 'transform 240ms ease-out',		
 				transformOrigin: '0% 0%',
 				content: '""',
 			},

@@ -38,7 +38,7 @@ export default function ClientSection() {
     //======== Background and cursor change ==========
 
     useEffect(() => {
-        var item = document.querySelectorAll('.bgchange');
+        var item = document.querySelector('.bgchange');
         var cursor = document.querySelector('.cursor');
 
         const colors = {

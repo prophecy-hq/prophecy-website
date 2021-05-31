@@ -45,12 +45,14 @@ export default function Work(){
                 start: "top 50%",
                 duration: 1,
                 toggleActions: "play none none reverse",
-                onEnter: () => {gsap.to(item, {backgroundColor: colors.white})
+                onEnter: () => {
+                    gsap.to(item, {backgroundColor: colors.white})
                                 gsap.to(cursor, {borderColor: colors.darkGrey})
                                 art.style.visibility = "hidden"; 
                                 },
                                 
-                onLeaveBack: () => {gsap.to(item, {backgroundColor: colors.transparent})
+                onLeaveBack: () => {
+                    gsap.to(item, {backgroundColor: colors.transparent})
                                      gsap.to(cursor, {borderColor: colors.white})
                                      art.style.visibility = "visible"; 
                                      },
@@ -58,19 +60,20 @@ export default function Work(){
 
         // Title Animation
 
-        }).set(arr, 
-            {
-                y: '80%',
-                opacity: 0,
-            })
-        .to(arr, timelineSettings.charsDuration, 
-            {
-                ease: 'Power3.easeOut',
-                y: '0%',
-                opacity: 1,
-                stagger: timelineSettings.staggerValue,
-            },
-        '<+0.4')
+        })
+        // .set(arr, 
+        //     {
+        //         y: '80%',
+        //         opacity: 0,
+        //     })
+        // .to(arr, timelineSettings.charsDuration, 
+        //     {
+        //         ease: 'Power3.easeOut',
+        //         y: '0%',
+        //         opacity: 1,
+        //         stagger: timelineSettings.staggerValue,
+        //     },
+        // '<+0.4')
         
     },[])
 

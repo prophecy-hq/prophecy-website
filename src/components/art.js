@@ -475,9 +475,9 @@ function opacityAnimation(i){
     mount.current.appendChild( renderer.domElement );
 
 
-    document.addEventListener('mousemove', onMouseMove, false);
-    window.addEventListener('resize', onResize, false);
-    window.addEventListener('wheel', onMouseWheel, false);
+    // document.addEventListener('mousemove', onMouseMove, false);
+    // window.addEventListener('resize', onResize, false);
+    // window.addEventListener('wheel', onMouseWheel, false);
 
     // bloom();
 

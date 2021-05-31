@@ -1,0 +1,14 @@
+.char {
+    transform: translateZ(0);
+}
+
+.bgchange {
+    transform: translateZ(0);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0);
+    z-index: -1;
+}
