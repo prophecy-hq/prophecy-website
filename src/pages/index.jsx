@@ -37,7 +37,7 @@ const IndexPage = () => (
 		
 
 		<div id = "art"  sx = {{variant: 'layouts.canvas'}} >
-			{/* <Art /> */}
+			<Art />
 		</div>
 
 		<Container sx = {{variant: 'layouts.mainContainer'}}>
