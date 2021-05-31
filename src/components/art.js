@@ -42,7 +42,7 @@ gsap.registerPlugin(ScrollTrigger);
     gsap.timeline({
         scrollTrigger: {
             trigger: document.querySelector("#team"),
-            start: "top bottom",
+            start: "top 10%",
             duration: 1,
             toggleActions: "play none none reverse",
             onEnter: () => {
@@ -317,7 +317,7 @@ gsap.registerPlugin(ScrollTrigger);
 
     var angle = Math.atan(targetY / targetX);
 
-    var speed = 200*delta;
+    var speed = 150*delta;
 
 
     var angleIsPositive;

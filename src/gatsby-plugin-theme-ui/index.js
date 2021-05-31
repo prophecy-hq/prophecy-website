@@ -472,7 +472,15 @@ export default{
                 fontSize: 16,
                 lineHeight: 'body',
                 // transform: 'translateZ(0)',
-        }
+        },
+
+        spinner:{
+            color: 'white',
+            position: 'absolute',
+            top: '50%',
+            left: '50%'
+
+        },
     }, 
 
 

@@ -1,7 +1,7 @@
 /** @jsx jsx */
-import { jsx,  Container } from 'theme-ui';
+import { jsx,  Container, Spinner } from 'theme-ui';
 
-// import React from "react"
+import React, {useState} from "react"
 import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
@@ -20,8 +20,28 @@ import Cursor from '../components/cursor.js'
 import '../styles/cursor.css'
 import '../styles/optimize.css'
 
-const IndexPage = () => (
+class IndexPage extends React.Component{
+
+	// constructor() {
+	// 	this.state = { loading: true }
+	// }
+
+	state = {loading: true}
 	
+	componentDidMount() {
+		this.setState({loading: false})
+	}
+	
+	
+	render(){
+		
+	if (this.state.loading) return<div sx = {{variant: "layouts.fullHeightFlex"}}><Spinner variant = "styles.spinner" /></div>;
+
+	else{
+	
+	return(
+		
+
 	<Layout>
 
 		<Cursor />
@@ -71,7 +91,10 @@ const IndexPage = () => (
 	</Container>
 		
 	</Layout>
-);
+		)
+		}
+	}
+};
 
 export default IndexPage;
 
