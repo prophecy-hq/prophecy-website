@@ -603,9 +603,9 @@ function onMouseWheel(event) {
 //   start();
   function stop (){
     cancelAnimationFrame(frameId);
-    // document.removeEventListener('mousemove', onMouseMove);
-    // window.removeEventListener('resize', onResize);
-    // window.removeEventListener('wheel', onMouseWheel);
+    document.removeEventListener('mousemove', onMouseMove);
+    window.removeEventListener('resize', onResize);
+    window.removeEventListener('wheel', onMouseWheel);
     frameId = null;
     console.log('stopped');
   }
