@@ -42,7 +42,7 @@ gsap.registerPlugin(ScrollTrigger);
     gsap.timeline({
         scrollTrigger: {
             trigger: document.querySelector("#team"),
-            start: "top 10%",
+            start: "top 30%",
             duration: 1,
             toggleActions: "play none none reverse",
             onEnter: () => {
