@@ -179,7 +179,6 @@ export default{
             width: '50%',
             marginRight: '0px',
             marginLeft: 'auto',
-            // transform: 'translateZ(0)',
 
             '@media screen and (max-width: 1024px)': {
                 width: '100%',
@@ -192,7 +191,6 @@ export default{
             marginRight: 'auto',
             marginLeft: '0',
             minWidth: '300px',
-            // transform: 'translateZ(0)',
 
             '@media screen and (max-width: 1024px)': {
                 width: '100%',
@@ -208,14 +206,13 @@ export default{
             top: 48,
             display: 'flex',
             flexDirection: 'column',
-            transform: 'translateZ(0)',
 
         },
 
         fullHeightFlex: {
             height: '100vh', 
             alignItems: 'center',
-            transform: 'translateZ(0)',
+            // transform: 'translateZ(0)',
         },
 
         link: {
@@ -225,7 +222,7 @@ export default{
             color: 'darkGrey',
             // display: 'block',
             width: 'fit-content',
-            // transition: '0.2s',
+            transition: '0.2s',
             fontFamily: 'prophecy',
             '&::after': {
                 border: '1px solid',
@@ -233,7 +230,7 @@ export default{
                 display: 'block',
                 mt: '2px',
                 transform: 'scaleX(0)',
-                // transition: 'transform 240ms ease-out',		
+                transition: 'transform 240ms ease-out',		
                 transformOrigin: '0% 0%',
                 content: '""',
             },
@@ -256,12 +253,12 @@ export default{
             left: '0',
             zIndex: '-9999',
             backgroundColor: 'red',
-            transform: 'translateZ(0)',
+            // transform: 'translateZ(0)',
         },
 
         responsiveFlex: {
             flexDirection: 'row',
-            transform: 'translateZ(0)',
+            // transform: 'translateZ(0)',
 
             '@media screen and (max-width: 1024px)': {
                 flexDirection: 'column'
@@ -278,7 +275,7 @@ export default{
             alignItems: 'center',
             marginLeft: 'auto',
             minWidth: '500px',
-            transform: 'translateZ(0)',
+            // transform: 'translateZ(0)',
 
 
 
@@ -301,7 +298,7 @@ export default{
             textAlign: 'center',
             gridGap: 48,
             justifyContent: 'start',
-            transform: 'translateZ(0)',
+            // transform: 'translateZ(0)',
 
             '@media screen and (max-width: 1024px)': {
                 gridTemplateColumns: '1fr 1fr',
@@ -318,7 +315,7 @@ export default{
             flexDirection: 'column', 
             alignItems: 'center', 
             minWidth: '160px',
-            transform: 'translateZ(0)',
+            // transform: 'translateZ(0)',
 
             '@media screen and (max-width: 1024px)': {
                 minWidth: '0px',
@@ -331,7 +328,7 @@ export default{
             gridTemplateColumns: '1fr 1fr',
             gridGap: 48,
             marginLeft: 'auto',
-            transform: 'translateZ(0)',
+            // transform: 'translateZ(0)',
 
             '@media screen and (max-width: 1024px)': {
                 gridTemplateColumns: '1fr',
@@ -346,7 +343,7 @@ export default{
         newsGridItem: {
         maxWidth: '360px',
         gridGap: 48,
-        transform: 'translateZ(0)',
+        // transform: 'translateZ(0)',
         },
 
 
@@ -355,7 +352,7 @@ export default{
             maxWidth: '320px',
             wordBreak: 'break-word',
             lineHeight: 'body',
-            transform: 'translateZ(0)',
+            // transform: 'translateZ(0)',
 
             '@media screen and (max-width: 1024px)': {
                 width: '100%',
@@ -369,7 +366,7 @@ export default{
             height: '80vh',
             padding: '64px 48px',
             flex: '1',
-            transform: 'translateZ(0)',
+            // transform: 'translateZ(0)',
 
             '@media screen and (max-width: 1024px)': {
                 width: '100%',
@@ -382,7 +379,7 @@ export default{
 
         flexRight: { 
             alignSelf: 'flex-end',
-            transform: 'translateZ(0)',
+            // transform: 'translateZ(0)',
 
             '@media screen and (max-width: 1024px)': {
                 width: '100%',
@@ -397,7 +394,7 @@ export default{
             padding: '64px 48px',
             flex: '1',
             paddingBottom: '30vh',
-            transform: 'translateZ(0)',
+            // transform: 'translateZ(0)',
 
             '@media screen and (max-width: 1024px)': {
                 width: '100%',
@@ -410,33 +407,33 @@ export default{
 
     styles:{
 
-        a:{
-            paddingBottom: 16,
-            textDecoration: 'none',
-            color: 'darkGrey',
-			// display: 'block',
-			width: 'fit-content',
-			// transition: '0.2s',
-            fontFamily: 'prophecy',
-            '&::after': {
-				border: '1px solid',
-                color: 'darkGrey',
-				display: 'block',
-				mt: '2px',
-				transform: 'scaleX(0)',
-				// transition: 'transform 240ms ease-out',		
-				transformOrigin: '0% 0%',
-				content: '""',
-			},
-			'&:hover': {
-				color: 'darkGrey',
-				'&::after': {
-					transform: 'scaleX(1)',
-					transformOrigin: '0% 100%',
-				}
-            }
+        // a:{
+        //     paddingBottom: 16,
+        //     textDecoration: 'none',
+        //     color: 'darkGrey',
+		// 	// display: 'block',
+		// 	width: 'fit-content',
+		// 	// transition: '0.2s',
+        //     fontFamily: 'prophecy',
+        //     '&::after': {
+		// 		border: '1px solid',
+        //         color: 'darkGrey',
+		// 		display: 'block',
+		// 		mt: '2px',
+		// 		transform: 'scaleX(0)',
+		// 		// transition: 'transform 240ms ease-out',		
+		// 		transformOrigin: '0% 0%',
+		// 		content: '""',
+		// 	},
+		// 	'&:hover': {
+		// 		color: 'darkGrey',
+		// 		'&::after': {
+		// 			transform: 'scaleX(1)',
+		// 			transformOrigin: '0% 100%',
+		// 		}
+        //     }
 
-        },
+        // },
 
         h1: {
             fontFamily: 'prophecy',
@@ -453,7 +450,7 @@ export default{
             fontSize: [32, 40],
             lineHeight: 'heading',
             marginBottom: 160,
-            transform: 'translateZ(0)',
+            // transform: 'translateZ(0)',
         },
 
         h3: {
@@ -461,7 +458,7 @@ export default{
             fontWeight: 'medium',
             fontSize: [21,24],
             lineHeight: 'heading',
-            transform: 'translateZ(0)',
+            // transform: 'translateZ(0)',
 
           
         },
