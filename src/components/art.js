@@ -34,7 +34,7 @@ const mount = useRef(null);
     // === CONSTANT DECLARATIONS ===
 
     var delta = 0; let clock;
-    let camera, controls, group, scene, renderer, composer, bloomPass;
+    let camera, controls, group, scene, renderer, composer, material;
 
     // var width = window.innerWidth;
     // var height = window.innerHeight;
@@ -44,7 +44,7 @@ const mount = useRef(null);
     let frameId;
 
     // var colors = [0x27007F, 0x00A6FF, 0xFF216E, 0xFFB7E3, 0xFFFFFF];
-    var colors = [0xFFFFFF, 0xFFFFFF, 0xFFFFFF, 0xFFFFFF, 0xFFFFFF];
+    var color = 0xFFFFFF;
     var allLines = [];
     var startingPoints = []; var targetPoints = [];
 
@@ -52,15 +52,8 @@ const mount = useRef(null);
     const target = new THREE.Vector2();
     const windowHalf = new THREE.Vector2(width / 2, height / 2);
     
-        var flagArray = [];
+    var flagArray = [];
 
-
-        const bloomParams = {
-        exposure: 1,
-        bloomStrength: 2.6,
-        bloomThreshold: 0,
-        bloomRadius: 1
-    };
 
     // ===== FUNCTIONS =====
 
@@ -70,23 +63,11 @@ const mount = useRef(null);
         return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
     }
 
-    function bloom(){
-        const renderScene = new RenderPass( scene, camera );
-
-        bloomPass = new UnrealBloomPass( new THREE.Vector2( width, height ), 1.5, 0.4, 0.85 );
-        bloomPass.threshold = bloomParams.bloomThreshold;
-        bloomPass.strength = bloomParams.bloomStrength;
-        bloomPass.radius = bloomParams.bloomRadius;
-
-        composer = new EffectComposer( renderer );
-        composer.addPass( renderScene );
-        composer.addPass( bloomPass );
-    }
-
 
     function returnUniforms() {
         var uniforms = {
-            vertColor: { type: 'vec3', value: new THREE.Color(colors[Math.trunc(Math.random() * colors.length)]) },
+            // vertColor: { type: 'vec3', value: new THREE.Color(colors[Math.trunc(Math.random() * colors.length)]) },
+            vertColor: { type: 'vec3', value: new THREE.Color(color) },
             alpha: { type: 'float', value: Math.random() * 6 },
         }
 
@@ -94,7 +75,8 @@ const mount = useRef(null);
     }
 
     function returnColor() {
-        return new THREE.Color(colors[Math.trunc(Math.random() * colors.length)]);
+        // return new THREE.Color(colors[Math.trunc(Math.random() * colors.length)]);
+        return color;
     }
 
 
@@ -128,7 +110,7 @@ const mount = useRef(null);
 
         drawLine: function () {
 
-            var material = new THREE.ShaderMaterial({
+            material = new THREE.ShaderMaterial({
                 uniforms: returnUniforms(),
                 vertexShader: vertexShader,
                 fragmentShader: fragmentShader,
@@ -198,7 +180,7 @@ const mount = useRef(null);
             geometry.attributes.position.needsUpdate = true;
             geometry.verticesNeedUpdate = true;
 
-            var material = new THREE.ShaderMaterial({
+            material = new THREE.ShaderMaterial({
                 uniforms: returnUniforms(),
                 vertexShader: vertexShader,
                 fragmentShader: fragmentShader,
@@ -269,7 +251,7 @@ const mount = useRef(null);
             var geometry = new THREE.BufferGeometry().setFromPoints(points);
 
             
-            var material = new THREE.ShaderMaterial({
+            material = new THREE.ShaderMaterial({
                 uniforms: {
                     vertColor: { type: 'vec3', value: new THREE.Color(col), },
                     opacity: { type: 'float', value: 1 },
@@ -309,7 +291,7 @@ const mount = useRef(null);
 
     var angle = Math.atan(targetY / targetX);
 
-    var speed = 100*delta;
+    var speed = 200*delta;
 
 
     var angleIsPositive;
@@ -437,7 +419,7 @@ function opacityAnimation(i){
     // ================= INIT =================
 
         //  camera = new THREE.OrthographicCamera( width / - 1, width / 1, height / 1, height / - 1, -1000, 1000 );
-    camera = new THREE.PerspectiveCamera(75, width / height, 1, 1000);
+    camera = new THREE.PerspectiveCamera(60, width / height, 1, 1000);
     camera.position.z = 400;
     camera.position.x = -width / 8;
     camera.position.y = -height / 8;
@@ -453,7 +435,7 @@ function opacityAnimation(i){
     var ss = width / 10;
     var hh = Math.sqrt(ss * ss * 0.75);
     var cc = Math.trunc(width / hh);
-    var ccc = Math.round(cc * 4);
+    var ccc = Math.round(cc * 3);
 
     for (let j = 0; j < ccc; j++) {
         var x = Math.trunc(Math.random() * cc);
@@ -477,7 +459,6 @@ function opacityAnimation(i){
         }
 
         for (let i = 0; i < lines.length; i++) {
-            var counter = 0;
             var l = lines[i];
             l.drawLine();
             if (i % 100 == 5) {
@@ -486,7 +467,7 @@ function opacityAnimation(i){
         }
     }
 
-    renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
+    renderer = new THREE.WebGLRenderer({ powerPreference: "high-performance" });
 
     renderer.setSize(width, height);
     renderer.setClearColor (0xffffff, 0);
@@ -601,6 +582,9 @@ function onMouseWheel(event) {
 //   start();
   function stop (){
     cancelAnimationFrame(frameId)
+    // document.removeEventListener('mousemove', onMouseMove);
+    // window.removeEventListener('resize', onResize);
+    // window.removeEventListener('wheel', onMouseWheel);
     frameId = null
   }
 

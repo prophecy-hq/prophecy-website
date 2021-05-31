@@ -47,7 +47,7 @@ const IndexPage = () => (
 
 
 		<Container id = "recognition" sx = {{variant: 'layouts.mainContainer'}}>
-				<ClientSection/>
+			<ClientSection/>
 		</Container>
 
 		<Container sx = {{variant: 'layouts.mainContainer'}}>	
