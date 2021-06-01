@@ -47,7 +47,7 @@ gsap.registerPlugin(ScrollTrigger);
     gsap.timeline({
         scrollTrigger: {
             trigger: document.querySelector("#team"),
-            start: "top 30%",
+            start: "top 90%",
             duration: 1,
             toggleActions: "play none none reverse",
             onEnter: () => {
@@ -66,6 +66,7 @@ gsap.registerPlugin(ScrollTrigger);
     var delta = 0; let clock;
     let camera, controls, group, scene, renderer, composer, material, arcMaterial;
     let lines;
+    let linesStore;
 
   
     // var width = window.innerWidth;
@@ -358,6 +359,7 @@ gsap.registerPlugin(ScrollTrigger);
       if(currentDistance / targetDistance > 1){
           
         flagArray[i]=true;
+        linesStore = lines;
 
       } 
 
@@ -583,7 +585,7 @@ function animate() {
                 }    
 
                 else { 
-                    // mainAnimation(i);
+                    mainAnimation(i);
 
             
 
@@ -684,6 +686,11 @@ function onMouseWheel(event) {
     window.removeEventListener('resize', onResize);
     window.removeEventListener('wheel', onMouseWheel);
     console.log('stopped');
+
+    geometry.dispose();
+    material.dispose();
+    arcGeometry.dispose();
+    arcMaterial.dispose();
     return;
   }
 
