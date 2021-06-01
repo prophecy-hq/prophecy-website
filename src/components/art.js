@@ -434,8 +434,8 @@ function mainAnimation(i){
 
 function opacityAnimation(i){
 		var alphaSpeed = 0.2*delta;
-		var minAlpha = 0.1;
-		var maxAlpha = 0.8;
+		var minAlpha = 1;
+		var maxAlpha = 10;
 
 		/* ANIMATE OPACITY */
 		var currentAlpha = lines.material.uniforms.alpha.value;
