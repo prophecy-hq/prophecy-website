@@ -585,7 +585,7 @@ function animate() {
                 }    
 
                 else { 
-                    mainAnimation(i);
+                    // mainAnimation(i);
 
             
 
