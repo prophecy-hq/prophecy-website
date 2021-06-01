@@ -445,12 +445,12 @@ function opacityAnimation(i){
 		if (currentAlpha > maxAlpha) { alphaIsIncreasing[i] = false; }
 
 		if (alphaIsIncreasing[i]) {
-			material.uniforms.alpha.value += (currentAlpha * alphaSpeed + alphaSpeed);
+			lines.material.uniforms.alpha.value += (currentAlpha * alphaSpeed + alphaSpeed);
             // arcMaterial.uniforms.alpha.value -= (currentAlpha * alphaSpeed + alphaSpeed);
 			// console.log(allLines[30].material.uniforms.alpha.value + " increased " + allLines[30].alphaIsIncreasing);
 		}
 		if (!alphaIsIncreasing[i]) {
-			material.uniforms.alpha.value -= (currentAlpha * alphaSpeed + alphaSpeed);
+			lines.material.uniforms.alpha.value -= (currentAlpha * alphaSpeed + alphaSpeed);
             // arcMaterial.uniforms.alpha.value += (currentAlpha * alphaSpeed + alphaSpeed);
 			// console.log(allLines[30].material.uniforms.alpha.value + " decreased " + allLines[30].alphaIsIncreasing);
 		}
@@ -598,7 +598,7 @@ function animate() {
 
         geometry.attributes.position.needsUpdate = true;
         geometry.verticesNeedUpdate = true; 
-        material.uniforms.uniformsNeedUpdate = true;
+        lines.material.uniforms.uniformsNeedUpdate = true;
         // arcMaterial.uniforms.uniformsNeedUpdate = true;
         /* ANIMATE CAMERA */
         camera.rotation.x = -mouse.y*0.00002;
