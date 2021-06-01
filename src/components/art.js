@@ -4,6 +4,7 @@ import * as THREE from 'three';
 import "./seedrandom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TextureLoader } from "three";
 
 
 export default function Art () {
@@ -59,7 +60,7 @@ gsap.registerPlugin(ScrollTrigger);
     // === CONSTANT DECLARATIONS ===
 
     var delta = 0; let clock;
-    let camera, controls, group, scene, renderer, composer, material;
+    let camera, controls, group, scene, renderer, composer, material, arcMaterial;
 
   
     // var width = window.innerWidth;
@@ -79,6 +80,13 @@ gsap.registerPlugin(ScrollTrigger);
     const windowHalf = new THREE.Vector2(width / 2, height / 2);
     
     var flagArray = [];
+    var directionIsReverse = [];
+    var alphaIsIncreasing = [];
+
+    let geometry = new THREE.BufferGeometry();
+    var points = [];
+
+    // var points = new Float32Array();
 
 
     // ===== FUNCTIONS =====
@@ -135,15 +143,7 @@ gsap.registerPlugin(ScrollTrigger);
         },
 
         drawLine: function () {
-
-            material = new THREE.ShaderMaterial({
-                uniforms: returnUniforms(),
-                vertexShader: vertexShader,
-                fragmentShader: fragmentShader,
-                transparent: true
-            });
-            // var material = new THREE.LineBasicMaterial({color: returnColor(), transparent: true, opacity: Math.random()});
-
+        
             // First set of lines
             var targetXDistance = this.x2 - this.x1;
             var targetYDistance = this.y2 - this.y1;
@@ -153,25 +153,34 @@ gsap.registerPlugin(ScrollTrigger);
             var startingX2 = this.x1 + startingDistance * Math.cos(angle);
             var startingY2 = this.y1 + startingDistance * Math.sin(angle);
 
-            var points = [];
-            var z = Math.random();
-            points.push(new THREE.Vector3(this.x1, this.y1, Math.random()));
+           
+            // points.push(new THREE.Vector3(this.x1, this.y1, Math.random()));
+            points.push(this.x1); points.push(this.y1); points.push(Math.random());
+            // geometry.vertices.push(new THREE.Vector3(this.x1, this.y1, Math.random()));
             // points.push(new THREE.Vector3(startingX2, startingY2, z * Math.random())); // Random progress
-            points.push(new THREE.Vector3(this.x1, this.y1, Math.random())); // Same as starting point
+            // points.push(new THREE.Vector3(this.x1, this.y1, Math.random())); // Same as starting point
             // points.push(new THREE.Vector3(this.x2, this.y2, 0)); // Target destination
-            startingPoints.push(new THREE.Vector3(this.x1, this.y1, Math.random()));
-            targetPoints.push(new THREE.Vector3(this.x2, this.y2, Math.random()));
+            points.push(this.x1); points.push(this.y1); points.push(Math.random());
+            // points.push(this.x1); points.push(this.y2); points.push(Math.random());
+            // geometry.vertices.push(new THREE.Vector3(this.x1, this.y2, Math.random()));
+            // startingPoints.push(new THREE.Vector3(this.x1, this.y1, Math.random()));
+            targetPoints.push(this.x1); targetPoints.push(this.y1);  targetPoints.push(Math.random()); 
+            targetPoints.push(this.x2); targetPoints.push(this.y2);  targetPoints.push(Math.random()); 
 
-            var geometry = new THREE.BufferGeometry().setFromPoints(points);
-            geometry.attributes.position.needsUpdate = true;
-            geometry.verticesNeedUpdate = true;
+            // targetPoints.push(new THREE.Vector3(this.x2, this.y2, Math.random()));
 
-            var line = new THREE.Line(geometry, material);
-            line.directionIsReverse = false;
-            line.alphaIsIncreasing = Math.random() < 0.5;
-            allLines.push(line);
-            group.add(line);
-            flagArray.push(false);
+            // var geometry = new THREE.BufferGeometry().setFromPoints(points);
+    
+
+            // var line = new THREE.Line(geometry, material);
+            for(let i=0;i<6;i++){
+                directionIsReverse.push(false);
+                flagArray.push(false);
+                alphaIsIncreasing.push(Math.random() < 0.5);
+
+            }
+       
+    
 
             // Second set of lines
             var cx = (this.x1 + this.x2) * 0.5;
@@ -194,33 +203,30 @@ gsap.registerPlugin(ScrollTrigger);
             startingX2 = startingX1 + startingDistance * Math.cos(angle);
             startingY2 = startingY1 + startingDistance * Math.sin(angle);
 
-            points = [];
-            points.push(new THREE.Vector3(cx + Math.cos(ang + Math.PI / 2) * des, cy + Math.sin(ang + Math.PI / 2) * des, Math.random() ));
+  
+            // points.push(new THREE.Vector3(cx + Math.cos(ang + Math.PI / 2) * des, cy + Math.sin(ang + Math.PI / 2) * des, Math.random() ));
+            points.push(cx + Math.cos(ang + Math.PI / 2) * des); points.push(cy + Math.sin(ang + Math.PI / 2) * des); points.push(Math.random());
+            targetPoints.push(cx + Math.cos(ang + Math.PI / 2) * des); targetPoints.push(cy + Math.sin(ang + Math.PI / 2) * des); targetPoints.push(Math.random());
+            // geometry.vertices.push(new THREE.Vector3(cx + Math.cos(ang + Math.PI / 2) * des, cy + Math.sin(ang + Math.PI / 2) * des, Math.random() ));
             // points.push(new THREE.Vector3(startingX2, startingY2, z * Math.random())); //Random Progress
-            points.push(new THREE.Vector3(cx + Math.cos(ang + Math.PI / 2) * des, cy + Math.sin(ang + Math.PI / 2) * des, Math.random())); // Same as starting point
+            // points.push(new THREE.Vector3(cx + Math.cos(ang + Math.PI / 2) * des, cy + Math.sin(ang + Math.PI / 2) * des, Math.random())); // Same as starting point
             // points.push(new THREE.Vector3((cx + Math.cos(ang - Math.PI / 2) * des), (cy + Math.sin(ang - Math.PI / 2) * des), 0)); // Target destination
-            startingPoints.push(new THREE.Vector3(cx + Math.cos(ang + Math.PI / 2) * des, cy + Math.sin(ang + Math.PI / 2) * des, Math.random()));
-            targetPoints.push(new THREE.Vector3(cx + Math.cos(ang - Math.PI / 2) * des, cy + Math.sin(ang - Math.PI / 2) * des, Math.random()));
+            points.push(cx + Math.cos(ang + Math.PI / 2) * des); points.push(cy + Math.sin(ang + Math.PI / 2) * des); points.push(Math.random());
+            // points.push((cx + Math.cos(ang - Math.PI / 2) * des)); points.push((cy + Math.sin(ang - Math.PI / 2) * des)); points.push(Math.random());
+            targetPoints.push((cx + Math.cos(ang - Math.PI / 2) * des)); targetPoints.push((cy + Math.sin(ang - Math.PI / 2) * des)); targetPoints.push(Math.random());
+            // geometry.vertices.push(new THREE.Vector3(new THREE.Vector3((cx + Math.cos(ang - Math.PI / 2) * des), (cy + Math.sin(ang - Math.PI / 2) * des), 0)));
+            // startingPoints.push(new THREE.Vector3(cx + Math.cos(ang + Math.PI / 2) * des, cy + Math.sin(ang + Math.PI / 2) * des, Math.random()));
+            // targetPoints.push(new THREE.Vector3(cx + Math.cos(ang - Math.PI / 2) * des, cy + Math.sin(ang - Math.PI / 2) * des, Math.random()));
 
-            geometry = new THREE.BufferGeometry().setFromPoints(points);
-            geometry.attributes.position.needsUpdate = true;
-            geometry.verticesNeedUpdate = true;
 
-            material = new THREE.ShaderMaterial({
-                uniforms: returnUniforms(),
-                vertexShader: vertexShader,
-                fragmentShader: fragmentShader,
-                transparent: true
-            });
 
-            // var material = new THREE.LineBasicMaterial({color: returnColor(), transparent: true, opacity: Math.random()});
-
-            line = new THREE.Line(geometry, material);
-            line.directionIsReverse = false;
-            line.alphaIsIncreasing = Math.random() < 0.5;;
-            allLines.push(line);
-            group.add(line);
-            flagArray.push(false);
+            for(let i=0;i<6;i++){
+                directionIsReverse.push(false);
+                flagArray.push(false);
+                alphaIsIncreasing.push(Math.random() < 0.5);
+            }
+            
+ 
         },
 
 
@@ -268,29 +274,29 @@ gsap.registerPlugin(ScrollTrigger);
         for (let i = 0; i < cc; i++) {
 
             var ang = a1 + da * i;
-            var points = [];
-            points.push(new THREE.Vector3(x + Math.cos(ang) * r1, y + Math.sin(ang) * r1, 0));
-            points.push(new THREE.Vector3(x + Math.cos(ang + da) * r1, y + Math.sin(ang + da) * r1, 0));
-            points.push(new THREE.Vector3(x + Math.cos(ang + da) * r2, y + Math.sin(ang + da) * r2, 0));
-            points.push(new THREE.Vector3(x + Math.cos(ang) * r2, y + Math.sin(ang) * r2, 0));
+            var arcPoints = [];
+            arcPoints.push(new THREE.Vector3(x + Math.cos(ang) * r1, y + Math.sin(ang) * r1, 0));
+            arcPoints.push(new THREE.Vector3(x + Math.cos(ang + da) * r1, y + Math.sin(ang + da) * r1, 0));
+            arcPoints.push(new THREE.Vector3(x + Math.cos(ang + da) * r2, y + Math.sin(ang + da) * r2, 0));
+            arcPoints.push(new THREE.Vector3(x + Math.cos(ang) * r2, y + Math.sin(ang) * r2, 0));
 
-            var geometry = new THREE.BufferGeometry().setFromPoints(points);
+            var arcGeometry = new THREE.BufferGeometry().setFromPoints(arcPoints);
 
             
-            material = new THREE.ShaderMaterial({
+            arcMaterial = new THREE.ShaderMaterial({
                 uniforms: {
                     vertColor: { type: 'vec3', value: new THREE.Color(col), },
-                    opacity: { type: 'float', value: 1 },
+                    alpha: { type: 'float', value: 3 },
                 },
                 vertexShader: vertexShader,
                 fragmentShader: fragmentShader,
                 transparent: true
             });
 
-            // var material = new THREE.MeshBasicMaterial({color: col, transparent: true, opacity: Math.random()});
+            // var arcMaterial = new THREE.MeshBasicMaterial({color: col, transparent: true, opacity: Math.random()});
 
 
-            var arc = new THREE.Mesh(geometry, material);
+            var arc = new THREE.Mesh(arcGeometry, arcMaterial);
             group.add(arc);
 
     }
@@ -305,14 +311,16 @@ gsap.registerPlugin(ScrollTrigger);
     
     /* OPTIONS */
                 
-    var currentPositions = allLines[i].geometry.attributes.position.array;
+    var currentPositions = lines.geometry.attributes.position.array;
+    
 
-    var currentX = startingPoints[i].x - currentPositions[3];
-    var currentY = startingPoints[i].y - currentPositions[4];
+    var currentX = targetPoints[i] - currentPositions[i+3];
+    var currentY = targetPoints[i+1] - currentPositions[i+4];
     var currentDistance = Math.sqrt(Math.pow(currentY, 2) + Math.pow(currentX, 2));
+    // console.log(currentDistance);
 
-    var targetX = targetPoints[i].x - startingPoints[i].x;
-    var targetY = targetPoints[i].y - startingPoints[i].y;
+    var targetX = targetPoints[i+3] - targetPoints[i];
+    var targetY = targetPoints[i+4] - targetPoints[i+1];
     var targetDistance = Math.sqrt(Math.pow(targetY, 2) + Math.pow(targetX, 2));
 
     var angle = Math.atan(targetY / targetX);
@@ -332,19 +340,19 @@ gsap.registerPlugin(ScrollTrigger);
     /* ANIMATIONS */
 
       if (angleIsPositive) {
-        currentPositions[3] +=  Math.cos(angle) * speed ;
-        currentPositions[4] +=  Math.sin(angle) * speed ;
+        currentPositions[i+3] +=  Math.cos(angle) * speed ;
+        currentPositions[i+4] +=  Math.sin(angle) * speed ;
       }
 
      if (!angleIsPositive) {
-         currentPositions[4] -=  Math.sin(angle) * speed ;
-         currentPositions[3] -=  Math.cos(angle) * speed ;
+         currentPositions[i+4] -=  Math.sin(angle) * speed ;
+         currentPositions[i+3] -=  Math.cos(angle) * speed ;
       }        
+
       
       if(currentDistance / targetDistance > 0.9){
           
         flagArray[i]=true;
-        // console.log('changed to true');
 
       } 
 
@@ -359,14 +367,14 @@ function mainAnimation(i){
     var maxLengthProgress = 1.1;
 
     /* ANIMATE LINES */
-    var currentPositions = allLines[i].geometry.attributes.position.array;
+    var currentPositions = lines.geometry.attributes.position.array;
 
-    var currentX = startingPoints[i].x - currentPositions[3];
-    var currentY = startingPoints[i].y - currentPositions[4];
+    var currentX = targetPoints[i] - currentPositions[i+3];
+    var currentY = targetPoints[i+1] - currentPositions[i+4];
     var currentDistance = Math.sqrt(Math.pow(currentY, 2) + Math.pow(currentX, 2));
 
-    var targetX = targetPoints[i].x - startingPoints[i].x;
-    var targetY = targetPoints[i].y - startingPoints[i].y;
+    var targetX = targetPoints[i+3] - targetPoints[i];
+    var targetY = targetPoints[i+4] - targetPoints[i+1];
     var targetDistance = Math.sqrt(Math.pow(targetY, 2) + Math.pow(targetX, 2));
 
     var angle = Math.atan(targetY / targetX);
@@ -391,32 +399,32 @@ function mainAnimation(i){
     }
 
 
-    if (currentDistance / targetDistance < minLengthProgress) { allLines[i].directionIsReverse = false; }
-    if (currentDistance / targetDistance > maxLengthProgress) { allLines[i].directionIsReverse = true; }
+    if (currentDistance / targetDistance < minLengthProgress) { directionIsReverse[i] = false; }
+    if (currentDistance / targetDistance > maxLengthProgress) { directionIsReverse[i] = true; }
 
-    if (!allLines[i].directionIsReverse) {
+    if (!directionIsReverse[i]) {
         if (angleIsPositive) {
-            currentPositions[3] += Math.cos(angle) * lengthSpeed;
-            currentPositions[4] += Math.sin(angle) * lengthSpeed ;
+            currentPositions[i+3] += Math.cos(angle) * lengthSpeed;
+            currentPositions[i+4] += Math.sin(angle) * lengthSpeed ;
         }
         if (!angleIsPositive) {
-            currentPositions[3] -= Math.cos(angle) * lengthSpeed ;
-            currentPositions[4] -= Math.sin(angle) * lengthSpeed ;
+            currentPositions[i+3] -= Math.cos(angle) * lengthSpeed ;
+            currentPositions[i+4] -= Math.sin(angle) * lengthSpeed ;
         }
     }
 
 
-    if (allLines[i].directionIsReverse) {
+    if (directionIsReverse[i]) {
         if (angleIsPositive) {
-            currentPositions[3] -= Math.cos(angle) * lengthSpeed ;
-            currentPositions[4] -= Math.sin(angle) * lengthSpeed ;
+            currentPositions[i+3] -= Math.cos(angle) * lengthSpeed ;
+            currentPositions[i+4] -= Math.sin(angle) * lengthSpeed ;
         }
         if (!angleIsPositive) {
-            currentPositions[3] += Math.cos(angle) * lengthSpeed ;
-            currentPositions[4] += Math.sin(angle) * lengthSpeed ;
+            currentPositions[i+3] += Math.cos(angle) * lengthSpeed ;
+            currentPositions[i+4] += Math.sin(angle) * lengthSpeed ;
          }
          }
-    }   
+}   
 
 
 function opacityAnimation(i){
@@ -425,17 +433,20 @@ function opacityAnimation(i){
 		var maxAlpha = 10;
 
 		/* ANIMATE OPACITY */
-		var currentAlpha = allLines[i].material.uniforms.alpha.value;
+		var currentAlpha = lines.material.uniforms.alpha.value;
+        // console.log(currentAlpha);
 
-		if (currentAlpha < minAlpha) { allLines[i].alphaIsIncreasing = true; }
-		if (currentAlpha > maxAlpha) { allLines[i].alphaIsIncreasing = false; }
+		if (currentAlpha < minAlpha) { alphaIsIncreasing[i] = true; }
+		if (currentAlpha > maxAlpha) { alphaIsIncreasing[i] = false; }
 
-		if (allLines[i].alphaIsIncreasing) {
-			allLines[i].material.uniforms.alpha.value += (currentAlpha * alphaSpeed + alphaSpeed);
+		if (alphaIsIncreasing[i]) {
+			material.uniforms.alpha.value += (currentAlpha * alphaSpeed + alphaSpeed);
+            arcMaterial.uniforms.alpha.value -= (currentAlpha * alphaSpeed + alphaSpeed);
 			// console.log(allLines[30].material.uniforms.alpha.value + " increased " + allLines[30].alphaIsIncreasing);
 		}
-		if (!allLines[i].alphaIsIncreasing) {
-			allLines[i].material.uniforms.alpha.value -= (currentAlpha * alphaSpeed + alphaSpeed);
+		if (!alphaIsIncreasing[i]) {
+			material.uniforms.alpha.value -= (currentAlpha * alphaSpeed + alphaSpeed);
+            arcMaterial.uniforms.alpha.value += (currentAlpha * alphaSpeed + alphaSpeed);
 			// console.log(allLines[30].material.uniforms.alpha.value + " decreased " + allLines[30].alphaIsIncreasing);
 		}
     }
@@ -451,9 +462,7 @@ function opacityAnimation(i){
     camera.position.y = -height / 8;
 
     group = new THREE.Group();
-    group.rotateZ(Math.random() * 360);
     scene = new THREE.Scene();
-    scene.add(group);
 
     clock = new THREE.Clock();
 
@@ -461,7 +470,7 @@ function opacityAnimation(i){
     var ss = width / 10;
     var hh = Math.sqrt(ss * ss * 0.75);
     var cc = Math.trunc(width / hh);
-    var ccc = Math.round(cc * 3);
+    var ccc = Math.round(cc * 4);
 
     for (let j = 0; j < ccc; j++) {
         var x = Math.trunc(Math.random() * cc);
@@ -491,7 +500,43 @@ function opacityAnimation(i){
                 l.drawAngles();
             }
         }
+
+ 
+        // var line = new THREE.LineSegments( geometry, material );
+        // scene.add(line);
+
+   
     }
+
+    var pointsArray = new Float32Array(points.length);
+
+    for(let i=0;i<points.length;i++){
+        
+        pointsArray[i] = points[i];
+    }
+
+    geometry.setAttribute( 'position', new THREE.BufferAttribute( pointsArray, 3 ) );
+
+    material = new THREE.ShaderMaterial({
+        uniforms: returnUniforms(),
+        vertexShader: vertexShader,
+        fragmentShader: fragmentShader,
+        transparent: true
+    });
+
+    var lines = new THREE.LineSegments(geometry, material);
+
+
+
+    group.add(lines);
+    scene.add(group);
+    // scene.add(lines);
+    group.rotateZ(Math.random() * 360);
+    // console.log(arcMaterial);
+
+    geometry.attributes.position.needsUpdate = true;
+    geometry.verticesNeedUpdate = true;
+
 
     renderer = new THREE.WebGLRenderer({ powerPreference: "high-performance" });
 
@@ -515,37 +560,41 @@ function animate() {
 
 
 
-    for (let i = 0; i < startingPoints.length; i++) {
+        for (let i = 0; i < points.length; i++) {
 
+            if(i%6==0){
+
+                if(flagArray[i] == false){
+
+                startingAnimation(i);
+
+                }    
+
+                else { mainAnimation(i);
             
-    if(flagArray[i] == false){
-    startingAnimation(i); 
-    }    
 
-    else { mainAnimation(i);
-    // console.log('main animation');
+                }
+                // console.log(flagArray[i]);
 
-    }
+                opacityAnimation(i);
 
-    opacityAnimation(i);
+            }
 
-    allLines[i].geometry.attributes.position.needsUpdate = true;
-    allLines[i].material.uniforms.uniformsNeedsUpdate = true;
+        }
 
-    }
-    /* ANIMATE CAMERA */
-    camera.rotation.x = -mouse.y*0.00002;
-    camera.rotation.y = -mouse.x*0.00002;
+        geometry.attributes.position.needsUpdate = true;
+        geometry.verticesNeedUpdate = true; 
+        material.uniforms.uniformsNeedUpdate = true;
+        arcMaterial.uniforms.uniformsNeedUpdate = true;
+        /* ANIMATE CAMERA */
+        camera.rotation.x = -mouse.y*0.00002;
+        camera.rotation.y = -mouse.x*0.00002;
+        requestAnimationFrame(animate);
+}
 
-
-    requestAnimationFrame(animate);
-    }
-
-    else{ stop(); }
+else{ stop(); }
 
     render();
-
-   
 
 
 }
