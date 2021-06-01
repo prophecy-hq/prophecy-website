@@ -162,6 +162,7 @@ export default{
 
         fullContainer: {
             width: '100%',
+            
         },
         
         mainContainer: {
@@ -169,6 +170,7 @@ export default{
             maxWidth: 1440,
             margin: '0 auto',
             paddingBottom: '20vh',
+            transform: 'translateZ(0)',
 
             '@media screen and (max-width: 1024px)': {
                 maxWidth: '768px'
@@ -253,7 +255,7 @@ export default{
             left: '0',
             zIndex: '-9999',
             backgroundColor: 'red',
-            // transform: 'translateZ(0)',
+            transform: 'translateZ(0)',
         },
 
         responsiveFlex: {

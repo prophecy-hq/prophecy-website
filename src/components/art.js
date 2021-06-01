@@ -39,6 +39,10 @@ gsap.registerPlugin(ScrollTrigger);
 
     let paused = false;
 
+    var fps = 30;
+    var interval = 1000/fps;
+    var deltaSum = 0;
+
 
     gsap.timeline({
         scrollTrigger: {
@@ -61,6 +65,7 @@ gsap.registerPlugin(ScrollTrigger);
 
     var delta = 0; let clock;
     let camera, controls, group, scene, renderer, composer, material, arcMaterial;
+    let lines;
 
   
     // var width = window.innerWidth;
@@ -172,7 +177,7 @@ gsap.registerPlugin(ScrollTrigger);
             // var geometry = new THREE.BufferGeometry().setFromPoints(points);
     
 
-            // var line = new THREE.Line(geometry, material);
+  
             for(let i=0;i<6;i++){
                 directionIsReverse.push(false);
                 flagArray.push(false);
@@ -293,7 +298,7 @@ gsap.registerPlugin(ScrollTrigger);
                 transparent: true
             });
 
-            // var arcMaterial = new THREE.MeshBasicMaterial({color: col, transparent: true, opacity: Math.random()});
+           
 
 
             var arc = new THREE.Mesh(arcGeometry, arcMaterial);
@@ -350,7 +355,7 @@ gsap.registerPlugin(ScrollTrigger);
       }        
 
       
-      if(currentDistance / targetDistance > 0.9){
+      if(currentDistance / targetDistance > 1){
           
         flagArray[i]=true;
 
@@ -428,9 +433,9 @@ function mainAnimation(i){
 
 
 function opacityAnimation(i){
-		var alphaSpeed = 0.3*delta;
-		var minAlpha = 0;
-		var maxAlpha = 10;
+		var alphaSpeed = 0.2*delta;
+		var minAlpha = 0.1;
+		var maxAlpha = 0.8;
 
 		/* ANIMATE OPACITY */
 		var currentAlpha = lines.material.uniforms.alpha.value;
@@ -441,12 +446,12 @@ function opacityAnimation(i){
 
 		if (alphaIsIncreasing[i]) {
 			material.uniforms.alpha.value += (currentAlpha * alphaSpeed + alphaSpeed);
-            arcMaterial.uniforms.alpha.value -= (currentAlpha * alphaSpeed + alphaSpeed);
+            // arcMaterial.uniforms.alpha.value -= (currentAlpha * alphaSpeed + alphaSpeed);
 			// console.log(allLines[30].material.uniforms.alpha.value + " increased " + allLines[30].alphaIsIncreasing);
 		}
 		if (!alphaIsIncreasing[i]) {
 			material.uniforms.alpha.value -= (currentAlpha * alphaSpeed + alphaSpeed);
-            arcMaterial.uniforms.alpha.value += (currentAlpha * alphaSpeed + alphaSpeed);
+            // arcMaterial.uniforms.alpha.value += (currentAlpha * alphaSpeed + alphaSpeed);
 			// console.log(allLines[30].material.uniforms.alpha.value + " decreased " + allLines[30].alphaIsIncreasing);
 		}
     }
@@ -483,18 +488,18 @@ function opacityAnimation(i){
         var x2 = x1 + Math.cos(ang) * hh * ddd;
         var y2 = y1 + Math.sin(ang) * hh * ddd;
 
-        var lines = [];
-        lines.push(new Line(x1, y1, x2, y2));
+        var tempLines = [];
+        tempLines.push(new Line(x1, y1, x2, y2));
 
         var subLines = Math.random() * 20;
 
         for (let i = 0; i < subLines; i++) {
-            var l = lines[lines.length - 1];
-            lines.push(l.getLine());
+            var l = tempLines[tempLines.length - 1];
+            tempLines.push(l.getLine());
         }
 
-        for (let i = 0; i < lines.length; i++) {
-            var l = lines[i];
+        for (let i = 0; i < tempLines.length; i++) {
+            var l = tempLines[i];
             l.drawLine();
             if (i % 100 == 5) {
                 l.drawAngles();
@@ -524,7 +529,7 @@ function opacityAnimation(i){
         transparent: true
     });
 
-    var lines = new THREE.LineSegments(geometry, material);
+    lines = new THREE.LineSegments(geometry, material);
 
 
 
@@ -538,7 +543,7 @@ function opacityAnimation(i){
     geometry.verticesNeedUpdate = true;
 
 
-    renderer = new THREE.WebGLRenderer({ powerPreference: "high-performance" });
+    renderer = new THREE.WebGLRenderer({ antialias: true });
 
     renderer.setSize(width, height);
     renderer.setClearColor (0xffffff, 0);
@@ -555,9 +560,16 @@ function opacityAnimation(i){
 function animate() {
 
     delta = clock.getDelta();
+    // deltaSum += delta;
+
+
 
     if(!paused){
 
+        // console.log(delta);
+
+
+    
 
 
         for (let i = 0; i < points.length; i++) {
@@ -570,7 +582,9 @@ function animate() {
 
                 }    
 
-                else { mainAnimation(i);
+                else { 
+                    // mainAnimation(i);
+
             
 
                 }
@@ -580,16 +594,18 @@ function animate() {
 
             }
 
-        }
+    }
 
         geometry.attributes.position.needsUpdate = true;
         geometry.verticesNeedUpdate = true; 
         material.uniforms.uniformsNeedUpdate = true;
-        arcMaterial.uniforms.uniformsNeedUpdate = true;
+        // arcMaterial.uniforms.uniformsNeedUpdate = true;
         /* ANIMATE CAMERA */
         camera.rotation.x = -mouse.y*0.00002;
         camera.rotation.y = -mouse.x*0.00002;
         requestAnimationFrame(animate);
+        
+      
 }
 
 else{ stop(); }
