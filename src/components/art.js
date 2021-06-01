@@ -668,7 +668,7 @@ function onMouseWheel(event) {
   }
 
   function onScroll(event){
-    camera.position.y -= window.scrollY / 500;
+    camera.position.y -= window.scrollY / 1500;
   }
 
   function start  () {

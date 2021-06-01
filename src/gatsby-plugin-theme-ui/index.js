@@ -1,4 +1,7 @@
-
+import '../styles/fonts.css'
+import '../fonts/signifier.otf'
+import '../fonts/signifier-medium.otf'
+import '../fonts/signifier-italic.otf'
 
 export default{
 
@@ -44,7 +47,8 @@ export default{
         },
 
         italic: {
-            fontStyle: 'italic'
+            fontStyle: 'italic',
+            fontWeight: 'light',
         },
 
         bold: {
@@ -406,8 +410,8 @@ export default{
             '@media screen and (max-width: 1024px)': {
                 width: '100%',
                 margin: '0 auto',
-                height: '30vh',
-                padding: '16px 24px'
+                height: '20vh',
+                padding: '48px 80px'
             },
         },
 },
@@ -474,6 +478,7 @@ export default{
 
                 fontFamily: 'prophecy',
                 fontSize: 16,
+                fontWeight: 'light',
                 lineHeight: 'body',
                 // transform: 'translateZ(0)',
         },

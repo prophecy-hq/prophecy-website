@@ -17,7 +17,7 @@ export default function TeamMember(props) {
         var len = dist(svg.x1.baseVal.value, svg.x2.baseVal.value,
             svg.y1.baseVal.value, svg.y2.baseVal.value);
         var pathObject = {length:0, pathLength:len}; 
-        var tween = TweenLite.to(pathObject, 1, {length:pathObject.pathLength, onUpdate:drawLine, onUpdateParams:[pathObject, svg], immediateRender:true});
+        var tween = TweenLite.to(pathObject, 0.5, {length:pathObject.pathLength, onUpdate:drawLine, onUpdateParams:[pathObject, svg], immediateRender:true});
         return tween;
     };
 
