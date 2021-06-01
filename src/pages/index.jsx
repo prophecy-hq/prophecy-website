@@ -16,6 +16,8 @@ import NewsSection from '../components/newsSection.js'
 import ContactSection from '../components/contactSection.js'
 import Cursor from '../components/cursor.js'
 
+import {BrowserView} from "react-device-detect";
+
 
 import '../styles/cursor.css'
 import '../styles/optimize.css'
@@ -44,7 +46,9 @@ class IndexPage extends React.Component{
 
 	<Layout>
 
-		<Cursor />
+		<BrowserView>
+			<Cursor />
+		</BrowserView>
 
 		<SEO title="Home" />
 		
@@ -84,7 +88,9 @@ class IndexPage extends React.Component{
 	</Container>
 
 
-	<Container id = "contact" sx = {{variant: 'layouts.fullContainer', backgroundColor: 'orange', pb: '0'}}>
+	<Container id = "contact" sx = {{variant: 'layouts.fullContainer', backgroundColor: 'orange', pb: '0',
+ '@media screen and (max-width: 1024px)': {
+	pt: '10vh',}}}>
 		<Container sx = {{variant: 'layouts.mainContainer', pb: '0'}}>		
 			<ContactSection />
 		</Container>

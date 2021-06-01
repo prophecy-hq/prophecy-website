@@ -15,7 +15,7 @@ module.exports = {
 		`three`,
 		`react-dom`,
 		`gatsby-plugin-anchor-links`,
-		`gh-pages`,
+		`react-device-detect`,
 		{
 			resolve: 'gatsby-plugin-mailchimp',
 			options: {

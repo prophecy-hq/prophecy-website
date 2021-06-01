@@ -6,22 +6,179 @@ import CaseStudy from './caseStudy.js';
 import { gsap } from "gsap";
 import {TweenLite} from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {isMobile, isTablet} from "react-device-detect";
 
 export default function TeamMember(props) {
 
     gsap.registerPlugin(ScrollTrigger);
     const ref = useRef(null);
 
+    function createLineTween(svg){
+        var len = dist(svg.x1.baseVal.value, svg.x2.baseVal.value,
+            svg.y1.baseVal.value, svg.y2.baseVal.value);
+        var pathObject = {length:0, pathLength:len}; 
+        var tween = TweenLite.to(pathObject, 1, {length:pathObject.pathLength, onUpdate:drawLine, onUpdateParams:[pathObject, svg], immediateRender:true});
+        return tween;
+    };
+
+    function dist(x1, x2, y1, y2){
+        return Math.sqrt( (x2-=x1)*x2 + (y2-=y1)*y2 );
+    }
+
+
+    function drawLine(obj, svg) {
+        svg.style.strokeDasharray = [obj.length, obj.pathLength].join(' ');
+       };
 
 
 
 
-    /*====== LINE ANIMATIONS =======*/
+
+   
+    
+    
+
+    /* ======= MOBILE ANIMATION =======*/
+
+
+
+if(isMobile || isTablet){
+
+        useEffect(() => {
+
+
+            const element = ref.current;
+
+            var left1 = document.querySelector('#workFoldLeft1');
+            var left2 = document.querySelector('#workFoldLeft2');
+            var left3 = document.querySelector('#workFoldLeft3');
+            var line1 = document.querySelector('#line1');
+            var line2 = document.querySelector('#line2');
+            var line3 = document.querySelector('#line3');
+
+            var right1 = document.querySelector('#workFoldRight1');
+            var rightarr1 =  right1.querySelectorAll('#workFoldRight1 > div');
+            var right2 = document.querySelector('#workFoldRight2');
+            var rightarr2 =  right2.querySelectorAll('#workFoldRight2 > div');
+            var right3 = document.querySelector('#workFoldRight3');
+            var rightarr3 =  right3.querySelectorAll('#workFoldRight3 > div');
+
+            const timelineSettings = {
+                staggerValue: 0.2,
+                duration: 1
+            };
+
+            
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: document.querySelector("#workFoldLeft2"),
+                    start: "top 60%",
+                }
+            })
+            .set(rightarr2, 
+                {
+                    y: '80%',
+                    opacity: 0 ,
+                })
+            .fromTo( left2,{
+                y: '100%',
+                opacity: 0,
+                
+            },{
+                ease: 'Power3.easeOut',
+                y: '0%',
+                opacity: 1,
+                duration: 1
+            })
+            .add(createLineTween(line2),  ">-0.5")
+            .to(rightarr2, timelineSettings.duration, 
+                {
+                    ease: 'Power3.easeOut',
+                    y: '0%',
+                    opacity: 1,
+                    stagger: timelineSettings.staggerValue
+                },'>-0.5')
+        
+        
+        
+        
+        
+        
+                gsap.timeline({
+                        scrollTrigger: {
+                            trigger: document.querySelector("#workFoldLeft1"),
+                            start: "top 60%",
+                        }
+                })
+                .set(rightarr1, 
+                    {
+                        y: '80%',
+                        opacity: 0 ,
+                    })
+                .fromTo( left1,{
+                    y: '100%',
+                    opacity: 0,
+                    
+                },{
+                    ease: 'Power3.easeOut',
+                    y: '0%',
+                    opacity: 1,
+                    duration: 1
+                })
+                .add(createLineTween(line1),  ">-0.5")
+                .to(rightarr1, timelineSettings.duration, 
+                    {
+                        ease: 'Power3.easeOut',
+                        y: '0%',
+                        opacity: 1,
+                        stagger: timelineSettings.staggerValue
+                    },'>-0.5')
+
+
+                gsap.timeline({
+                    scrollTrigger: {
+                        trigger: document.querySelector("#workFoldLeft3"),
+                        start: "top 60%",
+                    }
+            })
+            .set(rightarr3, 
+                {
+                    y: '80%',
+                    opacity: 0 ,
+                })
+            .fromTo( left3,{
+                y: '100%',
+                opacity: 0,
+                
+            },{
+                ease: 'Power3.easeOut',
+                y: '0%',
+                opacity: 1,
+                duration: 1
+            })
+            .add(createLineTween(line3),  ">-0.5")
+            .to(rightarr3, timelineSettings.duration, 
+                {
+                    ease: 'Power3.easeOut',
+                    y: '0%',
+                    opacity: 1,
+                    stagger: timelineSettings.staggerValue
+                },'>-0.2')
+
+},[])
+   
+}
+ 
+
+    else{
+
+      /* ======= DESKTOP ANIMATION =======*/
+
+     /*====== LINE ANIMATION =======*/
 
     useEffect(() => {
-
-        const element = ref.current;
         var line = document.querySelector('#line1');
+
         
         const timeline = gsap.timeline({
             scrollTrigger: {
@@ -31,11 +188,15 @@ export default function TeamMember(props) {
                 scrub: true
             }
         });
-
+   
         timeline.add(createLineTween(line),  "-=1");
 
     },[])
 
+
+
+    
+ 
 
     useEffect(() => {
 
@@ -73,23 +234,6 @@ export default function TeamMember(props) {
 
     },[])
 
-
-    function createLineTween(svg){
-        var len = dist(svg.x1.baseVal.value, svg.x2.baseVal.value,
-            svg.y1.baseVal.value, svg.y2.baseVal.value);
-        var pathObject = {length:0, pathLength:len}; 
-        var tween = TweenLite.to(pathObject, 2, {length:pathObject.pathLength, onUpdate:drawLine, onUpdateParams:[pathObject, svg], immediateRender:true});
-        return tween;
-    };
-
-    function dist(x1, x2, y1, y2){
-        return Math.sqrt( (x2-=x1)*x2 + (y2-=y1)*y2 );
-    }
-
-
-    function drawLine(obj, svg) {
-        svg.style.strokeDasharray = [obj.length, obj.pathLength].join(' ');
-       };
 
 
     // =========== LEFT CONTENT ANIMATION =================
@@ -270,6 +414,7 @@ export default function TeamMember(props) {
    
 
     },[])
+}
     
 
     // ======== CONTENT ===============

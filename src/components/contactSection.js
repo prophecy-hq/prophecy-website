@@ -97,7 +97,7 @@ export default function ContactSection() {
 
 
     return(
-        <Flex sx = {{variant: 'layouts.fullHeightFlex',color: 'darkGrey'}}>
+        <Flex sx = {{variant: 'layouts.fullHeightFlex',color: 'darkGrey',}}>
             <Flex ref = {ref} sx = {{variant: 'layouts.responsiveFlex', width: '100%'}}>
 
             

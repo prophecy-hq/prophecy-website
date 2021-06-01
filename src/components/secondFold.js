@@ -30,7 +30,7 @@ export default function SecondFold() {
         }
     })
     .fromTo( text1,{
-        y: '100%',
+        y: '60%',
         opacity: 0,
         
     },{
@@ -49,7 +49,7 @@ export default function SecondFold() {
         }
     })
     .fromTo( text2,{
-        y: '100%',
+        y: '60%',
         opacity: 0,
         
     },{
@@ -67,7 +67,7 @@ export default function SecondFold() {
         }
     })
     .fromTo( text3,{
-        y: '100%',
+        y: '60%',
         opacity: 0,
         
     },{
@@ -85,7 +85,7 @@ export default function SecondFold() {
         }
     })
     .fromTo( text4,{
-        y: '100%',
+        y: '60%',
         opacity: 0,
         
     },{
@@ -104,7 +104,7 @@ export default function SecondFold() {
         }
     })
     .fromTo( text5,{
-        y: '100%',
+        y: '60%',
         opacity: 0,
         
     },{
@@ -123,7 +123,7 @@ export default function SecondFold() {
     <Box ref = {ref} sx = {{variant: 'layouts.leftContent', color: 'white'}}>
 
 
-            <Styled.h2  id = "secondFold1" sx = {{marginBottom: '70vh'}}>
+            <Styled.h2  id = "secondFold1">
                 Design means more to us than aesthetics, wireframes, AB tests, lowering CAC or increasing MAU.
             </Styled.h2>
     

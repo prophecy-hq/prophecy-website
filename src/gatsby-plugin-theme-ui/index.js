@@ -162,7 +162,7 @@ export default{
 
         fullContainer: {
             width: '100%',
-            
+            // overflow: 'hidden'
         },
         
         mainContainer: {
@@ -173,7 +173,7 @@ export default{
             transform: 'translateZ(0)',
 
             '@media screen and (max-width: 1024px)': {
-                maxWidth: '768px'
+                maxWidth: '768px',
             },
         },
 
@@ -215,6 +215,11 @@ export default{
             height: '100vh', 
             alignItems: 'center',
             // transform: 'translateZ(0)',
+
+            '@media screen and (max-width: 1024px)': {
+                height: 'auto',
+                paddingBottom: '10vh',
+            },
         },
 
         link: {
@@ -451,7 +456,7 @@ export default{
             fontWeight: 'light',
             fontSize: [32, 40],
             lineHeight: 'heading',
-            marginBottom: 160,
+            marginBottom: '20vh',
             // transform: 'translateZ(0)',
         },
 

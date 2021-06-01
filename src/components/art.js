@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import "./seedrandom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { TextureLoader } from "three";
+import {isMobile, isTablet, isBrowser} from "react-device-detect";
 
 
 export default function Art () {
@@ -667,11 +667,22 @@ function onMouseWheel(event) {
     
   }
 
+  function onScroll(event){
+    camera.position.y -= window.scrollY / 500;
+  }
+
   function start  () {
 
+    if(isBrowser){
     window.addEventListener('mousemove', onMouseMove, false);
-    window.addEventListener('resize', onResize, false);
     window.addEventListener('wheel', onMouseWheel, false);
+    }
+
+    if(isMobile || isTablet){
+        document.addEventListener('scroll', onScroll);
+    }
+
+    window.addEventListener('resize', onResize, false);
 
     if (!frameId) {
       frameId = requestAnimationFrame(animate)
@@ -689,8 +700,8 @@ function onMouseWheel(event) {
 
     geometry.dispose();
     material.dispose();
-    arcGeometry.dispose();
-    arcMaterial.dispose();
+    // arcGeometry.dispose();
+    // arcMaterial.dispose();
     return;
   }
 
