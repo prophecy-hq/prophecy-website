@@ -503,9 +503,9 @@ function opacityAnimation(i){
         for (let i = 0; i < tempLines.length; i++) {
             var l = tempLines[i];
             l.drawLine();
-            if (i % 100 == 5) {
-                l.drawAngles();
-            }
+            // if (i % 100 == 5) {
+            //     l.drawAngles();
+            // }
         }
 
  
@@ -585,7 +585,7 @@ function animate() {
                 }    
 
                 else { 
-                    // mainAnimation(i);
+                    mainAnimation(i);
 
             
 
@@ -624,6 +624,7 @@ else{ stop(); }
 
 function render(){
     renderer.render( scene, camera );
+    console.log(renderer.info);
     // composer.render();
 }
 
