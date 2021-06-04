@@ -624,7 +624,7 @@ else{ stop(); }
 
 function render(){
     renderer.render( scene, camera );
-    console.log(renderer.info);
+    // console.log(renderer.info);
     // composer.render();
 }
 
