@@ -585,14 +585,14 @@ function animate() {
                 }    
 
                 else { 
-                    mainAnimation(i);
+                    // mainAnimation(i);
 
             
 
                 }
                 // console.log(flagArray[i]);
 
-                opacityAnimation(i);
+                // opacityAnimation(i);
 
             }
 
