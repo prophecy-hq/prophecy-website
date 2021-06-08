@@ -8,7 +8,6 @@ module.exports = {
 	},
 	plugins: [
 		`gatsby-plugin-react-helmet`,
-		`gatsby-plugin-mdx`,
 		`gatsby-plugin-theme-ui`,
 		`gatsby-plugin-sharp`,
 		`gatsby-transformer-sharp`,
@@ -19,16 +18,23 @@ module.exports = {
 		{
 			resolve: 'gatsby-plugin-mailchimp',
 			options: {
-				endpoint: 'https://akshayverma.us3.list-manage.com/subscribe/post?u=fcc4a008c60b4fc7c9b3cb9fb&amp;id=9bf6a178a3',
+				endpoint:
+					'https://akshayverma.us3.list-manage.com/subscribe/post?u=fcc4a008c60b4fc7c9b3cb9fb&amp;id=9bf6a178a3',
 				timeout: '10000',
 			},
-
 		},
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
 				name: `images`,
 				path: `${__dirname}/src/images`,
+			},
+		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `caseStudies`,
+				path: `${__dirname}/src/pages/work/`,
 			},
 		},
 		{
@@ -68,6 +74,15 @@ module.exports = {
 				theme_color: `#663399`,
 				display: `minimal-ui`,
 				icon: `src/images/prophecyLogo.png`, // This path is relative to the root of the site.
+			},
+		},
+		{
+			resolve: `gatsby-plugin-mdx`,
+			options: {
+				defaultLayouts: {
+					caseStudies: require.resolve('./src/components/caseStudy-layout.jsx'),
+					default: require.resolve('./src/components/caseStudy-layout.jsx'),
+				},
 			},
 		},
 		// this (optional) plugin enables Progressive Web App + Offline functionality
