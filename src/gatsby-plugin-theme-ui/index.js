@@ -438,56 +438,65 @@ export default {
 	},
 
 	styles: {
-		// a:{
-		//     paddingBottom: 16,
-		//     textDecoration: 'none',
-		//     color: 'darkGrey',
-		// 	// display: 'block',
-		// 	width: 'fit-content',
-		// 	// transition: '0.2s',
-		//     fontFamily: 'prophecy',
-		//     '&::after': {
-		// 		border: '1px solid',
-		//         color: 'darkGrey',
-		// 		display: 'block',
-		// 		mt: '2px',
-		// 		transform: 'scaleX(0)',
-		// 		// transition: 'transform 240ms ease-out',
-		// 		transformOrigin: '0% 0%',
-		// 		content: '""',
-		// 	},
-		// 	'&:hover': {
-		// 		color: 'darkGrey',
-		// 		'&::after': {
-		// 			transform: 'scaleX(1)',
-		// 			transformOrigin: '0% 100%',
-		// 		}
-		//     }
+		
+		a:{
+		    paddingBottom: 16,
+		    textDecoration: 'none',
+		    color: 'white',
+			// display: 'block',
+			width: 'fit-content',
+			// transition: '0.2s',
+		    fontFamily: 'prophecy',
+			fontSize: 16,
+		    '&::after': {
+				border: '1px solid',
+		        color: 'white',
+				display: 'block',
+				mt: '2px',
+				transform: 'scaleX(0)',
+				// transition: 'transform 240ms ease-out',
+				transformOrigin: '0% 0%',
+				content: '""',
+			},
+			'&:hover': {
+				color: 'white',
+				'&::after': {
+					transform: 'scaleX(1)',
+					transformOrigin: '0% 100%',
+				}
+		    },
 
-		// },
+		},
 
 		h1: {
-			variant: 'text.h1'
+			variant: 'text.h1',
+			color: 'white',
+
 			// transform: 'translateZ(0)',
 		},
 
 		h2: {
-			variant: 'text.h2'
+			variant: 'text.h2',
+			mb: 0,
+			color: 'white',
 			// transform: 'translateZ(0)',
 		},
 
 		h3: {
-			variant: 'text.h3'
+			variant: 'text.h3',
+			color: 'white',
 			// transform: 'translateZ(0)',
 		},
 
 		h5: {
-			variant: 'text.h5'
+			variant: 'text.h5',
+			color: 'white',
 			// transform: 'translateZ(0)',
 		},
 
 		p: {
-			variant: 'text.p'
+			variant: 'text.p',
+			color: 'white',
 			// transform: 'translateZ(0)',
 		},
 
