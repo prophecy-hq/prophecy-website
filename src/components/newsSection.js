@@ -115,23 +115,23 @@ export default function NewsSection () {
                         mb: 80,
                     },  }}>
 
-                    <Styled.h1 data-splitting = "">What we’ve been up to.</Styled.h1>
+                    <h1 sx= {{variant: 'text.h1'}} data-splitting = "">What we’ve been up to.</h1>
                 </Box>
 
                 <Grid id = "newsSectionGrid" sx = {{variant: 'layouts.newsGrid'}}>
 
                     <Box sx = {{variant: 'layouts.newsGridItem'}}>
-                        <Styled.h3  sx = {{mb: '16px'}}>Antler Workshop</Styled.h3>
+                        <h3  sx = {{mb: '16px', variant: 'text.h3'}}>Antler Workshop</h3>
                         <div sx = {{variant: 'text.bodyLarge'}}>Held a workshop and created a design cheatsheet for early stage founders</div>
                     </Box>
 
                     <Box sx = {{variant: 'layouts.newsGridItem'}}>
-                        <Styled.h3 sx = {{mb: '16px'}}>Ownpath Masterclass</Styled.h3>
+                        <h3 sx = {{mb: '16px', variant: 'text.h3'}}>Ownpath Masterclass</h3>
                         <div sx = {{variant: 'text.bodyLarge'}}>Taught design thinking at the Ownpath product design fellowship.</div>
                     </Box>
 
                     <Box sx = {{variant: 'layouts.newsGridItem'}}>
-                        <Styled.h3 sx = {{mb: '16px'}}>10kdesigners masterclass</Styled.h3>
+                        <h3 sx = {{mb: '16px', variant: 'text.h3'}}>10kdesigners masterclass</h3>
                         <div sx = {{variant: 'text.bodyLarge'}}>Taught visual design at the 10kdesigners UI/UX design masterclass.</div>
                     </Box>
 

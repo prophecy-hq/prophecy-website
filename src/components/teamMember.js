@@ -424,10 +424,10 @@ if(isMobile || isTablet){
         <Flex sx = {{ variant: 'layouts.responsiveFlex', marginTop: 200, width: '100%'}}>
             
             <Box sx = {{variant: 'layouts.flexLeft'}}>
-                <Styled.p id = {props.leftId}>
+                <p sx = {{variant: 'text.p'}} id = {props.leftId}>
                     <span sx = {{variant: 'text.bold'}}>{props.name}</span>
                     {props.bio}
-                </Styled.p>
+                </p>
             </Box>
 
             <Box sx = {{variant: 'layouts.line'}}> 

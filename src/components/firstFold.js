@@ -53,20 +53,19 @@ export default function FirstFold() {
 
 
 return(
-        <Box ref = {ref} sx = {{height: '100vh', color: 'white'}}>
+        <Box ref = {ref} sx = {{height: '100vh', color: 'white', variant: 'layouts.rightContent'}}>
          
             
-            <Styled.h1  data-splitting = ""
-            
-                className = "staggerAnimation"
-                sx = {{variant: 'layouts.rightContent', marginTop: '80px', color: 'lightRed'}}>
+            <h1 sx = {{variant: 'text.h1', marginTop: '80px', color: 'lightRed'}} data-splitting = ""
+              className = "staggerAnimation"
+            >
                 
                 We help achieve&nbsp;
                 <span className = "whitespace">&nbsp;</span>
                 <span  sx = {{variant: 'text.italic', color: 'white'}}>
                      &nbsp;big goals
                 </span> 
-                &nbsp;through digital products that are people-centric, rigorously tested, and expertly crafted.</Styled.h1>
+                &nbsp;through digital products that are people-centric, rigorously tested, and expertly crafted.</h1>
         </Box>
 
         )

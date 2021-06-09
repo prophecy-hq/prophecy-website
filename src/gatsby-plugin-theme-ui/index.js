@@ -28,6 +28,48 @@ export default {
 	},
 
 	text: {
+
+		h1: {
+			fontFamily: 'prophecy',
+			fontWeight: 'light',
+			fontSize: [40, 56],
+			lineHeight: 'heading',
+			// transform: 'translateZ(0)',
+		},
+
+		h2: {
+			fontFamily: 'prophecy',
+			fontWeight: 'light',
+			fontSize: [32, 40],
+			lineHeight: 'heading',
+			marginBottom: '20vh',
+			// transform: 'translateZ(0)',
+		},
+
+		h3: {
+			fontFamily: 'prophecy',
+			fontWeight: 'medium',
+			fontSize: [21, 24],
+			lineHeight: 'heading',
+			// transform: 'translateZ(0)',
+		},
+
+		h5: {
+			fontFamily: 'prophecy',
+			fontWeight: 'medium',
+			fontSize: [16, 16],
+			lineHeight: 'body',
+			// transform: 'translateZ(0)',
+		},
+
+		p: {
+			fontFamily: 'prophecy',
+			fontSize: 16,
+			fontWeight: 'light',
+			lineHeight: 'body',
+			// transform: 'translateZ(0)',
+		},
+
 		bodyLarge: {
 			fontFamily: 'prophecy',
 			fontWeight: 'light',
@@ -425,43 +467,27 @@ export default {
 		// },
 
 		h1: {
-			fontFamily: 'prophecy',
-			fontWeight: 'light',
-			fontSize: [40, 56],
-			lineHeight: 'heading',
+			variant: 'text.h1'
 			// transform: 'translateZ(0)',
 		},
 
 		h2: {
-			fontFamily: 'prophecy',
-			fontWeight: 'light',
-			fontSize: [32, 40],
-			lineHeight: 'heading',
-			marginBottom: '20vh',
+			variant: 'text.h2'
 			// transform: 'translateZ(0)',
 		},
 
 		h3: {
-			fontFamily: 'prophecy',
-			fontWeight: 'medium',
-			fontSize: [21, 24],
-			lineHeight: 'heading',
+			variant: 'text.h3'
 			// transform: 'translateZ(0)',
 		},
 
 		h5: {
-			fontFamily: 'prophecy',
-			fontWeight: 'medium',
-			fontSize: [16, 16],
-			lineHeight: 'body',
+			variant: 'text.h5'
 			// transform: 'translateZ(0)',
 		},
 
 		p: {
-			fontFamily: 'prophecy',
-			fontSize: 16,
-			fontWeight: 'light',
-			lineHeight: 'body',
+			variant: 'text.p'
 			// transform: 'translateZ(0)',
 		},
 

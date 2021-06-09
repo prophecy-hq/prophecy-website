@@ -123,29 +123,29 @@ export default function SecondFold() {
     <Box ref = {ref} sx = {{variant: 'layouts.leftContent', color: 'white'}}>
 
 
-            <Styled.h2  id = "secondFold1">
+            <h2 sx = {{variant: 'text.h2'}} id = "secondFold1">
                 Design means more to us than aesthetics, wireframes, AB tests, lowering CAC or increasing MAU.
-            </Styled.h2>
+            </h2>
     
-            <Styled.h2   id = "secondFold2" >
+            <h2 sx = {{variant: 'text.h2'}}   id = "secondFold2" >
                 We design for people — their values, fears and dreams — their stories, not just numbers on an engagement chart.
-            </Styled.h2>
+            </h2>
 
     
-                <Styled.h2  id = "secondFold3" >
+                <h2 sx = {{variant: 'text.h2'}}  id = "secondFold3" >
                     To help people save time, find joy, overcome fears, achieve dreams, and sometimes even save lives.
-            </Styled.h2>
+            </h2>
     
 
     
-                <Styled.h2  id = "secondFold4" >
+                <h2 sx = {{variant: 'text.h2'}}  id = "secondFold4" >
                 We hypothesise, experiment and test. We question every assumption. We diagnose before we prescribe.
-            </Styled.h2>
+            </h2>
 
   
-            <Styled.h2  id = "secondFold5" >
+            <h2 sx = {{variant: 'text.h2'}}  id = "secondFold5" >
                 To find simple solutions for complex problems, that realise the future you envision.
-            </Styled.h2>
+            </h2>
 
     </Box>
 

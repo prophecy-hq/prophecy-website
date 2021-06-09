@@ -545,12 +545,14 @@ function opacityAnimation(i){
     geometry.verticesNeedUpdate = true;
 
 
-    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer = new THREE.WebGLRenderer({ powerPreference: "high-performance" });
 
     renderer.setSize(width, height);
-    renderer.setClearColor (0xffffff, 0);
+    console.log(renderer.render.info);
+    // renderer.setClearColor (0xffffff, 0);
     renderer.setPixelRatio(window.devicePixelRatio);
     mount.current.appendChild( renderer.domElement );
+
 
     // bloom();
 
@@ -585,14 +587,14 @@ function animate() {
                 }    
 
                 else { 
-                    // mainAnimation(i);
+                    mainAnimation(i);
 
             
 
                 }
                 // console.log(flagArray[i]);
 
-                // opacityAnimation(i);
+                opacityAnimation(i);
 
             }
 

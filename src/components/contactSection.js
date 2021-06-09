@@ -113,13 +113,13 @@ export default function ContactSection() {
                     <line id = "contactLine"  x1="0%" y1="0%" x2="100%" y2="100%"
                     style={{fill:'none', stroke:'#131112', strokeWidth:'1px'}} />
                 </svg>
-                </Box>  
+            </Box>  
 
             <Flex sx = {{flexDirection: 'column', variant: 'layouts.flexRight'}}>
 
                 
                 <Box className = "staggerContact">
-                    <Box><Styled.h1 sx = {{mb: 24}}>hello@prophecy.one</Styled.h1></Box>
+                    <Box><h1 sx = {{mb: 24, variant: 'text.h1'}}>hello@prophecy.one</h1></Box>
                             {/* <span 
                                 sx = {{variant: 'layouts.link'}}  
                                 onClick = {() => {navigator.clipboard.writeText('hello@prophecy.one')}}>
@@ -140,12 +140,12 @@ export default function ContactSection() {
                         },
                      }}
                     >
-                        <Styled.h3 sx = {{mb: 16}}>Sign up to our newsletter</Styled.h3>
+                        <h3 sx = {{mb: 16, variant: 'text.h3'}}>Sign up to our newsletter</h3>
                         <Form />
                     </Box>
 
                     <Flex className = "staggerContact" sx = {{flexDirection: 'column'}}>
-                        <Styled.h3 sx = {{mb: 16}}>Follow us</Styled.h3>
+                        <h3 sx = {{mb: 16, variant: 'text.h3'}}>Follow us</h3>
                         <Link sx ={{variant: 'layouts.link', mb: '16px', fontStyle: 'italic', fontSize: [21,24]}} href = "https://twitter.com/prophecy_hq" target="_blank">Twitter</Link>
                         <Link sx ={{variant: 'layouts.link', fontStyle: 'italic',  fontSize: [21,24]}} href = "https://www.linkedin.com/company/69346346/" target="_blank">LinkedIn</Link>    
                     </Flex>

@@ -112,7 +112,7 @@ export default function AwardSection()  {
                     <Flex sx = {{variant: 'layouts.awardsGridItem'}} >
                         
                         <Image src = {IxDA} sx = {{mb: 24}}/>
-                        <Styled.h3 sx = {{mb: '8px', maxWidth: '200px'}}>IxDA Interaction Awards 2020</Styled.h3>
+                        <h3 sx = {{mb: '8px', maxWidth: '200px', variant: 'text.h3'}}>IxDA Interaction Awards 2020</h3>
                         <div sx = {{variant: 'text.awardDescription'}}>Best in Show</div>
                 
                     </Flex>
@@ -120,7 +120,7 @@ export default function AwardSection()  {
                     <Flex sx = {{variant: 'layouts.awardsGridItem'}}>
                         
                         <Image src = {FastCompany} sx = {{mb: 24}} />
-                        <Styled.h3 sx = {{mb: '8px', maxWidth: '200px'}}>Innovation by Design Awards</Styled.h3>
+                        <h3 sx = {{mb: '8px', maxWidth: '200px', variant: 'text.h3'}}>Innovation by Design Awards</h3>
                         <div sx = {{variant: 'text.awardDescription'}}>Honourable Mention</div>
                 
                     </Flex>
@@ -130,7 +130,7 @@ export default function AwardSection()  {
                     <Flex sx = {{variant: 'layouts.awardsGridItem'}}>
                         
                         <Image src = {UXDA} sx = {{mb: 24}} />
-                        <Styled.h3 sx = {{mb: '8px', maxWidth: '200px'}}>UX Design Awards 2020</Styled.h3>
+                        <h3 sx = {{mb: '8px', maxWidth: '200px', variant: 'text.h3'}}>UX Design Awards 2020</h3>
                         <div sx = {{variant: 'text.awardDescription'}}>New Talent</div>
                 
                     </Flex>
@@ -139,7 +139,7 @@ export default function AwardSection()  {
                     <Flex sx = {{variant: 'layouts.awardsGridItem'}}>
                         
                         <Image src = {Core77} sx = {{mb: 24}} />
-                        <Styled.h3 sx = {{mb: '8px', maxWidth: '200px'}}>Core77 Design Awards 2020</Styled.h3>
+                        <h3 sx = {{mb: '8px', maxWidth: '200px', variant: 'text.h3'}}>Core77 Design Awards 2020</h3>
                         <div sx = {{variant: 'text.awardDescription'}}>Runner Up</div>
 
                     </Flex>
@@ -149,15 +149,15 @@ export default function AwardSection()  {
 
 
                 <Box sx = {{flex: '1'}}>
-                    <Styled.h1  
-                        sx = {{color: 'lightRed',  marginLeft: 'auto', textAlign: 'right', width: '80%',
+                    <h1  
+                        sx = {{variant: 'text.h1', color: 'lightRed',  marginLeft: 'auto', textAlign: 'right', width: '80%',
                         '@media screen and (max-width: 1024px)': {
                             width: '100%',
                             textAlign: 'left',
                         },   }} 
                         id = "awardSectionHeading" 
                         data-splitting = "">
-                    We’ve also been recognised for it.</Styled.h1>
+                    We’ve also been recognised for it.</h1>
                 </Box>
 
 

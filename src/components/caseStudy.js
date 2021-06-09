@@ -9,7 +9,7 @@ export default function CaseStudy(props) {
         return(
         <Box sx = {{marginBottom: 48}}>
             <Link sx = {{variant: 'layouts.link'}}><Styled.h1 >{props.title}</Styled.h1>
-            <Styled.p>{props.description}</Styled.p></Link>
+            <p sx = {{variant: 'text.p'}}>{props.description}</p></Link>
            
         </Box>
 

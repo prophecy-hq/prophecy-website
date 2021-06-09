@@ -158,7 +158,7 @@ export default function ClientSection() {
                 },
             
         }}>
-                <Styled.h1 id = "clientSectionHeading" data-splitting = "">We bring in experience from startups and established companies.</Styled.h1>
+                <h1 sx = {{variant: 'text.h1'}} id = "clientSectionHeading" data-splitting = "">We bring in experience from startups and established companies.</h1>
                 <div id = "clientSectionSubheading" sx = {{color: 'white', variant: 'text.bodyLarge', mt: 32}}>Working in healthcare, finance, education and enterprise applications.</div>
             </Box>
             
