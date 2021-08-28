@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
+import { Styled, jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
 export default function Recognition({ items }) {
@@ -11,7 +11,7 @@ export default function Recognition({ items }) {
 			}}
 		>
 			{`${item[0]} \u2014 `}
-			<i sx={{ variant: 'text.italic' }}>{item[1]}</i>
+			<i sx={{ variant: 'text.bodySmall.italic' }}>{item[1]}</i>
 		</li>
 	));
 
@@ -24,7 +24,7 @@ export default function Recognition({ items }) {
 				border: 'white_a72',
 			}}
 		>
-			<h5 sx={{ variant: 'text.bold', marginBottom: '24px' }}>Recognition</h5>
+			<Styled.h5 sx={{ marginBottom: '24px' }}>Recognition</Styled.h5>
 			<ul sx={{ listStyleType: 'circle' }}>{listItems}</ul>
 		</div>
 	);

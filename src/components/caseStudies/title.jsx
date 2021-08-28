@@ -2,16 +2,11 @@
 import { Box, jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
-export default function Title(props) {
+export default function Title({ children }) {
 	return (
-		<Box
-			sx={{
-				gridColumnStart: '1',
-				gridColumnEnd: '17',
-			}}
-		>
+		<Box>
 			<h1 sx={{ variant: 'text.caseStudyTitle', color: 'orange' }}>
-				{props.children}
+				{children}
 			</h1>
 		</Box>
 	);

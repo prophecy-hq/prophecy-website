@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
+import { Styled, jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
 export default function ExternalLinks({ items }) {
@@ -10,7 +10,7 @@ export default function ExternalLinks({ items }) {
 				':last-child': { marginBottom: '0px' },
 			}}
 		>
-			<a
+			<Styled.a
 				sx={{
 					variant: 'text.bodySmall',
 					color: 'white',
@@ -23,7 +23,7 @@ export default function ExternalLinks({ items }) {
 				rel="noopener noreferrer"
 			>
 				{item[1]}
-			</a>
+			</Styled.a>
 		</li>
 	));
 

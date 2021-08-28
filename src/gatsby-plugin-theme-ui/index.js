@@ -1,7 +1,7 @@
 import '../styles/fonts.css';
-import '../fonts/signifier.otf';
-import '../fonts/signifier-medium.otf';
-import '../fonts/signifier-italic.otf';
+import '../fonts/signifier-light.woff';
+import '../fonts/signifier-light-italic.woff';
+import '../fonts/signifier-medium.woff';
 
 export default {
 	breakpoints: ['1024px'],
@@ -13,6 +13,7 @@ export default {
 		background: '#131112',
 		white: '#F6F7EB',
 		white_a30: '#FFFFFF16',
+		white_a50: '#FFFFFF44',
 		white_a70: '#FFFFFF72',
 		orange: '#FF725C',
 		highlight: '#fff',
@@ -28,7 +29,6 @@ export default {
 	},
 
 	text: {
-
 		h1: {
 			fontFamily: 'prophecy',
 			fontWeight: 'light',
@@ -42,31 +42,35 @@ export default {
 			fontWeight: 'light',
 			fontSize: [32, 40],
 			lineHeight: 'heading',
-			marginBottom: '20vh',
+			marginBottom: 96,
 			// transform: 'translateZ(0)',
 		},
 
 		h3: {
 			fontFamily: 'prophecy',
 			fontWeight: 'medium',
-			fontSize: [21, 24],
-			lineHeight: 'heading',
+			fontSize: [28, 32],
+			lineHeight: '32px',
+			margin: '192px 0 32px 0',
+			// transform: 'translateZ(0)',
+		},
+
+		h4: {
+			fontFamily: 'prophecy',
+			fontWeight: 'medium',
+			fontSize: [18, 20],
+			lineHeight: '32px',
+			textTransform: 'uppercase',
+			letterSpacing: '2.5px',
+			margin: '96px 0 32px 0',
 			// transform: 'translateZ(0)',
 		},
 
 		h5: {
 			fontFamily: 'prophecy',
 			fontWeight: 'medium',
-			fontSize: [16, 16],
-			lineHeight: 'body',
-			// transform: 'translateZ(0)',
-		},
-
-		p: {
-			fontFamily: 'prophecy',
-			fontSize: 16,
-			fontWeight: 'light',
-			lineHeight: 'body',
+			fontSize: [16, 18],
+			lineHeight: '24px',
 			// transform: 'translateZ(0)',
 		},
 
@@ -74,14 +78,49 @@ export default {
 			fontFamily: 'prophecy',
 			fontWeight: 'light',
 			fontSize: [21, 24],
-			lineHeight: 'body',
+			lineHeight: '32px',
+			marginBottom: '32px',
+			':lastChild': {
+				marginBottom: 0,
+			},
 		},
 
 		bodySmall: {
 			fontFamily: 'prophecy',
 			fontWeight: 'light',
 			fontSize: [16, 18],
-			lineHeight: 'body',
+			lineHeight: '24px',
+			italic: {
+				fontStyle: 'italic',
+				fontWeight: 'light',
+			},
+		},
+
+		link: {
+			cursor: 'pointer',
+			textDecoration: 'none',
+			color: 'darkGrey',
+			// display: 'block',
+			width: 'fit-content',
+			transition: '0.2s',
+			fontFamily: 'prophecy',
+			'&::after': {
+				border: '1px solid',
+				color: 'darkGrey',
+				display: 'block',
+				mt: '2px',
+				transform: 'scaleX(0)',
+				transition: 'transform 240ms ease-out',
+				transformOrigin: '0% 0%',
+				content: '""',
+			},
+			'&:hover': {
+				color: 'darkGrey',
+				'&::after': {
+					transform: 'scaleX(1)',
+					transformOrigin: '0% 100%',
+				},
+			},
 		},
 
 		italic: {
@@ -122,9 +161,9 @@ export default {
 		caseStudyTitle: {
 			fontFamily: 'prophecy',
 			fontWeight: 'light',
-			fontSize: 96,
+			fontSize: [64, 96],
 			lineHeight: 'heading',
-			padding: '128px 0',
+			padding: ['80px 0', '128px 0'],
 		},
 	},
 
@@ -212,7 +251,6 @@ export default {
 			maxWidth: 1440,
 			margin: '0 auto',
 			paddingBottom: '20vh',
-			transform: 'translateZ(0)',
 
 			'@media screen and (max-width: 1024px)': {
 				maxWidth: '768px',
@@ -260,33 +298,6 @@ export default {
 			'@media screen and (max-width: 1024px)': {
 				height: 'auto',
 				paddingBottom: '10vh',
-			},
-		},
-
-		link: {
-			cursor: 'pointer',
-			textDecoration: 'none',
-			color: 'darkGrey',
-			// display: 'block',
-			width: 'fit-content',
-			transition: '0.2s',
-			fontFamily: 'prophecy',
-			'&::after': {
-				border: '1px solid',
-				color: 'darkGrey',
-				display: 'block',
-				mt: '2px',
-				transform: 'scaleX(0)',
-				transition: 'transform 240ms ease-out',
-				transformOrigin: '0% 0%',
-				content: '""',
-			},
-			'&:hover': {
-				color: 'darkGrey',
-				'&::after': {
-					transform: 'scaleX(1)',
-					transformOrigin: '0% 100%',
-				},
 			},
 		},
 
@@ -438,66 +449,51 @@ export default {
 	},
 
 	styles: {
-		
-		a:{
-		    paddingBottom: 16,
-		    textDecoration: 'none',
-		    color: 'white',
-			// display: 'block',
-			width: 'fit-content',
-			// transition: '0.2s',
-		    fontFamily: 'prophecy',
-			fontSize: 16,
-		    '&::after': {
-				border: '1px solid',
-		        color: 'white',
-				display: 'block',
-				mt: '2px',
-				transform: 'scaleX(0)',
-				// transition: 'transform 240ms ease-out',
-				transformOrigin: '0% 0%',
-				content: '""',
-			},
-			'&:hover': {
-				color: 'white',
-				'&::after': {
-					transform: 'scaleX(1)',
-					transformOrigin: '0% 100%',
-				}
-		    },
-
-		},
-
 		h1: {
 			variant: 'text.h1',
 			color: 'white',
-
-			// transform: 'translateZ(0)',
 		},
 
 		h2: {
 			variant: 'text.h2',
-			mb: 0,
-			color: 'white',
-			// transform: 'translateZ(0)',
+			color: 'lightRed',
 		},
 
 		h3: {
 			variant: 'text.h3',
+			color: 'lightRed',
+		},
+
+		h4: {
+			variant: 'text.h4',
 			color: 'white',
-			// transform: 'translateZ(0)',
 		},
 
 		h5: {
 			variant: 'text.h5',
 			color: 'white',
-			// transform: 'translateZ(0)',
 		},
 
 		p: {
-			variant: 'text.p',
+			variant: 'text.bodyLarge',
 			color: 'white',
-			// transform: 'translateZ(0)',
+		},
+
+		a: {
+			variant: 'text.link',
+			color: 'white',
+		},
+
+		li: {
+			variant: 'text.bodyLarge',
+			color: 'white',
+			listStyleType: 'disc',
+			marginBottom: '16px',
+		},
+
+		hr: {
+			borderTopWidth: '1px',
+			borderColor: 'white_a70',
 		},
 
 		spinner: {

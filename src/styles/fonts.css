@@ -1,20 +1,18 @@
-
+@font-face {
+	font-family: 'signifier';
+	font-weight: 300;
+	src: url(../fonts/signifier-light.woff) format('opentype');
+}
 
 @font-face {
-    font-family: 'signifier';
-    font-weight: 300;
-    src: url(../fonts/signifier.otf) format('opentype');
-  }
-  
-  @font-face {
-      font-family: 'signifier';
-      font-weight: 500;
-      src: url(../fonts/signifier-medium.otf) format('opentype');
-  }
-  
-  @font-face {
-      font-family: 'signifier';
-      font-weight: 300;
-      font-style: italic;
-      src: url(../fonts/signifier-italic.otf) format('opentype');
-  }
+	font-family: 'signifier';
+	font-weight: 300;
+	font-style: italic;
+	src: url(../fonts/signifier-light-italic.woff format('opentype');
+}
+
+@font-face {
+	font-family: 'signifier';
+	font-weight: 500;
+	src: url(../fonts/signifier-medium.woff) format('opentype');
+}

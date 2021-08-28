@@ -1,24 +1,40 @@
 /** @jsx jsx */
+import PropTypes from 'prop-types';
 import { Flex, jsx } from 'theme-ui';
-import Attribution from './attribution.jsx';
-import Recognition from './recognition.jsx';
-import ExternalLinks from './externalLinks.jsx';
+import Attribution from './attribution';
+import Recognition from './recognition';
+import ExternalLinks from './externalLinks';
 
-export default function MetadataLayout(props) {
+export default function MetadataLayout({
+	attribution,
+	recognition,
+	externalLinks,
+}) {
 	return (
 		<Flex
 			sx={{
 				flexFlow: 'column nowrap',
 				gap: '48px',
-				gridColumnStart: '1',
-				gridColumnEnd: '5',
+				// gridArea: 'metadata',
 			}}
 		>
-			<Attribution>{props.attribution}</Attribution>
-			<hr sx={{ width: '100%', borderColor: 'white_a30' }} />
-			<Recognition items={props.recognition} />
-			<hr sx={{ width: '100%', borderColor: 'white_a30' }} />
-			<ExternalLinks items={props.externalLinks} />
+			{attribution && <Attribution>{attribution}</Attribution>}
+			{attribution && <hr sx={{ width: '100%', borderColor: 'white_a50' }} />}
+			{recognition && <Recognition items={recognition} />}
+			{attribution && <hr sx={{ width: '100%', borderColor: 'white_a50' }} />}
+			{externalLinks && <ExternalLinks items={externalLinks} />}
 		</Flex>
 	);
 }
+
+MetadataLayout.defaultProps = {
+	attribution: null,
+	recognition: null,
+	externalLinks: null,
+};
+
+MetadataLayout.propTypes = {
+	attribution: PropTypes.string,
+	recognition: PropTypes.string,
+	externalLinks: PropTypes.string,
+};

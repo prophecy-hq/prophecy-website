@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import { Box, Grid, jsx } from 'theme-ui';
+import { Box, Flex, jsx } from 'theme-ui';
 import { MDXProvider } from '@mdx-js/react';
 import { Link } from 'gatsby';
-import Title from './caseStudies/title.jsx';
+import Title from './caseStudies/title';
 import MetadataLayout from './caseStudies/metadata-layout';
 
 const shortcodes = {
@@ -11,29 +11,54 @@ const shortcodes = {
 	MetadataLayout,
 };
 
-export default (props) => (
+export default ({ children, pageContext }) => (
 	<MDXProvider components={shortcodes}>
-		<Grid
-			columns={16}
-			gap={24}
-			sx={{ margin: '0 auto', width: '100vw', maxWidth: '1280px' }}
+		<div
+			sx={{
+				width: '80vw',
+				maxWidth: '1280px',
+				margin: '0 auto',
+			}}
 		>
-			<Title>{props.pageContext.frontmatter.title}</Title>
+			<Title>{pageContext.frontmatter.title}</Title>
 
-			<MetadataLayout
-				attribution={props.pageContext.frontmatter.attribution}
-				recognition={props.pageContext.frontmatter.recognition}
-				externalLinks={props.pageContext.frontmatter.externalLinks}
-			/>
-
-			<Box
+			<Flex
 				sx={{
-					gridColumnStart: '9',
-					gridColumnEnd: '17',
+					flexDirection: 'row',
+					justifyContent: 'space-between',
+					flexWrap: 'wrap',
+					gap: '12.5%',
 				}}
 			>
-				{props.children}
-			</Box>
-		</Grid>
+				<Box
+					sx={{
+						width: '25%',
+						// minWidth: '240px',
+						flexBasis: '200px',
+						flexGrow: '1',
+						flexShrink: '2',
+					}}
+				>
+					<MetadataLayout
+						attribution={pageContext.frontmatter.attribution}
+						recognition={pageContext.frontmatter.recognition}
+						externalLinks={pageContext.frontmatter.externalLinks}
+					/>
+				</Box>
+
+				<Box
+					sx={{
+						width: '50%',
+						flexBasis: '480px',
+						flexGrow: '2',
+						flexShrink: '1',
+						// width: '50vw',
+						// maxWidth: '640px',
+					}}
+				>
+					{children}
+				</Box>
+			</Flex>
+		</div>
 	</MDXProvider>
 );
