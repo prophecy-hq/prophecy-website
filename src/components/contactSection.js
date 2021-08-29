@@ -1,11 +1,10 @@
 /** @jsx jsx */
-import { jsx, Styled, Box, Flex, Input } from 'theme-ui';
+import { jsx, Box, Flex } from 'theme-ui';
 import { useRef, useEffect } from 'react';
 import { Link } from 'gatsby';
 import Form from './form';
 
 import { gsap } from 'gsap';
-import { TweenLite } from 'gsap/all';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function ContactSection() {
@@ -50,8 +49,8 @@ export default function ContactSection() {
 			//Heading
 			.to(
 				arr,
-				timelineSettings.charsDuration,
 				{
+					duration: timelineSettings.charsDuration,
 					ease: 'Power3.easeOut',
 					y: '0%',
 					opacity: 1,
@@ -66,8 +65,8 @@ export default function ContactSection() {
 			//Right side
 			.to(
 				arr1,
-				timelineSettings.rightDuration,
 				{
+					duration: timelineSettings.rightDuration,
 					ease: 'Power3.easeOut',
 					y: '0%',
 					opacity: 1,
@@ -85,7 +84,8 @@ export default function ContactSection() {
 			svg.y2.baseVal.value,
 		);
 		var pathObject = { length: 0, pathLength: len };
-		var tween = TweenLite.to(pathObject, 0.5, {
+		var tween = gsap.to(pathObject, {
+			duration: 0.5,
 			length: pathObject.pathLength,
 			onUpdate: drawLine,
 			onUpdateParams: [pathObject, svg],

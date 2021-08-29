@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Styled, Box } from 'theme-ui';
+import { jsx, Box } from 'theme-ui';
 import { Link } from 'gatsby';
 
 export default function CaseStudy(props) {

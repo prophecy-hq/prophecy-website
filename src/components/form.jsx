@@ -1,75 +1,70 @@
 /** @jsx jsx */
-import {jsx, Box, Styled, Flex, Button, Input } from 'theme-ui';
-import addToMailchimp from 'gatsby-plugin-mailchimp'
+import { jsx, Box, Flex, Button, Input } from 'theme-ui';
+import addToMailchimp from 'gatsby-plugin-mailchimp';
 import React from 'react';
 import 'animate.css/animate.css';
-import '../styles/fade.css'
-
-
+import '../styles/fade.css';
 
 export default class Form extends React.Component {
+	constructor() {
+		super();
+		this.state = { email: '', result: null, visible: false };
+	}
 
-    constructor() {
-        super()
-        this.state = { email: "", result: null, visible: false }
-      }
+	_handleSubmit = async (e) => {
+		e.preventDefault();
 
-      _handleSubmit = async e => {
-        e.preventDefault() 
+		const result = await addToMailchimp(this.state.email);
 
+		this.setState({ result: result });
 
-        const result = await addToMailchimp(this.state.email)
+		this.setState({ visible: true });
 
-        this.setState({result: result})
+		console.log(this.state.visible);
 
-        this.setState({visible: true}) 
+		setTimeout(() => {
+			this.setState({ visible: false });
+		}, 2000);
 
-        console.log(this.state.visible)
+		console.log(result);
+		console.log(this.state.visible);
+	};
 
-        setTimeout(() => {
-            this.setState({visible: false})
-          }, 2000)
+	handleChange = (event) => {
+		this.setState({ email: event.target.value });
+	};
 
-          console.log(result);
-          console.log(this.state.visible)
+	render() {
+		return (
+			<Box>
+				<form
+					onSubmit={this._handleSubmit}
+					sx={{ variant: 'forms.contactForm' }}
+				>
+					<Flex>
+						<Input
+							sx={{ variant: 'text.bodyLarge' }}
+							placeholder="name@email.com"
+							name="email"
+							type="text"
+							onChange={this.handleChange}
+						/>
 
-      }
+						<Button type="submit" />
+					</Flex>
+				</form>
 
-     
-
-    handleChange = event => {
-        this.setState({ email: event.target.value })
-      }
-
-    render () {
-        return  ( 
-            <Box> 
-                
-                <form onSubmit={this._handleSubmit} sx= {{variant: 'forms.contactForm'}}>    
-                   
-                    <Flex>  
-                        <Input sx = {{variant: 'text.bodyLarge'}}
-                            placeholder="name@email.com"
-                            name="email"
-                            type="text"
-                            onChange={this.handleChange}
-                        />
-
-                        <Button type="submit" />
-                    </Flex>
-                </form>
-
-                <p sx = {{variant: 'text.caption', mt: '16px'}} 
-                    className = {this.state.visible ? 'fadein' : 'fadeout'}>
-
-                            {this.state.result != null 
-                            ? this.state.result === "success"
-                                ? 'Signed up successfully' 
-                                :  this.state.result.msg 
-                            : '' }
-                    
-                </p>
-            </Box>
-        )
-    }
+				<p
+					sx={{ variant: 'text.caption', mt: '16px' }}
+					className={this.state.visible ? 'fadein' : 'fadeout'}
+				>
+					{this.state.result != null
+						? this.state.result === 'success'
+							? 'Signed up successfully'
+							: this.state.result.msg
+						: ''}
+				</p>
+			</Box>
+		);
+	}
 }

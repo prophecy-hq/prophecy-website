@@ -8,7 +8,7 @@
 	font-family: 'signifier';
 	font-weight: 300;
 	font-style: italic;
-	src: url(../fonts/signifier-light-italic.woff format('opentype');
+	src: url(../fonts/signifier-light-italic.woff) format('opentype');
 }
 
 @font-face {

@@ -1,7 +1,4 @@
 import '../styles/fonts.css';
-import '../fonts/signifier-light.woff';
-import '../fonts/signifier-light-italic.woff';
-import '../fonts/signifier-medium.woff';
 
 export default {
 	breakpoints: ['1024px'],

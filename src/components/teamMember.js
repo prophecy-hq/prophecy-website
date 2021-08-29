@@ -1,9 +1,8 @@
 /** @jsx jsx */
-import { jsx, Styled, Box, Flex } from 'theme-ui';
+import { jsx, Box, Flex } from 'theme-ui';
 import { useRef, useEffect } from 'react';
 import CaseStudy from './caseStudy.js';
 import { gsap } from 'gsap';
-import { TweenLite } from 'gsap/all';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { isMobile, isTablet } from 'react-device-detect';
 
@@ -19,7 +18,8 @@ export default function TeamMember(props) {
 			svg.y2.baseVal.value,
 		);
 		var pathObject = { length: 0, pathLength: len };
-		var tween = TweenLite.to(pathObject, 0.5, {
+		var tween = gsap.to(pathObject, {
+			duration: 0.5,
 			length: pathObject.pathLength,
 			onUpdate: drawLine,
 			onUpdateParams: [pathObject, svg],
@@ -88,8 +88,8 @@ export default function TeamMember(props) {
 				.add(createLineTween(line2), '>-0.5')
 				.to(
 					rightarr2,
-					timelineSettings.duration,
 					{
+						duration: timelineSettings.duration,
 						ease: 'Power3.easeOut',
 						y: '0%',
 						opacity: 1,
@@ -125,8 +125,8 @@ export default function TeamMember(props) {
 				.add(createLineTween(line1), '>-0.5')
 				.to(
 					rightarr1,
-					timelineSettings.duration,
 					{
+						duration: timelineSettings.duration,
 						ease: 'Power3.easeOut',
 						y: '0%',
 						opacity: 1,
@@ -162,8 +162,8 @@ export default function TeamMember(props) {
 				.add(createLineTween(line3), '>-0.5')
 				.to(
 					rightarr3,
-					timelineSettings.duration,
 					{
+						duration: timelineSettings.duration,
 						ease: 'Power3.easeOut',
 						y: '0%',
 						opacity: 1,
@@ -323,17 +323,16 @@ export default function TeamMember(props) {
 				opacity: 0,
 			});
 
-			timeline.staggerTo(
-				arr,
-				timelineSettings.duration,
-				{
-					ease: 'Power3.easeOut',
-					y: '0%',
-					opacity: 1,
+			timeline.to(arr, {
+				duration: timelineSettings.duration,
+				ease: 'Power3.easeOut',
+				y: '0%',
+				opacity: 1,
+				stagger: {
+					each: timelineSettings.staggerValue,
+					from: 'start',
 				},
-				timelineSettings.staggerValue,
-				'start',
-			);
+			});
 		}, []);
 
 		useEffect(() => {
@@ -358,17 +357,16 @@ export default function TeamMember(props) {
 				opacity: 0,
 			});
 
-			timeline.staggerTo(
-				arr,
-				timelineSettings.duration,
-				{
-					ease: 'Power3.easeOut',
-					y: '0%',
-					opacity: 1,
+			timeline.to(arr, {
+				duration: timelineSettings.duration,
+				ease: 'Power3.easeOut',
+				y: '0%',
+				opacity: 1,
+				stagger: {
+					each: timelineSettings.staggerValue,
+					from: 'start',
 				},
-				timelineSettings.staggerValue,
-				'start',
-			);
+			});
 		}, []);
 
 		useEffect(() => {
@@ -393,17 +391,16 @@ export default function TeamMember(props) {
 				opacity: 0,
 			});
 
-			timeline.staggerTo(
-				arr,
-				timelineSettings.duration,
-				{
-					ease: 'Power3.easeOut',
-					y: '0%',
-					opacity: 1,
+			timeline.to(arr, {
+				duration: timelineSettings.duration,
+				ease: 'Power3.easeOut',
+				y: '0%',
+				opacity: 1,
+				stagger: {
+					each: timelineSettings.staggerValue,
+					from: 'start',
 				},
-				timelineSettings.staggerValue,
-				'start',
-			);
+			});
 		}, []);
 	}
 

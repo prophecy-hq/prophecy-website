@@ -1,7 +1,6 @@
 /** @jsx jsx */
-import { jsx, Styled, Box } from 'theme-ui';
+import { jsx, Box } from 'theme-ui';
 import { useRef, useEffect } from 'react';
-import { Fade } from 'react-awesome-reveal';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 

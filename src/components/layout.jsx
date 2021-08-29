@@ -6,19 +6,13 @@
  */
 
 /** @jsx jsx */
-import { jsx, Styled, Container } from 'theme-ui';
+import { jsx } from 'theme-ui';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
-
-
-
-
-
-
 import Header from './header';
 import '../styles/layout.css';
-import '../styles/fonts.css'
+import '../styles/fonts.css';
 
 const Layout = ({ children }) => {
 	const data = useStaticQuery(graphql`
@@ -33,10 +27,8 @@ const Layout = ({ children }) => {
 
 	return (
 		<>
-			
 			<Header />
-				<main id = "my-scrollbar">{children}</main>
-
+			<main id="my-scrollbar">{children}</main>
 		</>
 	);
 };

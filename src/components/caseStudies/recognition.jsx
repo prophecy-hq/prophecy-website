@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Styled, jsx } from 'theme-ui';
+import { Themed, jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
 export default function Recognition({ items }) {
@@ -24,7 +24,7 @@ export default function Recognition({ items }) {
 				border: 'white_a72',
 			}}
 		>
-			<Styled.h5 sx={{ marginBottom: '24px' }}>Recognition</Styled.h5>
+			<Themed.h5 sx={{ marginBottom: '24px' }}>Recognition</Themed.h5>
 			<ul sx={{ listStyleType: 'circle' }}>{listItems}</ul>
 		</div>
 	);

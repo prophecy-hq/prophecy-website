@@ -1,73 +1,73 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { gsap } from "gsap";
+import { gsap } from 'gsap';
 
-export default function Cursor (){
+export default function Cursor() {
+	const [click, setClick] = useState(false);
+	const [linkHover, setLinkHover] = useState(false);
+	const [hidden, setHidden] = useState(false);
 
-  const [click, setClick] = useState(false);
-  const [linkHover, setLinkHover] = useState(false);
-  const [hidden, setHidden] = useState(false);
+	const ref = useRef(null);
 
-  const ref = useRef(null);
+	// gsap.set('.cursor',{xPercent:-50,yPercent:-50});
 
-    // gsap.set('.cursor',{xPercent:-50,yPercent:-50});
+	useEffect(() => {
+		var cursor = document.querySelector('.cursor');
 
-    useEffect(() => {
-        var cursor = document.querySelector('.cursor');
-        
-        window.addEventListener('mousemove',e => {
-            gsap.to(cursor,0.1,{x:e.clientX,y:e.clientY});
-        });
+		window.addEventListener('mousemove', (e) => {
+			gsap.to(cursor, { duration: 0.1, x: e.clientX, y: e.clientY });
+		});
 
-        const addEventListeners = () => {
-          document.addEventListener('mousedown', mDown);
-          document.addEventListener('mouseup', mUp);
-        };
+		const addEventListeners = () => {
+			document.addEventListener('mousedown', mDown);
+			document.addEventListener('mouseup', mUp);
+		};
 
-        const mDown = () => {
-          gsap.to(cursor,0.1,{scale: 0.8});
-        };
-    
-        const mUp = () => {
-          gsap.to(cursor,0.1,{scale: 1});
-        };
+		const mDown = () => {
+			gsap.to(cursor, { duration: 0.1, scale: 0.8 });
+		};
 
-        const addLinkEvents = () => {
-          document.querySelectorAll('a').forEach((el) => {
-              el.addEventListener('mouseover', () => {
-                gsap.to(cursor, 0.1, {scale: 1.2});
-                setLinkHover(true)});
+		const mUp = () => {
+			gsap.to(cursor, { duration: 0.1, scale: 1 });
+		};
 
-              el.addEventListener('mouseout', () => {
-                gsap.to(cursor, 0.1, {scale: 1});
-                setLinkHover(false)});
-          });
+		const addLinkEvents = () => {
+			document.querySelectorAll('a').forEach((el) => {
+				el.addEventListener('mouseover', () => {
+					gsap.to(cursor, { duration: 0.1, scale: 1.2 });
+					setLinkHover(true);
+				});
 
-          document.querySelectorAll('button').forEach((el) => {
-            el.addEventListener('mouseover', () => {
-              gsap.to(cursor, 0.1, {scale: 1.2});
-              setLinkHover(true)});
+				el.addEventListener('mouseout', () => {
+					gsap.to(cursor, { duration: 0.1, scale: 1 });
+					setLinkHover(false);
+				});
+			});
 
-            el.addEventListener('mouseout', () => {
-              gsap.to(cursor, 0.1, {scale: 1});
-              setLinkHover(false)});
-        });
+			document.querySelectorAll('button').forEach((el) => {
+				el.addEventListener('mouseover', () => {
+					gsap.to(cursor, { duration: 0.1, scale: 1.2 });
+					setLinkHover(true);
+				});
 
+				el.addEventListener('mouseout', () => {
+					gsap.to(cursor, { duration: 0.1, scale: 1 });
+					setLinkHover(false);
+				});
+			});
+		};
 
-        };
-      
-          addEventListeners();
-          addLinkEvents();
-            
-    },[]);
+		addEventListeners();
+		addLinkEvents();
+	}, []);
 
-
-  return (
-<div ref = {ref}
-      className={
-        'cursor'+
-      (hidden ? 'c--hidden ' : ' ') + 
-      (linkHover ? 'c--hover ' : ' ')
-    }
-    />
-  );
-};
+	return (
+		<div
+			ref={ref}
+			className={
+				'cursor' +
+				(hidden ? 'c--hidden ' : ' ') +
+				(linkHover ? 'c--hover ' : ' ')
+			}
+		/>
+	);
+}

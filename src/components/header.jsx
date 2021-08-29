@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Styled, Image, Box } from 'theme-ui';
+import { jsx, Image, Box } from 'theme-ui';
 import PropTypes from 'prop-types';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
 
