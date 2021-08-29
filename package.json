@@ -1,8 +1,8 @@
 {
-	"name": "@prophecy/gatsby-starter",
+	"name": "@prophecy/prophecy-website",
 	"private": true,
 	"description": "Gatsby with Theme UI, Storybook, ESLint and Prettier",
-	"version": "0.1.0",
+	"version": "2.0",
 	"author": "Akshay Verma <akshay@prophecy.one>",
 	"dependencies": {
 		"@mdx-js/mdx": "^1.6.22",
@@ -36,8 +36,7 @@
 		"smooth-scrollbar": "^8.6.2",
 		"splitting": "^1.0.6",
 		"theme-ui": "^0.11.1",
-		"three": "^0.132.2",
-		"webpack": "^5.51.1"
+		"three": "^0.132.2"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.15.0",
@@ -73,9 +72,9 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/prophecy-hq/Gatsby-Test"
+		"url": "https://github.com/prophecy-hq/propehcy-website"
 	},
 	"bugs": {
-		"url": "https://github.com/prophecy-hq/Gatsby-Test/issues"
+		"url": "https://github.com/prophecy-hq/propehcy-website/issues"
 	}
 }
