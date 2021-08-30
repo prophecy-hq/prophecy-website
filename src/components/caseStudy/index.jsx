@@ -2,13 +2,13 @@
 import { Box, Flex, jsx } from 'theme-ui';
 import { MDXProvider } from '@mdx-js/react';
 import { Link } from 'gatsby';
-import Title from './caseStudies/title';
-import MetadataLayout from './caseStudies/metadata-layout';
+import Title from './Title';
+import Metadata from './Metadata';
 
 const shortcodes = {
 	Link,
 	Title,
-	MetadataLayout,
+	Metadata,
 };
 
 export default ({ children, pageContext }) => (
@@ -39,7 +39,7 @@ export default ({ children, pageContext }) => (
 						flexShrink: '2',
 					}}
 				>
-					<MetadataLayout
+					<Metadata
 						attribution={pageContext.frontmatter.attribution}
 						recognition={pageContext.frontmatter.recognition}
 						externalLinks={pageContext.frontmatter.externalLinks}

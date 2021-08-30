@@ -80,8 +80,8 @@ module.exports = {
 			resolve: `gatsby-plugin-mdx`,
 			options: {
 				defaultLayouts: {
-					caseStudies: require.resolve('./src/components/caseStudy-layout.jsx'),
-					default: require.resolve('./src/components/caseStudy-layout.jsx'),
+					caseStudies: require.resolve('./src/components/caseStudy/index.jsx'),
+					default: require.resolve('./src/components/caseStudy/index.jsx'),
 				},
 			},
 		},

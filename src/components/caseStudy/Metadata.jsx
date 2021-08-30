@@ -1,15 +1,11 @@
 /** @jsx jsx */
 import PropTypes from 'prop-types';
 import { Flex, jsx } from 'theme-ui';
-import Attribution from './attribution';
-import Recognition from './recognition';
-import ExternalLinks from './externalLinks';
+import Attribution from './Attribution';
+import Recognition from './Recognition';
+import ExternalLinks from './ExternalLinks';
 
-export default function MetadataLayout({
-	attribution,
-	recognition,
-	externalLinks,
-}) {
+export default function Metadata({ attribution, recognition, externalLinks }) {
 	return (
 		<Flex
 			sx={{
@@ -27,14 +23,14 @@ export default function MetadataLayout({
 	);
 }
 
-MetadataLayout.defaultProps = {
+Metadata.defaultProps = {
 	attribution: null,
 	recognition: null,
 	externalLinks: null,
 };
 
-MetadataLayout.propTypes = {
+Metadata.propTypes = {
 	attribution: PropTypes.string,
-	recognition: PropTypes.string,
+	recognition: PropTypes.array,
 	externalLinks: PropTypes.string,
 };
