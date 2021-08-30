@@ -9,7 +9,7 @@ const Header = ({ siteTitle }) => (
 	<Box sx={{ variant: 'layouts.mainContainer' }}>
 		<Image src={ProphecyLogo} variant="logo" />
 
-		<ul sx={{ variant: 'layouts.navbar' }}>
+		{/* <ul sx={{ variant: 'layouts.navbar' }}>
 			<AnchorLink
 				sx={{ variant: 'text.link', fontStyle: 'italic', fontSize: [16, 18] }}
 				to="/#team"
@@ -29,10 +29,7 @@ const Header = ({ siteTitle }) => (
 				Contact
 			</AnchorLink>
 
-			{/* <Styled.a href = "/#team">Team</Styled.a>
-				<Styled.a href = "/#recognition">Recognition</Styled.a>
-				<Styled.a href = "/#contact">Contact</Styled.a> */}
-		</ul>
+		</ul> */}
 	</Box>
 );
 
