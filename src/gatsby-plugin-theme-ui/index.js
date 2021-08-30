@@ -48,7 +48,6 @@ export default {
 			fontWeight: 'medium',
 			fontSize: [28, 32],
 			lineHeight: '32px',
-			margin: '192px 0 32px 0',
 			// transform: 'translateZ(0)',
 		},
 
@@ -59,7 +58,6 @@ export default {
 			lineHeight: '32px',
 			textTransform: 'uppercase',
 			letterSpacing: '2.5px',
-			margin: '96px 0 32px 0',
 			// transform: 'translateZ(0)',
 		},
 
@@ -76,7 +74,6 @@ export default {
 			fontWeight: 'light',
 			fontSize: [21, 24],
 			lineHeight: '32px',
-			marginBottom: '32px',
 			':lastChild': {
 				marginBottom: 0,
 			},
@@ -459,11 +456,13 @@ export default {
 		h3: {
 			variant: 'text.h3',
 			color: 'lightRed',
+			margin: '192px 0 32px 0',
 		},
 
 		h4: {
 			variant: 'text.h4',
 			color: 'white',
+			margin: '96px 0 32px 0',
 		},
 
 		h5: {
@@ -474,6 +473,7 @@ export default {
 		p: {
 			variant: 'text.bodyLarge',
 			color: 'white',
+			marginBottom: '32px',
 		},
 
 		a: {
