@@ -30,8 +30,6 @@
 		"react-device-detect": "^1.17.0",
 		"react-dom": "^17.0.2",
 		"react-helmet": "^6.1.0",
-		"react-scroll": "^1.8.2",
-		"smooth-scrollbar": "^8.6.2",
 		"splitting": "^1.0.6",
 		"theme-ui": "^0.11.1",
 		"three": "^0.132.2"
