@@ -323,16 +323,17 @@ export default function TeamMember(props) {
 				opacity: 0,
 			});
 
-			timeline.to(arr, {
-				duration: timelineSettings.duration,
-				ease: 'Power3.easeOut',
-				y: '0%',
-				opacity: 1,
-				stagger: {
-					each: timelineSettings.staggerValue,
-					from: 'start',
+			timeline.to(
+				arr,
+				{
+					duration: timelineSettings.duration,
+					ease: 'Power3.easeOut',
+					y: '0%',
+					opacity: 1,
+					stagger: timelineSettings.staggerValue,
 				},
-			});
+				'start',
+			);
 		}, []);
 
 		useEffect(() => {
@@ -357,16 +358,17 @@ export default function TeamMember(props) {
 				opacity: 0,
 			});
 
-			timeline.to(arr, {
-				duration: timelineSettings.duration,
-				ease: 'Power3.easeOut',
-				y: '0%',
-				opacity: 1,
-				stagger: {
-					each: timelineSettings.staggerValue,
-					from: 'start',
+			timeline.to(
+				arr,
+				{
+					duration: timelineSettings.duration,
+					ease: 'Power3.easeOut',
+					y: '0%',
+					opacity: 1,
+					stagger: timelineSettings.staggerValue,
 				},
-			});
+				'start',
+			);
 		}, []);
 
 		useEffect(() => {
@@ -391,16 +393,17 @@ export default function TeamMember(props) {
 				opacity: 0,
 			});
 
-			timeline.to(arr, {
-				duration: timelineSettings.duration,
-				ease: 'Power3.easeOut',
-				y: '0%',
-				opacity: 1,
-				stagger: {
-					each: timelineSettings.staggerValue,
-					from: 'start',
+			timeline.to(
+				arr,
+				{
+					duration: timelineSettings.duration,
+					ease: 'Power3.easeOut',
+					y: '0%',
+					opacity: 1,
+					stagger: timelineSettings.staggerValue,
 				},
-			});
+				'start',
+			);
 		}, []);
 	}
 

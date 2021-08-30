@@ -39,16 +39,17 @@ export default function AwardSection() {
 				y: '20%',
 			})
 
-			.to(awardsArr, {
-				duration: timelineSettings.awardsDuration,
-				opacity: 1,
-				y: '0%',
-				ease: 'Power3.easeOut',
-				stagger: {
-					each: timelineSettings.awardsStaggerValue,
-					from: 'start',
+			.to(
+				awardsArr,
+				{
+					duration: timelineSettings.awardsDuration,
+					opacity: 1,
+					y: '0%',
+					ease: 'Power3.easeOut',
+					stagger: timelineSettings.awardsStaggerValue,
 				},
-			});
+				'start',
+			);
 	}, []);
 
 	// ========== Heading animation ==========
