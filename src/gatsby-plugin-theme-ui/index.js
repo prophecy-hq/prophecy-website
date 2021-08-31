@@ -1,3 +1,4 @@
+import { text } from 'cheerio/lib/api/manipulation';
 import '../styles/fonts.css';
 
 export default {
@@ -189,6 +190,7 @@ export default {
 
 	forms: {
 		input: {
+			variant: 'text.bodyLarge',
 			padding: 1,
 			// flexGrow: '2',
 			width: '20vw',
@@ -201,6 +203,7 @@ export default {
 		},
 
 		contactForm: {
+			variant: 'text.bodyLarge',
 			borderRadius: '0px',
 			backgroundColor: 'rgba(0,0,0,0.08)',
 			position: 'relative',

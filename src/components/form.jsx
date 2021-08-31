@@ -43,7 +43,7 @@ export default class Form extends React.Component {
 				>
 					<Flex>
 						<Input
-							sx={{ variant: 'text.bodyLarge' }}
+							sx={{ variant: 'forms.input' }}
 							placeholder="name@email.com"
 							name="email"
 							type="text"
