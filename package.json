@@ -33,7 +33,7 @@
 		"react-scroll": "^1.8.2",
 		"smooth-scrollbar": "^8.6.2",
 		"splitting": "^1.0.6",
-		"theme-ui": "^0.11.1",
+		"theme-ui": "^0.9.1",
 		"three": "^0.132.2"
 	},
 	"devDependencies": {

@@ -3,7 +3,6 @@ import { jsx, Box, Flex, Button, Input } from 'theme-ui';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
 import React from 'react';
 import 'animate.css/animate.css';
-import '../styles/fade.css';
 
 export default class Form extends React.Component {
 	constructor() {
@@ -41,7 +40,7 @@ export default class Form extends React.Component {
 					onSubmit={this._handleSubmit}
 					sx={{ variant: 'forms.contactForm' }}
 				>
-					<Flex>
+					<Flex sx={{ variant: 'text.bodyLarge' }}>
 						<Input
 							sx={{ variant: 'text.bodyLarge' }}
 							placeholder="name@email.com"

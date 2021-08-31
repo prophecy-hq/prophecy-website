@@ -155,14 +155,14 @@ export default function ContactSection() {
 								},
 							}}
 						>
-							<h3 sx={{ mb: 16, variant: 'text.h3' }}>
+							<h4 sx={{ mb: 16, variant: 'text.customHeading' }}>
 								Sign up to our newsletter
-							</h3>
+							</h4>
 							<Form />
 						</Box>
 
 						<Flex className="staggerContact" sx={{ flexDirection: 'column' }}>
-							<h3 sx={{ mb: 16, variant: 'text.h3' }}>Follow us</h3>
+							<h4 sx={{ mb: 16, variant: 'text.customHeading' }}>Follow us</h4>
 							<Link
 								sx={{
 									variant: 'text.link',
