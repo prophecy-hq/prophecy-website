@@ -31,5 +31,5 @@ export default function Recognition({ items }) {
 }
 
 Recognition.propTypes = {
-	items: PropTypes.arrayOf(PropTypes.string).isRequired,
+	items: PropTypes.arrayOf(PropTypes.array).isRequired,
 };

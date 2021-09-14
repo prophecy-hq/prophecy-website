@@ -31,6 +31,6 @@ Metadata.defaultProps = {
 
 Metadata.propTypes = {
 	attribution: PropTypes.string,
-	recognition: PropTypes.array,
-	externalLinks: PropTypes.string,
+	recognition: PropTypes.arrayOf(PropTypes.array),
+	externalLinks: PropTypes.arrayOf(PropTypes.array),
 };

@@ -7,14 +7,41 @@ module.exports = {
 		twitterUsername: '@prophecy_hq',
 	},
 	plugins: [
-		`gatsby-plugin-react-helmet`,
-		`gatsby-plugin-theme-ui`,
-		`gatsby-plugin-sharp`,
-		`gatsby-transformer-sharp`,
 		`three`,
 		`react-dom`,
-		`gatsby-plugin-anchor-links`,
 		`react-device-detect`,
+		{
+			resolve: `gatsby-plugin-manifest`,
+			options: {
+				name: `gatsby-starter-default`,
+				short_name: `starter`,
+				start_url: `/`,
+				background_color: `#663399`,
+				theme_color: `#663399`,
+				display: `minimal-ui`,
+				icon: `src/images/prophecyLogo.png`, // This path is relative to the root of the site.
+			},
+		},
+		`gatsby-plugin-react-helmet`,
+		`gatsby-plugin-theme-ui`,
+		`gatsby-plugin-image`,
+		`gatsby-plugin-sharp`,
+		`gatsby-transformer-sharp`,
+		`gatsby-remark-images`,
+		// {
+		// 	resolve: `gatsby-plugin-mdx`,
+		// 	options: {
+		// 		gatsbyRemarkPlugins: [
+		// 			{
+		// 				resolve: `gatsby-remark-images`,
+		// 				options: {
+		// 					maxWidth: 1280,
+		// 				},
+		// 			},
+		// 		],
+		// 	},
+		// },
+		`gatsby-plugin-anchor-links`,
 		{
 			resolve: 'gatsby-plugin-mailchimp',
 			options: {
@@ -34,7 +61,24 @@ module.exports = {
 			resolve: `gatsby-source-filesystem`,
 			options: {
 				name: `caseStudies`,
-				path: `${__dirname}/src/pages/work/`,
+				path: `${__dirname}/src/pages/`,
+			},
+		},
+		{
+			resolve: `gatsby-plugin-mdx`,
+			options: {
+				defaultLayouts: {
+					caseStudies: require.resolve('./src/components/caseStudy/layout.jsx'),
+					default: require.resolve('./src/components/caseStudy/layout.jsx'),
+				},
+				gatsbyRemarkPlugins: [
+					{
+						resolve: `gatsby-remark-images`,
+						options: {
+							maxWidth: 1280,
+						},
+					},
+				],
 			},
 		},
 		{
@@ -64,29 +108,5 @@ module.exports = {
 				},
 			},
 		},
-		{
-			resolve: `gatsby-plugin-manifest`,
-			options: {
-				name: `gatsby-starter-default`,
-				short_name: `starter`,
-				start_url: `/`,
-				background_color: `#663399`,
-				theme_color: `#663399`,
-				display: `minimal-ui`,
-				icon: `src/images/prophecyLogo.png`, // This path is relative to the root of the site.
-			},
-		},
-		{
-			resolve: `gatsby-plugin-mdx`,
-			options: {
-				defaultLayouts: {
-					caseStudies: require.resolve('./src/components/caseStudy/index.jsx'),
-					default: require.resolve('./src/components/caseStudy/index.jsx'),
-				},
-			},
-		},
-		// this (optional) plugin enables Progressive Web App + Offline functionality
-		// To learn more, visit: https://gatsby.dev/offline
-		// `gatsby-plugin-offline`,
 	],
 };
