@@ -15,7 +15,11 @@ externalLinks:
     ['https://www.simple.org', 'Official website'],
 		['https://play.google.com/store/apps/details?id=org.simple.clinic.staging', 'Download app'],
   ]
+embeddedImagesLocal:
+	- '../../images/test.jpg'
 ---
+
+import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
 ## A health record system that is helping improve population-wide hypertension control in India, Bangladesh and Ethiopia.
 
@@ -45,7 +49,7 @@ Hypertension is asymptomatic and a “silent killer.” 90% of the 200 million h
 <Carousel
 	slides={[
 		<div>Slide Number 1</div>,
-		<StaticImage src="../../images/test.jpg" alt="Test image" />,
+		<GatsbyImage alt="Test" image={getImage(props.localImages[0])} />,
 		'Slide 3',
 		'Slide 4',
 		'Slide 5',

@@ -2,11 +2,11 @@
 import { graphql, Link } from 'gatsby';
 import { Box, Flex, jsx } from 'theme-ui';
 import { MDXProvider } from '@mdx-js/react';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
+// import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { StaticImage } from 'gatsby-plugin-image';
-import Title from '../../components/caseStudy/Title';
-import Metadata from '../../components/caseStudy/Metadata';
-import Carousel from '../../components/caseStudy/Carousel';
+import Title from './Title';
+import Metadata from './Metadata';
+import Carousel from './Carousel';
 
 const shortcodes = {
 	Link,
@@ -16,7 +16,7 @@ const shortcodes = {
 	StaticImage,
 };
 
-export default function CaseStudy({ data }) {
+export default function CaseStudy({ children, pageContext }) {
 	return (
 		<MDXProvider components={shortcodes}>
 			<div
@@ -26,7 +26,7 @@ export default function CaseStudy({ data }) {
 					margin: '0 auto',
 				}}
 			>
-				<Title>{data.mdx.frontmatter.title}</Title>
+				<Title>{pageContext.frontmatter.title}</Title>
 
 				<Flex
 					sx={{
@@ -46,9 +46,9 @@ export default function CaseStudy({ data }) {
 						}}
 					>
 						<Metadata
-							attribution={data.mdx.frontmatter.attribution}
-							recognition={data.mdx.frontmatter.recognition}
-							externalLinks={data.mdx.frontmatter.externalLinks}
+							attribution={pageContext.frontmatter.attribution}
+							recognition={pageContext.frontmatter.recognition}
+							externalLinks={pageContext.frontmatter.externalLinks}
 						/>
 					</Box>
 
@@ -62,7 +62,7 @@ export default function CaseStudy({ data }) {
 							// maxWidth: '640px',
 						}}
 					>
-						<MDXRenderer>{data.mdx.body}</MDXRenderer>
+						{children}
 					</Box>
 				</Flex>
 			</div>
@@ -70,16 +70,16 @@ export default function CaseStudy({ data }) {
 	);
 }
 
-export const query = graphql`
-	query ($id: String) {
-		mdx(id: { eq: $id }) {
-			body
-			frontmatter {
-				attribution
-				externalLinks
-				recognition
-				title
-			}
-		}
-	}
-`;
+// export const query = graphql`
+// 	query POST_BY_SLUG($slug: String) {
+// 		mdx(slug: { eq: $slug }) {
+// 			body
+// 			frontmatter {
+// 				attribution
+// 				externalLinks
+// 				recognition
+// 				title
+// 			}
+// 		}
+// 	}
+// `;

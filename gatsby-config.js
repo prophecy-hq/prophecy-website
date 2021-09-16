@@ -1,7 +1,7 @@
 module.exports = {
 	siteMetadata: {
-		title: `Gatsby Test`,
-		description: `Learning to use Gatsby.`,
+		title: `Prophecy`,
+		description: `Innovation, strategy and design consultancy for bold organisations building digital products.`,
 		url: 'https://prophecy.one',
 		author: `Akshay Verma`,
 		twitterUsername: '@prophecy_hq',
@@ -22,34 +22,6 @@ module.exports = {
 				icon: `src/images/prophecyLogo.png`, // This path is relative to the root of the site.
 			},
 		},
-		`gatsby-plugin-react-helmet`,
-		`gatsby-plugin-theme-ui`,
-		`gatsby-plugin-image`,
-		`gatsby-plugin-sharp`,
-		`gatsby-transformer-sharp`,
-		`gatsby-remark-images`,
-		// {
-		// 	resolve: `gatsby-plugin-mdx`,
-		// 	options: {
-		// 		gatsbyRemarkPlugins: [
-		// 			{
-		// 				resolve: `gatsby-remark-images`,
-		// 				options: {
-		// 					maxWidth: 1280,
-		// 				},
-		// 			},
-		// 		],
-		// 	},
-		// },
-		`gatsby-plugin-anchor-links`,
-		{
-			resolve: 'gatsby-plugin-mailchimp',
-			options: {
-				endpoint:
-					'https://akshayverma.us3.list-manage.com/subscribe/post?u=fcc4a008c60b4fc7c9b3cb9fb&amp;id=9bf6a178a3',
-				timeout: '10000',
-			},
-		},
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
@@ -61,16 +33,22 @@ module.exports = {
 			resolve: `gatsby-source-filesystem`,
 			options: {
 				name: `caseStudies`,
-				path: `${__dirname}/src/pages/`,
+				path: `${__dirname}/src/content/caseStudies`,
 			},
 		},
+		`gatsby-plugin-react-helmet`,
+		`gatsby-plugin-theme-ui`,
+		`gatsby-plugin-image`,
+		`gatsby-plugin-sharp`,
+		`gatsby-transformer-sharp`,
+		`gatsby-remark-images`,
 		{
 			resolve: `gatsby-plugin-mdx`,
 			options: {
-				defaultLayouts: {
-					caseStudies: require.resolve('./src/components/caseStudy/layout.jsx'),
-					default: require.resolve('./src/components/caseStudy/layout.jsx'),
-				},
+				// defaultLayouts: {
+				// 	caseStudies: require.resolve('./src/components/caseStudy/layout.jsx'),
+				// 	default: require.resolve('./src/components/caseStudy/layout.jsx'),
+				// },
 				gatsbyRemarkPlugins: [
 					{
 						resolve: `gatsby-remark-images`,
@@ -79,6 +57,15 @@ module.exports = {
 						},
 					},
 				],
+			},
+		},
+		`gatsby-plugin-anchor-links`,
+		{
+			resolve: 'gatsby-plugin-mailchimp',
+			options: {
+				endpoint:
+					'https://akshayverma.us3.list-manage.com/subscribe/post?u=fcc4a008c60b4fc7c9b3cb9fb&amp;id=9bf6a178a3',
+				timeout: '10000',
 			},
 		},
 		{

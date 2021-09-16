@@ -3,20 +3,20 @@ import { graphql, Link } from 'gatsby';
 import { Box, Flex, jsx } from 'theme-ui';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { StaticImage } from 'gatsby-plugin-image';
-import Title from './Title';
-import Metadata from './Metadata';
-import Carousel from './Carousel';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import Title from '../../components/caseStudy/Title';
+import Metadata from '../../components/caseStudy/Metadata';
+import Carousel from '../../components/caseStudy/Carousel';
 
 const shortcodes = {
-	Link,
-	Title,
-	Metadata,
+	// Link,
+	// Title,
+	// Metadata,
 	Carousel,
-	StaticImage,
+	GatsbyImage,
 };
 
-export default function CaseStudy({ children, pageContext }) {
+export default function CaseStudy({ data }) {
 	return (
 		<MDXProvider components={shortcodes}>
 			<div
@@ -26,7 +26,7 @@ export default function CaseStudy({ children, pageContext }) {
 					margin: '0 auto',
 				}}
 			>
-				<Title>{pageContext.frontmatter.title}</Title>
+				<Title>{data.mdx.frontmatter.title}</Title>
 
 				<Flex
 					sx={{
@@ -46,9 +46,9 @@ export default function CaseStudy({ children, pageContext }) {
 						}}
 					>
 						<Metadata
-							attribution={pageContext.frontmatter.attribution}
-							recognition={pageContext.frontmatter.recognition}
-							externalLinks={pageContext.frontmatter.externalLinks}
+							attribution={data.mdx.frontmatter.attribution}
+							recognition={data.mdx.frontmatter.recognition}
+							externalLinks={data.mdx.frontmatter.externalLinks}
 						/>
 					</Box>
 
@@ -62,7 +62,9 @@ export default function CaseStudy({ children, pageContext }) {
 							// maxWidth: '640px',
 						}}
 					>
-						{children}
+						<MDXRenderer localImages={data.mdx.frontmatter.embeddedImagesLocal}>
+							{data.mdx.body}
+						</MDXRenderer>
 					</Box>
 				</Flex>
 			</div>
@@ -70,16 +72,21 @@ export default function CaseStudy({ children, pageContext }) {
 	);
 }
 
-// export const query = graphql`
-// 	query ($id: String) {
-// 		mdx(id: { eq: $id }) {
-// 			body
-// 			frontmatter {
-// 				attribution
-// 				externalLinks
-// 				recognition
-// 				title
-// 			}
-// 		}
-// 	}
-// `;
+export const query = graphql`
+	query ($id: String!) {
+		mdx(id: { eq: $id }) {
+			body
+			frontmatter {
+				attribution
+				externalLinks
+				recognition
+				title
+				embeddedImagesLocal {
+					childImageSharp {
+						gatsbyImageData
+					}
+				}
+			}
+		}
+	}
+`;
