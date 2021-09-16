@@ -9,9 +9,7 @@ import Metadata from '../../components/caseStudy/Metadata';
 import Carousel from '../../components/caseStudy/Carousel';
 
 const shortcodes = {
-	// Link,
-	// Title,
-	// Metadata,
+	Link,
 	Carousel,
 	GatsbyImage,
 };
@@ -26,6 +24,20 @@ export default function CaseStudy({ data }) {
 					margin: '0 auto',
 				}}
 			>
+				<Link
+					to="/"
+					sx={{
+						position: 'relative',
+						top: '1.5rem',
+						variant: 'text.h4',
+						color: 'white',
+						cursor: 'pointer',
+						textDecoration: 'none',
+					}}
+				>
+					&larr; Back
+				</Link>
+
 				<Title>{data.mdx.frontmatter.title}</Title>
 
 				<Flex

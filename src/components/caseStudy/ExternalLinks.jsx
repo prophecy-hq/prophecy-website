@@ -6,6 +6,7 @@ export default function ExternalLinks({ items }) {
 	const listItems = items.map((item) => (
 		<li
 			sx={{
+				width: 'fit-content',
 				marginBottom: '12px',
 				':last-child': { marginBottom: '0px' },
 			}}
@@ -13,8 +14,6 @@ export default function ExternalLinks({ items }) {
 			<Themed.a
 				sx={{
 					variant: 'text.bodySmall',
-					color: 'white',
-					textDecoration: 'none',
 					borderBottom: '1px',
 					border: 'white_a72',
 				}}

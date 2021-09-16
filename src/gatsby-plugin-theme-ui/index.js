@@ -14,6 +14,7 @@ export default {
 		white_a50: '#FFFFFF44',
 		white_a70: '#FFFFFF72',
 		orange: '#FF725C',
+		orange_a70: '#FF725C72',
 		highlight: '#fff',
 	},
 
@@ -480,8 +481,15 @@ export default {
 		},
 
 		a: {
-			variant: 'text.link',
+			width: 'fit-content',
+			cursor: 'pointer',
+			textDecorationColor: 'orange_a70',
+			textDecorationThickness: '0.0625em',
+			textUnderlineOffset: '0.2em',
 			color: 'white',
+			'&:hover': {
+				textDecorationColor: 'orange',
+			},
 		},
 
 		li: {
