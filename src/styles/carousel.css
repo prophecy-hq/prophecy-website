@@ -8,14 +8,77 @@
 
 .swiper-button-next {
 	/* right: -80px; */
+	bottom: 24px;
+	right: 32px;
+	top: auto;
+
 	color: #ff725c;
+	background-color: #2b292a;
 	transform-origin: right;
 	transform: scale(75%);
+
+	padding: 8px;
+	height: 32px;
+	width: 32px;
+
+	border: 2px solid #ff725c;
+	--swiper-navigation-size: 20px;
+
+	transition: 0.3s;
 }
 
 .swiper-button-prev {
 	/* left: -80px; */
+	background-color: #2b292a;
 	color: #ff725c;
+	left: auto;
+	bottom: 24px;
+	right: 72px;
+	top: auto;
+
+	padding: 8px;
+	height: 32px;
+	width: 32px;
+	border: 2px solid #ff725c;
+
 	transform-origin: left;
 	transform: scale(75%);
+	--swiper-navigation-size: 20px;
+	transition: 0.3s;
+}
+
+.swiper-button-prev:hover {
+	/* left: -80px; */
+	color: #fff;
+	background-color: #ff725c;
+	transition: 0.3s;
+}
+
+.swiper-button-next:hover {
+	/* left: -80px; */
+	color: #fff;
+	background-color: #ff725c;
+	transition: 0.3s;
+}
+
+.swiper-button-next:after {
+	stroke-width: 2px;
+}
+
+@media only screen and (max-width: 600px) {
+	.swiper-button-next {
+		/* right: -80px; */
+		bottom: 16px;
+	}
+
+	.swiper-button-prev {
+		/* right: -80px; */
+		bottom: 16px;
+	}
+
+	.css-80ft11 {
+		margin-bottom: 64px;
+		padding: 32px !important;
+		width: 80% !important;
+	}
 }
