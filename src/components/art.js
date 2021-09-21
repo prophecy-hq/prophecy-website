@@ -1,8 +1,13 @@
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
 import './seedrandom';
+
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 import { isMobile, isTablet, isBrowser } from 'react-device-detect';
 
 export default function Art() {
@@ -40,7 +45,7 @@ export default function Art() {
 		gsap.timeline({
 			scrollTrigger: {
 				trigger: document.querySelector('#team'),
-				start: 'top 90%',
+				start: 'top 50%',
 				duration: 1,
 				toggleActions: 'play none none reverse',
 				onEnter: () => {
@@ -65,7 +70,8 @@ export default function Art() {
 			renderer,
 			composer,
 			material,
-			arcMaterial;
+			arcMaterial,
+			bloomPass;
 		let lines;
 		let linesStore;
 
@@ -93,9 +99,34 @@ export default function Art() {
 		let geometry = new THREE.BufferGeometry();
 		var points = [];
 
+		const bloomParams = {
+			exposure: 1,
+			bloomStrength: 2.6,
+			bloomThreshold: 0,
+			bloomRadius: 1,
+		};
+
 		// var points = new Float32Array();
 
 		// ===== FUNCTIONS =====
+
+		function bloom() {
+			const renderScene = new RenderPass(scene, camera);
+
+			bloomPass = new UnrealBloomPass(
+				new THREE.Vector2(window.innerWidth, window.innerHeight),
+				1.5,
+				0.4,
+				0.85,
+			);
+			bloomPass.threshold = bloomParams.bloomThreshold;
+			bloomPass.strength = bloomParams.bloomStrength;
+			bloomPass.radius = bloomParams.bloomRadius;
+
+			composer = new EffectComposer(renderer);
+			composer.addPass(renderScene);
+			composer.addPass(bloomPass);
+		}
 
 		Math.seedrandom(Math.random(99999).toString());
 
@@ -583,7 +614,7 @@ export default function Art() {
 		renderer.setPixelRatio(window.devicePixelRatio);
 		mount.current.appendChild(renderer.domElement);
 
-		// bloom();
+		bloom();
 
 		// ================= ANIMATE =================
 
@@ -625,8 +656,8 @@ export default function Art() {
 		// ================= RENDER =================
 
 		function render() {
-			renderer.render(scene, camera);
-			// composer.render();
+			// renderer.render(scene, camera);
+			composer.render();
 		}
 
 		// render();
@@ -706,6 +737,3 @@ export default function Art() {
 
 	return <div ref={mount} style={{ width: `100vw`, height: `100vh` }} />;
 }
-
-//   const rootElement = document.getElementById("canvas");
-//   ReactDOM.render(<Art />, rootElement);

@@ -72,6 +72,14 @@ export default {
 			// transform: 'translateZ(0)',
 		},
 
+		customHeading: {
+			fontFamily: 'prophecy',
+			fontWeight: 'medium',
+			fontSize: [21, 24],
+			lineHeight: 'heading',
+			// transform: 'translateZ(0)',
+		},
+
 		bodyLarge: {
 			fontFamily: 'prophecy',
 			fontWeight: 'light',

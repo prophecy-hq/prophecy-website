@@ -58,13 +58,8 @@ export default function FirstFold() {
 				data-splitting=""
 				className="staggerAnimation"
 			>
-				We help achieve&nbsp;
-				<span className="whitespace">&nbsp;</span>
-				<span sx={{ variant: 'text.italic', color: 'white' }}>
-					&nbsp;big goals
-				</span>
-				&nbsp;through digital products that are people-centric, rigorously
-				tested, and expertly crafted.
+				We help achieve big goals through digital products that are
+				people-centric, rigorously tested, and expertly crafted.
 			</h1>
 		</Box>
 	);

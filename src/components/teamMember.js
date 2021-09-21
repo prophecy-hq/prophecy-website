@@ -183,8 +183,8 @@ export default function TeamMember(props) {
 			const timeline = gsap.timeline({
 				scrollTrigger: {
 					trigger: document.querySelector('#line1'),
-					start: 'top 60%',
-					end: 'bottom 90%',
+					start: 'top 40%',
+					end: 'bottom 80%',
 					scrub: true,
 				},
 			});
@@ -199,8 +199,8 @@ export default function TeamMember(props) {
 			const timeline = gsap.timeline({
 				scrollTrigger: {
 					trigger: document.querySelector('#line2'),
-					start: 'top 60%',
-					end: 'bottom 90%',
+					start: 'top 40%',
+					end: 'bottom 80%',
 					scrub: true,
 				},
 			});
@@ -215,8 +215,8 @@ export default function TeamMember(props) {
 			const timeline = gsap.timeline({
 				scrollTrigger: {
 					trigger: document.querySelector('#line3'),
-					start: 'top 60%',
-					end: 'bottom 90%',
+					start: 'top 40%',
+					end: 'bottom 80%',
 					scrub: true,
 				},
 			});

@@ -118,7 +118,9 @@ export default function NewsSection() {
 
 				<Grid id="newsSectionGrid" sx={{ variant: 'layouts.newsGrid' }}>
 					<Box sx={{ variant: 'layouts.newsGridItem' }}>
-						<h3 sx={{ mb: '16px', variant: 'text.h3' }}>Antler Workshop</h3>
+						<h4 sx={{ mb: '16px', variant: 'text.customHeading' }}>
+							Antler Workshop
+						</h4>
 						<div sx={{ variant: 'text.bodyLarge' }}>
 							Held a workshop and created a design cheatsheet for early stage
 							founders
@@ -126,16 +128,18 @@ export default function NewsSection() {
 					</Box>
 
 					<Box sx={{ variant: 'layouts.newsGridItem' }}>
-						<h3 sx={{ mb: '16px', variant: 'text.h3' }}>Ownpath Masterclass</h3>
+						<h4 sx={{ mb: '16px', variant: 'text.customHeading' }}>
+							Ownpath Masterclass
+						</h4>
 						<div sx={{ variant: 'text.bodyLarge' }}>
 							Taught design thinking at the Ownpath product design fellowship.
 						</div>
 					</Box>
 
 					<Box sx={{ variant: 'layouts.newsGridItem' }}>
-						<h3 sx={{ mb: '16px', variant: 'text.h3' }}>
+						<h4 sx={{ mb: '16px', variant: 'text.customHeading' }}>
 							10kdesigners masterclass
-						</h3>
+						</h4>
 						<div sx={{ variant: 'text.bodyLarge' }}>
 							Taught visual design at the 10kdesigners UI/UX design masterclass.
 						</div>
