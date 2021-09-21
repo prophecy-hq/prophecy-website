@@ -6,12 +6,10 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import Title from '../../components/caseStudy/Title';
 import Metadata from '../../components/caseStudy/Metadata';
-import CardStack from '../../components/caseStudy/CardStack';
 import Carousel from '../../components/caseStudy/Carousel';
 
 const shortcodes = {
 	Link,
-	CardStack,
 	Carousel,
 	GatsbyImage,
 };

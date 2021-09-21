@@ -18,10 +18,11 @@ export default function Carousel({ slides }) {
 				color: 'white',
 			}}
 			modules={[Navigation, A11y]}
-			navigation={{
-				nextEl: '.carousel-button-next',
-				prevEl: '.carousel-button-prev',
-			}}
+			navigation
+			// navigation={{
+			// 	nextEl: '.carousel-button-next',
+			// 	prevEl: '.carousel-button-prev',
+			// }}
 		>
 			{slides.map((slide) => (
 				<SwiperSlide>
@@ -37,8 +38,8 @@ export default function Carousel({ slides }) {
 					</div>
 				</SwiperSlide>
 			))}
-			<div className="carousel-button-next">next</div>
-			<div className="carousel-button-prev">prev</div>
+			{/* <div className="carousel-button-next">next</div>
+			<div className="carousel-button-prev">prev</div> */}
 		</Swiper>
 	);
 }

@@ -6,14 +6,14 @@
 	border-radius: 4px;
 }
 
-.carousel-button-next {
+.swiper-button-next {
 	/* right: -80px; */
 	color: #ff725c;
 	transform-origin: right;
 	transform: scale(75%);
 }
 
-.carousel-button-prev {
+.swiper-button-prev {
 	/* left: -80px; */
 	color: #ff725c;
 	transform-origin: left;
