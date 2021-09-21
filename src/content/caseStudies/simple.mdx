@@ -23,7 +23,7 @@ import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
 ## A health record system that is helping improve population-wide hypertension control in India, Bangladesh and Ethiopia.
 
-[Simple](https://simple.org) helps manage hypertensive patients by tracking their blood pressure and medications and ensuring, through regular check-ups, that patients stay on treatment.
+Simple helps manage hypertensive patients by tracking their blood pressure and medications and ensuring, through regular check-ups, that patients stay on treatment.
 
 Hypertension is asymptomatic and a “silent killer.” 90% of the 200 million hypertensive adults in India are not on regular treatment. As part of the India Hypertension Control Initiative (IHCI) and Resolve to Save Lives (RTSL), the programme aims to improve hypertension control by 25% by the year 2025, in order to drastically reduce heart attacks and strokes, which kill millions of Indians.
 
@@ -40,21 +40,44 @@ Hypertension is asymptomatic and a “silent killer.” 90% of the 200 million h
 - 18 sec — median time to record a follow-up visit
 - 65 sec — median time to register a new patient in Simple
 
-### Highlights
-
----
-
-![Alt text here](../../images/test.jpg)
+<CardStack
+	slides={[
+		<GatsbyImage alt="Test" image={getImage(props.localImages[0])} />,
+		<GatsbyImage alt="Test" image={getImage(props.localImages[0])} />,
+		<GatsbyImage alt="Test" image={getImage(props.localImages[0])} />,
+		<GatsbyImage alt="Test" image={getImage(props.localImages[0])} />,
+		<GatsbyImage alt="Test" image={getImage(props.localImages[0])} />,
+	]}
+/>
 
 <Carousel
 	slides={[
-		<div>Slide Number 1</div>,
-		<GatsbyImage alt="Test" image={getImage(props.localImages[0])} />,
-		'Slide 3',
-		'Slide 4',
-		'Slide 5',
+		[
+			<GatsbyImage alt="Test" image={getImage(props.localImages[0])} />,
+			'Caption goes here. Continuous user research in remote villages of Punjab and Maharashtra gave us an intimate understanding of the challenges faced by clinicians.',
+		],
+		[
+			<GatsbyImage alt="Test" image={getImage(props.localImages[0])} />,
+			'Caption goes here. Continuous user research in remote villages of Punjab and Maharashtra gave us an intimate understanding of the challenges faced by clinicians.',
+		],
+		[
+			<GatsbyImage alt="Test" image={getImage(props.localImages[0])} />,
+			'Caption goes here. Continuous user research in remote villages of Punjab and Maharashtra gave us an intimate understanding of the challenges faced by clinicians.',
+		],
+		[
+			<GatsbyImage alt="Test" image={getImage(props.localImages[0])} />,
+			'Caption goes here. Continuous user research in remote villages of Punjab and Maharashtra gave us an intimate understanding of the challenges faced by clinicians.',
+		],
+		[
+			<GatsbyImage alt="Test" image={getImage(props.localImages[0])} />,
+			'Caption goes here. Continuous user research in remote villages of Punjab and Maharashtra gave us an intimate understanding of the challenges faced by clinicians.',
+		],
 	]}
 />
+
+### Highlights
+
+---
 
 #### Deep immersion through field research
 

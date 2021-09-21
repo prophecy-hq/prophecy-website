@@ -6,10 +6,12 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import Title from '../../components/caseStudy/Title';
 import Metadata from '../../components/caseStudy/Metadata';
+import CardStack from '../../components/caseStudy/CardStack';
 import Carousel from '../../components/caseStudy/Carousel';
 
 const shortcodes = {
 	Link,
+	CardStack,
 	Carousel,
 	GatsbyImage,
 };
@@ -51,7 +53,6 @@ export default function CaseStudy({ data }) {
 					<Box
 						sx={{
 							width: '25%',
-							// minWidth: '240px',
 							flexBasis: '200px',
 							flexGrow: '1',
 							flexShrink: '2',
@@ -70,8 +71,6 @@ export default function CaseStudy({ data }) {
 							flexBasis: '480px',
 							flexGrow: '2',
 							flexShrink: '1',
-							// width: '50vw',
-							// maxWidth: '640px',
 						}}
 					>
 						<MDXRenderer localImages={data.mdx.frontmatter.embeddedImagesLocal}>

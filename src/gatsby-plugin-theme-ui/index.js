@@ -10,6 +10,7 @@ export default {
 		lightRed: '#FDCCC4',
 		background: '#131112',
 		white: '#F6F7EB',
+		white_a10: '#FFFFFF10',
 		white_a30: '#FFFFFF16',
 		white_a50: '#FFFFFF44',
 		white_a70: '#FFFFFF72',
@@ -481,7 +482,6 @@ export default {
 		},
 
 		a: {
-			width: 'fit-content',
 			cursor: 'pointer',
 			textDecorationColor: 'orange_a70',
 			textDecorationThickness: '0.0625em',

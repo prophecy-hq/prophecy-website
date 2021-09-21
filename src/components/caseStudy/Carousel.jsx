@@ -2,32 +2,43 @@
 import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, A11y } from 'swiper';
+import { Navigation, A11y } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import '../../styles/carousel.css';
 
 export default function Carousel({ slides }) {
 	return (
 		<Swiper
 			sx={{
-				background: 'white',
-				width: '640px',
-				height: '1200px',
-				mt: '128px',
+				margin: '128px 0',
+				width: '100%',
+				// height: 'fit-content',
+				background: '#2B292A',
+				color: 'white',
 			}}
-			modules={[Navigation, Pagination, A11y]}
-			spaceBetween={50}
-			slidesPerView={1}
-			navigation
-			pagination={{ clickable: true }}
-			onSlideChange={() => console.log('slide change')}
-			onSwiper={(swiper) => console.log(swiper)}
+			modules={[Navigation, A11y]}
+			navigation={{
+				nextEl: '.carousel-button-next',
+				prevEl: '.carousel-button-prev',
+			}}
 		>
 			{slides.map((slide) => (
-				<SwiperSlide>{slide}</SwiperSlide>
+				<SwiperSlide>
+					<div>{slide[0]}</div>
+					<div
+						sx={{
+							variant: 'text.bodySmall',
+							padding: '32px 40px',
+							width: '64%',
+						}}
+					>
+						{slide[1]}
+					</div>
+				</SwiperSlide>
 			))}
+			<div className="carousel-button-next">next</div>
+			<div className="carousel-button-prev">prev</div>
 		</Swiper>
 	);
 }
