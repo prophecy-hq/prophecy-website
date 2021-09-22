@@ -425,7 +425,7 @@ export default function Art() {
 				currentPositions[i + 3] -= Math.cos(angle) * speed;
 			}
 
-			if (currentDistance / targetDistance > 1) {
+			if (currentDistance / targetDistance >= 1) {
 				flagArray[i] = true;
 				linesStore = lines;
 			}
@@ -496,7 +496,7 @@ export default function Art() {
 		}
 
 		function opacityAnimation(i) {
-			var alphaSpeed = 0.2 * delta;
+			var alphaSpeed = 0.4 * delta;
 			var minAlpha = 1;
 			var maxAlpha = 10;
 
@@ -630,7 +630,7 @@ export default function Art() {
 						if (flagArray[i] == false) {
 							startingAnimation(i);
 						} else {
-							mainAnimation(i);
+							// mainAnimation(i);
 						}
 						// console.log(flagArray[i]);
 
