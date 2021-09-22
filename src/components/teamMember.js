@@ -437,14 +437,17 @@ export default function TeamMember(props) {
 				<CaseStudy
 					title={props.caseStudyName1}
 					description={props.caseStudyDescription1}
+					url={props.caseStudyURL1}
 				></CaseStudy>
 				<CaseStudy
 					title={props.caseStudyName2}
 					description={props.caseStudyDescription2}
+					url={props.caseStudyURL2}
 				></CaseStudy>
 				<CaseStudy
 					title={props.caseStudyName3}
 					description={props.caseStudyDescription3}
+					url={props.caseStudyURL3}
 				></CaseStudy>
 			</Box>
 		</Flex>
