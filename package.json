@@ -2,7 +2,7 @@
 	"name": "@prophecy/prophecy-website",
 	"private": true,
 	"description": "Gatsby with Theme UI, Storybook, ESLint and Prettier",
-	"version": "2.0",
+	"version": "2.0.0",
 	"author": "Akshay Verma <akshay@prophecy.one>",
 	"dependencies": {
 		"@mdx-js/mdx": "^1.6.22",
