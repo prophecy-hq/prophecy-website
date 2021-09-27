@@ -20,7 +20,7 @@ export default function CaseStudy({ data }) {
 		<MDXProvider components={shortcodes}>
 			<div
 				sx={{
-					width: '80vw',
+					width: '84vw',
 					maxWidth: '1280px',
 					margin: '0 auto 256px auto',
 				}}
@@ -55,6 +55,7 @@ export default function CaseStudy({ data }) {
 							flexBasis: '200px',
 							flexGrow: '1',
 							flexShrink: '2',
+							mb: '9em',
 						}}
 					>
 						<Metadata

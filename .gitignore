@@ -54,6 +54,14 @@ typings/
 # dotenv environment variable files
 .env*
 
+# Firebase files
+.firebase/
+.firebaserc
+firebase.json
+
+# Github files
+.github/
+
 # gatsby files
 .cache/
 public
