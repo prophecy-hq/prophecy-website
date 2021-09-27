@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
-import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
-import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
-import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
+// import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
+// import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
+// import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
 import './seedrandom';
 
 import { gsap } from 'gsap';
@@ -614,7 +614,7 @@ export default function Art() {
 		renderer.setPixelRatio(window.devicePixelRatio);
 		mount.current.appendChild(renderer.domElement);
 
-		bloom();
+		// bloom();
 
 		// ================= ANIMATE =================
 
@@ -656,8 +656,8 @@ export default function Art() {
 		// ================= RENDER =================
 
 		function render() {
-			// renderer.render(scene, camera);
-			composer.render();
+			renderer.render(scene, camera);
+			// composer.render();
 		}
 
 		// render();

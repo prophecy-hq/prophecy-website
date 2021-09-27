@@ -129,7 +129,7 @@ export default function Work() {
 				caseStudyURL1="/work/smallcase"
 				caseStudyName2="LEGO Ventures"
 				caseStudyDescription2="A sentence about what we did: challenge and outcomes."
-				caseStudyURL3="/work/lego-ventures"
+				caseStudyURL2="/work/lego-ventures"
 				caseStudyName3=""
 				caseStudyDescription3=""
 				caseStudyURL3=""
