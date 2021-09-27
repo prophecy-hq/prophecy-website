@@ -88,8 +88,8 @@ export const query = graphql`
 			body
 			frontmatter {
 				attribution
-				externalLinks
 				recognition
+				externalLinks
 				title
 				embeddedImagesLocal {
 					childImageSharp {
