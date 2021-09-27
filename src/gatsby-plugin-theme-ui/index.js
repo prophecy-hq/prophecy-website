@@ -1,5 +1,6 @@
-import { text } from 'cheerio/lib/api/manipulation';
+// import { text } from 'cheerio/lib/api/manipulation';
 import '../styles/fonts.css';
+import '../styles/video.css';
 
 export default {
 	breakpoints: ['1024px'],

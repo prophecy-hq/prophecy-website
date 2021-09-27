@@ -17,7 +17,7 @@ export default function Metadata({ attribution, recognition, externalLinks }) {
 			{attribution && <Attribution>{attribution}</Attribution>}
 			{attribution && <hr sx={{ width: '100%', borderColor: 'white_a50' }} />}
 			{recognition && <Recognition items={recognition} />}
-			{attribution && <hr sx={{ width: '100%', borderColor: 'white_a50' }} />}
+			{recognition && <hr sx={{ width: '100%', borderColor: 'white_a50' }} />}
 			{externalLinks && <ExternalLinks items={externalLinks} />}
 		</Flex>
 	);

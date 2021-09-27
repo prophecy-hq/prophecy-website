@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby';
 import { Box, Flex, jsx } from 'theme-ui';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 import Title from '../../components/caseStudy/Title';
 import Metadata from '../../components/caseStudy/Metadata';
 import Carousel from '../../components/caseStudy/Carousel';
@@ -12,6 +12,7 @@ const shortcodes = {
 	Link,
 	Carousel,
 	GatsbyImage,
+	getImage,
 };
 
 export default function CaseStudy({ data }) {

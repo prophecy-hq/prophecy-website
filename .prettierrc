@@ -4,5 +4,13 @@
 	"singleQuote": true,
 	"tabWidth": 2,
 	"useTabs": true,
-	"trailingComma": "all"
+	"trailingComma": "all",
+	"overrides": [
+		{
+			"files": "*.mdx",
+			"options": {
+				"useTabs": false
+			}
+		}
+	]
 }
