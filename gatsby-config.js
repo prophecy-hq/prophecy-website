@@ -16,10 +16,10 @@ module.exports = {
 				name: `gatsby-starter-default`,
 				short_name: `starter`,
 				start_url: `/`,
-				background_color: `#663399`,
-				theme_color: `#663399`,
+				background_color: `#131112`,
+				theme_color: `#131112`,
 				display: `minimal-ui`,
-				icon: `src/images/prophecyLogo.png`, // This path is relative to the root of the site.
+				icon: `src/images/favicon.png`, // This path is relative to the root of the site.
 			},
 		},
 		{
@@ -39,7 +39,15 @@ module.exports = {
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-theme-ui`,
 		`gatsby-plugin-image`,
-		`gatsby-plugin-sharp`,
+		// `gatsby-plugin-sharp`,
+		{
+			resolve: `gatsby-plugin-sharp`,
+			options: {
+				defaults: {
+					placeholder: `blurred`,
+				},
+			},
+		},
 		`gatsby-transformer-sharp`,
 		`gatsby-remark-images`,
 		{

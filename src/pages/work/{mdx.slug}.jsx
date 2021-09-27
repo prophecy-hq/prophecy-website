@@ -22,7 +22,7 @@ export default function CaseStudy({ data }) {
 				sx={{
 					width: '80vw',
 					maxWidth: '1280px',
-					margin: '0 auto',
+					margin: '0 auto 256px auto',
 				}}
 			>
 				<Link

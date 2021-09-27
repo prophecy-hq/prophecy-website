@@ -469,13 +469,13 @@ export default {
 
 		h3: {
 			variant: 'text.h3',
-			color: 'lightRed',
+			color: 'orange',
 			margin: '192px 0 32px 0',
 		},
 
 		h4: {
 			variant: 'text.h4',
-			color: 'white',
+			color: 'lightRed',
 			margin: '96px 0 32px 0',
 		},
 
