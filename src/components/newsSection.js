@@ -118,30 +118,45 @@ export default function NewsSection() {
 
 				<Grid id="newsSectionGrid" sx={{ variant: 'layouts.newsGrid' }}>
 					<Box sx={{ variant: 'layouts.newsGridItem' }}>
-						<h4 sx={{ mb: '16px', variant: 'text.customHeading' }}>
-							Antler Workshop
+						<h4 sx={{ mb: '0.5em', variant: 'text.customHeading' }}>
+							Antler India Founders Program
 						</h4>
 						<div sx={{ variant: 'text.bodyLarge' }}>
-							Held a workshop and created a design cheatsheet for early stage
-							founders
+							Advising early-stage founders through design-thinking workshops
+							and office hours.
+							<br />
 						</div>
+						<a
+							sx={{
+								variant: 'text.bodyLarge',
+								display: 'block',
+								padding: '0.5em 0 0 0',
+								color: 'orange',
+							}}
+							href="/downloads/Prophecy-Product-Design-Cheatsheet.pdf"
+							target="_blank"
+						>
+							View product design cheatsheet
+						</a>
 					</Box>
 
 					<Box sx={{ variant: 'layouts.newsGridItem' }}>
-						<h4 sx={{ mb: '16px', variant: 'text.customHeading' }}>
+						<h4 sx={{ mb: '0.5em', variant: 'text.customHeading' }}>
 							Ownpath Masterclass
 						</h4>
 						<div sx={{ variant: 'text.bodyLarge' }}>
-							Taught design thinking at the Ownpath product design fellowship.
+							Taught design thinking and interaction design as part of the
+							Ownpath Product Design fellowship.
 						</div>
 					</Box>
 
 					<Box sx={{ variant: 'layouts.newsGridItem' }}>
-						<h4 sx={{ mb: '16px', variant: 'text.customHeading' }}>
-							10kdesigners masterclass
+						<h4 sx={{ mb: '0.5em', variant: 'text.customHeading' }}>
+							BX Design Program
 						</h4>
 						<div sx={{ variant: 'text.bodyLarge' }}>
-							Taught visual design at the 10kdesigners UI/UX design masterclass.
+							Teaching the Brand Experience Design program. Cohort 1 of the
+							program is currently underway.
 						</div>
 					</Box>
 				</Grid>

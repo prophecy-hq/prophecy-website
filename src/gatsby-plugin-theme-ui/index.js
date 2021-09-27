@@ -1,6 +1,6 @@
 // import { text } from 'cheerio/lib/api/manipulation';
 import '../styles/fonts.css';
-import '../styles/video.css';
+import '../styles/mdx.css';
 
 export default {
 	breakpoints: ['1024px'],
@@ -25,6 +25,7 @@ export default {
 	},
 
 	fontWeights: {
+		extraLight: 200,
 		light: 300,
 		medium: 500,
 	},
@@ -383,7 +384,7 @@ export default {
 
 		newsGrid: {
 			gridTemplateColumns: '1fr 1fr',
-			gridGap: 48,
+			gridGap: 72,
 			marginLeft: 'auto',
 			// transform: 'translateZ(0)',
 
@@ -486,8 +487,9 @@ export default {
 
 		p: {
 			variant: 'text.bodyLarge',
+			fontWeight: 'extraLight',
 			color: 'white',
-			marginBottom: '32px',
+			margin: '1em 0',
 		},
 
 		a: {
@@ -511,6 +513,10 @@ export default {
 		hr: {
 			borderTopWidth: '1px',
 			borderColor: 'white_a70',
+		},
+
+		img: {
+			margin: '2em 0',
 		},
 
 		spinner: {

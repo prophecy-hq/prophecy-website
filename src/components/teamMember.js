@@ -444,11 +444,6 @@ export default function TeamMember(props) {
 					description={props.caseStudyDescription2}
 					url={props.caseStudyURL2}
 				></CaseStudy>
-				<CaseStudy
-					title={props.caseStudyName3}
-					description={props.caseStudyDescription3}
-					url={props.caseStudyURL3}
-				></CaseStudy>
 			</Box>
 		</Flex>
 	);

@@ -105,17 +105,17 @@ export default function AwardSection() {
 				>
 					<Flex sx={{ variant: 'layouts.awardsGridItem' }}>
 						<Image src={IxDA} sx={{ mb: 24 }} />
-						<h3 sx={{ mb: '8px', maxWidth: '200px', variant: 'text.h3' }}>
+						<h4 sx={{ mb: '8px', maxWidth: '200px', variant: 'text.h4' }}>
 							IxDA Interaction Awards 2020
-						</h3>
+						</h4>
 						<div sx={{ variant: 'text.awardDescription' }}>Best in Show</div>
 					</Flex>
 
 					<Flex sx={{ variant: 'layouts.awardsGridItem' }}>
 						<Image src={FastCompany} sx={{ mb: 24 }} />
-						<h3 sx={{ mb: '8px', maxWidth: '200px', variant: 'text.h3' }}>
+						<h4 sx={{ mb: '8px', maxWidth: '200px', variant: 'text.h4' }}>
 							Innovation by Design Awards
-						</h3>
+						</h4>
 						<div sx={{ variant: 'text.awardDescription' }}>
 							Honourable Mention
 						</div>
@@ -123,17 +123,17 @@ export default function AwardSection() {
 
 					<Flex sx={{ variant: 'layouts.awardsGridItem' }}>
 						<Image src={UXDA} sx={{ mb: 24 }} />
-						<h3 sx={{ mb: '8px', maxWidth: '200px', variant: 'text.h3' }}>
+						<h4 sx={{ mb: '8px', maxWidth: '200px', variant: 'text.h4' }}>
 							UX Design Awards 2020
-						</h3>
+						</h4>
 						<div sx={{ variant: 'text.awardDescription' }}>New Talent</div>
 					</Flex>
 
 					<Flex sx={{ variant: 'layouts.awardsGridItem' }}>
 						<Image src={Core77} sx={{ mb: 24 }} />
-						<h3 sx={{ mb: '8px', maxWidth: '200px', variant: 'text.h3' }}>
+						<h4 sx={{ mb: '8px', maxWidth: '200px', variant: 'text.h4' }}>
 							Core77 Design Awards 2020
-						</h3>
+						</h4>
 						<div sx={{ variant: 'text.awardDescription' }}>Runner Up</div>
 					</Flex>
 				</Grid>
