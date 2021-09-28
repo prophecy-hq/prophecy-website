@@ -86,7 +86,7 @@ export default function AwardSection() {
 	}, []);
 
 	return (
-		<Flex sx={{ variant: 'layouts.fullHeightFlex' }}>
+		<Flex>
 			<Flex
 				ref={ref}
 				sx={{

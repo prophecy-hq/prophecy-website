@@ -259,7 +259,7 @@ export default {
 			width: '90vw',
 			maxWidth: 1440,
 			margin: '0 auto',
-			paddingBottom: '20vh',
+			paddingBottom: '15vh',
 
 			'@media screen and (max-width: 1024px)': {
 				maxWidth: '768px',

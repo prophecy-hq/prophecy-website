@@ -96,7 +96,7 @@ export default function NewsSection() {
 	}, []);
 
 	return (
-		<Flex sx={{ variant: 'layouts.fullHeightFlex' }}>
+		<Flex sx={{ margin: '20vh 0' }}>
 			<Flex ref={ref} sx={{ variant: 'layouts.responsiveFlex', width: '100%' }}>
 				<Box
 					id="newsSectionHeading"

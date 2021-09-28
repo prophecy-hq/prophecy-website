@@ -64,10 +64,7 @@ class IndexPage extends React.Component {
 							<Work />
 						</Container>
 
-						<Container
-							id="recognition"
-							sx={{ variant: 'layouts.mainContainer' }}
-						>
+						<Container id="clients" sx={{ variant: 'layouts.mainContainer' }}>
 							<ClientSection />
 						</Container>
 

@@ -42,8 +42,8 @@ export default function ClientSection() {
 
 		gsap.timeline({
 			scrollTrigger: {
-				trigger: document.querySelector('#recognition'),
-				start: 'top 85%',
+				trigger: document.querySelector('#clients'),
+				start: 'top 80%',
 				toggleActions: 'play none none reverse',
 
 				onEnter: () => {
@@ -142,10 +142,7 @@ export default function ClientSection() {
 	}, []);
 
 	return (
-		<Flex
-			ref={ref}
-			sx={{ variant: 'layouts.fullHeightFlex', color: 'lightRed' }}
-		>
+		<Flex ref={ref} sx={{ mt: '20vh', color: 'lightRed' }}>
 			<Flex sx={{ alignItems: 'top', variant: 'layouts.responsiveFlex' }}>
 				<Box
 					sx={{
