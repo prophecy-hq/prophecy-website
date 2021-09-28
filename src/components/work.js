@@ -89,7 +89,7 @@ export default function Work() {
 
 			<TeamMember
 				name="Akshay Verma"
-				bio=" lead design at Obvious and was instrumental in building and training the team, setting up processes, and leading projects. He is an alumnus of the National Institute of Design and Copenhagen Institute of Interaction Design."
+				bio=" has been in design for over 11 years. At the design consultancy, Obvious, he was instrumental in leading projects, setting up processes, and building and training the team. His work spans education, healthcare, fintech and SaaS. Specialising in early stage innovation, he also mentors startup founders for the global venture capital firm, Antler, and teaches product design. He is an alumnus of the National Institute of Design and the Copenhagen Institute of Interaction Design."
 				caseStudyName1="Simple"
 				caseStudyDescription1="A health record system that is helping improve population-wide hypertension control in India, Bangladesh and Ethiopia."
 				caseStudyURL1="/work/simple"
