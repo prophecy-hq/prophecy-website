@@ -17,6 +17,8 @@ export default class Form extends React.Component {
 
 		this.setState({ result: result });
 
+		this.setState({ message: result.msg });
+
 		this.setState({ visible: true });
 
 		console.log(this.state.visible);
@@ -53,16 +55,15 @@ export default class Form extends React.Component {
 					</Flex>
 				</form>
 
-				<p
-					sx={{ variant: 'text.caption', mt: '16px' }}
+				<div
+					sx={{
+						variant: 'text.caption',
+						mt: '16px',
+						a: { color: 'darkGrey' },
+					}}
 					className={this.state.visible ? 'fadein' : 'fadeout'}
-				>
-					{this.state.result != null
-						? this.state.result === 'success'
-							? 'Signed up successfully'
-							: this.state.result.msg
-						: ''}
-				</p>
+					dangerouslySetInnerHTML={{ __html: this.state.message }}
+				/>
 			</Box>
 		);
 	}

@@ -318,7 +318,6 @@ export default {
 			top: '0',
 			left: '0',
 			zIndex: '-9999',
-			// backgroundColor: 'red',
 			transform: 'translateZ(0)',
 		},
 
