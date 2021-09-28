@@ -1,7 +1,4 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<h1 align="center">
-  Prophecy’s Official Website
-</h1>
+# Prophecy’s Official Website
 
 ## Setup
 
