@@ -30,16 +30,16 @@ export default function Carousel({ slides }) {
 					<div
 						sx={{
 							variant: 'text.bodySmall',
-							padding: '32px 40px',
-							width: '64%',
+							padding: '2em 2em',
+							mb: ['5em', '0'],
+							width: ['100%', '72%'],
+							boxSizing: 'border-box',
 						}}
 					>
 						{slide[1]}
 					</div>
 				</SwiperSlide>
 			))}
-			{/* <div className="carousel-button-next">next</div>
-			<div className="carousel-button-prev">prev</div> */}
 		</Swiper>
 	);
 }

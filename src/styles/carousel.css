@@ -8,21 +8,22 @@
 
 .swiper-button-next {
 	/* right: -80px; */
-	bottom: 24px;
-	right: 32px;
+	bottom: 2em;
+	right: 2em;
 	top: auto;
 
 	color: #ff725c;
 	background-color: #2b292a;
-	transform-origin: right;
-	transform: scale(75%);
+	/* transform-origin: right; */
+	/* transform: scale(75%); */
 
-	padding: 8px;
-	height: 32px;
-	width: 32px;
+	padding: 0.5em;
+	height: 2em;
+	width: 2em;
 
-	border: 2px solid #ff725c;
-	--swiper-navigation-size: 20px;
+	border: 1px solid #ff725c;
+	/* box-sizing: border-box; */
+	--swiper-navigation-size: 16px;
 
 	transition: 0.3s;
 }
@@ -32,28 +33,23 @@
 	background-color: #2b292a;
 	color: #ff725c;
 	left: auto;
-	bottom: 24px;
-	right: 72px;
+	bottom: 2em;
+	right: 5em;
 	top: auto;
 
-	padding: 8px;
-	height: 32px;
-	width: 32px;
-	border: 2px solid #ff725c;
+	padding: 0.5em;
+	height: 2em;
+	width: 2em;
+	border: 1px solid #ff725c;
+	/* box-sizing: border-box; */
 
-	transform-origin: left;
-	transform: scale(75%);
-	--swiper-navigation-size: 20px;
+	/* transform-origin: left; */
+	/* transform: scale(75%); */
+	--swiper-navigation-size: 16px;
 	transition: 0.3s;
 }
 
-.swiper-button-prev:hover {
-	/* left: -80px; */
-	color: #fff;
-	background-color: #ff725c;
-	transition: 0.3s;
-}
-
+.swiper-button-prev:hover,
 .swiper-button-next:hover {
 	/* left: -80px; */
 	color: #fff;
@@ -61,24 +57,33 @@
 	transition: 0.3s;
 }
 
-.swiper-button-next:after {
-	stroke-width: 2px;
+.swiper-button-prev:focus,
+.swiper-button-next:focus {
+	/* left: -80px; */
+	outline: none;
 }
 
-@media only screen and (max-width: 600px) {
+/* .swiper-button-next:after {
+	stroke-width: 2px;
+} */
+
+@media only screen and (max-width: 767px) {
 	.swiper-button-next {
 		/* right: -80px; */
-		bottom: 16px;
+		left: 5em;
+		bottom: 2em;
+		margin-top: 2em;
 	}
 
 	.swiper-button-prev {
 		/* right: -80px; */
-		bottom: 16px;
+		left: 2em;
+		bottom: 2em;
 	}
 
-	.css-80ft11 {
+	/* .css-80ft11 {
 		margin-bottom: 64px;
-		padding: 32px !important;
+		padding: 16px !important;
 		width: 80% !important;
-	}
+	} */
 }

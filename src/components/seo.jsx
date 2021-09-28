@@ -54,7 +54,7 @@ function SEO({ description, lang, meta, title }) {
 				},
 				{
 					property: `og:image`,
-					content: `/og-image.png`,
+					content: `https://prophecy.one/og-image.png`,
 				},
 				{
 					name: `twitter:card`,

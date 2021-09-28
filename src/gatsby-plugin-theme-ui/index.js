@@ -3,7 +3,7 @@ import '../styles/fonts.css';
 import '../styles/mdx.css';
 
 export default {
-	breakpoints: ['1024px'],
+	breakpoints: ['991px', '767px'],
 
 	colors: {
 		darkGrey: '#131112',
