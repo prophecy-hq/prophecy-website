@@ -87,9 +87,9 @@ export default {
 			fontWeight: 'light',
 			fontSize: [21, 24],
 			lineHeight: '32px',
-			':lastChild': {
-				marginBottom: 0,
-			},
+			// ':lastChild': {
+			// 	marginBottom: 0,
+			// },
 		},
 
 		bodySmall: {

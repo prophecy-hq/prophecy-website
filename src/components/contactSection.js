@@ -165,10 +165,11 @@ export default function ContactSection() {
 							<h4 sx={{ mb: 16, variant: 'text.customHeading' }}>Follow us</h4>
 							<Link
 								sx={{
-									variant: 'text.link',
+									variant: 'text.bodyLarge',
 									mb: '16px',
 									fontStyle: 'italic',
 									fontSize: [21, 24],
+									color: 'darkGrey',
 								}}
 								href="https://twitter.com/prophecy_hq"
 								target="_blank"
@@ -177,9 +178,10 @@ export default function ContactSection() {
 							</Link>
 							<Link
 								sx={{
-									variant: 'text.link',
+									variant: 'text.bodyLarge',
 									fontStyle: 'italic',
 									fontSize: [21, 24],
+									color: 'darkGrey',
 								}}
 								href="https://www.linkedin.com/company/69346346/"
 								target="_blank"
