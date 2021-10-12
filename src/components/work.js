@@ -44,13 +44,11 @@ export default function Work() {
 					onEnter: () => {
 						gsap.to(item, { backgroundColor: colors.white });
 						gsap.to(cursor, { borderColor: colors.darkGrey });
-						// art.style.visibility = "hidden";
 					},
 
 					onLeaveBack: () => {
 						gsap.to(item, { backgroundColor: colors.transparent });
 						gsap.to(cursor, { borderColor: colors.white });
-						//  art.style.visibility = "visible";
 					},
 				},
 

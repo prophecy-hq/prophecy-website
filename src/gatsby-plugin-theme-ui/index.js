@@ -351,6 +351,47 @@ export default {
 			},
 		},
 
+		servicesGrid:{
+			color: 'white',
+			mt: [128,360],
+			width: '70%',
+			marginRight: '10%',
+			gridGap: 128,
+			justifyContent: 'start',
+			// transform: 'translateZ(0)',
+
+			'@media screen and (max-width: 1024px)': {
+				gridTemplateColumns: '1fr 1fr',
+				width: '100%',
+				gridGap: 48,
+				minWidth: '0px',
+				paddingTop: 80,
+				margin: '0 auto',
+			},
+
+			'@media screen and (max-width: 800px)': {
+				gridTemplateColumns: '1fr',
+				width: '100%',
+				gridGap: 48,
+				minWidth: '0px',
+				paddingTop: 80,
+				margin: '0 auto',
+			},
+		},
+
+		servicesGridItem:{
+			flexDirection: 'column',
+			// alignItems: 'center',
+			minWidth: '160px',
+			width: '100%',
+			// transform: 'translateZ(0)',
+
+			'@media screen and (max-width: 1024px)': {
+				minWidth: '0px',
+				width: '100%'
+			},
+		},
+
 		awardsGrid: {
 			color: 'white',
 			width: '40%',
@@ -430,6 +471,17 @@ export default {
 			},
 		},
 
+
+		flexBlankSpace: {
+			flex: '1',
+			width: '100%',
+			// transform: 'translateZ(0)',
+
+			'@media screen and (max-width: 1024px)': {
+				width: '100%',
+			},
+		},
+
 		flexRight: {
 			alignSelf: 'flex-end',
 			// transform: 'translateZ(0)',
@@ -437,6 +489,7 @@ export default {
 			'@media screen and (max-width: 1024px)': {
 				width: '100%',
 				margin: '0 auto',
+				maxWidth: '100%'
 			},
 		},
 
