@@ -113,7 +113,7 @@ export default {
 			fontWeight: 'light',
 			'&::after': {
 				border: '1px solid',
-				color: 'darkGrey',
+				// color: 'darkGrey',
 				display: 'block',
 				mt: '2px',
 				transform: 'scaleX(0)',
@@ -122,7 +122,7 @@ export default {
 				content: '""',
 			},
 			'&:hover': {
-				color: 'darkGrey',
+				// color: 'darkGrey',
 				'&::after': {
 					transform: 'scaleX(1)',
 					transformOrigin: '0% 100%',
