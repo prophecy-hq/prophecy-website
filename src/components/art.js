@@ -529,6 +529,16 @@ export default function Art() {
 
 		//  camera = new THREE.OrthographicCamera( width / - 1, width / 1, height / 1, height / - 1, -1000, 1000 );
 		camera = new THREE.PerspectiveCamera(60, width / height, 1, 1000);
+
+		if (isMobile || isTablet) {
+			camera = new THREE.PerspectiveCamera(40, width / height, 1, 1000);
+			camera.position.z = 20;
+		}
+
+		if(isBrowser){
+			camera = new THREE.PerspectiveCamera(60, width / height, 1, 1000);
+			camera.position.z = 400;
+		}
 		camera.position.z = 400;
 		camera.position.x = -width / 8;
 		camera.position.y = -height / 8;

@@ -150,10 +150,10 @@ export default function ServicesFirstFold() {
        
         <Box
 			
-			sx={{  color: 'white', variant: 'layouts.rightContent', mt: ['30vh','20vh']}}
+			sx={{  color: 'white', variant: 'layouts.rightContent'}}
 		>
 			<h1
-				sx={{ variant: 'text.h1', marginTop: '80px', color: 'lightRed' }}
+				sx={{ variant: 'text.h1', marginTop: '20vh', color: 'lightRed' }}
 				data-splitting=""
 				className="staggerAnimation"
 			>
