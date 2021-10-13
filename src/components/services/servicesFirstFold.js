@@ -105,7 +105,7 @@ export default function ServicesFirstFold() {
 			.timeline({
 				scrollTrigger: {
 					trigger: document.querySelector('#servicesGrid'),
-					start: 'top 30%',
+					start: 'top 50%',
 				},
 			})
 
@@ -146,11 +146,11 @@ export default function ServicesFirstFold() {
 
 	return (
 		
-    <Box ref={ref}> 
+    <Box ref={ref} > 
        
         <Box
 			
-			sx={{  color: 'white', variant: 'layouts.rightContent' }}
+			sx={{  color: 'white', variant: 'layouts.rightContent', mt: ['30vh','20vh']}}
 		>
 			<h1
 				sx={{ variant: 'text.h1', marginTop: '80px', color: 'lightRed' }}
