@@ -20,6 +20,8 @@ export default function FirstFold() {
 			'.staggerAnimation .word > .char, .whitespace',
 		);
 
+		var navbar = document.querySelectorAll('.navbar-link')
+
 		const timeline = gsap.timeline();
 
 		const timelineSettings = {
@@ -32,6 +34,12 @@ export default function FirstFold() {
 			opacity: 0,
 		});
 
+		timeline.set(
+			navbar,
+			{
+				color: '#F6F7EB',
+			},
+		)
 		timeline.to(
 			arr,
 			{
@@ -41,8 +49,18 @@ export default function FirstFold() {
 				opacity: 1,
 				stagger: timelineSettings.staggerValue,
 			},
-			'start',
-		);
+			'<',
+		)
+
+		timeline.to(
+			navbar,
+			{
+				color: '#F6F7EB',
+			},
+			'<',
+		)
+		
+		;
 
 		timeline.play();
 	}, []);
@@ -51,7 +69,7 @@ export default function FirstFold() {
 	return (
 		<Box
 			ref={ref}
-			sx={{ height: '100vh', color: 'white', variant: 'layouts.rightContent' }}
+			sx={{ height: '100vh', color: 'white', variant: 'layouts.rightContent'}}
 		>
 			<h1
 				sx={{ variant: 'text.h1', marginTop: '80px', color: 'lightRed' }}

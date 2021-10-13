@@ -6,6 +6,7 @@ import Form from './form';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { _colorStringFilter } from 'gsap/gsap-core';
 
 export default function ContactSection() {
 	gsap.registerPlugin(ScrollTrigger);
@@ -19,7 +20,13 @@ export default function ContactSection() {
 			'#contactSectionHeading .word > .char, .whitespace',
 		);
 
+		var navbar = document.querySelectorAll('.navbar-link');
+
 		var arr1 = document.querySelectorAll('.staggerContact');
+
+		const timeline = gsap.timeline();
+
+		timeline.play();
 
 		const timelineSettings = {
 			staggerValue: 0.034,

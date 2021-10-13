@@ -21,7 +21,7 @@ export default function Work() {
 			'.staggerAnimation2 .word > .char, .whitespace',
 		);
 
-		var art = document.querySelector('#art');
+		var navbar = document.querySelectorAll('.navbar-link')
 
 		const timelineSettings = {
 			staggerValue: 0.014,
@@ -44,11 +44,13 @@ export default function Work() {
 					onEnter: () => {
 						gsap.to(item, { backgroundColor: colors.white });
 						gsap.to(cursor, { borderColor: colors.darkGrey });
+						gsap.to(navbar, {color: colors.darkGrey});
 					},
 
 					onLeaveBack: () => {
 						gsap.to(item, { backgroundColor: colors.transparent });
 						gsap.to(cursor, { borderColor: colors.white });
+						gsap.to(navbar, {color: colors.white});
 					},
 				},
 

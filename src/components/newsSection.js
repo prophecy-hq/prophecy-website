@@ -13,6 +13,7 @@ export default function NewsSection() {
 	useEffect(() => {
 		var item = document.querySelectorAll('.bgchange');
 		var cursor = document.querySelector('.cursor');
+		var navbar = document.querySelectorAll('.navbar-link')
 
 		const colors = {
 			transparent: 'rgba(0,0,0,0)',
@@ -28,11 +29,13 @@ export default function NewsSection() {
 				onEnter: () => {
 					gsap.to(item, { backgroundColor: colors.white });
 					gsap.to(cursor, { borderColor: colors.darkGrey });
+					gsap.to(navbar, {color: colors.darkGrey});
 				},
 
 				onLeaveBack: () => {
 					gsap.to(item, { backgroundColor: colors.darkGrey });
 					gsap.to(cursor, { borderColor: colors.white });
+					gsap.to(navbar, {color: colors.white});
 				},
 			},
 		});

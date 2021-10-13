@@ -33,6 +33,7 @@ export default function ClientSection() {
 	useEffect(() => {
 		var item = document.querySelector('.bgchange');
 		var cursor = document.querySelector('.cursor');
+		var navbar = document.querySelectorAll('.navbar-link')
 
 		const colors = {
 			transparent: 'rgba(0,0,0,0)',
@@ -49,11 +50,13 @@ export default function ClientSection() {
 				onEnter: () => {
 					gsap.to(item, { backgroundColor: colors.darkGrey });
 					gsap.to(cursor, { borderColor: colors.white });
+					gsap.to(navbar, {color: colors.white});
 				},
 
 				onLeaveBack: () => {
 					gsap.to(item, { backgroundColor: colors.white });
 					gsap.to(cursor, { borderColor: colors.darkGrey });
+					gsap.to(navbar, {color: colors.darkGrey});
 				},
 			},
 		});

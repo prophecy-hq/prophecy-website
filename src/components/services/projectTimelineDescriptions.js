@@ -11,8 +11,8 @@ export default function ProjectTimelineDescription(props) {
 
 	return (
 		<Flex sx={{ flexDirection:'column', mb: [48,64] }}>
-                <h3 sx = {{variant: 'text.h3', mb: [16,24]}}>{props.heading}</h3>
-                <div sx={{ variant: 'text.bodySmall'}}>{props.description}</div>
+                <h5 sx = {{variant: 'text.h5', mb: 16, fontSize: [18,21]}}>{props.heading}</h5>
+                <div className = "low-opacity" sx={{ variant: 'text.bodySmall'}}>{props.description}</div>
 		</Flex>
 	);
 }

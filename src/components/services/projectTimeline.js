@@ -36,13 +36,15 @@ export default function ProjectTimeline() {
         var rightArr1  = element.querySelector('#rightId-1').querySelectorAll('#rightId-1 > div');
         var rightArr2  = element.querySelector('#rightId-2').querySelectorAll('#rightId-2 > div');
         var rightArr3  = element.querySelector('#rightId-3').querySelectorAll('#rightId-3 > div');
-        console.log(rightArr1);
+
+        var lowOpacity = element.querySelectorAll('.low-opacity');
 
         const timelineSettings = {
 			charsStaggerValue: 0.014,
 			charsDuration: 0.8,
             staggerValue: 0.2,
             duration: 1,
+            opacity: 0.8
 		};
 
   
@@ -133,7 +135,14 @@ export default function ProjectTimeline() {
 			},
 			'>-0.8',
 		)
-
+        .to(
+            lowOpacity,
+            {                   
+                opacity: timelineSettings.opacity,
+                
+            },
+            '>'
+        )
         ;
 
 
@@ -179,6 +188,14 @@ export default function ProjectTimeline() {
         },
         '>-0.8',
     )
+    .to(
+        lowOpacity,
+        {                   
+            opacity: timelineSettings.opacity,
+            
+        },
+        '>'
+    )
 
     ;
 
@@ -221,6 +238,14 @@ export default function ProjectTimeline() {
             stagger: timelineSettings.staggerValue,
         },
         '>-0.8',
+    )
+    .to(
+        lowOpacity,
+        {                   
+            opacity: timelineSettings.opacity,
+            
+        },
+        '>'
     )
 
     ;

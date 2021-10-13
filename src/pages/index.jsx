@@ -55,7 +55,7 @@ class IndexPage extends React.Component {
 							<Art />
 						</div>
 
-						<Container sx={{ variant: 'layouts.mainContainer' }}>
+						<Container sx={{ variant: 'layouts.mainContainer', mt: '20vh'  }}>
 							<FirstFold />
 							<SecondFold />
 						</Container>

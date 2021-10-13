@@ -33,7 +33,7 @@ export default function Cursor() {
 		const addLinkEvents = () => {
 			document.querySelectorAll('a').forEach((el) => {
 				el.addEventListener('mouseover', () => {
-					gsap.to(cursor, { duration: 0.1, scale: 1.2 });
+					gsap.to(cursor, { duration: 0.1, scale: 1.4 });
 					setLinkHover(true);
 				});
 
@@ -45,7 +45,7 @@ export default function Cursor() {
 
 			document.querySelectorAll('button').forEach((el) => {
 				el.addEventListener('mouseover', () => {
-					gsap.to(cursor, { duration: 0.1, scale: 1.2 });
+					gsap.to(cursor, { duration: 0.1, scale: 1.4 });
 					setLinkHover(true);
 				});
 

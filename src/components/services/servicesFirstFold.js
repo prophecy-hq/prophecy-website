@@ -37,6 +37,9 @@ export default function ServicesFirstFold() {
 		var servicesArr = servicesGrid.querySelectorAll('div');
         var servicesBody = element.querySelectorAll('.low-opacity');
 
+		var navbar = document.querySelectorAll('.navbar-link')
+
+
 		const timeline = gsap.timeline();
 
 		const timelineSettings = {
@@ -44,12 +47,20 @@ export default function ServicesFirstFold() {
 			charsDuration: 0.8,
             servicesDuration: 1.2,
 			servicesStaggerValue: 0.1,
+			opacity: 0.8
 		};
 
 		timeline.set(arr, {
 			y: '80%',
 			opacity: 0,
 		});
+
+		timeline.set(
+			navbar,
+			{
+				color: '#F6F7EB',
+			},
+		);
 
         timeline.set(subheading, {
             y: '40%',
@@ -67,6 +78,14 @@ export default function ServicesFirstFold() {
 			},
 			'start',
 		);
+
+		timeline.to(
+			navbar,
+			{
+				color: '#F6F7EB',
+			},
+			'<',
+		)
 
         timeline.to(
 			subheading,
@@ -110,7 +129,7 @@ export default function ServicesFirstFold() {
             .to(
                 servicesBody,
                 {                   
-                    opacity: 0.9,
+                    opacity: timelineSettings.opacity,
                     
                 },
                 '>'

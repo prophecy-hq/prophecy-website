@@ -106,11 +106,11 @@ export default {
 		link: {
 			cursor: 'pointer',
 			textDecoration: 'none',
-			color: 'darkGrey',
 			// display: 'block',
 			width: 'fit-content',
 			transition: '0.2s',
 			fontFamily: 'prophecy',
+			fontWeight: 'light',
 			'&::after': {
 				border: '1px solid',
 				color: 'darkGrey',
@@ -255,6 +255,19 @@ export default {
 			// overflow: 'hidden'
 		},
 
+		header: {
+			position: 'absolute',
+			top: '0',
+			width: '90vw',
+			maxWidth: 1440,
+			margin: '0 auto',
+			paddingBottom: '15vh',
+
+			'@media screen and (max-width: 1024px)': {
+				maxWidth: '768px',
+			},
+		},
+
 		mainContainer: {
 			width: '90vw',
 			maxWidth: 1440,
@@ -291,12 +304,17 @@ export default {
 
 		navbar: {
 			position: 'fixed',
-			color: 'darkGrey',
+			color: 'white',
 			textDecoration: 'none',
-			right: 32,
-			top: 48,
+			right: 0,
+			top: 58,
 			display: 'flex',
 			flexDirection: 'column',
+
+			'@media screen and (max-width: 1024px)': {
+				flexDirection: 'row',
+
+			},
 		},
 
 		fullHeightFlex: {

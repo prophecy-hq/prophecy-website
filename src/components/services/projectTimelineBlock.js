@@ -17,8 +17,8 @@ export default function ProjectTimelineBlock(props) {
             <Flex id = {props.leftId} sx = {{width: ['100%','40%'], variant: 'layouts.responsiveFlex'}}>
                 <div sx = {{variant: 'text.h2', mr: [40,24], mb: 24}}>{props.number}</div>
                 <Flex sx = {{flexDirection: 'column', mb: [48,40]}}>
-                    <h4 sx={{ variant: 'text.h4', mb: 16 }}>{props.title}</h4>
-                    <div sx = {{variant: 'text.bodySmall'}}>{props.subtitle}</div>
+                    <h3 sx={{ variant: 'text.h3', mb: 16 }}>{props.title}</h3>
+                    <div className = "low-opacity" sx = {{variant: 'text.bodySmall'}}>{props.subtitle}</div>
                 </Flex>
             </Flex>
 
