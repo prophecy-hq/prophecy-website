@@ -13,8 +13,8 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: `gatsby-starter-default`,
-				short_name: `starter`,
+				name: `Prophecy — Innovation, strategy and design consultancy`,
+				short_name: `Prophecy`,
 				start_url: `/`,
 				background_color: `#131112`,
 				theme_color: `#131112`,
