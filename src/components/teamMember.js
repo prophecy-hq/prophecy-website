@@ -183,7 +183,7 @@ export default function TeamMember(props) {
 			const timeline = gsap.timeline({
 				scrollTrigger: {
 					trigger: document.querySelector('#line1'),
-					start: 'top 40%',
+					start: 'top 30%',
 					end: 'bottom 80%',
 					scrub: true,
 				},
@@ -309,7 +309,7 @@ export default function TeamMember(props) {
 			const timeline = gsap.timeline({
 				scrollTrigger: {
 					trigger: document.querySelector('#workFoldRight1'),
-					start: 'top 70%',
+					start: 'top 60%',
 				},
 			});
 
