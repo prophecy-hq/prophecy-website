@@ -21,18 +21,20 @@ export default {
 	},
 
 	fonts: {
-		prophecy: 'signifier, serif',
+		signifier: 'signifier, serif',
+		sora: 'sora, sans-serif',
 	},
 
 	fontWeights: {
 		extraLight: 200,
 		light: 300,
 		medium: 500,
+		semiBold: 600,
 	},
 
 	text: {
 		h1: {
-			fontFamily: 'prophecy',
+			fontFamily: 'signifier',
 			fontWeight: 'light',
 			fontSize: [40, 56],
 			lineHeight: 'heading',
@@ -40,7 +42,7 @@ export default {
 		},
 
 		h2: {
-			fontFamily: 'prophecy',
+			fontFamily: 'signifier',
 			fontWeight: 'light',
 			fontSize: [32, 40],
 			lineHeight: 'heading',
@@ -49,7 +51,7 @@ export default {
 		},
 
 		h3: {
-			fontFamily: 'prophecy',
+			fontFamily: 'signifier',
 			fontWeight: 'medium',
 			fontSize: [28, 32],
 			lineHeight: '32px',
@@ -57,17 +59,17 @@ export default {
 		},
 
 		h4: {
-			fontFamily: 'prophecy',
-			fontWeight: 'medium',
-			fontSize: [18, 20],
+			fontFamily: 'sora',
+			fontWeight: 'semiBold',
+			fontSize: [21, 24],
 			lineHeight: '32px',
-			textTransform: 'uppercase',
-			letterSpacing: '2.5px',
+			// textTransform: 'uppercase',
+			// letterSpacing: '2.5px',
 			// transform: 'translateZ(0)',
 		},
 
 		h5: {
-			fontFamily: 'prophecy',
+			fontFamily: 'signifier',
 			fontWeight: 'medium',
 			fontSize: [16, 18],
 			lineHeight: '24px',
@@ -75,15 +77,15 @@ export default {
 		},
 
 		customHeading: {
-			fontFamily: 'prophecy',
-			fontWeight: 'medium',
+			fontFamily: 'sora',
+			fontWeight: 'semiBold',
 			fontSize: [21, 24],
 			lineHeight: 'heading',
 			// transform: 'translateZ(0)',
 		},
 
 		bodyLarge: {
-			fontFamily: 'prophecy',
+			fontFamily: 'signifier',
 			fontWeight: 'light',
 			fontSize: [21, 24],
 			lineHeight: '32px',
@@ -93,7 +95,7 @@ export default {
 		},
 
 		bodySmall: {
-			fontFamily: 'prophecy',
+			fontFamily: 'signifier',
 			fontWeight: 'light',
 			fontSize: [16, 18],
 			lineHeight: '24px',
@@ -109,7 +111,7 @@ export default {
 			// display: 'block',
 			width: 'fit-content',
 			transition: '0.2s',
-			fontFamily: 'prophecy',
+			fontFamily: 'signifier',
 			fontWeight: 'light',
 			'&::after': {
 				border: '1px solid',
@@ -141,7 +143,7 @@ export default {
 
 		caption: {
 			fontSize: [14, 16],
-			fontFamily: 'prophecy',
+			fontFamily: 'signifier',
 			fontWeight: 'light',
 			lineHeight: 'body',
 			width: '20vw',
@@ -150,7 +152,7 @@ export default {
 		},
 
 		awardDescription: {
-			fontFamily: 'prophecy',
+			fontFamily: 'signifier',
 			fontWeight: 'light',
 			fontSize: [21, 24],
 			lineHeight: 'body',
@@ -158,7 +160,7 @@ export default {
 		},
 
 		contactHeading: {
-			fontFamily: 'prophecy',
+			fontFamily: 'signifier',
 			fontWeight: 'light',
 			fontStyle: 'italic',
 			fontSize: [32, 40],
@@ -166,7 +168,7 @@ export default {
 		},
 
 		caseStudyTitle: {
-			fontFamily: 'prophecy',
+			fontFamily: 'signifier',
 			fontWeight: 'light',
 			fontSize: [64, 96],
 			lineHeight: 'heading',

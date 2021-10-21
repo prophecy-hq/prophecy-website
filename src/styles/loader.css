@@ -1,0 +1,32 @@
+/* Loader Texture */
+.loader {
+    height: 120px;
+    width: 120px;
+	border: 1px white solid;
+	border-radius: 4px;
+	position: relative;
+	background: linear-gradient(45deg, transparent 49%, white 50%, white 50%, transparent 51%, transparent),
+				linear-gradient(-45deg, transparent 49%, white 50%, white 50%, transparent 51%, transparent);
+	background-size: 16px 16px;
+	background-position: 0% 0%;
+	-webkit-animation: spTexture 1s infinite linear;
+	animation: spTexture 1s infinite linear;
+}
+@-webkit-keyframes spTexture {
+	from { background-position: 0px 0px; }
+	to { background-position: -16px 0px; }
+}
+@keyframes spTexture {
+	from { background-position: 0px 0px; }
+	to { background-position: -16px 0px; }
+}
+
+
+.loaderContainer{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+}

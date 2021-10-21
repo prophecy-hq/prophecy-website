@@ -15,6 +15,7 @@ import AwardSection from '../components/awardSection.js';
 import NewsSection from '../components/newsSection.js';
 import ContactSection from '../components/contactSection.js';
 import Cursor from '../components/cursor.js';
+import Loader from '../components/loader.js';
 
 import { BrowserView } from 'react-device-detect';
 
@@ -35,9 +36,7 @@ class IndexPage extends React.Component {
 	render() {
 		if (this.state.loading) {
 			return (
-				<div sx={{ variant: 'layouts.fullHeightFlex' }}>
-					<Spinner variant="styles.spinner" />
-				</div>
+				<Loader />
 			);
 		} else {
 			return (

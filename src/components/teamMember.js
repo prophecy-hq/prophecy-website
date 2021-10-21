@@ -237,7 +237,7 @@ export default function TeamMember(props) {
 				.timeline({
 					scrollTrigger: {
 						trigger: document.querySelector('#workFoldLeft1'),
-						start: 'bottom 80%',
+						start: 'bottom 95%',
 					},
 				})
 				.fromTo(
